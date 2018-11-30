@@ -855,10 +855,12 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	private function check_for_rules() {
 
 		$bypass_date_rules = false;
+		$bypass_post_type_rules = false;
 
 		if ( 'yes' === $this->send2tg ) {
 
 			$bypass_date_rules = true;
+			$bypass_post_type_rules = true;
 		}
 
 		$bypass_date_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_post_date_rules', $bypass_date_rules, self::$post, $this->options );
@@ -903,17 +905,21 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			}
 		}
 
-		// Check for Post type
-		$post_types = $this->options->get( 'post_types' );
+		$bypass_post_type_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_post_type_rules', $bypass_post_type_rules, self::$post, $this->options );
 
-		$send_post_type = in_array( self::$post->post_type, $post_types );
-		$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_post_type', $send_post_type, self::$post, $this->options );
-		// post type specific filter
-		$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_' . self::$post->post_type, $send_post_type, self::$post, $this->options );
-		
-		if ( ! $send_post_type ) {
+		if ( ! $bypass_post_type_rules ) {
+			// Check for Post type
+			$post_types = $this->options->get( 'post_types' );
 
-			return false;
+			$send_post_type = in_array( self::$post->post_type, $post_types );
+			$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_post_type', $send_post_type, self::$post, $this->options );
+			// post type specific filter
+			$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_' . self::$post->post_type, $send_post_type, self::$post, $this->options );
+			
+			if ( ! $send_post_type ) {
+
+				return false;
+			}
 		}
 
 		// finally check for custom rules

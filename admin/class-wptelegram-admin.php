@@ -177,6 +177,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'capability'	=> 'manage_options',
 			'message_cb'	=> array( $this, 'custom_settings_messages' ),
             'classes'       => 'wptelegram-box',
+            'desc'			=> __( 'With this plugin, you can send posts to Telegram and receive notifications and do lot more :)', 'wptelegram' ),
 		);
 		$cmb2 = new_cmb2_box( $box );
 
@@ -184,7 +185,6 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'name'			=> __( 'Telegram Options', 'wptelegram' ),
 			'type'			=> 'title',
 			'id'			=> 'tg_title',
-			'before_row'	=> array( $this, 'render_header' ),
 			'after'			=> array( __CLASS__, 'get_telegram_guide' ),
 		) );
 		
@@ -428,23 +428,22 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 
 	/**
 	 * Render the settings page header
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
 	 */
-	public function render_header( $field_args, $field ) {
+	public function render_plugin_header( $cmb_id, $object_id, $object_type, $cmb2 ) {
 
-		$title = $this->plugin_title;
-		$version = $this->version;
+		$pattern = '/^wptelegram(?:_(?:p2tg|proxy|notify))?$/';
 
-		$plugin_url = WPTELEGRAM_URL;
-		$text_domain = 'wptelegram';
+		if ( 'options-page' === $object_type && preg_match( $pattern, $object_id ) ) {
+			
+			$header = new WPTelegram_Admin_Header( WPTG() );
+			$header->render();
 
-		include_once WPTELEGRAM_DIR . '/admin/partials/wptelegram-admin-header.php';
-		?>
-		<div class="cmb-row wptelegram-header-desc">
-			<p><?php echo __( 'With this plugin, you can send posts to Telegram and receive notifications and do lot more :)', 'wptelegram' ); ?></p>
-		</div>
-		<?php
+			if ( $desc = $cmb2->prop( 'desc' ) ) {
+				echo '<div class="cmb-row wptelegram-header-desc">';
+				echo '<p>', $desc, '</p>';
+				echo '</div>';
+			}
+		}
 	}
 
 	/**

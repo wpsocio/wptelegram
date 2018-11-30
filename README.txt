@@ -27,7 +27,7 @@ For rules, see the pinned message. No spam please.
 
 * 📝 Send posts automatically to Telegram when published or updated
 * 📢 You can send to a Telegram Channel, Group, Supergroup or private chat
-* 👥Supports multiple Channels/chats
+* 👥 Supports multiple Channels/chats
 * 🙂 Has Message Template composer with Emojis
 * 🖼 Supports sending featured image along with the text
 * 🏞 You can choose to send only the Featured Image
@@ -123,6 +123,9 @@ Note: You can also contribute in translating this plugin into your local languag
 11. P2TG Post Edit Page
 
 == Changelog ==
+
+= 2.0.13 =
+* Removed the override metabox from the post types not chosen to be sent
 
 = 2.0.12 =
 * Fixed the Notification issue caused by some faulty plugins

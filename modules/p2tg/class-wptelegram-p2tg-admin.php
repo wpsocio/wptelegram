@@ -93,6 +93,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			'icon_url'		=> WPTELEGRAM_URL . '/admin/icons/icon-16x16-white.svg',
 			'capability'	=> 'manage_options',
 			'classes'       => 'wptelegram-box',
+            'desc'			=> __( 'With this module, you can configure how the posts are sent to Telegram', 'wptelegram' ),
 		);
 		$cmb2 = new_cmb2_box( $box );
 
@@ -100,7 +101,6 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		$cmb2->add_field( array(
 			'type'			=> 'title',
 			'id'			=> 'intro_title',
-			'before_row'	=> array( $this, 'render_header' ),
 			'after'			=> array( $this, 'intro' ),
 		) );
 
@@ -856,39 +856,9 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 */
 	public function get_override_meta_box_screens() {
 
-		$screens = array();
-
-		$post_types = get_post_types( array( 'public' => true ), 'objects' );
-
-		foreach ( $post_types  as $post_type ) {
-
-			if ( 'attachment' != $post_type->name ) {
-				$screens[] = $post_type->name;
-			}
-		}
+		$screens = $this->module_options->get( 'post_types', array() );
 
 		return (array) apply_filters( 'wptelegram_p2tg_override_meta_box_screens', $screens );
-	}
-
-	/**
-	 * Render the settings page header
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
-	 */
-	public function render_header( $field_args, $field ) {
-
-		$title = WPTG()->get_plugin_title();
-		$version = WPTG()->get_version();
-
-		$plugin_url = WPTELEGRAM_URL;
-		$text_domain = 'wptelegram';
-
-		include_once WPTELEGRAM_DIR . '/admin/partials/wptelegram-admin-header.php';
-		?>
-		<div class="cmb-row wptelegram-header-desc">
-			<p><?php echo __( 'With this module, you can configure how the posts are sent to Telegram', 'wptelegram' ); ?></p>
-		</div>
-		<?php
 	}
 
 	/**

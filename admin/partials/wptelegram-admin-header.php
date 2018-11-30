@@ -19,7 +19,7 @@ echo '<h2></h2>';
 				<p>
 					<?php printf( __( 'Do you like %s?', $text_domain ), $title ); ?>
 					<br>
-					<?php _e( 'Give it a rating', $text_domain ); ?>
+					<a href="https://wordpress.org/support/plugin/wptelegram/reviews/#new-post" target="_blank"><?php _e( 'Give it a rating', $text_domain ); ?></a>
 				</p>
 				<a href="https://wordpress.org/support/plugin/wptelegram/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( $plugin_url . '/admin/icons/5_stars.svg' ); ?>" alt="<?php echo $title; ?>" /></a>
 				

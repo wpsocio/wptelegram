@@ -70,13 +70,13 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			'icon_url'		=> WPTELEGRAM_URL . '/admin/icons/icon-16x16-white.svg',
 			'capability'	=> 'manage_options',
 			'classes'       => 'wptelegram-box',
+            'desc'			=> __( 'The module will watch the Email Notifications sent from this site and deliver them on your Telegram', 'wptelegram' ),
 		);
 		$cmb2 = new_cmb2_box( $box );
 
 		$cmb2->add_field( array(
 			'type'          => 'title',
 			'id'            => 'intro_title',
-			'before_row'    => array( $this, 'render_header' ),
 			'after'         => array( __CLASS__, 'intro' ),
 		) );
 
@@ -152,27 +152,6 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 				'HTML'      => __( 'HTML style', 'wptelegram' ),
 			),
 		) );
-	}
-
-	/**
-	 * Render the settings page header
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
-	 */
-	public function render_header( $field_args, $field ) {
-
-		$title = WPTG()->get_plugin_title();
-		$version = WPTG()->get_version();
-
-		$plugin_url = WPTELEGRAM_URL;
-		$text_domain = 'wptelegram';
-
-		include_once WPTELEGRAM_DIR . '/admin/partials/wptelegram-admin-header.php';
-		?>
-		<div class="cmb-row wptelegram-header-desc">
-			<p><?php echo __( 'The module will watch the Email Notifications sent from this site and deliver them on your Telegram', 'wptelegram' ); ?></p>
-		</div>
-		<?php
 	}
 
 	/**

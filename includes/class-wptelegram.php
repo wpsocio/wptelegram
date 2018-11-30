@@ -238,6 +238,11 @@ final class WPTelegram {
 		require_once WPTELEGRAM_DIR . '/admin/class-wptelegram-admin.php';
 
 		/**
+		 * The class responsible for defining all actions that occur in the admin area.
+		 */
+		require_once WPTELEGRAM_DIR . '/admin/partials/class-wptelegram-admin-header.php';
+
+		/**
 		 * The class responsible for loading WPTelegram_Bot_API library
 		 */
 		require_once WPTELEGRAM_DIR . '/includes/wptelegram-bot-api/class-wptelegram-bot-api-loader.php';
@@ -327,6 +332,8 @@ final class WPTelegram {
 
 		$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'create_options_pages' );
 
+		$this->loader->add_action( 'cmb2_before_form', $plugin_admin, 'render_plugin_header', 10, 4 );
+
 		$this->loader->add_action( 'wp_ajax_wptelegram_test', $plugin_admin, 'ajax_handle_test' );
 
 	}
@@ -413,6 +420,36 @@ final class WPTelegram {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Retrieve the URL of the plugin directory
+	 *
+	 * @since     1.0.0
+	 * @return    string    plugins_url
+	 */
+	public function get_url() {
+		return WPTELEGRAM_URL;
+	}
+
+	/**
+	 * Retrieve the path of the plugin directory
+	 *
+	 * @since     1.0.0
+	 * @return    string    plugin_dir_path
+	 */
+	public function get_dir_path() {
+		return WPTELEGRAM_DIR;
+	}
+
+	/**
+	 * Retrieve the name of the plugin text_domain
+	 *
+	 * @since     1.0.0
+	 * @return    string    text domain
+	 */
+	public function get_text_domain() {
+		return 'wptelegram';
 	}
 
 }

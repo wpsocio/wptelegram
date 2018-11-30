@@ -14,6 +14,14 @@
     width: 100%;
     table-layout: fixed;
 }
+.wptelegram-header-desc {
+    padding: 1em;
+    margin-top: -1px;
+    background: #ffffff;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
 @media screen and (max-width: 600px) {
     .wptelegram-header-wrapper td,.wptelegram-header-wrapper th { display: block }
 }
