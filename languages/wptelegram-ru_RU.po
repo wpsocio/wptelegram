@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
-"POT-Creation-Date: 2018-11-27 23:20+0530\n"
-"PO-Revision-Date: 2018-11-28 23:26+0530\n"
+"POT-Creation-Date: 2018-11-29 16:40+0530\n"
+"PO-Revision-Date: 2018-11-29 16:42+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
 "Language: ru_RU\n"
@@ -231,23 +231,33 @@ msgstr "Результат теста:"
 msgid "Invalid Bot Username"
 msgstr "Неверное имя пользователя бота"
 
-#: admin/partials/wptelegram-admin-header.php:19
+#: admin/partials/wptelegram-admin-header.php:20
+#, php-format
+msgid "Do you like %s?"
+msgstr ""
+
+#: admin/partials/wptelegram-admin-header.php:22
+msgid "Give it a rating"
+msgstr ""
+
+#: admin/partials/wptelegram-admin-header.php:30
 msgid "Need help?"
 msgstr "Нужна помощь?"
 
-#: admin/partials/wptelegram-admin-header.php:19
-msgid "Shout in"
-msgstr "Напишите сюда"
+#: admin/partials/wptelegram-admin-header.php:31
+#, php-format
+msgid "Ask in %s"
+msgstr ""
 
-#: admin/partials/wptelegram-admin-header.php:26
+#: admin/partials/wptelegram-admin-header.php:38
 msgid "Get connected"
 msgstr "Присоединиться"
 
-#: admin/partials/wptelegram-admin-header.php:33
+#: admin/partials/wptelegram-admin-header.php:45
 msgid "Follow"
 msgstr "Перейти"
 
-#: admin/partials/wptelegram-admin-header.php:37
+#: admin/partials/wptelegram-admin-header.php:49
 msgid "Join"
 msgstr "Присоединиться"
 
