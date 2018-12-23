@@ -177,15 +177,31 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'capability'	=> 'manage_options',
 			'message_cb'	=> array( $this, 'custom_settings_messages' ),
             'classes'       => 'wptelegram-box',
+            'display_cb'	=> array( WPTG()->helpers, 'render_cmb2_options_page' ),
             'desc'			=> __( 'With this plugin, you can send posts to Telegram and receive notifications and do lot more :)', 'wptelegram' ),
 		);
 		$cmb2 = new_cmb2_box( $box );
 
 		$cmb2->add_field( array(
+			'name' 		=> __( 'INSTRUCTIONS!','wptelegram' ),
+			'type' 		=> 'title',
+			'id'   		=> 'instructions_title',
+			'classes'	=> 'highlight',
+		) );
+
+		$cmb2->add_field( array(
+			'name'			=> '',
+			'type'			=> 'text', // fake
+			'show_names'	=> false,
+			'save_field'	=> false,
+			'id'			=> 'telegram_guide',
+			'render_row_cb'	=> array( __CLASS__, 'render_telegram_guide' ),
+		) );
+
+		$cmb2->add_field( array(
 			'name'			=> __( 'Telegram Options', 'wptelegram' ),
 			'type'			=> 'title',
 			'id'			=> 'tg_title',
-			'after'			=> array( __CLASS__, 'get_telegram_guide' ),
 		) );
 		
 		$cmb2->add_field( array(
@@ -439,11 +455,66 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			$header->render();
 
 			if ( $desc = $cmb2->prop( 'desc' ) ) {
-				echo '<div class="cmb-row wptelegram-header-desc">';
+				echo '<div class="cmb-row wptelegram-header-desc wptelegram-box">';
 				echo '<p>', $desc, '</p>';
 				echo '</div>';
 			}
 		}
+	}
+
+	/**
+	 * Render the settings page sidebar
+	 */
+	public function render_plugin_sidebar( $hookup ) {
+
+		$object_type = $hookup->cmb->object_type();
+		$object_id = $hookup->cmb->object_id();
+
+		$pattern = '/^wptelegram(?:_(?:p2tg|proxy|notify))?$/';
+		if ( 'options-page' !== $object_type || ! preg_match( $pattern, $object_id ) ) {
+			return;
+		}
+		?>
+		<div class="wptelegram-box wptelegram-column-2">
+			<div class="inner">
+				<div class="cell">
+					<h2><?php echo WPTG()->get_plugin_title(); ?></h2>
+				</div>
+				<div class="cell">
+					<p><?php _e( 'Integrate your WordPress website perfectly with Telegram.', 'wptelegram' ); ?></p>
+				</div>
+				<div class="cell">
+					<p>
+						<?php printf( __( 'Do you like %s?', 'wptelegram' ), WPTG()->get_plugin_title() ); ?>
+						<br>
+						<a href="https://wordpress.org/support/plugin/wptelegram/reviews/#new-post" target="_blank"><?php _e( 'Give it a rating', 'wptelegram' ); ?><br><span style="color:orange;font-size:1.6em;">★★★★★</span></a>
+					</p>
+				</div>
+				<div class="cell">
+					<p>
+						<?php _e( 'Need help?', WPTG()->get_text_domain() ); ?>
+						<br>
+						<b><?php _e( 'Get LIVE support on Telegram', WPTG()->get_text_domain() ); ?></b>
+						<br>
+						<a href="https://t.me/WPTelegramChat" class="telegram-follow-button btn" target="_blank">
+						<img src="<?php echo esc_url( WPTG()->get_url() . '/admin/icons/tg-icon.svg' ); ?>" alt="WPTelegramChat" />&nbsp;@WPTelegramChat</a>
+					</p>
+				</div>
+				<?php if ( 'wptelegram' === $object_id ) : ?>
+					<div class="cell">
+						<iframe src="https://www.youtube.com/embed/MFTQo3ObWmc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				<?php endif; ?>
+
+				<?php do_action( 'wptelegram_settings_sidebar_row', $object_id, $hookup ); ?>
+				
+			</div>
+			<div class="footer">
+				<p><?php printf( __( 'Enjoy %s', 'wptelegram' ), WPTG()->get_plugin_title() ); ?> 🙂</p>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		<?php
 	}
 
 	/**
@@ -452,22 +523,20 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 	 * @param  object $field_args Current field args
 	 * @param  object $field      Current field object
 	 */
-	public static function get_telegram_guide( $field_args, $field ) { ?>
-		<p style="color:#f10e0e;"><b><?php echo __( 'INSTRUCTIONS!','wptelegram'); ?></b></p>
-		<ol style="list-style-type: decimal;">
-			<li><?php printf( __( 'Create a Bot by sending %s command to %s', 'wptelegram' ), '<code>/newbot</code>', '<a href="https://t.me/BotFather"  target="_blank">@BotFather</a>' );
-			?></li>
-			<li><?php printf( __( 'After completing the steps %s will provide you the Bot Token.', 'wptelegram' ), '@BotFather' ); ?></li>
-			<li><?php esc_html_e( 'Copy the token and paste into the Bot Token field below.', 'wptelegram' ); ?>&nbsp;<?php printf( __( 'For ease, use %s', 'wptelegram' ), '<a href="' . esc_url( 'https://desktop.telegram.org' ) . '" target="_blank">Telegram Desktop</a>' ); ?></li>
-		 	<li><?php esc_html_e( 'Test your bot token below.', 'wptelegram' ); ?>
-		 	</li>
-		 	<li><?php esc_html_e( 'Activate the modules you want to use.', 'wptelegram' ); ?>
-		 	</li>
-			<li><?php printf( __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes' ) . '</b>' ); ?></li>
-		 	<li><?php esc_html_e( 'Configure the activated modules.', 'wptelegram' ); ?>
-			<li><?php esc_html_e( "That's it! :)", 'wptelegram' ); ?></li>
-		</ol>
-
+	public static function render_telegram_guide( $field_args, $field ) { ?>
+		<div class="cmb-row cmb-type-text cmb2-id-telegram_guide">
+			<ol style="list-style-type: decimal;">
+				<li><?php printf( __( 'Create a Bot by sending %s command to %s', 'wptelegram' ), '<code>/newbot</code>', '<a href="https://t.me/BotFather"  target="_blank">@BotFather</a>' );
+				?></li>
+				<li><?php printf( __( 'After completing the steps %s will provide you the Bot Token.', 'wptelegram' ), '@BotFather' ); ?></li>
+				<li><?php esc_html_e( 'Copy the token and paste into the Bot Token field below.', 'wptelegram' ); ?>&nbsp;<?php printf( __( 'For ease, use %s', 'wptelegram' ), '<a href="' . esc_url( 'https://desktop.telegram.org' ) . '" target="_blank">Telegram Desktop</a>' ); ?></li>
+			 	<li><?php esc_html_e( 'Test your bot token below.', 'wptelegram' ); ?></li>
+			 	<li><?php esc_html_e( 'Activate the modules you want to use.', 'wptelegram' ); ?></li>
+				<li><?php printf( __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes' ) . '</b>' ); ?></li>
+			 	<li><?php esc_html_e( 'Configure the activated modules.', 'wptelegram' ); ?></li>
+				<li><?php esc_html_e( "That's it! :)", 'wptelegram' ); ?></li>
+			</ol>
+		</div>
 	 	<?php
 	}
     

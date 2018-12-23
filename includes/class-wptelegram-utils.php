@@ -35,6 +35,17 @@ class WPTelegram_Utils {
 	}
 
 	/**
+	 * Check if WP version is at least $version.
+	 *
+	 * @since  2.0.13
+	 * @param  string $version WP version string to compare.
+	 * @return bool            Result of comparison check.
+	 */
+	public static function wp_at_least( $version ) {
+		return version_compare( get_bloginfo( 'version' ), $version, '>=' );
+	}
+
+	/**
 	 * Sanitize the input
 	 *
 	 * @param  mixed	$input
@@ -63,7 +74,7 @@ class WPTelegram_Utils {
 			}
 		}
 
-        return apply_filters( 'wptelegram_utils_sanitize', $input, $raw_input, $typefy );
+		return apply_filters( 'wptelegram_utils_sanitize', $input, $raw_input, $typefy );
 	}
 
 	/**
@@ -87,7 +98,7 @@ class WPTelegram_Utils {
 			$input = ( 'true' == strtolower( $input ) ) ? true : false;
 		}
 
-        return apply_filters( 'wptelegram_utils_typefy', $input, $raw_input );
+		return apply_filters( 'wptelegram_utils_typefy', $input, $raw_input );
 	}
 
 	/**
@@ -125,25 +136,25 @@ class WPTelegram_Utils {
 		
 		$description = get_status_header_desc( $code );
 
-	    $status_header = "{$protocol} {$code} {$description}";
+		$status_header = "{$protocol} {$code} {$description}";
 
-	    @header( $status_header, true, $code );
+		@header( $status_header, true, $code );
 	}
 
-    /**
-     * Set HTTP status header.
-     *
-     * @since 1.0.0
-     * 
-     * @return string
-     */
-    public function server_protocol() {
+	/**
+	 * Set HTTP status header.
+	 *
+	 * @since 1.0.0
+	 * 
+	 * @return string
+	 */
+	public function server_protocol() {
 
-	    $protocol = $_SERVER['SERVER_PROTOCOL'];
-	    if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ) ) ) {
-	        $protocol = 'HTTP/1.0';
-	    }
-	    return $protocol;
+		$protocol = $_SERVER['SERVER_PROTOCOL'];
+		if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ) ) ) {
+			$protocol = 'HTTP/1.0';
+		}
+		return $protocol;
 	}
 
 	/**
@@ -188,7 +199,7 @@ class WPTelegram_Utils {
 			}
 		}
 
-        return apply_filters( 'wptelegram_utils_ucwords', $str, $delimiters, $raw_str );
+		return apply_filters( 'wptelegram_utils_ucwords', $str, $delimiters, $raw_str );
 	}
 
 	/**
@@ -228,94 +239,112 @@ class WPTelegram_Utils {
 			}
 		}
 
-        return apply_filters( 'wptelegram_utils_file_type', $type, $id, $file );
+		return apply_filters( 'wptelegram_utils_file_type', $type, $id, $file );
 	}
 
-    /**
-     * Sanitizes hashtag(s)
-     *
-     * Specifically, spaces are removed
-     *
-     * @since 1.0.0
-     *
-     * @param string|array $hashtag The string or array of strings to be sanitized.
-     * 
-     * @return string|array The sanitized string or array of strings
-     */
-    public function sanitize_hashtag( $hashtag ) {
-            
-        $raw_hashtag = $hashtag;
-
-        if ( is_array( $hashtag ) ) {
-            foreach ( $hashtag as &$string ) {
-                $string = $this->strip_non_word_chars( $string );
-            }
-        } else {
-            $hashtag = $this->strip_non_word_chars( $hashtag );
-        }
-
-        return apply_filters( 'wptelegram_utils_sanitize_hashtag', $hashtag, $raw_hashtag );
-    }
-
-    /**
-     * Strips non-word characters from the string
-     * or replaces them with underscore
-     *
-     * @since 1.0.0
-     *
-     * @param string $text The target string
-     * 
-     * @return string
-     */
-    public function strip_non_word_chars( $text ) {
-    	$raw_text = $text;
-        // remove trailing non-word characters
-        $text = preg_replace( '/(^\W+|\W+$)/u', '', $text );
-        // replace one or more continuous non-word characters by _
-        $text = preg_replace( '/\W+/u', '_', $text );
-
-        return apply_filters( 'wptelegram_utils_strip_non_word_chars', $text, $raw_text );
-    }
-
-    /**
-	 * Gets the current post type in the WordPress Admin
-     *
-     * @since 1.0.0
-     * 
-     * @return string|NULL
+	/**
+	 * Sanitizes hashtag(s)
+	 *
+	 * Specifically, spaces are removed
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string|array $hashtag The string or array of strings to be sanitized.
+	 * 
+	 * @return string|array The sanitized string or array of strings
 	 */
-    public function get_current_post_type() {
+	public function sanitize_hashtag( $hashtag ) {
+			
+		$raw_hashtag = $hashtag;
 
-    	global $post, $typenow, $pagenow, $current_screen;
+		if ( is_array( $hashtag ) ) {
+			foreach ( $hashtag as &$string ) {
+				$string = $this->strip_non_word_chars( $string );
+			}
+		} else {
+			$hashtag = $this->strip_non_word_chars( $hashtag );
+		}
+
+		return apply_filters( 'wptelegram_utils_sanitize_hashtag', $hashtag, $raw_hashtag );
+	}
+
+	/**
+	 * Strips non-word characters from the string
+	 * or replaces them with underscore
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $text The target string
+	 * 
+	 * @return string
+	 */
+	public function strip_non_word_chars( $text ) {
+		$raw_text = $text;
+		// remove trailing non-word characters
+		$text = preg_replace( '/(^\W+|\W+$)/u', '', $text );
+		// replace one or more continuous non-word characters by _
+		$text = preg_replace( '/\W+/u', '_', $text );
+
+		return apply_filters( 'wptelegram_utils_strip_non_word_chars', $text, $raw_text );
+	}
+
+	/**
+	 * Gets the current post type in the WordPress Admin
+	 *
+	 * @since 1.0.0
+	 * 
+	 * @return string|NULL
+	 */
+	public function get_current_post_type() {
+
+		global $post, $typenow, $pagenow, $current_screen;
 
 		//we have a post so we can just get the post type from that
-    	if ( $post && $post->post_type ) {
+		if ( $post && $post->post_type ) {
 
-    		return $post->post_type;
+			return $post->post_type;
 
-    	} elseif ( $typenow ) { //check the global $typenow - set in admin.php
-    		
-    		return $typenow;
+		} elseif ( $typenow ) { //check the global $typenow - set in admin.php
+			
+			return $typenow;
 
-    	} elseif ( $current_screen && $current_screen->post_type ) { //check the global $current_screen object - set in screen.php
+		} elseif ( $current_screen && $current_screen->post_type ) { //check the global $current_screen object - set in screen.php
 
-    		return $current_screen->post_type;
+			return $current_screen->post_type;
 
-    	} elseif ( isset( $_GET['post_type'] ) ) { //check the post_type query string
+		} elseif ( isset( $_GET['post_type'] ) ) { //check the post_type query string
 
-    		return sanitize_key( $_GET['post_type'] );
+			return sanitize_key( $_GET['post_type'] );
 
-    	} elseif ( isset( $_GET['post'] ) ) { //check if post ID is in query string
+		} elseif ( isset( $_GET['post'] ) ) { //check if post ID is in query string
 
-    		return get_post_type( $_GET['post'] );
+			return get_post_type( $_GET['post'] );
 
-    	} elseif ( $pagenow == 'edit.php' || $pagenow == 'post-new.php' ) { //lastly check if the page is edit.php or post-new.php
+		} elseif ( $pagenow == 'edit.php' || $pagenow == 'post-new.php' ) { //lastly check if the page is edit.php or post-new.php
 
-    		return 'post';
+			return 'post';
 
-    	}
+		}
 
 		//we do not know the post type!
-    	return NULL;
-    }
+		return NULL;
+	}
+
+	/**
+	 * Determine if the Post was created using the Gutenberg Editor.
+	 *
+	 * A dirty hack which assumes that the post content is not empty
+	 *
+	 * @since   2.0.13
+	 *
+	 * @param   WP_Post		$post	Post
+	 * @return  bool				Post created using Gutenberg Editor
+	 */
+	public function is_gutenberg_post( $post ) {
+
+		if ( false !== strpos( $post->post_content, '<!-- wp:' ) ) {
+			return true;
+		}
+		return false;
+	}
 }

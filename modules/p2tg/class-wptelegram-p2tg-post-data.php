@@ -4,7 +4,7 @@
  * Post Handling functionality of the plugin.
  *
  * @link		https://t.me/WPTelegram
- * @since		1.0.0
+ * @since		2.0.0
  *
  * @package		WPTelegram
  * @subpackage	WPTelegram/includes
@@ -29,40 +29,40 @@ class WPTelegram_P2TG_Post_Data {
 	/**
 	 * The post data
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 * @access	protected
 	 * @var		array 		$data 	The array containing the post data
 	 */
 	protected $data;
 
-    /**
-     * Initialize the class and set its properties.
-     *
-     * @since   1.0.0
-     * @param   string    $module_name  The name of the module.
-     */
-    public function __construct( $post ) {
+	/**
+	 * Initialize the class and set its properties.
+	 *
+	 * @since   2.0.0
+	 * @param   string    $module_name  The name of the module.
+	 */
+	public function __construct( $post ) {
 
-    	$this->data = array();
+		$this->data = array();
 
-        $this->set_post( $post );
-    }
+		$this->set_post( $post );
+	}
 
-    /**
-     * Set the post
-     *
-     * @since    1.0.0
-     */
-    public function set_post( $post ) {
+	/**
+	 * Set the post
+	 *
+	 * @since    2.0.0
+	 */
+	public function set_post( $post ) {
 
-        $this->post = get_post( $post );
-    }
+		$this->post = get_post( $post );
+	}
 
 	/**
 	 * Retrieves a field from post data
 	 * And updates the data if not found
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 *
 	 * @param  string $field	The field to be retrieved
 	 * @param  string $params	Optional params to be used for some fields
@@ -85,7 +85,7 @@ class WPTelegram_P2TG_Post_Data {
 	/**
 	 * Retrieves a field value from post without modifying $this->data
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 *
 	 * @param  string $field	The field to be retrieved
 	 * @param  string $params	Optional params to be used for some fields
@@ -176,18 +176,18 @@ class WPTelegram_P2TG_Post_Data {
 				break;
 			
 			default:
-                // if it's something special
-                if ( preg_match( '/^(terms|cf):/i', $field, $match ) ) {
-                		
-        			$_field = preg_replace( '/^' . $match[1] . ':/i', '', $field );
+				// if it's something special
+				if ( preg_match( '/^(terms|cf):/i', $field, $match ) ) {
+						
+					$_field = preg_replace( '/^' . $match[1] . ':/i', '', $field );
 
-                	switch ( $match[1] ) {
+					switch ( $match[1] ) {
 
-                		case 'terms': // if taxonomy
+						case 'terms': // if taxonomy
 
-                			$taxonomy = $_field;
+							$taxonomy = $_field;
 
-		                    if ( taxonomy_exists( $taxonomy ) ) {
+							if ( taxonomy_exists( $taxonomy ) ) {
 
 								$terms = get_the_terms( $this->post->ID, $taxonomy );
 
@@ -206,15 +206,15 @@ class WPTelegram_P2TG_Post_Data {
 									}
 								}
 							}
-                			break;
+							break;
 
-                		case 'cf': // if custom field
+						case 'cf': // if custom field
 
-		                    $value = get_post_meta( $this->post->ID, $_field, true );
-                			break;
-                	}
-                }
-                break;
+							$value = get_post_meta( $this->post->ID, $_field, true );
+							break;
+					}
+				}
+				break;
 		}
 
 		$value = apply_filters( 'wptelegram_p2tg_post_data_field_value', $value, $field, $this->post, $params );

@@ -92,6 +92,49 @@
 	min-width: 50%;
     resize: both;
 }
+.wrap-wptelegram {
+    max-width: initial !important;
+}
+.wrap-wptelegram .wptelegram-column-1 {
+    float: left;
+    width: 75%;
+    /* rtl */
+}
+html[dir="rtl"] .wrap-wptelegram .wptelegram-column-1 {
+    float: right;
+}
+.wrap-wptelegram .wptelegram-column-2 {
+    background: #FFFFFF;
+    float: right;
+    width: 24%;
+    /* rtl */
+}
+html[dir="rtl"] .wrap-wptelegram .wptelegram-column-2 {
+    float: left;
+}
+.wptelegram-box .inner {
+    padding: 15px;
+}
+.wptelegram-box .footer {
+    border-top: 1px solid #eee;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+@media only screen and (max-width: 850px) {
+    .wrap-wptelegram {
+        max-width: auto;
+    }
+    .wrap-wptelegram .wptelegram-column-1,
+    .wrap-wptelegram .wptelegram-column-2 {
+        float: none;
+        width: auto;
+    }
+}
+.wptelegram-box {
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
 .wptelegram-box a {
     text-decoration: none;
 }
@@ -108,8 +151,15 @@
     font-style: normal;
     overflow: hidden;
 }
+.wptelegram-box .cell {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
 .wptelegram-box .description code {
     color: #727272;
+}
+.wptelegram-box .highlight .cmb2-metabox-title {
+    color: #f10e0e;
 }
 .wptelegram-box .large-font input[type=text] {
     font-size: 1.5em;

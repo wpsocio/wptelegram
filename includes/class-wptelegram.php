@@ -159,7 +159,6 @@ final class WPTelegram {
 
 		$this->utils = WPTelegram_Utils::instance();
 		$this->helpers = WPTelegram_Helpers::instance();
-
 	}
 
 	/**
@@ -333,6 +332,8 @@ final class WPTelegram {
 		$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'create_options_pages' );
 
 		$this->loader->add_action( 'cmb2_before_form', $plugin_admin, 'render_plugin_header', 10, 4 );
+
+		$this->loader->add_action( 'wptelegram_after_cmb2_form', $plugin_admin, 'render_plugin_sidebar', 10, 1 );
 
 		$this->loader->add_action( 'wp_ajax_wptelegram_test', $plugin_admin, 'ajax_handle_test' );
 

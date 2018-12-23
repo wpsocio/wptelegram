@@ -86,12 +86,15 @@ class WPTelegram_P2TG extends WPTelegram_Module {
 		$this->loader->add_action( 'wp_ajax_wptg_p2tg_rule_values', $admin, 'ajax_render_rule_values' );
 
 		$this->loader->add_action( 'edit_form_top', $admin, 'post_edit_form_hidden_input' );
+		$this->loader->add_action( 'block_editor_meta_box_hidden_fields', $admin, 'post_edit_form_hidden_input' );
 
 		$this->loader->add_action( 'cmb2_admin_init', $admin, 'create_options_page' );
 
 		$this->loader->add_action( 'cmb2_admin_init', $admin, 'create_override_metabox' );
 
 		$this->loader->add_action( 'admin_notices', $admin, 'admin_notices' );
+
+		$this->loader->add_action( 'wptelegram_settings_sidebar_row', $admin, 'add_sidebar_row', 10, 2 );
 
 	}
 

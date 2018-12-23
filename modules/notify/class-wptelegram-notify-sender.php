@@ -311,10 +311,10 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 		
 		$parse_mode = WPTG()->helpers->valid_parse_mode( $this->module_options->get( 'parse_mode', 'HTML' ) );
 
-		if ( 'Markdown' != $parse_mode ) {
+		if ( 'Markdown' !== $parse_mode ) {
 			$text = preg_replace( '/\[([^\]]+?)\]\(([^\)]+?)\)/ui', '<a href="$2">$1</a>', $text );
 
-			if ( 'HTML' != $parse_mode ) {
+			if ( 'HTML' !== $parse_mode ) {
 				$text = wp_strip_all_tags( $text, false );
 			}
 		}

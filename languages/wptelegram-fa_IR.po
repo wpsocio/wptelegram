@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
-"POT-Creation-Date: 2018-11-29 21:49+0530\n"
-"PO-Revision-Date: 2018-11-29 21:49+0530\n"
+"POT-Creation-Date: 2018-12-18 17:03+0530\n"
+"PO-Revision-Date: 2018-12-18 17:03+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
 "Language: fa\n"
@@ -20,9 +20,9 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:88
 msgid "Could not connect"
-msgstr "ارتباط برقرار نیست"
+msgstr "نتوانست متصل شود"
 
-#: admin/class-wptelegram-admin.php:89 admin/class-wptelegram-admin.php:594
+#: admin/class-wptelegram-admin.php:89 admin/class-wptelegram-admin.php:663
 msgid "Bot Token is empty"
 msgstr "توکن ربات خالی است"
 
@@ -32,9 +32,9 @@ msgstr "نام کاربری خالی است"
 
 #: admin/class-wptelegram-admin.php:91
 msgid "Chat ID is empty"
-msgstr "لطفا یک شناسه چت معتبر وارد نمایید"
+msgstr "شناسه چت خالی است"
 
-#: admin/class-wptelegram-admin.php:92 admin/class-wptelegram-admin.php:488
+#: admin/class-wptelegram-admin.php:92 admin/class-wptelegram-admin.php:557
 msgid "Invalid Bot Token"
 msgstr "توکن ربات نامعتبر است"
 
@@ -42,15 +42,16 @@ msgstr "توکن ربات نامعتبر است"
 msgid ""
 "A message will be sent to the Channel/Chat. You can modify the text below"
 msgstr ""
-"یک پیام به کانال/گروه ارسال خواهد شد. شما میتوانید متن زیر را ویرایش کنید"
+"یک پیام به کانال/گروه ارسال خواهد شد. شما میتوانید متن را از پایین ویرایش "
+"کنید"
 
 #: admin/class-wptelegram-admin.php:94
 msgid "This is a test message"
-msgstr "این یک پیام تست است"
+msgstr "این یک پیام آزمایشی است"
 
 #: admin/class-wptelegram-admin.php:95
 msgid "Please wait..."
-msgstr "لطفا منتظر باشید..."
+msgstr "لطفا صبر کنید..."
 
 #: admin/class-wptelegram-admin.php:96
 msgid "Choose"
@@ -65,216 +66,222 @@ msgid "Failure"
 msgstr "شکست"
 
 #: admin/class-wptelegram-admin.php:99
-#: modules/notify/class-wptelegram-notify-admin.php:412
+#: modules/notify/class-wptelegram-notify-admin.php:424
 msgid "Error:"
 msgstr "خطا:"
 
-#: admin/class-wptelegram-admin.php:115 admin/class-wptelegram-admin.php:520
+#: admin/class-wptelegram-admin.php:115 admin/class-wptelegram-admin.php:589
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: admin/class-wptelegram-admin.php:180
+#: admin/class-wptelegram-admin.php:181
 msgid ""
 "With this plugin, you can send posts to Telegram and receive notifications "
 "and do lot more :)"
 msgstr ""
-"با این افزونه، شما می توانید به کانال/چت تلگرام پیام بفرستید و اعلان دریافت "
+"با این افزونه، شما می توانید نوشته ها را به تلگرام بفرستید و اعلان دریافت "
 "کنید و کلی کارهای دیگه انجام بدید :)"
 
-#: admin/class-wptelegram-admin.php:185
-msgid "Telegram Options"
-msgstr "تنظیمات تلگرام"
+#: admin/class-wptelegram-admin.php:186
+#: modules/notify/class-wptelegram-notify-admin.php:79
+#: modules/notify/class-wptelegram-notify-admin.php:350
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:102
+msgid "INSTRUCTIONS!"
+msgstr "دستورالعمل ها!"
 
-#: admin/class-wptelegram-admin.php:192
+#: admin/class-wptelegram-admin.php:202
+msgid "Telegram Options"
+msgstr "گزینه های  تلگرام"
+
+#: admin/class-wptelegram-admin.php:208
 msgid "Bot Token"
 msgstr "توکن ربات"
 
-#: admin/class-wptelegram-admin.php:193 admin/class-wptelegram-admin.php:211
+#: admin/class-wptelegram-admin.php:209 admin/class-wptelegram-admin.php:227
 msgid "Test Token"
-msgstr "آزمایش توکن"
+msgstr "توکن آزمایشی"
 
-#: admin/class-wptelegram-admin.php:208
+#: admin/class-wptelegram-admin.php:224
 msgid "Bot Username"
 msgstr "شناسه ربات"
 
-#: admin/class-wptelegram-admin.php:209
+#: admin/class-wptelegram-admin.php:225
 #, php-format
 msgid "Telegram Bot username (without %s)."
 msgstr "شناسه کاربری ربات تلگرام (بدون %s)."
 
-#: admin/class-wptelegram-admin.php:211
+#: admin/class-wptelegram-admin.php:227
 #, php-format
 msgid "Use %s to set automatically."
 msgstr "ار %s برای تنظیم خودکار استفاده کنید."
 
-#: admin/class-wptelegram-admin.php:227
+#: admin/class-wptelegram-admin.php:243
 msgid "Modules"
 msgstr "ماژول ها"
 
-#: admin/class-wptelegram-admin.php:270
+#: admin/class-wptelegram-admin.php:286
 msgid "Advanced settings"
 msgstr "تنظیمات پیشرفته"
 
-#: admin/class-wptelegram-admin.php:273
+#: admin/class-wptelegram-admin.php:289
 msgid ""
 "Settings in this section should not be changed unless recommended by WP "
 "Telegram Support."
 msgstr ""
 "تنظیمات این بخش نباید تغییر داده شود مگر با توصیه تیم پشتیبانی WP Telegram."
 
-#: admin/class-wptelegram-admin.php:276
+#: admin/class-wptelegram-admin.php:292
 msgid "Send files by URL"
-msgstr "ارسال فایل ها با آدرس اینترنتی"
+msgstr "ارسال فایل ها از طریق لینک"
 
-#: admin/class-wptelegram-admin.php:277
+#: admin/class-wptelegram-admin.php:293
 msgid "Turn off to upload the files/images instead of passing the url."
 msgstr "غیرفعال کردن بارگذاری فایل ها / تصاویر به جای ارسال آدرس."
 
-#: admin/class-wptelegram-admin.php:278
+#: admin/class-wptelegram-admin.php:294
 msgid "Google Script proxy does not support file upload."
 msgstr "پروکسی گوگل اسکریپت آپلود فایل را پشتیبانی نمی کند."
 
-#: admin/class-wptelegram-admin.php:285
+#: admin/class-wptelegram-admin.php:301
 msgid "Enable logs for"
 msgstr "فعال کردن لیست لوگ برای"
 
-#: admin/class-wptelegram-admin.php:292
+#: admin/class-wptelegram-admin.php:308
 msgid "Bot API"
 msgstr "رابط برنامه نویسی کاربردی ربات"
 
-#: admin/class-wptelegram-admin.php:293
+#: admin/class-wptelegram-admin.php:309
 #: includes/class-wptelegram-modules.php:68
 msgid "Post to Telegram"
 msgstr "ارسال مطلب به تلگرام"
 
-#: admin/class-wptelegram-admin.php:297
+#: admin/class-wptelegram-admin.php:313
 msgid "Debug Info"
 msgstr "اطلاعات ایرادزدایی"
 
-#: admin/class-wptelegram-admin.php:305
+#: admin/class-wptelegram-admin.php:321
 msgid "Remove settings on uninstall"
-msgstr "حذف همه تنظیمات وارده در موقع حذف افزونه"
+msgstr "حذف همه تنظیمات در موقع حذف افزونه"
 
-#: admin/class-wptelegram-admin.php:399
+#: admin/class-wptelegram-admin.php:415
 msgid "Settings updated"
 msgstr "تنظیمات بروز شد"
 
-#: admin/class-wptelegram-admin.php:415
+#: admin/class-wptelegram-admin.php:431
 #, php-format
 msgid "%s is empty"
 msgstr "%s خالی است"
 
-#: admin/class-wptelegram-admin.php:417
+#: admin/class-wptelegram-admin.php:433
 #, php-format
 msgid "Invalid %s"
 msgstr "%s نامعتبر است"
 
-#: admin/class-wptelegram-admin.php:456
-#: modules/notify/class-wptelegram-notify-admin.php:177
-#: modules/notify/class-wptelegram-notify-admin.php:338
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:870
-msgid "INSTRUCTIONS!"
-msgstr "دستورالعمل ها!"
+#: admin/class-wptelegram-admin.php:484
+msgid "Integrate your WordPress website perfectly with Telegram."
+msgstr ""
 
-#: admin/class-wptelegram-admin.php:458
-#, php-format
-msgid "Create a Bot by sending %s command to %s"
-msgstr "ایجاد یک ربات با ارسال %s دستور به %s"
-
-#: admin/class-wptelegram-admin.php:460
-#, php-format
-msgid "After completing the steps %s will provide you the Bot Token."
-msgstr "پس از اتمام مراحل %s به شما یک توکن ربات را می دهد."
-
-#: admin/class-wptelegram-admin.php:461
-msgid "Copy the token and paste into the Bot Token field below."
-msgstr "توکن را کپی کنید و در فیلد نشانگر ربات زیر وارد کنید."
-
-#: admin/class-wptelegram-admin.php:461
-#, php-format
-msgid "For ease, use %s"
-msgstr "برای آسانی، از %s استفاده کنید"
-
-#: admin/class-wptelegram-admin.php:462
-msgid "Test your bot token below."
-msgstr "توکن ربات خود را در زیر آزمایش کنید."
-
-#: admin/class-wptelegram-admin.php:464
-msgid "Activate the modules you want to use."
-msgstr "ماژول های مورد استفاده خودتان را فعال کنید."
-
-#: admin/class-wptelegram-admin.php:466
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:879
-#, php-format
-msgid "Hit %s below"
-msgstr "روی  %s  در پایین کلیک کنید"
-
-#: admin/class-wptelegram-admin.php:466
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:879
-msgid "Save Changes"
-msgstr "ذخیره تغییرات"
-
-#: admin/class-wptelegram-admin.php:467
-msgid "Configure the activated modules."
-msgstr "مدیریت ماژول های فعال."
-
-#: admin/class-wptelegram-admin.php:468
-msgid "That's it! :)"
-msgstr "خودشه! :)"
-
-#: admin/class-wptelegram-admin.php:485
-msgid "Test Result:"
-msgstr "نتیجه تست:"
-
-#: admin/class-wptelegram-admin.php:493
-msgid "Invalid Bot Username"
-msgstr "شناسه ربات نامعتبر است"
-
-#: admin/partials/class-wptelegram-admin-header.php:107
+#: admin/class-wptelegram-admin.php:488
 #, php-format
 msgid "Do you like %s?"
 msgstr "آیا شما %s را می پسندید؟"
 
-#: admin/partials/class-wptelegram-admin-header.php:109
+#: admin/class-wptelegram-admin.php:490
 msgid "Give it a rating"
 msgstr "به آن امتیاز بدهید"
 
-#: admin/partials/class-wptelegram-admin-header.php:125
+#: admin/class-wptelegram-admin.php:495
 msgid "Need help?"
 msgstr "کمک نیاز دارید؟"
 
-#: admin/partials/class-wptelegram-admin-header.php:126
-#, php-format
-msgid "Ask in %s"
-msgstr "در %s بپرسید"
+#: admin/class-wptelegram-admin.php:497
+msgid "Get LIVE support on Telegram"
+msgstr ""
 
-#: admin/partials/class-wptelegram-admin-header.php:141
+#: admin/class-wptelegram-admin.php:513
+#, php-format
+msgid "Enjoy %s"
+msgstr ""
+
+#: admin/class-wptelegram-admin.php:529
+#, php-format
+msgid "Create a Bot by sending %s command to %s"
+msgstr "ایجاد یک ربات با ارسال دستور  %s به %s"
+
+#: admin/class-wptelegram-admin.php:531
+#, php-format
+msgid "After completing the steps %s will provide you the Bot Token."
+msgstr "پس از اتمام مراحل %s به شما یک توکن ربات را می دهد."
+
+#: admin/class-wptelegram-admin.php:532
+msgid "Copy the token and paste into the Bot Token field below."
+msgstr "توکن را کپی کنید و در فیلد نشانگر ربات در پایین وارد کنید."
+
+#: admin/class-wptelegram-admin.php:532
+#, php-format
+msgid "For ease, use %s"
+msgstr "برای آسانی، از %s استفاده کنید"
+
+#: admin/class-wptelegram-admin.php:533
+msgid "Test your bot token below."
+msgstr "توکن ربات خود را در زیر آزمایش کنید."
+
+#: admin/class-wptelegram-admin.php:534
+msgid "Activate the modules you want to use."
+msgstr "ماژول های مورد استفاده خودتان را فعال کنید."
+
+#: admin/class-wptelegram-admin.php:535
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:890
+#, php-format
+msgid "Hit %s below"
+msgstr "روی  %s  در پایین کلیک کنید"
+
+#: admin/class-wptelegram-admin.php:535
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:890
+msgid "Save Changes"
+msgstr "ذخیره تغییرات"
+
+#: admin/class-wptelegram-admin.php:536
+msgid "Configure the activated modules."
+msgstr "مدیریت ماژول های فعال."
+
+#: admin/class-wptelegram-admin.php:537
+msgid "That's it! :)"
+msgstr "خودشه! :)"
+
+#: admin/class-wptelegram-admin.php:554
+msgid "Test Result:"
+msgstr "نتیجه تست:"
+
+#: admin/class-wptelegram-admin.php:562
+msgid "Invalid Bot Username"
+msgstr "شناسه ربات نامعتبر است"
+
+#: admin/partials/class-wptelegram-admin-header.php:104
 msgid "Get connected"
 msgstr "متصل شوید"
 
-#: admin/partials/class-wptelegram-admin-header.php:148
-#, fuzzy, php-format
-#| msgid "Follow"
+#: admin/partials/class-wptelegram-admin-header.php:111
+#, php-format
 msgid "Follow %s"
-msgstr "دنبال کردن"
+msgstr "%s را دنبال کنید"
 
-#: admin/partials/class-wptelegram-admin-header.php:152
-#, fuzzy, php-format
-#| msgid "Join"
+#: admin/partials/class-wptelegram-admin-header.php:115
+#, php-format
 msgid "Join %s"
-msgstr "پیوستن"
+msgstr "به %s بپیوندید"
 
-#: includes/class-wptelegram-helpers.php:105
+#: includes/class-wptelegram-helpers.php:136
 msgid "You must set the Bot Token first."
 msgstr "شما باید ابتدا توکن ربات را تنظیم کنید."
 
-#: includes/class-wptelegram-helpers.php:105
+#: includes/class-wptelegram-helpers.php:136
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
 #: includes/class-wptelegram-modules.php:69
 msgid "Send the posts automatically to a Telegram Channel or group."
-msgstr "ارسال خودکار پست در کانال یا گروه تلگرام."
+msgstr "ارسال خودکار نوشته ها به کانال یا گروه تلگرام."
 
 #: includes/class-wptelegram-modules.php:72
 msgid "Private Notifications"
@@ -290,410 +297,413 @@ msgstr "پراکسی"
 
 #: includes/class-wptelegram-modules.php:77
 msgid "Bypass the ban on Telegram by making use of proxy."
-msgstr "با استفاده از پروکسی، از فیلترینگ عبور کنید."
+msgstr "با استفاده از پروکسی، از فیلترینگ تلگرام عبور کنید."
 
-#: modules/notify/class-wptelegram-notify-admin.php:73
+#: modules/notify/class-wptelegram-notify-admin.php:74
 msgid ""
 "The module will watch the Email Notifications sent from this site and "
 "deliver them on your Telegram"
 msgstr ""
-"این ماژول اعلانات ایمیل ارسالی از این سایت را مشاهده خواهد کرد و آنها را در "
+"این ماژول اعلانات ایمیل ارسالی از این سایت را دنبال نموده و آنها را به "
 "تلگرام شما ارسال خواهد کرد"
 
-#: modules/notify/class-wptelegram-notify-admin.php:84
+#: modules/notify/class-wptelegram-notify-admin.php:96
 msgid "Notification Settings"
 msgstr "تنظیمات اعلان ها"
 
-#: modules/notify/class-wptelegram-notify-admin.php:90
+#: modules/notify/class-wptelegram-notify-admin.php:102
 msgid "If Email goes to"
-msgstr "اگر ایمیل فرستاده شود"
+msgstr "اگر ایمیل فرستاده شود به"
 
-#: modules/notify/class-wptelegram-notify-admin.php:92
+#: modules/notify/class-wptelegram-notify-admin.php:104
 #, php-format
 msgid "If you want to receive notification for every email, then write %s"
-msgstr "اگر مایلید اعلاناتی برای هر ایمیل دریافت کنید پس بنویسید %s"
+msgstr "اگر مایلید اعلانات کلیه ایمیل ها را دریافت کنید پس بنویسید %s"
 
-#: modules/notify/class-wptelegram-notify-admin.php:100
-#: modules/notify/class-wptelegram-notify-admin.php:188
+#: modules/notify/class-wptelegram-notify-admin.php:112
+#: modules/notify/class-wptelegram-notify-admin.php:200
 msgid "Send it to"
-msgstr "راسال به"
+msgstr "ارسال  به"
 
-#: modules/notify/class-wptelegram-notify-admin.php:101
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:115
+#: modules/notify/class-wptelegram-notify-admin.php:113
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:126
 msgid "Send Test"
 msgstr "ارسال متن آزمایشی"
 
-#: modules/notify/class-wptelegram-notify-admin.php:101
+#: modules/notify/class-wptelegram-notify-admin.php:113
 msgid "Telegram User or Group Chat ID."
-msgstr "شناسه کاربر با گروه تلگرام."
+msgstr "شناسه کاربر یا گروه تلگرام."
 
-#: modules/notify/class-wptelegram-notify-admin.php:114
+#: modules/notify/class-wptelegram-notify-admin.php:126
 msgid "Notifications to Users"
 msgstr "اعلان به کاربران"
 
-#: modules/notify/class-wptelegram-notify-admin.php:115
+#: modules/notify/class-wptelegram-notify-admin.php:127
 msgid "Allow users to receive their email notifications on Telegram"
 msgstr "به کاربران اجازه دریافت اعلان های ایمیلی از طریق تلگرام را بده"
 
-#: modules/notify/class-wptelegram-notify-admin.php:116
+#: modules/notify/class-wptelegram-notify-admin.php:128
 #, php-format
 msgid "Use %s to let them connect their Telegram account."
 msgstr "با استفاده از %s به آنها اجازه دهید اکانت های تلگرامشان را اضافه کنند."
 
-#: modules/notify/class-wptelegram-notify-admin.php:116
+#: modules/notify/class-wptelegram-notify-admin.php:128
 #, php-format
 msgid "They can also enter their Telegram Chat ID manually on %s page"
 msgstr ""
 "آنها همچنین می توانند شناسه چت تلگرام خود را به صورت دستی در صفحه %s وارد "
 "کنند"
 
-#: modules/notify/class-wptelegram-notify-admin.php:116
+#: modules/notify/class-wptelegram-notify-admin.php:128
 msgid "profile"
 msgstr "پروفایل"
 
-#: modules/notify/class-wptelegram-notify-admin.php:123
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:183
+#: modules/notify/class-wptelegram-notify-admin.php:135
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:194
 msgid "Message Settings"
 msgstr "تنظیمات پیام ها"
 
-#: modules/notify/class-wptelegram-notify-admin.php:129
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:188
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:756
+#: modules/notify/class-wptelegram-notify-admin.php:141
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:199
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:767
 msgid "Message Template"
 msgstr "شکل محتوای پیام"
 
-#: modules/notify/class-wptelegram-notify-admin.php:130
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:189
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:757
+#: modules/notify/class-wptelegram-notify-admin.php:142
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:200
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:768
 msgid "Structure of the message to be sent"
-msgstr "ساختار پیام فرستاده شود"
+msgstr "ساختار پیامی که قرار است فرستاده شود"
 
-#: modules/notify/class-wptelegram-notify-admin.php:144
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:229
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:512
+#: modules/notify/class-wptelegram-notify-admin.php:156
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:240
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:523
 msgid "Parse Mode"
 msgstr "حالت تجزیه"
 
-#: modules/notify/class-wptelegram-notify-admin.php:148
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:235
+#: modules/notify/class-wptelegram-notify-admin.php:160
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:246
 msgid "Learn more"
 msgstr "بیشتر بدانید"
 
-#: modules/notify/class-wptelegram-notify-admin.php:150
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:237
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:512
+#: modules/notify/class-wptelegram-notify-admin.php:162
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:248
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:523
 msgid "None"
 msgstr "هیچ کدام"
 
-#: modules/notify/class-wptelegram-notify-admin.php:151
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:238
+#: modules/notify/class-wptelegram-notify-admin.php:163
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:249
 msgid "Markdown style"
 msgstr "سبک نشانه گذاری"
 
-#: modules/notify/class-wptelegram-notify-admin.php:152
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:239
+#: modules/notify/class-wptelegram-notify-admin.php:164
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:250
 msgid "HTML style"
 msgstr "سبک HTML"
 
-#: modules/notify/class-wptelegram-notify-admin.php:179
+#: modules/notify/class-wptelegram-notify-admin.php:191
 msgid "To receive notifications privately:"
 msgstr "برای دریافت اعلان های خصوصی:"
 
-#: modules/notify/class-wptelegram-notify-admin.php:181
+#: modules/notify/class-wptelegram-notify-admin.php:193
 #, php-format
 msgid "Get your Chat ID from %s and enter it below."
-msgstr "كد چت از %s دریافت و آن را زیر وارد کنید."
+msgstr "كد چت خود را از %s دریافت و آن را زیر وارد کنید."
 
-#: modules/notify/class-wptelegram-notify-admin.php:182
+#: modules/notify/class-wptelegram-notify-admin.php:194
 msgid "Send YOUR OWN BOT a message to start the conversation."
 msgstr "به ربات خود یک پیام ارسال کنید تا گفتگو شروع شود."
 
-#: modules/notify/class-wptelegram-notify-admin.php:185
+#: modules/notify/class-wptelegram-notify-admin.php:197
 msgid "To receive notifications into a group:"
 msgstr "برای دریافت اعلان ها در یک گروه:"
 
-#: modules/notify/class-wptelegram-notify-admin.php:187
+#: modules/notify/class-wptelegram-notify-admin.php:199
 #, php-format
 msgid "Add %s to the group to get its Chat ID."
 msgstr "%s را به گروه اضافه کنید تا شناسه چت آنرا دریافت کنید."
 
-#: modules/notify/class-wptelegram-notify-admin.php:188
+#: modules/notify/class-wptelegram-notify-admin.php:200
 #, php-format
 msgid "Enter the Chat ID in %s field below."
-msgstr "كد چت در %s قسمت زیر وارد کنید."
+msgstr "كد چت را در قسمت %s زیر وارد کنید."
 
-#: modules/notify/class-wptelegram-notify-admin.php:189
+#: modules/notify/class-wptelegram-notify-admin.php:201
 msgid "Add YOUR OWN BOT to the group."
 msgstr "ربات خود را به گروه اضافه کنید."
 
-#: modules/notify/class-wptelegram-notify-admin.php:211
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:489
-#: modules/proxy/class-wptelegram-proxy-admin.php:243
+#: modules/notify/class-wptelegram-notify-admin.php:223
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:500
+#: modules/proxy/class-wptelegram-proxy-admin.php:256
 msgid "Chat ID"
 msgstr "شناسه چت"
 
-#: modules/notify/class-wptelegram-notify-admin.php:212
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:490
-#: modules/proxy/class-wptelegram-proxy-admin.php:244
+#: modules/notify/class-wptelegram-notify-admin.php:224
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:501
+#: modules/proxy/class-wptelegram-proxy-admin.php:257
 msgid "Name/Title"
 msgstr "نام / عنوان"
 
-#: modules/notify/class-wptelegram-notify-admin.php:213
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:491
-#: modules/proxy/class-wptelegram-proxy-admin.php:245
+#: modules/notify/class-wptelegram-notify-admin.php:225
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:502
+#: modules/proxy/class-wptelegram-proxy-admin.php:258
 msgid "Chat Type"
 msgstr "نوع چت"
 
-#: modules/notify/class-wptelegram-notify-admin.php:214
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:492
-#: modules/proxy/class-wptelegram-proxy-admin.php:246
+#: modules/notify/class-wptelegram-notify-admin.php:226
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:503
+#: modules/proxy/class-wptelegram-proxy-admin.php:259
 msgid "Test Status"
 msgstr "وضعیت تست"
 
-#: modules/notify/class-wptelegram-notify-admin.php:242
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:382
-#: modules/proxy/class-wptelegram-proxy-admin.php:274
+#: modules/notify/class-wptelegram-notify-admin.php:254
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:393
+#: modules/proxy/class-wptelegram-proxy-admin.php:287
 msgid "You can use any text, emojis or these macros in any order:"
-msgstr "شما می توانید از هر متن، شکلک ها یا این ماکرو در هر جهت استفاده کنید:"
+msgstr ""
+"شما می توانید از هر متن، شکلک ها یا این ماکروها در هر جهت استفاده کنید:"
 
-#: modules/notify/class-wptelegram-notify-admin.php:242
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:382
-#: modules/proxy/class-wptelegram-proxy-admin.php:274
+#: modules/notify/class-wptelegram-notify-admin.php:254
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:393
+#: modules/proxy/class-wptelegram-proxy-admin.php:287
 msgid "Click to insert"
 msgstr "برای اضافه کردن کلیک کنید"
 
-#: modules/notify/class-wptelegram-notify-admin.php:309
+#: modules/notify/class-wptelegram-notify-admin.php:321
 msgid "Telegram Info"
 msgstr "اطلاعات تلگرام"
 
-#: modules/notify/class-wptelegram-notify-admin.php:310
+#: modules/notify/class-wptelegram-notify-admin.php:322
 #, php-format
 msgid "You can receive your email notifications on Telegram from %s"
 msgstr ""
 "شما می توانید اعلان های ایمیلی خود را روی تلگرام از طریق %s دریافت کنید"
 
-#: modules/notify/class-wptelegram-notify-admin.php:316
+#: modules/notify/class-wptelegram-notify-admin.php:328
 msgid "Telegram Chat ID"
 msgstr "شناسه چت تلگرام"
 
-#: modules/notify/class-wptelegram-notify-admin.php:317
+#: modules/notify/class-wptelegram-notify-admin.php:329
 msgid "Please enter your Telegram Chat ID"
 msgstr "لطفا شناسه چت تلگرام خود را وارد کنید"
 
-#: modules/notify/class-wptelegram-notify-admin.php:340
+#: modules/notify/class-wptelegram-notify-admin.php:352
 #, php-format
 msgid "Get your Chat ID from %s and enter it above."
-msgstr "شناسه چت خود را از %s دریافت کنید."
+msgstr "شناسه چت خود را از %s دریافت کرده و در بالا وارد کنید"
 
-#: modules/notify/class-wptelegram-notify-admin.php:341
+#: modules/notify/class-wptelegram-notify-admin.php:353
 #, php-format
 msgid "Start a conversation with %s to receive notifications."
-msgstr "یک گفتگو با %s شروع کنید تا اعلانات را دریافت کنید."
+msgstr "یک گفتگو با %s شروع کنید تا اعلانات را دریافت نمایید."
 
-#: modules/notify/class-wptelegram-notify-admin.php:367
+#: modules/notify/class-wptelegram-notify-admin.php:379
 #, php-format
 msgid "via %s"
 msgstr "با استفاده از %s"
 
-#: modules/notify/class-wptelegram-notify-admin.php:412
+#: modules/notify/class-wptelegram-notify-admin.php:424
 msgid "Please Enter a valid Chat ID"
 msgstr "لطفا یک شناسه چت معتبر وارد نمایید"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:96
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:97
 msgid "With this module, you can configure how the posts are sent to Telegram"
 msgstr ""
-"با این روش شما می توانید تنظیم کنید مطالب چگونه به تلگرام ارسال می شوند"
+"با این ماژول، شما می توانید تنظیم کنید مطالب چگونه به تلگرام ارسال می شوند"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:108
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:119
 msgid "Telegram Destination"
 msgstr "مقصد تلگرام"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:114
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:125
 msgid "Channel Username"
 msgstr "شناسه کانال"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:115
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:126
 #, php-format
 msgid "Telegram Channel Username or Chat ID. Username must start with %s."
-msgstr "شناسه کانال تلگرام یا شناسه گفتگو باید با %s شروع شود."
+msgstr "شناسه کانال تلگرام یا شناسه گفتگو. نام کاربری باید با %s شروع شود."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:115
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:126
 msgid "If more than one, separate them by comma"
-msgstr "اگر بیشتر از یکی هستند ، با کاما جدا کنیدشان"
+msgstr "اگر بیشتر از یکی هستند ، آنها را با کاما جدا کنید."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:138
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:168
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:149
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:179
 msgid "Rules"
 msgstr "قوانین"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:143
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:526
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:154
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:537
 msgid "Send when"
 msgstr "چه زمانی فرستاده شود"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:144
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:155
 msgid "When the post should be sent to Telegram"
 msgstr "چه زمانی مطلب باید به تلگرام ارسال شود"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:152
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:163
 msgid "A new post is published"
-msgstr "یک مطلب جدید منتشر شده"
+msgstr "یک مطلب جدید منتشر شده است"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:153
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:164
 msgid "An existing post is updated"
-msgstr "یک پیام قبلی بروز شد"
+msgstr "یک نوشته موجود بروز شد"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:157
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:168
 msgid "Post type"
-msgstr "نوع مطلب"
+msgstr "نوع نوشته"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:160
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:171
 msgid "Which post types should be sent."
 msgstr "کدام نوع مطالب باید ارسال شوند."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:202
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:213
 msgid "Excerpt Source"
 msgstr "منبع چکیده"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:209
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:220
 msgid "Post Content"
 msgstr "محتوای پست"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:210
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:221
 msgid "Post Content before Read More tag"
 msgstr "محتوای پست قبل از تگ ادامه مطلب"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:211
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:222
 msgid "Post Excerpt"
-msgstr "چکیده پست"
+msgstr "چکیده نوشته"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:215
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:226
 msgid "Excerpt Length"
 msgstr "طول چکیده"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:216
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:227
 msgid ""
 "Number of words for the excerpt. Won't be used when Caption Source is \"Post "
 "Content before Read More tag\""
 msgstr ""
-"تعداد کلمات برای بخش چکیده ، زمانی که عنوان Caption Source \"محتوای ارسالی "
-"قبل از خواندن برچسب بیشتر \" استفاده شود، نمایش داده نخواهد شد"
+"تعداد کلمات برای بخش چکیده. زمانی که عنوان منبع بصورت \"محتوای نوشته قبل از "
+"تگ ادامه مطلب\" استفاده شود، قابل استفاده نیست"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:243
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:254
 msgid "Featured Image"
 msgstr "تصویر شاخص"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:244
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:255
 msgid "Send Featured Image (if exists)"
 msgstr "ارسال تصویر شاخص  (اگر وجود دارد)"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:253
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:264
 msgid "Image Position"
 msgstr "موقعیت تصویر"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:260
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:271
 msgid "Before the Text"
 msgstr "قبل از متن"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:261
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:272
 msgid "After the Text"
 msgstr "بعد از متن"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:265
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:276
 msgid "Single message"
 msgstr "پیام تکی"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:266
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:277
 msgid "Send both text and image in single message"
 msgstr "متن و تصویر را در یک پیام ارسال کنید"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:283
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:294
 msgid "Inline Keyboard"
-msgstr "کیبرد هم خط"
-
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:288
-msgid "Inline Button"
-msgstr "دکمه هم خط"
-
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:289
-msgid "Add Inline URL Button"
-msgstr "دکمه هم خط آدرس اینترنتی را اضافه کن"
-
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:290
-msgid "Add an inline clickable button for the post URL just below the message."
-msgstr "یک دکمه قابل کلیک هم خط برای آدرس اینترنتی مطلب زیر پیام اضافه کن."
-
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:298
-msgid "Inline button text"
-msgstr "متن دکمه هم خط"
+msgstr "کیبورد اینلاین"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:299
+msgid "Inline Button"
+msgstr "دکمه اینلاین"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:300
+msgid "Add Inline URL Button"
+msgstr "دکمه آدرس اینترنتی بصورت اینلاین را اضافه کن"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:301
+msgid "Add an inline clickable button for the post URL just below the message."
+msgstr ""
+"یک دکمه قابل کلیک بصورت اینلاین برای آدرس اینترنتی مطلب در زیر آن اضافه کن."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:309
+msgid "Inline button text"
+msgstr "متن دکمه اینلاین"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:310
 msgid "View Post"
 msgstr "نمایش مطلب"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:314
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:325
 msgid "Miscellaneous"
 msgstr "متفرقه"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:319
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:330
 msgid "When editing a post"
 msgstr "هنگام ویرایش یک پست"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:320
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:331
 msgid "Show an ON/OFF switch on the post edit screen"
 msgstr "نمایش دکمه ON / OFF در صفحه ویرایش پست"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:321
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:332
 msgid ""
 "You can use this switch to override the above settings for a particular post"
 msgstr ""
-"شما می توانید از این سوئیچ برای لغو تنظیمات بالا برای یک پست خاص استفاده کنید"
+"شما می توانید از این سوئیچ برای تغییر تنظیمات بالا برای یک پست خاص استفاده "
+"کنید"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:328
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:742
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:339
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:753
 msgid "Delay in Posting"
-msgstr "نمایش در حین ارسال مطلب"
+msgstr "تاخیر در ارسال مطلب"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:329
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:743
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:340
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:754
 msgid "Minute(s)"
 msgstr "دقیقه"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:340
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:351
 msgid "Other settings"
-msgstr "تنظبمات دیگر"
+msgstr "تنظیمات دیگر"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:345
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:513
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:356
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:524
 msgid "Disable Web Page Preview"
 msgstr "غیر فعال کردن پیش نمایش"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:346
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:725
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:357
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:736
 msgid "Disable Notifications"
 msgstr "غیرفعال کردن اعلانها"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:368
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:379
 msgid "WordPress cron should not be disabled!"
-msgstr "در وردپرس cron باید فعال باشد!"
+msgstr "در وردپرس cron نباید غیرفعال باشد!"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:371
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:382
 msgid "The delay starts after the post gets published."
 msgstr "تاخیر بعد از منتشر شدن پست، شروع می شود."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:396
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:407
 msgid "Post Data"
 msgstr "داده های مطلب"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:410
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:421
 msgid "Taxonomy Terms"
-msgstr "طبقه بندی شرایط"
+msgstr "شرایط طبقه بندی"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:418
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:429
 msgid "Custom Fields"
 msgstr "ورودی های دلخواه"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:425
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:436
 #, php-format
 msgid ""
 "Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
@@ -701,107 +711,107 @@ msgid ""
 msgstr ""
 "%1$s را توسط نام دسته بندی به %2$s تغییر دهید تا شرایط را به پست ضمیمه کنید."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:425
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:427
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:436
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:438
 #, php-format
 msgid "For example %1$s and %2$s in WooCommerce"
-msgstr "به عنوان مثال %1$s و %2$s در WooCommerce"
+msgstr "به عنوان مثال %1$s و %2$s در ووکامرس"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:427
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:438
 #, php-format
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr "%1$s را به %2$s توسط ورودی دلخواه تغییر دهید."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:483
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:494
 msgid "Members Count:"
 msgstr "تعداد کاربران:"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:512
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:523
 #, php-format
 msgid "%1$s should not be %2$s"
 msgstr "%1$s نباید %2$s باشد"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:513
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:524
 #, php-format
 msgid "%s should not be checked"
 msgstr "%s نباید انتخاب شود"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:532
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:543
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:75
 msgid "AND"
 msgstr "و"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:695
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:706
 msgid "Send to Telegram"
 msgstr "ارسال به تلگرام"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:700
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:711
 msgid "Yes"
 msgstr "بله"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:701
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:712
 msgid "No"
 msgstr "خیر"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:706
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:717
 msgid "Override settings"
-msgstr "لغو تنظیمات"
+msgstr "تغییر تنظیمات"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:715
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:726
 msgid "Send to"
-msgstr "راسال به"
+msgstr "ارسال به"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:733
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:744
 msgid "Files"
 msgstr "فابل ها"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:734
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:745
 msgid "Files to be sent after the message"
 msgstr "فایل های ارسالی بعد از پست"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:872
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:883
 msgid "Create a Channel/group/supergroup"
 msgstr "ایجاد یک کانال/گروه / سوپرگروه"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:873
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:884
 msgid "Add the Bot as Administrator to your Channel/Group"
-msgstr "ربات را اضافه کنید به عنوان مدیریت به کانال / گروه خود"
+msgstr "ربات را به عنوان مدیر به کانال / گروه خود اضافه کنید"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:874
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:885
 msgid "Enter the Channel Username in the field below"
-msgstr "نام کاربری کانال را در مدخل زیر وارد کنید"
+msgstr "نام کاربری کانال را در فیلد زیر وارد کنید"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:876
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:887
 #, php-format
 msgid "Username must start with %s"
-msgstr "نام کاربری باید با موارد زیر شروع شود %s"
+msgstr "نام کاربری باید با %s شروع شود"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:877
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:888
 msgid "You can also use the Chat ID of a group or private chat."
-msgstr "شما همچنین میتوانید از شناسه گفتگوی یک گروه خصوصی استفاده کنید."
+msgstr "شما همچنین میتوانید از شناسه چت یک گروه یا چت خصوصی استفاده کنید."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:877
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:888
 #, php-format
 msgid "Get it from %s"
 msgstr "آنرا از %s دریافت کنید"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:880
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:891
 msgid "That's it. You are ready to rock :)"
 msgstr "خودشه. شما آماده اید که بدرخشید :)"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:910
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:922
 msgid "There was some error!"
 msgstr "مشکلی پیش آمد!"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:916
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:928
 msgid "Channel"
 msgstr "کانال"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:917
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:929
 msgid "Error code"
 msgstr "کد خطا"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:918
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:930
 msgid "Error message"
 msgstr "پبام خطا"
 
@@ -817,15 +827,15 @@ msgstr "افزودن"
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:179
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:180
 msgid "Post"
-msgstr "ارسال ممطلب"
+msgstr "نوشته"
 
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:181
 msgid "Post Category"
-msgstr "گروه پست"
+msgstr "دسته بندی نوشته"
 
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:182
 msgid "Post Tag"
-msgstr "تگ پست"
+msgstr "برچسب نوشته"
 
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:183
 msgid "Post Format"
@@ -841,88 +851,91 @@ msgstr "دسته بندی دلخواه"
 
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:201
 msgid "is in"
-msgstr "هست"
+msgstr "هست در"
 
 #: modules/p2tg/class-wptelegram-p2tg-rules.php:202
 msgid "is not in"
-msgstr "نیست"
+msgstr "نیست در"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:73
+#: modules/proxy/class-wptelegram-proxy-admin.php:74
 msgid ""
 "The module will help you bypass the ban on Telegram by making use of proxy."
 msgstr ""
 "این ماژول به شما کمک می کند با استفاده از پروکسی از فیلترینگ تلگرام عبور "
 "کنید."
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:84
+#: modules/proxy/class-wptelegram-proxy-admin.php:79
+msgid "DISCLAIMER!"
+msgstr "رفع مسئولیت!"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:96
 msgid "Proxy Method"
 msgstr "نوع پراکسی"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:94
+#: modules/proxy/class-wptelegram-proxy-admin.php:106
 msgid "Google Script is preferred"
 msgstr "گوگل اسکریپت ترجیح داده می شود"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:96
-#: modules/proxy/class-wptelegram-proxy-admin.php:102
+#: modules/proxy/class-wptelegram-proxy-admin.php:108
+#: modules/proxy/class-wptelegram-proxy-admin.php:114
 msgid "Google Script"
 msgstr "گوگل اسکریپت"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:97
-#: modules/proxy/class-wptelegram-proxy-admin.php:117
+#: modules/proxy/class-wptelegram-proxy-admin.php:109
+#: modules/proxy/class-wptelegram-proxy-admin.php:129
 msgid "PHP Proxy"
 msgstr "PHP پراکسی"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:109
+#: modules/proxy/class-wptelegram-proxy-admin.php:121
 msgid "Google Script URL"
-msgstr "آدرس اینترنتی گوگل اسکریپت"
+msgstr "لینک گوگل اسکریپت"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:111
+#: modules/proxy/class-wptelegram-proxy-admin.php:123
 msgid "The requests to Telegram will be sent via your Google Script."
 msgstr "درخواست ها توسط گوگل اسکریپت برای تلگرام ارسال می شوند."
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:111
+#: modules/proxy/class-wptelegram-proxy-admin.php:123
 msgid "See this tutorial"
 msgstr "این آموزش را ببینید"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:124
+#: modules/proxy/class-wptelegram-proxy-admin.php:136
 msgid "Proxy Host"
 msgstr "هاست پراکسی"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:127
+#: modules/proxy/class-wptelegram-proxy-admin.php:139
 #, php-format
 msgid "Host IP or domian name like %s"
-msgstr "آی پی یا دامنه هاست مانند %s"
+msgstr "آی پی یا نام دامنه هاست مانند %s"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:132
+#: modules/proxy/class-wptelegram-proxy-admin.php:144
 msgid "Proxy Port"
 msgstr "پورت پراکسی"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:135
+#: modules/proxy/class-wptelegram-proxy-admin.php:147
 #, php-format
 msgid "Target Port like %s"
 msgstr "پورت هدف مانند %s"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:140
+#: modules/proxy/class-wptelegram-proxy-admin.php:152
 msgid "Proxy Type"
 msgstr "نوع پراکسی"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:155
+#: modules/proxy/class-wptelegram-proxy-admin.php:167
 msgid "Username"
 msgstr "نام کاربری"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:158
-#: modules/proxy/class-wptelegram-proxy-admin.php:166
+#: modules/proxy/class-wptelegram-proxy-admin.php:170
+#: modules/proxy/class-wptelegram-proxy-admin.php:178
 msgid "Leave empty if not required"
 msgstr "اگر لازم نیست، خالی بگذارید"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:163
+#: modules/proxy/class-wptelegram-proxy-admin.php:175
 msgid "Password"
 msgstr "رمز عبور"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:180
-msgid "DISCLAIMER!"
-msgstr "رفع مسئولیت!"
-
-#: modules/proxy/class-wptelegram-proxy-admin.php:181
+#: modules/proxy/class-wptelegram-proxy-admin.php:193
 msgid "Use the proxy at your own risk!"
-msgstr "پراکسی را با ریسک خود استفاده کنید!"
+msgstr "پراکسی را با مسئولیت خود استفاده کنید!"
+
+#~ msgid "Ask in %s"
+#~ msgstr "در %s بپرسید"

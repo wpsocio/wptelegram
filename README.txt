@@ -3,9 +3,9 @@ Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 3.8
-Tested up to: 4.9.8
+Tested up to: 5.1
 Requires PHP: 5.2.4
-Stable tag: 2.0.12
+Stable tag: 2.0.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,8 @@ For rules, see the pinned message. No spam please.
 * Can be extended with custom code
 * Translation ready
 
+https://www.youtube.com/watch?v=MFTQo3ObWmc
+
 **Get in touch**
 
 *	Website [wptelegram.com](https://wptelegram.com)
@@ -124,8 +126,23 @@ Note: You can also contribute in translating this plugin into your local languag
 
 == Changelog ==
 
+= 2.0.16 =
+* Fixed the HTML bug in Notifications
+
+= 2.0.15 =
+* Fixed the PHP fatal error
+
+= 2.0.14 =
+* Fixed the PHP fatal error
+
 = 2.0.13 =
+* Added fixes for WP 5+
+* Fixed double posting by block editor
+* Fixed the issue with Override Options not expanding in Block Editor
+* Improved the logging to include logs about featured image
 * Removed the override metabox from the post types not chosen to be sent
+* Added tutorial videos in the sidebar
+* Updated CMB2
 
 = 2.0.12 =
 * Fixed the Notification issue caused by some faulty plugins

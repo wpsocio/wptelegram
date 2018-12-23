@@ -112,17 +112,12 @@ class WPTelegram_Logger {
 
 		add_filter( 'wptelegram_p2tg_rules_apply', array( $this, 'add_rules_apply' ), 10, 3 );
 
+		add_filter( 'wptelegram_p2tg_featured_image_source', array( $this, 'add_featured_image_source' ), 10, 4 );
+
 		add_action( 'wptelegram_p2tg_post_finish', array( $this, 'add_post_finish' ), 10, 5 );
 
 		add_action( 'wptelegram_p2tg_after_send_post', array( $this, 'after_p2tg_log' ), 10, 3 );
 	}
-
-	/**
-	 * Add the data to post info array
-	 */
-	/*public function add_to_post_info() {
-		return $post->ID . '-' . $post->post_status;
-	}*/
 
 	/**
 	 * Get the key from post
@@ -141,6 +136,7 @@ class WPTelegram_Logger {
 
 		$this->p2tg_post_info[ $key ][] = array(
 			'hook'		=> 'before',
+			'trigger'	=> $trigger,
 		);
 	}
 
@@ -172,6 +168,25 @@ class WPTelegram_Logger {
 		);
 
 		return $rules_apply;
+	}
+
+	/**
+	 * Add rules_apply info
+	 */
+	public function add_featured_image_source( $source, $post, $options, $send_files_by_url ) {
+
+		// create a an entry from post ID and its status
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ][] = array(
+			'hook'			=> 'image_source',
+			'send_image'	=> $options->get( 'send_featured_image' ),
+			'has_image'		=> has_post_thumbnail( $post->ID ),
+			'send_by_url'	=> $send_files_by_url,
+			'source'		=> $source,
+		);
+
+		return $source;
 	}
 
 	/**

@@ -112,7 +112,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 */
 	public function __construct( $module_name, $module_title ) {
 
@@ -124,7 +124,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Set up the basics
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 * 
 	 * @param	$post	WP_Post
 	 */
@@ -142,7 +142,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Get default options
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 */
 	public static function get_defaults() {
 		$array = array();
@@ -173,7 +173,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Get Post To Telegram options
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 */
 	public function get_saved_options() {
 
@@ -191,7 +191,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle wp_insert_post
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 *
 	 * @param	$post_id	int
 	 * @param	$post		WP_Post
@@ -204,7 +204,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle Scheduled Post
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 *
 	 * @param	$post	WP_Post
 	 */
@@ -221,7 +221,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle Delayed Post
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 *
 	 * @param	$post_id	string
 	 */
@@ -236,9 +236,21 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	}
 
 	/**
+	 * Handle the post published via WP REST API
+	 *
+	 * @since	2.0.13
+	 *
+	 * @param	$post	WP_Post
+	 */
+	public function wp_rest_post( $post ) {
+
+		$this->send_post( $post, __FUNCTION__ );
+	}
+
+	/**
 	 * May be send the post to Telegram, if rules apply
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 *
 	 * @param	WP_Post	$post		The post to be handled
 	 * @param	string	$trigger	The name of the source trigger hook
@@ -276,20 +288,33 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			return __LINE__;
 		}
 
-		// if already processed in the current request
+		// if already processed in the current/recent request
 		if ( in_array( $post->ID, self::$processed_posts ) ) {
 			return __LINE__;
 		}
 
 		$ok = true;
 
-		$validity = $this->security_and_validity_check();
+		// if the post is published/updated using WP REST API
+		$is_rest = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+
+		// if WP 5+ and not doing "rest_after_insert_{$post_type}" action
+		if ( $is_rest && WPTG()->utils->wp_at_least( '5.0' ) && current_filter() != ( $tag = 'rest_after_insert_' . self::$post->post_type ) ) {
+
+			// avoid the Gutenberg mess
+			if ( ! WPTG()->utils->is_gutenberg_post( $post ) ) {
+				// come back later
+				add_action( $tag, array( $this, 'wp_rest_post' ), 10, 1 );
+			}
+
+			$ok = false;
+		}
 
 		/**
 		 * if the security check failed
 		 * returned int (the line number) or boolean (false)
 		 */
-		if ( true !== $validity ) {
+		if ( $ok && true !== ( $validity = $this->security_and_validity_check() ) ) {
 
 			$ok = false;
 
@@ -319,7 +344,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			}
 		}
 
-		if ( $this->is_valid_status( array( 'publish' ) ) || ( $ok && $delay = $this->delay_in_posting( $trigger ) ) ) {
+		if ( $this->is_valid_status( array( 'publish' ) ) || ( $ok && ( $delay = $this->delay_in_posting( $trigger ) ) ) ) {
 
 			$this->may_be_save_options();
 
@@ -464,7 +489,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * This function was actually a requirement
 	 * to check which condition actually failed
 	 *
-	 * @since	1.0.0
+	 * @since	2.0.0
 	 *
 	 */
 	private function security_and_validity_check() {
@@ -474,18 +499,17 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			return __LINE__;
 		}
 
+		$send_if_bulk_edit = (bool) apply_filters( 'wptelegram_p2tg_send_if_bulk_edit', false, self::$post );
+
 		// if bulk edit
-		if ( isset( $_GET['bulk_edit'] ) ) {
+		if ( isset( $_GET['bulk_edit'] ) && ! $send_if_bulk_edit ) {
 			return __LINE__;
 		}
+
+		$send_if_quick_edit = (bool) apply_filters( 'wptelegram_p2tg_send_if_quick_edit', false, self::$post );
 
 		// if quick edit
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'inline-save' == $_REQUEST['action'] ) {
-			return __LINE__;
-		}
-
-		// avoid the gutenberg mess
-		if ( ! empty( $_REQUEST['classic-editor'] ) ) {
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'inline-save' == $_REQUEST['action'] && ! $send_if_quick_edit ) {
 			return __LINE__;
 		}
 
@@ -652,9 +676,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * Clean up the meta table
+	 * Clean up the meta table etc.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	public static function clean_up() {
 
@@ -1210,10 +1234,10 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		// apply the callback to each value
 		$macro_values = array_map( $callback, $macro_values );
 
-		// replace macros with values
+		// replace the lone macros with values
 		$text = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $template );
 
-		// decode all html entities
+		// decode all HTML entities
 		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
 
 		// fix the malformed text

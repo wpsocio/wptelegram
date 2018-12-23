@@ -75,6 +75,8 @@ class WPTelegram_Proxy extends WPTelegram_Module {
 
 		$this->loader->add_action( 'cmb2_admin_init', $admin, 'create_options_page' );
 
+		$this->loader->add_action( 'wptelegram_settings_sidebar_row', $admin, 'add_sidebar_row', 10, 2 );
+
 	}
 
 	/**

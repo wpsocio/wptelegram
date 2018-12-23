@@ -87,21 +87,32 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			'id'			=> $this->plugin_name . '_' . $this->module_name,
 			'parent_slug'	=> $this->plugin_name,
 			'title'			=> $this->plugin_title . ' &rsaquo; ' . $this->module_title,
-			'menu_title'    => $this->module_title,
+			'menu_title'	=> $this->module_title,
 			'object_types'	=> array( 'options-page' ),
 			'option_key'	=> $this->plugin_name . '_' . $this->module_name,
 			'icon_url'		=> WPTELEGRAM_URL . '/admin/icons/icon-16x16-white.svg',
 			'capability'	=> 'manage_options',
-			'classes'       => 'wptelegram-box',
-            'desc'			=> __( 'With this module, you can configure how the posts are sent to Telegram', 'wptelegram' ),
+			'classes'		=> 'wptelegram-box',
+			'display_cb'	=> array( WPTG()->helpers, 'render_cmb2_options_page' ),
+			'desc'			=> __( 'With this module, you can configure how the posts are sent to Telegram', 'wptelegram' ),
 		);
 		$cmb2 = new_cmb2_box( $box );
 
+		$cmb2->add_field( array(
+			'name' 		=> __( 'INSTRUCTIONS!','wptelegram' ),
+			'type' 		=> 'title',
+			'id'   		=> 'instructions_title',
+			'classes'	=> 'highlight',
+		) );
+
 		// Instructions
 		$cmb2->add_field( array(
-			'type'			=> 'title',
-			'id'			=> 'intro_title',
-			'after'			=> array( $this, 'intro' ),
+			'name'			=> '',
+			'type'			=> 'text', // fake
+			'show_names'	=> false,
+			'save_field'	=> false,
+			'id'			=> 'telegram_guide',
+			'render_row_cb'	=> array( __CLASS__, 'render_telegram_guide' ),
 		) );
 
 		$cmb2->add_field( array(
@@ -380,9 +391,11 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	public function message_template_after_cb() {
 		?>
 		<p><?php esc_html_e( 'You can use any text, emojis or these macros in any order:', 'wptelegram' ); ?> <b><i>(<?php esc_html_e( 'Click to insert', 'wptelegram' ); ?>)</i></b></p>
-		<?php
 
-		$this->render_macros();
+		<p><b><?php esc_html_e( 'You can also use conditional logic in the template', 'wptelegram' ); ?></b> 😉 <a href="https://core.telegram.org/bots/api/#formatting-options" target="_blank"><?php esc_html_e( 'Learn more', 'wptelegram' ); ?></a></p>
+
+		<?php $this->render_macros(); ?>
+		<?php
 	}
 
 	/**
@@ -866,19 +879,20 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 * @param  object $field_args Current field args
 	 * @param  object $field      Current field object
 	 */
-	public function intro( $field_args, $field ) { ?>
-		<p style="color:#f10e0e;"><b><?php echo __( 'INSTRUCTIONS!','wptelegram' ); ?></b></p>
-		<ol>
-			<li><?php esc_html_e( 'Create a Channel/group/supergroup', 'wptelegram' ); ?></li>
-			<li><?php esc_html_e( 'Add the Bot as Administrator to your Channel/Group', 'wptelegram' ); ?></li>
-			<li><?php esc_html_e( 'Enter the Channel Username in the field below', 'wptelegram' ); ?></li>
-				<ol style="list-style-type: disc;">
-					<li><?php echo sprintf( __( 'Username must start with %s', 'wptelegram' ), '<code>@</code>' ); ?></li>
-					<li><?php esc_html_e( 'You can also use the Chat ID of a group or private chat.', 'wptelegram' ); ?>&nbsp;<?php printf( __( 'Get it from %s', 'wptelegram' ), '<a href="https://t.me/MyChatInfoBot" target="_blank">@MyChatInfoBot</a>' ); ?></li>
-				</ol>
-			<li><?php printf( __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes' ) . '</b>' ); ?></li>
-			<li><?php esc_html_e( 'That\'s it. You are ready to rock :)', 'wptelegram' ); ?></li>
-		</ol>
+	public static function render_telegram_guide( $field_args, $field ) { ?>
+		<div class="cmb-row cmb-type-text cmb2-id-telegram_guide">
+			<ol>
+				<li><?php esc_html_e( 'Create a Channel/group/supergroup', 'wptelegram' ); ?></li>
+				<li><?php esc_html_e( 'Add the Bot as Administrator to your Channel/Group', 'wptelegram' ); ?></li>
+				<li><?php esc_html_e( 'Enter the Channel Username in the field below', 'wptelegram' ); ?></li>
+					<ol style="list-style-type: disc;">
+						<li><?php echo sprintf( __( 'Username must start with %s', 'wptelegram' ), '<code>@</code>' ); ?></li>
+						<li><?php esc_html_e( 'You can also use the Chat ID of a group or private chat.', 'wptelegram' ); ?>&nbsp;<?php printf( __( 'Get it from %s', 'wptelegram' ), '<a href="https://t.me/MyChatInfoBot" target="_blank">@MyChatInfoBot</a>' ); ?></li>
+					</ol>
+				<li><?php printf( __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes' ) . '</b>' ); ?></li>
+				<li><?php esc_html_e( 'That\'s it. You are ready to rock :)', 'wptelegram' ); ?></li>
+			</ol>
+		</div>
 		<?php
 	}
 
@@ -939,5 +953,18 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			<?php
 		}
 		delete_transient( $transient );
+	}
+
+	/**
+	 * Add admin sidebar content 
+	 *
+	 * @since  2.0.13
+	 */
+	public function add_sidebar_row( $object_id, $hookup ) {
+		if ( 'wptelegram_p2tg' === $object_id ) : ?>
+			<div class="cell">
+				<iframe src="https://www.youtube.com/embed/MFTQo3ObWmc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		<?php endif;
 	}
 }

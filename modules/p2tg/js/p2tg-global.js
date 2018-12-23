@@ -5,8 +5,7 @@
 
     p2tg.configure = function(){
         p2tg.$page = $('.wp-admin.post-php,.wp-admin.post-new-php');
-        p2tg.$form = p2tg.$page.find('form#post');
-        p2tg.metabox = p2tg.$form.find('#wptelegram_p2tg_override');
+        p2tg.metabox = p2tg.$page.find('#wptelegram_p2tg_override');
     };
 
     p2tg.init = function(){

@@ -69,15 +69,27 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 			'option_key'	=> $this->plugin_name . '_' . $this->module_name,
 			'icon_url'		=> WPTELEGRAM_URL . '/admin/icons/icon-16x16-white.svg',
 			'capability'	=> 'manage_options',
-			'classes'       => 'wptelegram-box',
-            'desc'			=> __( 'The module will help you bypass the ban on Telegram by making use of proxy.', 'wptelegram' ),
+			'classes'		=> 'wptelegram-box',
+			'display_cb'	=> array( WPTG()->helpers, 'render_cmb2_options_page' ),
+			'desc'			=> __( 'The module will help you bypass the ban on Telegram by making use of proxy.', 'wptelegram' ),
 		);
 		$cmb2 = new_cmb2_box( $box );
 
 		$cmb2->add_field( array(
-			'type'          => 'title',
-			'id'            => 'intro_title',
-			'after'         => array( __CLASS__, 'intro' ),
+			'name' 		=> __( 'DISCLAIMER!','wptelegram' ),
+			'type' 		=> 'title',
+			'id'   		=> 'instructions_title',
+			'classes'	=> 'highlight',
+		) );
+
+		// Instructions
+		$cmb2->add_field( array(
+			'name'			=> '',
+			'type'			=> 'text', // fake
+			'show_names'	=> false,
+			'save_field'	=> false,
+			'id'			=> 'telegram_guide',
+			'render_row_cb'	=> array( __CLASS__, 'render_telegram_guide' ),
 		) );
 
 		$cmb2->add_field( array(
@@ -94,7 +106,7 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 			'desc'			=> __( 'Google Script is preferred', 'wptelegram' ),
 			'options'		=> array(
 				'google_script'	=> __( 'Google Script', 'wptelegram' ),
-                'php_proxy'		=> __( 'PHP Proxy', 'wptelegram' ),
+				'php_proxy'		=> __( 'PHP Proxy', 'wptelegram' ),
 			),
 		) );
 
@@ -143,10 +155,10 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 			'default'   => 'CURLPROXY_HTTP',
 			'options'   => array(
 				'CURLPROXY_HTTP'            => 'HTTP',
-                'CURLPROXY_SOCKS4'          => 'SOCKS4',
-                'CURLPROXY_SOCKS4A'         => 'SOCKS4A',
-                'CURLPROXY_SOCKS5'          => 'SOCKS5',
-                'CURLPROXY_SOCKS5_HOSTNAME' => 'SOCKS5_HOSTNAME',
+				'CURLPROXY_SOCKS4'          => 'SOCKS4',
+				'CURLPROXY_SOCKS4A'         => 'SOCKS4A',
+				'CURLPROXY_SOCKS5'          => 'SOCKS5',
+				'CURLPROXY_SOCKS5_HOSTNAME' => 'SOCKS5_HOSTNAME',
 			),
 			'classes'       => 'php-proxy',
 		) );
@@ -176,9 +188,10 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 	 * @param  object $field_args Current field args
 	 * @param  object $field      Current field object
 	 */
-	public static function intro( $field_args, $field ) { ?>
-		<p style="color:#f10e0e;"><b><?php echo __( 'DISCLAIMER!','wptelegram'); ?></b></p>
-		<p><?php _e( 'Use the proxy at your own risk!', 'wptelegram' ); ?></p>
+	public static function render_telegram_guide( $field_args, $field ) { ?>
+		<div class="cmb-row cmb-type-text cmb2-id-telegram_guide">
+			<span><?php _e( 'Use the proxy at your own risk!', 'wptelegram' ); ?></span>
+		</div>
 		<?php
 	}
 
@@ -300,5 +313,18 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 			$html .= '<a class="btn" href="#"><code>' . esc_html__( $macro ) . '</code></a>';
 		}
 		return $html;
+	}
+
+	/**
+	 * Add admin sidebar content 
+	 *
+	 * @since  2.0.13
+	 */
+	public function add_sidebar_row( $object_id, $hookup ) {
+		if ( 'wptelegram_proxy' === $object_id ) : ?>
+			<div class="cell">
+				<iframe src="https://www.youtube.com/embed/B4pCZNW8qrw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		<?php endif;
 	}
 }

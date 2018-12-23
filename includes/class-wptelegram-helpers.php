@@ -95,6 +95,38 @@ class WPTelegram_Helpers {
 	}
 
 	/**
+	 * Display options-page output
+	 *
+	 * @since  2.0.13
+	 */
+	public function render_cmb2_options_page( $hookup ) {
+
+		$tabs = $hookup->get_tab_group_tabs();
+		?>
+		<div class="wrap wrap-wptelegram cmb2-options-page option-<?php echo $hookup->option_key; ?>">
+			<?php if ( $hookup->cmb->prop( 'title' ) ) : ?>
+				<h2><?php echo wp_kses_post( $hookup->cmb->prop( 'title' ) ); ?></h2>
+			<?php endif; ?>
+			<?php if ( ! empty( $tabs ) ) : ?>
+				<h2 class="nav-tab-wrapper">
+					<?php foreach ( $tabs as $option_key => $tab_title ) :
+					?>
+						<a class="nav-tab<?php if ( call_user_func( get_class( $hookup ) . '::is_page', $option_key ) ) : ?> nav-tab-active<?php endif; ?>" href="<?php menu_page_url( $option_key ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
+					<?php endforeach; ?>
+				</h2>
+			<?php endif; ?>
+			<?php do_action( 'wptelegram_before_cmb2_form',  $hookup ); ?>
+			<form class="cmb-form wptelegram-form wptelegram-column-1" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo $hookup->cmb->cmb_id; ?>" enctype="multipart/form-data" encoding="multipart/form-data">
+				<input type="hidden" name="action" value="<?php echo esc_attr( $hookup->option_key ); ?>">
+				<?php $hookup->options_page_metabox(); ?>
+				<?php submit_button( esc_attr( $hookup->cmb->prop( 'save_button' ) ), 'primary', 'submit-cmb' ); ?>
+			</form>
+			<?php do_action( 'wptelegram_after_cmb2_form', $hookup ); ?>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Get the HTML for displaying the error message
 	 *
 	 * @since 1.0.0

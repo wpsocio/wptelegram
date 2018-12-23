@@ -53,8 +53,6 @@ class WPTelegram_Admin_Header {
 		$tabs = array(
 			'logo',
 			'title',
-			'rating',
-			'help',
 			'social',
 		);
 
@@ -63,7 +61,7 @@ class WPTelegram_Admin_Header {
 			<table>
 				<tr>
 					<?php foreach ( $tabs as $tab ) : ?>
-						<td><?php call_user_func( array( $this, "render_{$tab}" ) ); ?></td>
+						<td <?php if ( 'title' === $tab ) echo 'colspan="2"'; ?>><?php call_user_func( array( $this, "render_{$tab}" ) ); ?></td>
 					<?php endforeach; ?>
 				</tr>
 			</table>
@@ -92,41 +90,6 @@ class WPTelegram_Admin_Header {
 	public function render_title() {
 		?>
 		<div class="wptelegram-title"><h1><?php echo esc_html( sprintf( '%1$s %2$s', $this->plugin->get_plugin_title(), $this->plugin->get_version() ) ); ?></h1></div>
-		<?php
-	}
-
-	/**
-	 * Render the rating
-	 *
-	 * @since    2.0.13
-	 */
-	public function render_rating() {
-		?>
-		<div class="">
-			<p>
-				<?php printf( __( 'Do you like %s?', $this->plugin->get_text_domain() ), $this->plugin->get_plugin_title() ); ?>
-				<br>
-				<a href="https://wordpress.org/support/plugin/wptelegram/reviews/#new-post" target="_blank"><?php _e( 'Give it a rating', $this->plugin->get_text_domain() ); ?></a>
-				<br>
-				<a href="https://wordpress.org/support/plugin/wptelegram/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( $this->plugin->get_url() . '/admin/icons/5_stars.svg' ); ?>" alt="<?php echo $this->plugin->get_plugin_title(); ?>" /></a>
-			</p>		
-		</div>
-		<?php
-	}
-
-	/**
-	 * Render the help
-	 *
-	 * @since    2.0.13
-	 */
-	public function render_help() {
-		?>
-		<div class="">
-			<p><?php echo esc_html__( 'Need help?', $this->plugin->get_text_domain() ) . '<br>';
-			printf( __( 'Ask in %s', $this->plugin->get_text_domain() ), '👇' ); ?></p>
-			<a href="https://t.me/WPTelegramChat" class="telegram-follow-button btn" target="_blank">
-			<img src="<?php echo esc_url( $this->plugin->get_url() . '/admin/icons/tg-icon.svg' ); ?>" alt="WPTelegramChat" />&nbsp;@WPTelegramChat</a>
-		</div>
 		<?php
 	}
 
@@ -161,7 +124,6 @@ class WPTelegram_Admin_Header {
 				  fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));</script>
 				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 			</div>
 		</div>
 		<?php
