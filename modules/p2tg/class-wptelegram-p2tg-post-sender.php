@@ -1234,6 +1234,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		// apply the callback to each value
 		$macro_values = array_map( $callback, $macro_values );
 
+		// lets replace the conditional macros
+		$template = $this->process_template_logic( $template, $macro_values );
+
 		// replace the lone macros with values
 		$text = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $template );
 
@@ -1244,6 +1247,46 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$text = WPTG()->helpers->filter_text_for_parse_mode( $text, $parse_mode );
 
 		return apply_filters( 'wptelegram_p2tg_response_text', $text, $template, self::$post, $this->options );
+	}
+
+	/**
+	 * Resolve the conditional macros in the template
+	 *
+	 * @since	2.0.17
+	 *
+	 * @return	string
+	 */
+	private function process_template_logic( $template, $macro_values ) {
+
+		$raw_template = $template;
+
+		$pattern = '/\[if\s*?	# Conditional block starts
+			(\{[^\}]+?\})		# Conditional expression, a macro
+		\]						# Conditional block ends
+		\[						# Consequence block starts
+			([^\]]+?)			# Consequence expression
+		\]						# Consequence block ends
+		(?:						# non-capturing alternative block
+			\[					# Alternative block starts
+				([^\]]*?)		# Alternative expression
+			\]					# Alternative block ends
+		)?						# Make alternative block optional
+		/ix';
+
+		preg_match_all( $pattern, $template, $matches );
+
+		// loop through the conditional expressions
+		foreach ( $matches[1] as $key => $macro ) {
+
+			// if expression is false, take from alternative
+			$index = empty( $macro_values[ $macro ] ) ? 3 : 2;
+
+			$replace = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $matches[ $index ][ $key ] );
+
+			$template = str_replace( $matches[0][ $key ], $replace, $template );
+		}
+
+		return apply_filters( 'wptelegram_p2tg_process_template_logic', $template, $macro_values, $raw_template, self::$post, $this->options );
 	}
 
 	/**

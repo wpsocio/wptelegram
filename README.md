@@ -3,8 +3,8 @@
 **Contributors:**      [manzoorwanijk](https://github.com/manzoorwanijk)  
 **Tags:**              telegram, notifications, posts, channel, group  
 **Requires at least:** 3.8.0  
-**Tested up to:**      5.2  
-**Stable tag:**        2.0.16  
+**Tested up to:**      5.0.2  
+**Stable tag:**        2.0.19  
 **License:**           GPLv2 or later  
 **License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
 

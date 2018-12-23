@@ -507,6 +507,13 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				<?php endif; ?>
 
 				<?php do_action( 'wptelegram_settings_sidebar_row', $object_id, $hookup ); ?>
+
+
+				<div class="cell">
+					<h3><?php _e( 'What is NEW?', WPTG()->get_text_domain() ); ?></h3>
+					<p>Conditional Logic in Message Template</p>
+					<iframe src="https://www.youtube.com/embed/rAFCY4haTiM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
 				
 			</div>
 			<div class="footer">

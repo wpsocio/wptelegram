@@ -3,9 +3,9 @@ Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 3.8
-Tested up to: 5.1
+Tested up to: 5.0.2
 Requires PHP: 5.2.4
-Stable tag: 2.0.16
+Stable tag: 2.0.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -125,6 +125,9 @@ Note: You can also contribute in translating this plugin into your local languag
 11. P2TG Post Edit Page
 
 == Changelog ==
+
+= 2.0.19 =
+* Added the conditional logic for Message Template
 
 = 2.0.16 =
 * Fixed the HTML bug in Notifications

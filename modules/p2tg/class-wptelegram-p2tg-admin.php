@@ -392,7 +392,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		?>
 		<p><?php esc_html_e( 'You can use any text, emojis or these macros in any order:', 'wptelegram' ); ?> <b><i>(<?php esc_html_e( 'Click to insert', 'wptelegram' ); ?>)</i></b></p>
 
-		<p><b><?php esc_html_e( 'You can also use conditional logic in the template', 'wptelegram' ); ?></b> 😉 <a href="https://core.telegram.org/bots/api/#formatting-options" target="_blank"><?php esc_html_e( 'Learn more', 'wptelegram' ); ?></a></p>
+		<p><b><?php esc_html_e( 'You can also use conditional logic in the template', 'wptelegram' ); ?></b> 😉 <a href="https://www.youtube.com/watch?v=rAFCY4haTiM" target="_blank"><?php esc_html_e( 'Learn more', 'wptelegram' ); ?></a></p>
 
 		<?php $this->render_macros(); ?>
 		<?php
