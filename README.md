@@ -24,8 +24,9 @@ Integrate your WordPress site perfectly with Telegram with full control.
 **1. Post to Telegram**
 * 📝 Send posts automatically to Telegram when published or updated
 * 📢 You can send to a Telegram Channel, Group, Supergroup or private chat
-* 👥Supports multiple Channels/chats
+* 👥 Supports multiple Channels/chats
 * 🙂 Has Message Template composer with Emojis
+* ⏳ Supports Conditional logic inside Message Template
 * 🖼 Supports sending featured image along with the text
 * 🏞 You can choose to send only the Featured Image
 * ⏱ Supports scheduled (future) posts
