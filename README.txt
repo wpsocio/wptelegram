@@ -29,6 +29,7 @@ For rules, see the pinned message. No spam please.
 * 📢 You can send to a Telegram Channel, Group, Supergroup or private chat
 * 👥 Supports multiple Channels/chats
 * 🙂 Has Message Template composer with Emojis
+* ⏳ Supports Conditional logic inside Message Template
 * 🖼 Supports sending featured image along with the text
 * 🏞 You can choose to send only the Featured Image
 * ⏱ Supports scheduled (future) posts
