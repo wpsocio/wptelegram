@@ -1,0 +1,937 @@
+# Copyright (C) 2017 WP Telegram
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Telegram 2.0.12\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
+"POT-Creation-Date: 2019-03-26 13:51:56+00:00\n"
+"PO-Revision-Date: 2018-12-23 23:06+0530\n"
+"Last-Translator: \n"
+"Language-Team: WPTelegram\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: __;_e;_x;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: includes/cmb2\n"
+
+#: admin/class-wptelegram-admin.php:88
+msgid "Could not connect"
+msgstr "Нет подключения"
+
+#: admin/class-wptelegram-admin.php:89 admin/class-wptelegram-admin.php:670
+msgid "Bot Token is empty"
+msgstr "Токен бота пустой"
+
+#: admin/class-wptelegram-admin.php:90
+msgid "Username is empty"
+msgstr "Имя пользователя пустое"
+
+#: admin/class-wptelegram-admin.php:91
+msgid "Chat ID is empty"
+msgstr "Идентификатор пустой"
+
+#: admin/class-wptelegram-admin.php:92 admin/class-wptelegram-admin.php:564
+msgid "Invalid Bot Token"
+msgstr "Неверный Токен Бота"
+
+#: admin/class-wptelegram-admin.php:93
+msgid ""
+"A message will be sent to the Channel/Chat. You can modify the text below"
+msgstr ""
+"Сообщение будет отправлено в канал / чат. Вы можете изменить текст ниже"
+
+#: admin/class-wptelegram-admin.php:94
+msgid "This is a test message"
+msgstr "Это тестовое сообщение"
+
+#: admin/class-wptelegram-admin.php:95
+msgid "Please wait..."
+msgstr "Подождите..."
+
+#: admin/class-wptelegram-admin.php:96
+msgid "Choose"
+msgstr "выберите"
+
+#: admin/class-wptelegram-admin.php:97
+msgid "Success"
+msgstr "Успешно"
+
+#: admin/class-wptelegram-admin.php:98
+msgid "Failure"
+msgstr "Неудачно"
+
+#: admin/class-wptelegram-admin.php:99
+#: modules/notify/class-wptelegram-notify-admin.php:424
+msgid "Error:"
+msgstr "Ошибка:"
+
+#: admin/class-wptelegram-admin.php:115 admin/class-wptelegram-admin.php:596
+msgid "Settings"
+msgstr "Настройки"
+
+#: admin/class-wptelegram-admin.php:181
+msgid ""
+"With this plugin, you can send posts to Telegram and receive notifications "
+"and do lot more :)"
+msgstr ""
+"С помощью этого плагина вы можете отправлять сообщения в Telegram, получать "
+"уведомления и делать многое другое :)"
+
+#: admin/class-wptelegram-admin.php:186
+#: modules/notify/class-wptelegram-notify-admin.php:79
+#: modules/notify/class-wptelegram-notify-admin.php:350
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:101
+msgid "INSTRUCTIONS!"
+msgstr "ИНСТРУКЦИЯ!"
+
+#: admin/class-wptelegram-admin.php:202
+msgid "Telegram Options"
+msgstr "Параметры телеграммы"
+
+#: admin/class-wptelegram-admin.php:208
+msgid "Bot Token"
+msgstr "Токен Бота"
+
+#: admin/class-wptelegram-admin.php:209 admin/class-wptelegram-admin.php:227
+msgid "Test Token"
+msgstr "Проверить токен"
+
+#: admin/class-wptelegram-admin.php:224
+msgid "Bot Username"
+msgstr "Имя пользователя бота"
+
+#: admin/class-wptelegram-admin.php:225
+msgid "Telegram Bot username (without %s)."
+msgstr "Имя пользователя бота (без %s)."
+
+#: admin/class-wptelegram-admin.php:227
+msgid "Use %s to set automatically."
+msgstr "Используйте %s для автоматического заполнения"
+
+#: admin/class-wptelegram-admin.php:243
+msgid "Modules"
+msgstr "Модули"
+
+#: admin/class-wptelegram-admin.php:286
+msgid "Advanced settings"
+msgstr "Дополнительные настройки"
+
+#: admin/class-wptelegram-admin.php:289
+msgid ""
+"Settings in this section should not be changed unless recommended by WP "
+"Telegram Support."
+msgstr ""
+"Настройки в этом разделе не следует изменять, если это не рекомендовано "
+"поддержкой WP Telegram."
+
+#: admin/class-wptelegram-admin.php:292
+msgid "Send files by URL"
+msgstr "Отправка файлов по URL"
+
+#: admin/class-wptelegram-admin.php:293
+msgid "Turn off to upload the files/images instead of passing the url."
+msgstr "Выключите, чтобы загрузить файлы / изображения вместо передачи URL."
+
+#: admin/class-wptelegram-admin.php:294
+msgid "Google Script proxy does not support file upload."
+msgstr "Прокси через Google Script не поддерживает загрузку файлов."
+
+#: admin/class-wptelegram-admin.php:301
+msgid "Enable logs for"
+msgstr "Включить журналы для"
+
+#: admin/class-wptelegram-admin.php:308
+msgid "Bot API"
+msgstr "API-интерфейса бота"
+
+#: admin/class-wptelegram-admin.php:309
+#: includes/class-wptelegram-modules.php:68
+msgid "Post to Telegram"
+msgstr "Отправка публикаций"
+
+#: admin/class-wptelegram-admin.php:313
+msgid "Debug Info"
+msgstr "Отладочная информация"
+
+#: admin/class-wptelegram-admin.php:321
+msgid "Remove settings on uninstall"
+msgstr "Удаление настроек при удалении плагина"
+
+#: admin/class-wptelegram-admin.php:415
+msgid "Settings updated"
+msgstr "настройки обновлены"
+
+#: admin/class-wptelegram-admin.php:431
+msgid "%s is empty"
+msgstr "%s пустой"
+
+#: admin/class-wptelegram-admin.php:433
+msgid "Invalid %s"
+msgstr "недействительность %s"
+
+#: admin/class-wptelegram-admin.php:484
+msgid "Integrate your WordPress website perfectly with Telegram."
+msgstr "Веб-сайт прекрасно взаимодействует с Телеграм"
+
+#: admin/class-wptelegram-admin.php:488
+msgid "Do you like %s?"
+msgstr "Вам нравится %s?"
+
+#: admin/class-wptelegram-admin.php:490
+msgid "Give it a rating"
+msgstr "Присваивайте оценки"
+
+#: admin/class-wptelegram-admin.php:495
+msgid "Need help?"
+msgstr "Нужна помощь?"
+
+#: admin/class-wptelegram-admin.php:497
+msgid "Get LIVE support on Telegram"
+msgstr "Получайте живую поддержку в Телеграм"
+
+#: admin/class-wptelegram-admin.php:513
+msgid "What is NEW?"
+msgstr ""
+
+#: admin/class-wptelegram-admin.php:520
+msgid "Enjoy %s"
+msgstr "Наслаждайтесь %s"
+
+#: admin/class-wptelegram-admin.php:536
+msgid "Create a Bot by sending %s command to %s"
+msgstr "Создайте бота отправив %s команду для %s"
+
+#: admin/class-wptelegram-admin.php:538
+msgid "After completing the steps %s will provide you the Bot Token."
+msgstr "После завершения шагов %s вы получите Токен Бота."
+
+#: admin/class-wptelegram-admin.php:539
+msgid "Copy the token and paste into the Bot Token field below."
+msgstr "Скопируйте Токен и вставьте в поле Токен Бот."
+
+#: admin/class-wptelegram-admin.php:539
+msgid "For ease, use %s"
+msgstr "Для удобства используйте %s"
+
+#: admin/class-wptelegram-admin.php:540
+msgid "Test your bot token below."
+msgstr "Проверьте токен бота ниже."
+
+#: admin/class-wptelegram-admin.php:541
+msgid "Activate the modules you want to use."
+msgstr "Активируйте модули, которые вы хотите использовать."
+
+#: admin/class-wptelegram-admin.php:542
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+msgid "Hit %s below"
+msgstr "Нажмите %s ниже"
+
+#: admin/class-wptelegram-admin.php:542
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: admin/class-wptelegram-admin.php:543
+msgid "Configure the activated modules."
+msgstr "Настройте активированные модули."
+
+#: admin/class-wptelegram-admin.php:544
+msgid "That's it! :)"
+msgstr "Вот и все! :)"
+
+#: admin/class-wptelegram-admin.php:561
+msgid "Test Result:"
+msgstr "Результат теста:"
+
+#: admin/class-wptelegram-admin.php:569
+msgid "Invalid Bot Username"
+msgstr "Неверное имя пользователя бота"
+
+#: admin/partials/class-wptelegram-admin-header.php:104
+msgid "Get connected"
+msgstr "Присоединиться"
+
+#: admin/partials/class-wptelegram-admin-header.php:111
+msgid "Follow %s"
+msgstr "Перейти %s"
+
+#: admin/partials/class-wptelegram-admin-header.php:115
+msgid "Join %s"
+msgstr "Присоединиться %s"
+
+#: includes/class-wptelegram-helpers.php:137
+msgid "You must set the Bot Token first."
+msgstr "Сначала вы должны установить бот-токен."
+
+#: includes/class-wptelegram-helpers.php:137
+msgid "Click here"
+msgstr "кликните сюда"
+
+#: includes/class-wptelegram-modules.php:69
+msgid "Send the posts automatically to a Telegram Channel or group."
+msgstr "Автоматически отправляйте посты в Телеграм-каналы"
+
+#: includes/class-wptelegram-modules.php:72
+msgid "Private Notifications"
+msgstr "Личные уведомления"
+
+#: includes/class-wptelegram-modules.php:73
+msgid "Send your email notifications to Telegram."
+msgstr "Отправляйте email- уведомления в Телеграм"
+
+#: includes/class-wptelegram-modules.php:76
+msgid "Proxy"
+msgstr "Прокси"
+
+#: includes/class-wptelegram-modules.php:77
+msgid "Bypass the ban on Telegram by making use of proxy."
+msgstr "Защита от бана Телеграм благодаря использованию прокси"
+
+#: modules/notify/class-wptelegram-notify-admin.php:74
+msgid ""
+"The module will watch the Email Notifications sent from this site and "
+"deliver them on your Telegram"
+msgstr ""
+"Модуль будет следить за уведомлениями по электронной почте, отправленными с "
+"этого сайта, и доставлять их в чат/группу Telegram."
+
+#: modules/notify/class-wptelegram-notify-admin.php:96
+msgid "Notification Settings"
+msgstr "Настройки уведомлений"
+
+#: modules/notify/class-wptelegram-notify-admin.php:102
+msgid "If Email goes to"
+msgstr "Получать уведомления с этой почты"
+
+#: modules/notify/class-wptelegram-notify-admin.php:104
+msgid "If you want to receive notification for every email, then write %s"
+msgstr ""
+"Если вы хотите получать уведомления с каждой электронной почты, напишите %s"
+
+#: modules/notify/class-wptelegram-notify-admin.php:112
+#: modules/notify/class-wptelegram-notify-admin.php:200
+msgid "Send it to"
+msgstr "Отправлять в"
+
+#: modules/notify/class-wptelegram-notify-admin.php:113
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:125
+msgid "Send Test"
+msgstr "Тестировать"
+
+#: modules/notify/class-wptelegram-notify-admin.php:113
+msgid "Telegram User or Group Chat ID."
+msgstr "Идентификатор чата или группы"
+
+#: modules/notify/class-wptelegram-notify-admin.php:126
+msgid "Notifications to Users"
+msgstr "Уведомления пользователям"
+
+#: modules/notify/class-wptelegram-notify-admin.php:127
+msgid "Allow users to receive their email notifications on Telegram"
+msgstr ""
+"Разрешить пользователям получать уведомления по электронной почте в Telegram"
+
+#: modules/notify/class-wptelegram-notify-admin.php:128
+msgid "Use %s to let them connect their Telegram account."
+msgstr ""
+"Используйте %s, чтобы позволить пользователям подключать аккаунты Telegram."
+
+#: modules/notify/class-wptelegram-notify-admin.php:128
+msgid "They can also enter their Telegram Chat ID manually on %s page"
+msgstr "Они также могут ввести свой идентификатор чата вручную на странице %s"
+
+#: modules/notify/class-wptelegram-notify-admin.php:128
+msgid "profile"
+msgstr "профиля"
+
+#: modules/notify/class-wptelegram-notify-admin.php:135
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:193
+msgid "Message Settings"
+msgstr "Настройки сообщений"
+
+#: modules/notify/class-wptelegram-notify-admin.php:141
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:198
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:831
+msgid "Message Template"
+msgstr "Шаблон сообщения"
+
+#: modules/notify/class-wptelegram-notify-admin.php:142
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:199
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:832
+msgid "Structure of the message to be sent"
+msgstr "Структура отправляемого сообщения"
+
+#: modules/notify/class-wptelegram-notify-admin.php:156
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:290
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:545
+msgid "Parse Mode"
+msgstr "Режим форматирования"
+
+#: modules/notify/class-wptelegram-notify-admin.php:160
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:294
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:415
+msgid "Learn more"
+msgstr "Узнать больше"
+
+#: modules/notify/class-wptelegram-notify-admin.php:162
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:298
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:545
+msgid "None"
+msgstr "Нет"
+
+#: modules/notify/class-wptelegram-notify-admin.php:163
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:299
+msgid "Markdown style"
+msgstr "Markdown стиль"
+
+#: modules/notify/class-wptelegram-notify-admin.php:164
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:300
+msgid "HTML style"
+msgstr "HTML стиль"
+
+#: modules/notify/class-wptelegram-notify-admin.php:191
+msgid "To receive notifications privately:"
+msgstr "Для получения уведомлений в личный чат с ботом"
+
+#: modules/notify/class-wptelegram-notify-admin.php:193
+msgid "Get your Chat ID from %s and enter it below."
+msgstr "Получите свой идентификатор чата из %s и введите его ниже."
+
+#: modules/notify/class-wptelegram-notify-admin.php:194
+msgid "Send YOUR OWN BOT a message to start the conversation."
+msgstr "Отправьте сообщение СВОЕМУ БОТУ, чтобы начать разговор."
+
+#: modules/notify/class-wptelegram-notify-admin.php:197
+msgid "To receive notifications into a group:"
+msgstr "Получение уведомлений в группу:"
+
+#: modules/notify/class-wptelegram-notify-admin.php:199
+msgid "Add %s to the group to get its Chat ID."
+msgstr "Добавьте %s в группу, чтобы получить идентификатор чата."
+
+#: modules/notify/class-wptelegram-notify-admin.php:200
+msgid "Enter the Chat ID in %s field below."
+msgstr "Введите идентификатор чата в поле %s ниже."
+
+#: modules/notify/class-wptelegram-notify-admin.php:201
+msgid "Add YOUR OWN BOT to the group."
+msgstr "Добавьте СВОЕГО БОТА в группу."
+
+#: modules/notify/class-wptelegram-notify-admin.php:223
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:522
+#: modules/proxy/class-wptelegram-proxy-admin.php:256
+msgid "Chat ID"
+msgstr "Чат ID"
+
+#: modules/notify/class-wptelegram-notify-admin.php:224
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:523
+#: modules/proxy/class-wptelegram-proxy-admin.php:257
+msgid "Name/Title"
+msgstr "Имя / Название"
+
+#: modules/notify/class-wptelegram-notify-admin.php:225
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:524
+#: modules/proxy/class-wptelegram-proxy-admin.php:258
+msgid "Chat Type"
+msgstr "Тип чата"
+
+#: modules/notify/class-wptelegram-notify-admin.php:226
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:525
+#: modules/proxy/class-wptelegram-proxy-admin.php:259
+msgid "Test Status"
+msgstr "Статус теста"
+
+#: modules/notify/class-wptelegram-notify-admin.php:254
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:413
+#: modules/proxy/class-wptelegram-proxy-admin.php:287
+msgid "You can use any text, emojis or these macros in any order:"
+msgstr ""
+"Вы можете использовать любой текст, смайлы или эти макросы в любом порядке:"
+
+#: modules/notify/class-wptelegram-notify-admin.php:254
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:413
+#: modules/proxy/class-wptelegram-proxy-admin.php:287
+msgid "Click to insert"
+msgstr "Нажмите для вставки"
+
+#: modules/notify/class-wptelegram-notify-admin.php:321
+msgid "Telegram Info"
+msgstr "Telegram информация"
+
+#: modules/notify/class-wptelegram-notify-admin.php:322
+msgid "You can receive your email notifications on Telegram from %s"
+msgstr "Вы можете получать уведомления по электронной почте в Telegram из %s"
+
+#: modules/notify/class-wptelegram-notify-admin.php:328
+msgid "Telegram Chat ID"
+msgstr "Идентификатор чата"
+
+#: modules/notify/class-wptelegram-notify-admin.php:329
+msgid "Please enter your Telegram Chat ID"
+msgstr "Введите свой идентификатор чата Telegram"
+
+#: modules/notify/class-wptelegram-notify-admin.php:352
+msgid "Get your Chat ID from %s and enter it above."
+msgstr "Получите идентификатор чата из %s и введите его выше."
+
+#: modules/notify/class-wptelegram-notify-admin.php:353
+msgid "Start a conversation with %s to receive notifications."
+msgstr "Начните беседу с %s для получения уведомлений."
+
+#: modules/notify/class-wptelegram-notify-admin.php:379
+msgid "via %s"
+msgstr "через %s"
+
+#: modules/notify/class-wptelegram-notify-admin.php:424
+msgid "Please Enter a valid Chat ID"
+msgstr "Пожалуйста, введите верный чат ID"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:96
+msgid "With this module, you can configure how the posts are sent to Telegram"
+msgstr ""
+"С помощью этого модуля вы можете настроить способ отправки сообщений в "
+"Telegram"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:118
+msgid "Telegram Destination"
+msgstr "Назначение получателя"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:124
+msgid "Channel Username"
+msgstr "Имя пользователя канала"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:125
+msgid "Telegram Channel Username or Chat ID. Username must start with %s."
+msgstr ""
+"Имя пользователя/канала или идентификатор чата. Имя пользователя должно "
+"начинаться с %s."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:125
+msgid "If more than one, separate them by comma"
+msgstr "Если несколько, разделите их запятой"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:148
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:178
+msgid "Rules"
+msgstr "Правила"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:153
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:559
+msgid "Send when"
+msgstr "Отправлять, когда"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:154
+msgid "When the post should be sent to Telegram"
+msgstr "Когда сообщение должно быть отправлено в Telegram"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:162
+msgid "A new post is published"
+msgstr "Публикуется новая запись"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:163
+msgid "An existing post is updated"
+msgstr "Обновляется существующая запись"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:167
+msgid "Post type"
+msgstr "Тип записи"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:170
+msgid "Which post types should be sent."
+msgstr "Какие типы сообщений следует отправлять."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:212
+msgid "Excerpt Source"
+msgstr "Источник для фрагмента сообщения"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:219
+msgid "Post Content"
+msgstr "Содержимое публикации"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:220
+msgid "Post Content before Read More tag"
+msgstr "Содержимое публикации до тега Подробнее"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:221
+msgid "Post Excerpt"
+msgstr "Фрагмент публикации"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:225
+msgid "Excerpt Length"
+msgstr "Фиксированная длина"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:226
+msgid ""
+"Number of words for the excerpt. Won't be used when Caption Source is \"Post "
+"Content before Read More tag\""
+msgstr ""
+"Количество слов для фрагмента сообщений. Не будет использоваться, если "
+"Источник заголовка является «Содержимое публикации до тега Подробнее»"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:239
+#, fuzzy
+msgid "Excerpt Newlines"
+msgstr "Фиксированная длина"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:240
+msgid "Preserve newlines in Post Excerpt."
+msgstr ""
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:249
+msgid "Featured Image"
+msgstr "Поддержка изображений"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:250
+msgid "Send Featured Image (if exists)"
+msgstr "Отправлять изображения(если существуют)"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:259
+msgid "Image Position"
+msgstr "Позиция изображения"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:266
+msgid "Before the Text"
+msgstr "Перед текстом"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:267
+msgid "After the Text"
+msgstr "После текста"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:271
+msgid "Single message"
+msgstr "Единое сообщение"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:272
+msgid "Send both text and image in single message"
+msgstr "Отправить текст и изображение в одном сообщении"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:281
+msgid "Categories as hashtags"
+msgstr ""
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:282
+msgid "Send categories as hashtags."
+msgstr ""
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:312
+msgid "Inline Keyboard"
+msgstr "Настройки кнопки"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:317
+msgid "Inline Button"
+msgstr "Встроенная кнопка"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:318
+msgid "Add Inline URL Button"
+msgstr "Добавить встроенную кнопку URL"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:319
+msgid "Add an inline clickable button for the post URL just below the message."
+msgstr ""
+"Добавьте встроенную кликабельную кнопку для URL-адреса записи под сообщением."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:327
+msgid "Inline button text"
+msgstr "Текст встроенной кнопки"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:328
+msgid "View Post"
+msgstr "Посмотреть"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:343
+msgid "Miscellaneous"
+msgstr "Дополнительные"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:348
+msgid "When editing a post"
+msgstr "При редактировании сообщения"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:349
+msgid "Show an ON/OFF switch on the post edit screen"
+msgstr "Показать переключатель ВКЛ / ВЫКЛ на экране редактирования сообщений"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:350
+msgid ""
+"You can use this switch to override the above settings for a particular post"
+msgstr ""
+"Вы можете использовать этот переключатель для переопределения вышеуказанных "
+"настроек для определенного сообщения"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:357
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:817
+msgid "Delay in Posting"
+msgstr "Задержка отправки"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:358
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:818
+msgid "Minute(s)"
+msgstr "Минут"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:371
+msgid "Other settings"
+msgstr "Другие настройки"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:376
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:546
+msgid "Disable Web Page Preview"
+msgstr "Отключить предварительный просмотр веб-страниц"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:377
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:800
+msgid "Disable Notifications"
+msgstr "Отключить уведомления"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:399
+msgid "WordPress cron should not be disabled!"
+msgstr " Cron WordPress не должен быть отключен!"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:402
+msgid "The delay starts after the post gets published."
+msgstr "Задержка начинается после публикации сообщения."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:415
+msgid "You can also use conditional logic in the template"
+msgstr ""
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:429
+msgid "Post Data"
+msgstr "Данные публикации"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:443
+msgid "Taxonomy Terms"
+msgstr "Термины таксономии"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:451
+msgid "Custom Fields"
+msgstr "Настраиваемые поля"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:458
+msgid ""
+"Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
+"attached to the post."
+msgstr ""
+"Заменить %1$s в %2$s по названию таксономии, чтобы вставить свои условия, "
+"прикрепленные к публикации."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:458
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:460
+msgid "For example %1$s and %2$s in WooCommerce"
+msgstr "Например, %1$s и %2$s в WooCommerce"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:460
+msgid "Replace %1$s in %2$s by the name of the Custom Field."
+msgstr "Замените %1$s в %2$s по имени настраиваемого поля."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:516
+msgid "Members Count:"
+msgstr "Количество членов:"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:545
+msgid "%1$s should not be %2$s"
+msgstr "%1$s не должно быть %2$s"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:546
+msgid "%s should not be checked"
+msgstr "%s не должен быть выбран"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:565
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:75
+msgid "AND"
+msgstr "А ТАКЖЕ"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:726
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:770
+msgid "Send to Telegram"
+msgstr "Отправить в Telegram"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:775
+msgid "Yes"
+msgstr "Да"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:776
+msgid "No"
+msgstr "Нет"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:781
+msgid "Override settings"
+msgstr "Переопределение настроек"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:790
+msgid "Send to"
+msgstr "Отправить для"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:808
+msgid "Files"
+msgstr "Файлы"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:809
+msgid "Files to be sent after the message"
+msgstr "Файлы, отправляемые после сообщения"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:947
+msgid "Create a Channel/group/supergroup"
+msgstr "Создайте канал / группу/ супергруппу"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:948
+msgid "Add the Bot as Administrator to your Channel/Group"
+msgstr "Добавьте Бота как Администратором вашего Канала/Группы"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:949
+msgid "Enter the Channel Username in the field below"
+msgstr "Введите имя пользователя канала в поле ниже"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
+msgid "Username must start with %s"
+msgstr "Имя пользователя должно начинаться с %s"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
+msgid "You can also use the Chat ID of a group or private chat."
+msgstr ""
+"Вы также можете использовать индетификатор чата, группы или частного чата."
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
+msgid "Get it from %s"
+msgstr "Полученного от %s"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
+msgid "That's it. You are ready to rock :)"
+msgstr "Вот и все.  :)"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:986
+msgid "There was some error!"
+msgstr "Произошла какая-то ошибка!"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:992
+msgid "Channel"
+msgstr "Канал"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:993
+msgid "Error code"
+msgstr "Код ошибки"
+
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:994
+msgid "Error message"
+msgstr "Сообщение об ошибке"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:55
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:88
+msgid "OR"
+msgstr "ИЛИ"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:90
+msgid "Add"
+msgstr "Добавить"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:179
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:180
+msgid "Post"
+msgstr "Публикация"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:181
+msgid "Post Category"
+msgstr "Категория публикаций"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:182
+msgid "Post Tag"
+msgstr "Тэг публикаций"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:183
+msgid "Post Format"
+msgstr "формат публикации"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:184
+msgid "Post Author"
+msgstr "Автор публикации"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:186
+msgid "Custom Taxonomy"
+msgstr "Пользовательское "
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:201
+msgid "is in"
+msgstr "в"
+
+#: modules/p2tg/class-wptelegram-p2tg-rules.php:202
+msgid "is not in"
+msgstr "не находится в"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:74
+msgid ""
+"The module will help you bypass the ban on Telegram by making use of proxy."
+msgstr "Этот модуль поможет вам обойти блокировку Telegram, используя прокси."
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:79
+msgid "DISCLAIMER!"
+msgstr "ВНИМАНИЕ!"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:96
+msgid "Proxy Method"
+msgstr "Метод прокси"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:106
+msgid "Google Script is preferred"
+msgstr "Рекомендовано использовать Google Script"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:108
+#: modules/proxy/class-wptelegram-proxy-admin.php:114
+msgid "Google Script"
+msgstr "Google Script"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:109
+#: modules/proxy/class-wptelegram-proxy-admin.php:129
+msgid "PHP Proxy"
+msgstr "PHP Прокси"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:121
+msgid "Google Script URL"
+msgstr "URL-адрес Google Script"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:123
+msgid "The requests to Telegram will be sent via your Google Script."
+msgstr "Запросы в Telegram будут отправляться через ваш Google Script."
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:123
+msgid "See this tutorial"
+msgstr "Инструкция по настройке"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:136
+msgid "Proxy Host"
+msgstr "Хост Прокси"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:139
+msgid "Host IP or domian name like %s"
+msgstr "Прокси IP или домен. Пример %s"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:144
+msgid "Proxy Port"
+msgstr "Порт прокси"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:147
+msgid "Target Port like %s"
+msgstr "Исходящий порт. Пример %s"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:152
+msgid "Proxy Type"
+msgstr "Тип Прокси"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:167
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:170
+#: modules/proxy/class-wptelegram-proxy-admin.php:178
+msgid "Leave empty if not required"
+msgstr "Оставьте пустым если не используется"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:175
+msgid "Password"
+msgstr "Пароль"
+
+#: modules/proxy/class-wptelegram-proxy-admin.php:193
+msgid "Use the proxy at your own risk!"
+msgstr "Используйте прокси на свой страх и риск!"
