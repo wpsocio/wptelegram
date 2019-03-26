@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 4.0
 Tested up to: 5.1.1
 Requires PHP: 5.2.4
-Stable tag: 2.0.19
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,8 +127,11 @@ Note: You can also contribute in translating this plugin into your local languag
 
 == Changelog ==
 
-= Unreleased =
-* Improved the template logic
+= 2.1.0 =
+* Improved the template conditional logic
+* Made delay to be more granular - can be set in half a minute steps
+* Added option to allow newlines in `{post_excerpt`
+* Added option to send `{categories}` as hashtags
 * Fixed the issue with scheduled posts not being sent to Telegram
 
 == Upgrade Notice ==

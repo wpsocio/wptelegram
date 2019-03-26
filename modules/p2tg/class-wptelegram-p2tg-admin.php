@@ -279,7 +279,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			),
 			array(
 				'name'			  => __( 'Categories as hashtags', 'wptelegram' ),
-				'desc'			  => __( 'Send categories as #hashtags.', 'wptelegram' ),
+				'desc'			  => __( 'Send categories as hashtags.', 'wptelegram' ),
 				'id'			  => 'cats_as_tags',
 				'type'			  => 'switch',
 				'before_row'	  => WPTG()->helpers->open_grid_row_with_col( 6 ),

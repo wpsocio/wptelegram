@@ -291,7 +291,7 @@ class WPTelegram_Utils {
 	/**
 	 * Trims text to a certain number of words.
 	 *
-	 * @since x.y.z
+	 * @since 2.1.0
 	 *
 	 * @return string|NULL
 	 */
