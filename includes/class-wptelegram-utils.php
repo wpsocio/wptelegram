@@ -289,6 +289,39 @@ class WPTelegram_Utils {
 	}
 
 	/**
+	 * Trims text to a certain number of words.
+	 *
+	 * @since x.y.z
+	 *
+	 * @return string|NULL
+	 */
+	public function trim_words( $text, $num_words = 55, $more = null, $preserve_eol = false ) {
+
+		if ( ! $preserve_eol ) {
+			return wp_trim_words( $text, $num_words, $more );
+		}
+
+		if ( null === $more ) {
+			$more = '&hellip;';
+		}
+
+		$original_text = $text;
+		$text          = trim( wp_strip_all_tags( $text ) );
+		$total_words   = preg_match_all( '/[\n\r\t\s]*[^\n\r\t\s]+/', $text );
+
+		// if total words are greater than num_words.
+		if ( $total_words > $num_words ) {
+			$pattern = '/((?:[\n\r\t\s]*[^\n\r\t\s]+){1,' . $num_words . '}).*/su';
+			$text    = preg_replace( $pattern, '${1}', $text ) . $more;
+		}
+
+		// remove multiple newlines.
+		$text = preg_replace( '/\n[\n\r\s]*\n[\n\r\s]*\n/u', "\n\n", $text );
+
+		return apply_filters( 'wptelegram_utils_trim_words', $text, $num_words, $more, $original_text );
+	}
+
+	/**
 	 * Gets the current post type in the WordPress Admin
 	 *
 	 * @since 1.0.0

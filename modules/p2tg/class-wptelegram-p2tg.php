@@ -85,6 +85,8 @@ class WPTelegram_P2TG extends WPTelegram_Module {
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_scripts', 10, 1 );
 		$this->loader->add_action( 'wp_ajax_wptg_p2tg_rule_values', $admin, 'ajax_render_rule_values' );
 
+		$this->loader->add_action( 'post_submitbox_misc_actions', $admin, 'add_switch_to_submitbox', 10, 1 );
+
 		$this->loader->add_action( 'edit_form_top', $admin, 'post_edit_form_hidden_input' );
 		$this->loader->add_action( 'block_editor_meta_box_hidden_fields', $admin, 'post_edit_form_hidden_input' );
 

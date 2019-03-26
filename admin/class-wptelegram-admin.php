@@ -51,7 +51,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 		// load only on plugin pages
 		if ( WPTG()->helpers->is_settings_page() ) {
 
-			parent::enqueue_style( $this->plugin_name . '-cmb2-grid-view', 'bootstrap' );
+			parent::enqueue_style( $this->plugin_name . '-cmb2-grid-view', 'bootstrap', 'bootstrap' );
 
 			parent::enqueue_style( $this->plugin_name.'-select2', 'select2', 'select2' );
 		}
@@ -170,7 +170,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 
 		$box = array(
 			'id'			=> $this->plugin_name,
-			'title'			=> esc_html__( $this->plugin_title ),
+			'title'			=> $this->plugin_title,
 			'object_types'	=> array( 'options-page' ),
 			'option_key'	=> $this->plugin_name,
 			'icon_url'		=> WPTELEGRAM_URL . '/admin/icons/icon-16x16-white.svg',
@@ -492,9 +492,9 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				</div>
 				<div class="cell">
 					<p>
-						<?php _e( 'Need help?', WPTG()->get_text_domain() ); ?>
+						<?php _e( 'Need help?', 'wptelegram' ); ?>
 						<br>
-						<b><?php _e( 'Get LIVE support on Telegram', WPTG()->get_text_domain() ); ?></b>
+						<b><?php _e( 'Get LIVE support on Telegram', 'wptelegram' ); ?></b>
 						<br>
 						<a href="https://t.me/WPTelegramChat" class="telegram-follow-button btn" target="_blank">
 						<img src="<?php echo esc_url( WPTG()->get_url() . '/admin/icons/tg-icon.svg' ); ?>" alt="WPTelegramChat" />&nbsp;@WPTelegramChat</a>
@@ -510,7 +510,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 
 
 				<div class="cell">
-					<h3><?php _e( 'What is NEW?', WPTG()->get_text_domain() ); ?></h3>
+					<h3><?php _e( 'What is NEW?', 'wptelegram' ); ?></h3>
 					<p>Conditional Logic in Message Template</p>
 					<iframe src="https://www.youtube.com/embed/rAFCY4haTiM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
@@ -539,7 +539,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				<li><?php esc_html_e( 'Copy the token and paste into the Bot Token field below.', 'wptelegram' ); ?>&nbsp;<?php printf( __( 'For ease, use %s', 'wptelegram' ), '<a href="' . esc_url( 'https://desktop.telegram.org' ) . '" target="_blank">Telegram Desktop</a>' ); ?></li>
 			 	<li><?php esc_html_e( 'Test your bot token below.', 'wptelegram' ); ?></li>
 			 	<li><?php esc_html_e( 'Activate the modules you want to use.', 'wptelegram' ); ?></li>
-				<li><?php printf( __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes' ) . '</b>' ); ?></li>
+				<li><?php printf( __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes', 'wptelegram' ) . '</b>' ); ?></li>
 			 	<li><?php esc_html_e( 'Configure the activated modules.', 'wptelegram' ); ?></li>
 				<li><?php esc_html_e( "That's it! :)", 'wptelegram' ); ?></li>
 			</ol>

@@ -35,7 +35,7 @@
         p2tg.page.find('.p2tg-rules .param select').trigger('change');
     };
 
-    p2tg.handle_blur = function ( evt ) {
+    p2tg.handle_blur = function () {
         var channels = p2tg.channels.val().trim().replace(/[\s]/g,'');
 
         if (!channels) {
@@ -46,7 +46,7 @@
         channels = channels.split(',');
 
         var chat_list = p2tg.page.find('#p2tg-chat-list');
-        p2tg.page.find("#p2tg-mem-count").removeClass("hidden");
+        p2tg.page.find('#p2tg-mem-count').removeClass('hidden');
 
         chat_list.text('');
 
@@ -60,7 +60,7 @@
     p2tg.handle_chat_member_count = function ( jqXHR, data, chat_list ) {
 
         var li = $('<li/>').append($('<span/>',{text:data.chat_id + ': '}));
-        var res, text, span = $('<span/>',{class:'wptelegram-info'});
+        var res, text, span = $('<span/>',{'class':'wptelegram-info'});
         
         if ( 'undefined' === typeof jqXHR || '' == jqXHR.responseText ) {
 
@@ -78,16 +78,16 @@
         chat_list.append(li.append(span.text(text)));
     };
     
-    p2tg.send_test_message = function( evt, params ){
+    p2tg.send_test_message = function( evt ){
 
         var $this = $(this);
 
         var channels = p2tg.channels.val().trim().replace(/[\s]/g,'');
 
-        var chat_table = p2tg.page.find("#p2tg-chat-table");
+        var chat_table = p2tg.page.find('#p2tg-chat-table');
 
         if (!channels) {
-            alert(l10n.empty_channels);
+            window.alert(l10n.empty_channels);
             return;
         }
         // set current event & disable button
@@ -96,7 +96,7 @@
         // send message
         wptelegram.utils.send_test_message( channels, chat_table );
     };
-    p2tg.toggle_rules = function(e){
+    p2tg.toggle_rules = function(){
         var $trs = p2tg.page.find('.cmb2-id-wptg_p2tg-rules,.cmb2-id-wptg_p2tg-and');
 
         // post types should not be empty
@@ -105,7 +105,7 @@
         } else {
             $trs.show();
         }
-    }
+    };
 
     p2tg.validate_single_message = function(){
 
@@ -145,12 +145,12 @@
         group_id = $group.attr('data-id'),
         $vals_td = $tr.find('td.values'),
         ajax_data = {
-            'action'    : "wptg_p2tg_rule_values",
+            'action'    : 'wptg_p2tg_rule_values',
             'nonce'     : wptelegram.ajax.nonce,
             'rule_id'   : rule_id,
             'group_id'  : group_id,
             'values'    : $vals_td.find('select').val(),
-            'param'     : $this.val(),
+            'param'     : $this.val()
         };
 
         // display spin loader
@@ -167,7 +167,7 @@
 
                 div.replaceWith(html);
                 $vals_td.find('select').select2({
-                    placeholder: l10n.choose,
+                    placeholder: l10n.choose
                 });
             }
         });

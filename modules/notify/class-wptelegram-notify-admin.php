@@ -276,7 +276,7 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 
 		$html = '';
 		foreach ( $macros as $macro ) {
-			$html .= '<a class="btn" href="#"><code>' . esc_html__( $macro ) . '</code></a>';
+			$html .= '<a class="btn" href="#"><code>' . esc_html( $macro ) . '</code></a>';
 		}
 		return $html;
 	}

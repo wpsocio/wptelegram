@@ -26,7 +26,7 @@
 			// if using proxy
 			if (this.proxy.script_url) {
 
-				url = script_url;
+				url = this.proxy.script_url;
 				data = {
 					bot_token   : this.bot_token,
 					method      : api_method,
@@ -86,7 +86,7 @@
 	};
 
 	// dynamic method to make api calls
-	wptelegram.bot_api = new Proxy( new wptelegram.bot_api_client(), {
+	wptelegram.bot_api = new window.Proxy( new wptelegram.bot_api_client(), {
 		get : function( client, prop ) {
 			if ( 'undefined' === typeof client[prop] ) {
 				return function( api_params, response_handler, additional_params ) {
@@ -116,7 +116,7 @@
 		wptelegram.current.event = evt;
 		// for chaining
 		return wptelegram;
-	}
+	};
 
 	wptelegram.lock_button = function( btn ) {
 		// set the current button
@@ -158,7 +158,7 @@
 				// Range.createContextualFragment() would be useful here but is
 				// only relatively recently standardized and is not supported in
 				// some browsers (IE9, for one)
-				var el = document.createElement("div");
+				var el = document.createElement('div');
 				el.innerHTML = html;
 				var frag = document.createDocumentFragment(), node, lastNode;
 				while ( (node = el.firstChild) ) {
@@ -180,13 +180,13 @@
 					sel.addRange(range);
 				}
 			}
-		} else if ( (sel = document.selection) && sel.type != "Control") {
+		} else if ( (sel = document.selection) && sel.type != 'Control') {
 			// IE < 9
 			var originalRange = sel.createRange();
 			originalRange.collapse(true);
 			sel.createRange().pasteHTML(html);
-			var range = sel.createRange();
-			range.setEndPoint("StartToStart", originalRange);
+			range = sel.createRange();
+			range.setEndPoint('StartToStart', originalRange);
 			range.select();
 		}
 	};
@@ -196,13 +196,13 @@
 		var scrollPos = txtarea.scrollTop;
 		var strPos = 0;
 		var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
-		"ff" : (document.selection ? "ie" : false));
-		if (br == "ie") {
+		'ff' : (document.selection ? 'ie' : false));
+		if (br == 'ie') {
 			txtarea.focus();
 			var range = document.selection.createRange();
 			range.moveStart('character', -txtarea.value.length);
 			strPos = range.text.length;
-		} else if (br == "ff") {
+		} else if (br == 'ff') {
 			strPos = txtarea.selectionStart;
 		}
 
@@ -210,69 +210,68 @@
 		var back = (txtarea.value).substring(strPos, txtarea.value.length);
 		txtarea.value = front + text + back;
 		strPos = strPos + text.length;
-		if (br == "ie") {
+		if (br == 'ie') {
 		txtarea.focus();
 			var ieRange = document.selection.createRange();
 			ieRange.moveStart('character', -txtarea.value.length);
 			ieRange.moveStart('character', strPos);
 			ieRange.moveEnd('character', 0);
 			ieRange.select();
-		} else if (br == "ff") {
+		} else if (br == 'ff') {
 			txtarea.selectionStart = strPos;
 			txtarea.selectionEnd = strPos;
 			txtarea.focus();
 		}
 
 		txtarea.scrollTop = scrollPos;
-	}
+	};
 
-	wptelegram.utils.uniqid = function uniqid (prefix, moreEntropy) {
-		//  discuss at: http://locutus.io/php/uniqid/
-		// original by: Kevin van Zonneveld (http://kvz.io)
-		//  revised by: Kankrelune (http://www.webfaktory.info/)
-		//      note 1: Uses an internal counter (in locutus global) to avoid collision
-
-		if ('undefined' === typeof prefix) {
-			prefix = ''
+	wptelegram.utils.uniqid = function uniqid(prefix, more_entropy) {
+	  
+		if (typeof prefix === 'undefined') {
+		  prefix = '';
 		}
-
-		var retId
-		var _formatSeed = function (seed, reqWidth) {
-			seed = parseInt(seed, 10).toString(16) // to hex str
-			if (reqWidth < seed.length) {
-				// so long we split
-				return seed.slice(seed.length - reqWidth)
-			}
-			if (reqWidth > seed.length) {
-				// so short we pad
-				return Array(1 + (reqWidth - seed.length)).join('0') + seed
-			}
-			return seed
+	  
+		var retId;
+		var formatSeed = function(seed, reqWidth) {
+		  seed = parseInt(seed, 10).toString(16); // to hex str
+		  if (reqWidth < seed.length) {
+			// so long we split
+			return seed.slice(seed.length - reqWidth);
+		  }
+		  if (reqWidth > seed.length) {
+			// so short we pad
+			return Array(1 + (reqWidth - seed.length)).join('0') + seed;
+		  }
+		  return seed;
+		};
+	  
+		// BEGIN REDUNDANT
+		if (!this.php_js) {
+		  this.php_js = {};
 		}
-
-		var $global = (typeof window !== 'undefined' ? window : global)
-		$global.$locutus = $global.$locutus || {}
-		var $locutus = $global.$locutus
-		$locutus.php = $locutus.php || {}
-
-		if (!$locutus.php.uniqidSeed) {
-			// init seed with big random int
-			$locutus.php.uniqidSeed = Math.floor(Math.random() * 0x75bcd15)
+		// END REDUNDANT
+		if (!this.php_js.uniqidSeed) {
+		  // init seed with big random int
+		  this.php_js.uniqidSeed = Math.floor(Math.random() * 0x75bcd15);
 		}
-		$locutus.php.uniqidSeed++
-
+		this.php_js.uniqidSeed++;
+	  
 		// start with prefix, add current milliseconds hex string
-		retId = prefix
-		retId += _formatSeed(parseInt(new Date().getTime() / 1000, 10), 8)
+		retId = prefix;
+		retId += formatSeed(parseInt(new Date()
+		  .getTime() / 1000, 10), 8);
 		// add seed hex string
-		retId += _formatSeed($locutus.php.uniqidSeed, 5)
-		if (moreEntropy) {
-			// for more entropy we add a float lower to 10
-			retId += (Math.random() * 10).toFixed(8).toString()
+		retId += formatSeed(this.php_js.uniqidSeed, 5);
+		if (more_entropy) {
+		  // for more entropy we add a float lower to 10
+		  retId += (Math.random() * 10)
+			.toFixed(8)
+			.toString();
 		}
-
-		return retId
-	}
+	  
+		return retId;
+	};
 
 	wptelegram.utils.is_valid = function( type, value ) {
 		value = value.trim().replace(/[\s@]/g,'');
@@ -306,10 +305,10 @@
 		var td = elem.closest('.cmb-td');
 
 		if ( wptelegram.utils.is_valid( validation_type, elem.val() ) ) {
-			td.find('.'+validation_type+'-err').addClass("hidden");
+			td.find('.'+validation_type+'-err').addClass('hidden');
 			return true;
 		} else {
-			td.find('.'+validation_type+'-err').removeClass("hidden");
+			td.find('.'+validation_type+'-err').removeClass('hidden');
 			return false;
 		}
 	};
@@ -317,7 +316,7 @@
 
 		chat_ids = chat_ids.split(',');
 
-		var new_text = prompt(l10n.send_test_prompt,l10n.send_test_text);
+		var new_text = window.prompt(l10n.send_test_prompt,l10n.send_test_text);
 		if (null == new_text){
 			// release the button if locked
 			wptelegram.release_button();
@@ -339,7 +338,7 @@
 
 	wptelegram.utils.handle_send_test_message = function( jqXHR, data, chat_table ) {
 
-		chat_table.removeClass("hidden");
+		chat_table.removeClass('hidden');
 
 		var tr = $('<tr/>'), td = $('<td/>');
 		tr.append(td.clone().text(data.chat_id));
@@ -353,7 +352,7 @@
 		} else if ( 200 == jqXHR.status && true == JSON.parse( jqXHR.responseText ).ok ) {
 			result = JSON.parse(jqXHR.responseText).result;
 			
-			if ( "private" == result.chat.type ) {
+			if ( 'private' == result.chat.type ) {
 				title = result.chat.first_name + ' ' + ( 'undefined' === typeof result.chat.last_name ? '' :  result.chat.last_name);
 			} else {
 				title = result.chat.title;
@@ -381,7 +380,7 @@
 		app1.bot_username = app1.metabox.find('#bot_username');
 	};
 	app1.set_read_only_fields = function(){
-		app1.common_box.find( '.readonly input' ).prop("readonly", true);
+		app1.common_box.find( '.readonly input' ).prop('readonly', true);
 	};
 	app1.init = function () {
 		app1.configure();
@@ -405,7 +404,7 @@
 				var config = {
 					hideSource: true,
 					pickerPosition: pos,
-					tonesStyle: 'radio',
+					tonesStyle: 'radio'
 				};
 				var container_id = $(this).attr('data-emoji-container');
 				if ( container_id ) {
@@ -441,36 +440,36 @@
 			wptelegram.utils.insertAtCaretDiv(val,true);
 		}
 	};
-	app1.handle_blur = function ( evt ) {
+	app1.handle_blur = function () {
 		var elem = $(this);
 
 		var td = elem.closest('.cmb-td');
-		td.find('.wptelegram-info').addClass("hidden");
+		td.find('.wptelegram-info').addClass('hidden');
 
 		if ( elem.val() ) {
 			wptelegram.utils.validate( elem );
 		}
 	};
-	app1.handle_double_click = function ( evt ) {
+	app1.handle_double_click = function () {
 		// to prevent text highlighting
 		var val = $(this).val();
-		$(this).prop("readonly", false).focus().val('').val(val);
+		$(this).prop('readonly', false).focus().val('').val(val);
 	};
 	app1.test_bot_token = function( evt ) {
 
 		var $this = $(this);
 
-		var text, target = $this.attr('data-target'),
+		var target = $this.attr('data-target'),
 		row = $this.closest('.'+target),
 		elem = row.find('input[type=text]'),
 		info_elem = row.find('.'+target+'-info');
 
 		if ( !elem.val() ) {
-			alert(l10n.empty_bot_token);
+			window.alert(l10n.empty_bot_token);
 			return;
 		}
 		if ( !wptelegram.utils.validate(elem) ) {
-			alert(l10n.invalid_bot_token);
+			window.alert(l10n.invalid_bot_token);
 			return;
 		}
 
@@ -490,8 +489,8 @@
 		var target = params[1];
 		var row = info_elem.closest('.'+target);
 
-		row.find('.'+target+'-test').removeClass("hidden");
-		info_elem.removeClass("hidden");
+		row.find('.'+target+'-test').removeClass('hidden');
+		info_elem.removeClass('hidden');
 
 		var bot_username = row.closest('.wptelegram-box').find('#bot_username');
 
@@ -499,9 +498,9 @@
 
 		if ( 'undefined' === typeof jqXHR || '' == jqXHR.responseText ) {
 			text = l10n.error+' '+l10n.could_not_connect;
-			info_elem.removeClass("info").addClass("error");
+			info_elem.removeClass('info').addClass('error');
 		} else if ( 200 == jqXHR.status && true == JSON.parse( jqXHR.responseText ).ok ) {
-			info_elem.removeClass("error").addClass("info");
+			info_elem.removeClass('error').addClass('info');
 
 			var result = JSON.parse( jqXHR.responseText ).result;
 			
@@ -510,7 +509,7 @@
 			bot_username.val(result.username).trigger('blur');
 		} else {
 			var res = JSON.parse( jqXHR.responseText );
-			info_elem.removeClass("info").addClass("error");
+			info_elem.removeClass('info').addClass('error');
 			text = l10n.error+' '+res.error_code+' - '+res.description;
 		}
 		info_elem.text(text);

@@ -1,4 +1,4 @@
-(function( $, l10n, bot_api ) {
+(function( $, l10n ) {
 	'use strict';
 
 	var notify = {};
@@ -11,7 +11,7 @@
 		notify.configure();
         notify.page.on( 'click', '.test-chat_ids', notify.send_test_message );
 	};
-    notify.send_test_message = function( evt, params ){
+    notify.send_test_message = function( evt ){
 
         var $this = $(this);
 
@@ -22,7 +22,7 @@
         var chat_ids = td.find('input[type=text]').val().trim().replace(/[\s]/g,'');
 
     	if (!chat_ids) {
-            alert(l10n.empty_chat_ids);
+            window.alert(l10n.empty_chat_ids);
             return;
         }
         // set current event & disable button
@@ -34,4 +34,4 @@
 	// trigger on $(document).ready();
 	$(notify.init);
 
-})( jQuery, wptelegram.l10n, wptelegram.bot_api );
+})( jQuery, wptelegram.l10n );

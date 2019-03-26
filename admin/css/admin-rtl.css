@@ -1,0 +1,288 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+.wptelegram-header-wrapper {
+    background: #fff;
+    border: 3px solid #bbb;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+}
+.wptelegram-header-wrapper table {
+    width: 100%;
+    table-layout: fixed;
+}
+.wptelegram-header-desc {
+    padding: 1em;
+    margin-top: -1px;
+    background: #ffffff;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 600px) {
+    .wptelegram-header-wrapper td,.wptelegram-header-wrapper th { display: block }
+}
+.wptelegram-header-wrapper .wptelegram-title h1 {
+    color: #20627b;
+}
+.wptelegram-header-wrapper td {
+    text-align: center;
+}
+.wptelegram-socials p {
+    margin: 5px 0;
+}
+.wptelegram-socials .fb-like {
+    margin: 5px 0;
+}
+.telegram-follow-button {
+    color: #fff;
+    background: #1e96c8;
+    padding: 3px 7px;
+    font-weight: 500;
+    font-size: 11px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+.telegram-follow-button:hover {
+    background: #167ba5;
+    color: #fff;
+}
+#wptelegram-header h2 {
+    display: inline;
+    margin-right: 10px;
+}
+#wptelegram-header h2 img {
+    vertical-align: middle;
+}
+#wptelegram-header h2 span {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.wptelegram-error{
+	color: #fd1313;
+ 	font-weight:bold;
+}
+.wptelegram-info{
+    font-weight:bold;
+}
+.wptelegram-info.info{
+    color:#0073aa;
+}
+.wptelegram-info.error{
+    color: #fd1313;
+}
+.no-bottom-border{
+	border-bottom: 0px !important;
+	margin: 0px !important;
+}
+.with-top-border {
+	border-top: 1px solid #e9e9e9;
+}
+.no-padding-bottom{
+	padding-bottom: 0px !important;
+}
+.no-padding-top{
+	padding-top: 0px !important;
+}
+.emojionearea{
+	max-width: 400px !important;
+	min-width: 50%;
+    resize: both;
+}
+.wrap-wptelegram {
+    max-width: initial !important;
+}
+.wrap-wptelegram .wptelegram-column-1 {
+    float: right;
+    width: 75%;
+    /* rtl */
+}
+html[dir="rtl"] .wrap-wptelegram .wptelegram-column-1 {
+    float: left;
+}
+.wrap-wptelegram .wptelegram-column-2 {
+    background: #FFFFFF;
+    float: left;
+    width: 24%;
+    /* rtl */
+}
+html[dir="rtl"] .wrap-wptelegram .wptelegram-column-2 {
+    float: right;
+}
+.wptelegram-box .inner {
+    padding: 15px;
+}
+.wptelegram-box .footer {
+    border-top: 1px solid #eee;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+@media only screen and (max-width: 850px) {
+    .wrap-wptelegram {
+        max-width: auto;
+    }
+    .wrap-wptelegram .wptelegram-column-1,
+    .wrap-wptelegram .wptelegram-column-2 {
+        float: none;
+        width: auto;
+    }
+}
+.wptelegram-box {
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.wptelegram-box a {
+    text-decoration: none;
+}
+.wptelegram-box li, .wptelegram-box p {
+    font-size: 15px !important;
+}
+.wptelegram-box code, .wptelegram-box pre {
+    padding: 2px 4px;
+    font-size: 1.2em;
+    line-height: 1.6em;
+    color: #bb0f3b;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    font-style: normal;
+    overflow: hidden;
+}
+.wptelegram-box .cell {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+.wptelegram-box .description code {
+    color: #727272;
+}
+.wptelegram-box .highlight .cmb2-metabox-title {
+    color: #f10e0e;
+}
+.wptelegram-box .large-font input[type=text] {
+    font-size: 1.5em;
+    font-family: monospace;
+    font-weight: 200;
+    vertical-align: middle;
+}
+.wptelegram-box .medium-width input[type=text] {
+    width: 100% !important;
+    max-width: 400px;
+}
+.wptelegram-box .no-padding.cmb-type-group .cmb-repeat-group-field, .wptelegram-box .no-padding.cmb-type-group .cmb-remove-field-row {
+    padding: 0 0 0.2em !important;
+    padding-top: 0em !important;
+}
+.wptelegram-box button {
+    vertical-align: middle !important;
+}
+.wptelegram-box .no-padding{
+    padding: 0px !important;
+}
+.wptelegram-box .tab:after {
+    content: '|';
+    margin: 0 1em;
+    color: #b5b5b5;
+}
+.wptelegram-box #modules_repeat a {
+    font-weight: 600;
+}
+.wptelegram-box #modules_repeat a.in-active {
+    color: #ccc;
+}
+/*Hide the group title and toggle handle*/
+#cmb2-metabox-wptelegram .cmb2-id-modules .cmbhandle-title, #cmb2-metabox-wptelegram .cmb2-id-modules .cmbhandle{
+    display: none;
+}
+.wptelegram-sign {
+    color: #fff !important;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0px 4px;
+    border-radius: 5px;
+}
+.wptelegram-sign.cross {
+    background: #cc1212 !important;
+}
+.wptelegram-sign.tick {
+    background: #2c8806 !important;
+}
+
+/* For older Wordpress versions*/
+.notice{
+    background:#fff;
+    border-right:4px solid #fff;
+    -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow:0 1px 1px 0 rgba(0,0,0,.1);
+    margin:5px 15px 2px;
+    padding:1px 12px
+}
+.notice-success {
+    border-right-color: #46b450;
+}
+.notice-error {
+    border-right-color: #dc3232;
+}
+
+/*Display Test buttons inline*/
+.wptelegram-box .has-test-button .cmb-td {
+    display: table;
+}
+.wptelegram-box .has-test-button input[type=text], .wptelegram-box .has-test-button .cmb2-metabox-description  {
+    display: table-cell;
+    padding: 5px;
+}
+.wptelegram-box .has-test-button .as-row {
+    display: table-row;
+}
+/*Display Test buttons inline*/
+
+/* Grid View CSS */
+
+.cmb-row.cmb2GridViewRow {
+    padding-bottom: 0px !important;
+}
+.cmb2GridViewRow .cmb-row{
+    border:none !important;
+    padding:0 !important;
+}
+.cmb2GridViewRow .cmb-th label:after{
+    border:none !important;
+}
+.cmb2GridViewRow .cmb-th{
+    width:100% !important;
+    padding: 0px !important;
+}
+.cmb2GridViewRow .cmb-td{
+    width:100% !important;
+}
+/* Inline Keyboard */
+.wptelegram-box .keyboard-preview {
+    padding: 5px;
+}
+.wptelegram-box .keyboard-row {
+    display: flex;
+}
+.wptelegram-box .keyboard-button {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgba(164, 164, 165, 0.5);
+}
+.wptelegram-box .keyboard-button:hover {
+    background-color: rgba(164, 164, 165, 0.3);
+    cursor: pointer;
+}
+.wptelegram-loading {
+    background: url(../icons/ajax-loader.gif) no-repeat scroll 50% 50% #EAEAEA;
+    border-radius: 30px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+    height: 16px;
+    margin: 10px auto;
+    padding: 6px;
+    width: 16px;
+}

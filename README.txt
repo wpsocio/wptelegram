@@ -2,8 +2,8 @@
 Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
-Requires at least: 3.8
-Tested up to: 5.0.2
+Requires at least: 4.0
+Tested up to: 5.1.1
 Requires PHP: 5.2.4
 Stable tag: 2.0.19
 License: GPLv2 or later
@@ -127,82 +127,9 @@ Note: You can also contribute in translating this plugin into your local languag
 
 == Changelog ==
 
-= 2.0.19 =
-* Added the conditional logic for Message Template
-
-= 2.0.16 =
-* Fixed the HTML bug in Notifications
-
-= 2.0.15 =
-* Fixed the PHP fatal error
-
-= 2.0.14 =
-* Fixed the PHP fatal error
-
-= 2.0.13 =
-* Added fixes for WP 5+
-* Fixed double posting by block editor
-* Fixed the issue with Override Options not expanding in Block Editor
-* Improved the logging to include logs about featured image
-* Removed the override metabox from the post types not chosen to be sent
-* Added tutorial videos in the sidebar
-* Updated CMB2
-
-= 2.0.12 =
-* Fixed the Notification issue caused by some faulty plugins
-* Fixed the issue with Post to Telegram caused by Cron Control
-* JS fixes
-
-= 2.0.11 =
-* Fixed the bug when scheduling the posts
-
-= 2.0.10 =
-* Delayed loading of modules to fix the translation issues
-* Fixed the HTML entity issue for Markdown
-* re-enabled sending password protected posts
-* Added support for saving override options for Pending posts
-* Minor fixes
-
-= 2.0.9 =
-* Fixed Send to Telegram button for Drafts
-* Added support for saving override options for drafts and future posts
-* Removed the ugly newline character at the beginning of the message when using Single Message with Image after the text
-* Added Disable Notifications in override options
-* Fixed the issue with saving of "Send files by URL" option
-* Minor fixes
-
-= 2.0.8 =
-* Added the logging feature for debugging
-* Added the option to upload the files
-* Improved the proxy handling
-* Changed the way Bot API creates logs
-* Minor fixes
-
-= 2.0.7 =
-* Fixed the 404 CSS error for public.min.css
-* Added the delAy options for posts
-* Restored the old user profile field for Chat ID
-* Added Bot Username field 
-
-= 2.0.6 =
-* Fixed the 404 JS error for public.min.js
-
-= 2.0.5 =
-* Fixed the override metabox issue
-
-= 2.0.4 =
-* Fixed the override metabox issue caused by other JS errors
-
-= 2.0.3 =
-* Fixed the issue with image being sent as caption
-
-= 2.0.2 =
-* Fixed the issue caused by is_success()
-
-= 2.0.0 =
-* Major Release with full revamp
-* Added modular functionality
-* Removed PHP 5.3 requirement to avoid double posting
+= Unreleased =
+* Improved the template logic
+* Fixed the issue with scheduled posts not being sent to Telegram
 
 == Upgrade Notice ==
 

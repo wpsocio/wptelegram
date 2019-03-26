@@ -1,4 +1,4 @@
-(function( $, l10n, bot_api ) {
+(function( $ ) {
 	'use strict';
 
 	var proxy = {};
@@ -12,7 +12,7 @@
         proxy.page.on( 'change', 'input[type="radio"][name="proxy_method"]', proxy.toggle_proxy_method );
         proxy.page.find('input[type="radio"][name="proxy_method"]:checked').trigger('change');
 	};
-    proxy.toggle_proxy_method = function( evt, params ){
+    proxy.toggle_proxy_method = function(){
 
         var $this = $(this),
         val = $this.val(),
@@ -33,4 +33,4 @@
 	// trigger on $(document).ready();
 	$(proxy.init);
 
-})( jQuery, wptelegram.l10n, wptelegram.bot_api );
+})( jQuery );
