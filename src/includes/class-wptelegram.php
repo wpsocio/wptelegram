@@ -219,7 +219,9 @@ final class WPTelegram {
 		/**
 		 * CMB2 library responsible for rendering fields
 		 */
-		require_once WPTELEGRAM_DIR . '/includes/cmb2/init.php';
+		if ( file_exists( WPTELEGRAM_DIR . '/includes/cmb2/init.php' ) ) {
+			require_once WPTELEGRAM_DIR . '/includes/cmb2/init.php';
+		}
 
 		/**
 		 * The library responsible for converting HTML to plain text
