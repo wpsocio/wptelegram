@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.1 - 2019-03-27](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.1)
+
+### Bug fixes
+* Fixed the step in delay on post edit page
+
 ## [2.1.0 - 2019-03-26](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.0)
 ### Enhancements
 * Improved the template conditional logic

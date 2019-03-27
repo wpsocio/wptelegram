@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2019-03-26 13:51:56+00:00\n"
+"POT-Creation-Date: 2019-03-27 08:34:43+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:07+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -221,12 +221,12 @@ msgid "Activate the modules you want to use."
 msgstr "啟用你想要使用的模組。"
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:957
 msgid "Hit %s below"
 msgstr "點選下面的 %s"
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:957
 msgid "Save Changes"
 msgstr "儲存設定"
 
@@ -347,13 +347,13 @@ msgstr "訊息設定"
 
 #: modules/notify/class-wptelegram-notify-admin.php:141
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:198
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:831
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:834
 msgid "Message Template"
 msgstr "訊息範本"
 
 #: modules/notify/class-wptelegram-notify-admin.php:142
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:199
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:832
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:835
 msgid "Structure of the message to be sent"
 msgstr "訊息送出的結構"
 
@@ -752,47 +752,47 @@ msgstr "檔案"
 msgid "Files to be sent after the message"
 msgstr "檔案在訊息之後傳送"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:947
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:950
 msgid "Create a Channel/group/supergroup"
 msgstr "建立 Channel/group/supergroup"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:948
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
 msgid "Add the Bot as Administrator to your Channel/Group"
 msgstr "將你的 Bot 設定為該 Channel/Group 的管理員"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:949
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
 msgid "Enter the Channel Username in the field below"
 msgstr "在下方欄位輸入 Channel Username"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
 msgid "Username must start with %s"
 msgstr "Username 必須以 %s 為開頭"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
 msgid "You can also use the Chat ID of a group or private chat."
 msgstr "你也可以使用私人對話或群組的 Chat ID。"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
 msgid "Get it from %s"
 msgstr "從這裡取得 %s"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:958
 msgid "That's it. You are ready to rock :)"
 msgstr "就這樣。你已經準備好了 :)"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:986
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:989
 msgid "There was some error!"
 msgstr "部分錯誤!"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:992
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:995
 msgid "Channel"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:993
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:996
 msgid "Error code"
 msgstr "錯誤代碼"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:994
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:997
 msgid "Error message"
 msgstr "錯誤訊息"
 
@@ -882,7 +882,7 @@ msgid "Proxy Host"
 msgstr "Proxy 代理伺服器主機"
 
 #: modules/proxy/class-wptelegram-proxy-admin.php:139
-msgid "Host IP or domian name like %s"
+msgid "Host IP or domain name like %s"
 msgstr "主機 IP or 域名 like %s"
 
 #: modules/proxy/class-wptelegram-proxy-admin.php:144
