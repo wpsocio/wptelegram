@@ -136,7 +136,7 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 			'name'	=> __( 'Proxy Host', 'wptelegram' ),
 			'id'	=> 'proxy_host',
 			'type'	=> 'text_medium',
-			'desc'	=> sprintf( __( 'Host IP or domian name like %s', 'wptelegram' ), '<b>192.168.84.101</b>' ),
+			'desc'	=> sprintf( __( 'Host IP or domain name like %s', 'wptelegram' ), '<b>192.168.84.101</b>' ),
 			'classes'       => 'php-proxy',
 		) );
 
