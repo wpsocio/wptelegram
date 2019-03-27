@@ -822,8 +822,11 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			'type'          => 'text_small',
 			'classes'		=> 'hidden depends-upon-override_switch',
 			'attributes'    => array(
-				'type'  => 'number',
-				'min'   => 0,
+				'type'        => 'number',
+				'min'         => '0',
+				'placeholder' => '0.0',
+				'step'        => '0.5',
+			),
 			),
 		) );
 
