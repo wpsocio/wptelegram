@@ -827,7 +827,6 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'placeholder' => '0.0',
 				'step'        => '0.5',
 			),
-			),
 		) );
 
 		$cmb2->add_field( array(
