@@ -119,11 +119,13 @@ Note: You can also contribute in translating this plugin into your local languag
 4. P2TG Settings (Cont...)
 5. P2TG Settings (Cont...)
 6. P2TG Settings (Cont...)
-7. Private Notification Settings
-8. User profile page
-9. Proxy Settings
-10. Proxy Settings (Cont...)
-11. P2TG Post Edit Page
+7. P2TG Settings (Cont...)
+8. Private Notification Settings
+9. User profile page
+10. Proxy Settings
+11. Proxy Settings (Cont...)
+12. P2TG Post Edit Page (Classic Editor)
+13. P2TG Post Edit Page (Block Editor)
 
 == Changelog ==
 
