@@ -1307,7 +1307,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 			if ( $this->send_files_by_url ) {
 
-				// featured image url.
+				// featured image URL.
 				$source = self::$post_data->get_field( 'featured_image_url' );
 
 			} else {
