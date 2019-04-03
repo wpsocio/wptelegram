@@ -71,7 +71,6 @@ class WPTelegram_Notify extends WPTelegram_Module {
 
 		$admin = new WPTelegram_Notify_Admin( $this->module_name, $this->module_title );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_styles', 10, 1 );
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_scripts', 10, 1 );
 
 		$this->loader->add_action( 'cmb2_admin_init', $admin, 'create_options_page' );

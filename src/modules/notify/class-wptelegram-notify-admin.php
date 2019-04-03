@@ -31,17 +31,6 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles( $hook_suffix ) {
-
-		parent::enqueue_style( $this->module_name, $this->slug );
-
-	}
-
-	/**
 	 * Register the JavaScript for the admin area.
 	 *
 	 * @since    1.0.0
