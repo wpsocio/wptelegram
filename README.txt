@@ -132,6 +132,7 @@ Note: You can also contribute in translating this plugin into your local languag
 = 2.1.2 =
 * Improved the proxy hooking
 * Fixed the fatal error with helper function
+* Fixed the issue with delayed posts
 
 = 2.1.1 =
 * Fixed the step in delay on post edit page
