@@ -40,14 +40,23 @@ class WPTelegram_Proxy_Handler extends WPTelegram_Module_Base {
 		parent::__construct( $module_name, $module_title );
 	}
 
-	/**
-	 * configure the proxy
-	 *
-	 * @since  1.7.8
-	 */
-	public function configure_proxy( $request ) {
-		self::setup_proxy();
-	}
+    /**
+     * configure the proxy
+     *
+     * @since  1.7.8
+     */
+    public function configure_proxy() {
+        self::setup_proxy();
+    }
+
+    /**
+     * remove the proxy
+     *
+     * @since  x.y.z
+     */
+    public function remove_proxy() {
+        remove_action( 'http_api_curl', array( __CLASS__, 'modify_http_api_curl' ), 10, 3 );
+    }
 
     /**
      * Setup the proxy
@@ -77,7 +86,7 @@ class WPTelegram_Proxy_Handler extends WPTelegram_Module_Base {
     }
 
     /**
-     * Setup php proxy
+     * Setup PHP proxy
      *
      * @since  2.0.8
      *
