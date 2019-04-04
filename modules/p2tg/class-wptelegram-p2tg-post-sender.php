@@ -346,9 +346,13 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			}
 		}
 
+		if ( ! $ok && $this->is_valid_status() ) {
+			$this->clear_scheduled_hook();
+		}
+
 		$result = __LINE__;
 
-		if ( $this->is_valid_status( array( 'publish' ) ) || ( $ok && ( $delay = $this->delay_in_posting( $trigger ) ) ) ) {
+		if ( $this->is_status_of_type( 'non_live' ) || ( $ok && ( $delay = $this->delay_in_posting( $trigger ) ) ) ) {
 
 			$this->may_be_save_options();
 
@@ -362,7 +366,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 			$ok = false;
 
-		} elseif ( 'publish' == self::$post->post_status ) {
+		} elseif ( $this->is_status_of_type( 'live' ) ) {
 
 			self::clean_up();
 		}
@@ -387,30 +391,92 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * Set the post for delay
+	 * The post statuses that are valid/allowed.
 	 *
-	 * @since	1.0.0
-	 *
+	 * @since 2.1.2
 	 */
-	public function delay_post( $delay ) {
-
-		$hook	= 'wptelegram_p2tg_delayed_post';
-		$delay	= absint( $delay * MINUTE_IN_SECONDS );
-		$args	= array( strval( self::$post->ID ) ); // strval to match the exact event.
-
-		// clear the previous event, if set.
-		wp_clear_scheduled_hook( $hook, $args );
-
-		wp_schedule_single_event( time() + $delay, $hook, $args );
+	public function get_valid_post_statuses() {
+		$valid_statuses = array(
+			'live'     => array( // The ones that are live/visible.
+				'publish',
+				'private',
+			),
+			'non_live' => array( // The that are not yet live for the audience.
+				'future',
+				'draft',
+				'pending',
+			),
+		);
+		return (array) apply_filters( 'wptelegram_p2tg_valid_post_statuses', $valid_statuses, self::$post );
 	}
 
 	/**
-	 * Delay posts by minutes
+	 * If it's a valid status that the should be handled.
+	 *
+	 * @since 2.0.11
+	 */
+	public function is_valid_status() {
+
+		$valid_statuses = call_user_func_array( 'array_merge', $this->get_valid_post_statuses() );
+
+		return in_array( self::$post->post_status, $valid_statuses, true );
+	}
+
+	/**
+	 * If it's a live/non_live status .
+	 *
+	 * @since 2.1.2
+	 */
+	public function is_status_of_type( $type ) {
+
+		$valid_statuses = $this->get_valid_post_statuses();
+
+		return in_array( self::$post->post_status, $valid_statuses[ $type ], true );
+	}
+
+	/**
+	 * Clear an existing scheduled event.
+	 *
+	 * @since	2.1.2
+	 *
+	 */
+	public function clear_scheduled_hook( $hook = '' ) {
+
+		$hook = $hook ? $hook : 'wptelegram_p2tg_delayed_post';
+
+		$args = array( strval( self::$post->ID ) );
+
+		// clear the previous event, if set.
+		wp_clear_scheduled_hook( $hook, $args );
+	}
+
+
+	/**
+	 * Set the post for delay.
+	 *
+	 * @since 1.0.0
+	 */
+	public function delay_post( $delay ) {
+
+		$hook  = 'wptelegram_p2tg_delayed_post';
+		$delay = absint( $delay * MINUTE_IN_SECONDS );
+		$args  = array( strval( self::$post->ID ) ); // strval to match the exact event.
+
+		file_put_contents( WP_CONTENT_DIR . '/cron1.txt', json_encode( _get_cron_array(), JSON_PRETTY_PRINT ) . PHP_EOL );
+
+		$this->clear_scheduled_hook();
+
+		$res = wp_schedule_single_event( time() + $delay, $hook, $args );
+
+		file_put_contents( WP_CONTENT_DIR . '/cron2.txt', json_encode( _get_cron_array(), JSON_PRETTY_PRINT ) . PHP_EOL );
+	}
+
+	/**
+	 * Delay posts by minutes.
 	 *
 	 * @since	1.0.0
 	 *
 	 * @return  int
-	 *
 	 */
 	public function delay_in_posting( $trigger = '' ) {
 
@@ -546,9 +612,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			}
 
 			// check for override switch.
-			if ( isset( $_POST[ self::$prefix . 'send2tg'] ) ) {
+			if ( isset( $_POST[ self::$prefix . 'send2tg' ] ) ) {
 
-				$this->send2tg = WPTG()->utils->sanitize( $_POST[ self::$prefix . 'send2tg'] );
+				$this->send2tg = WPTG()->utils->sanitize( $_POST[ self::$prefix . 'send2tg' ] );
 			}
 
 			if ( 'no' === $this->send2tg ) {
@@ -602,25 +668,6 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		}
 
 		return true;
-	}
-
-	/**
-	 * If it's a valid status that the should be handled
-	 *
-	 * @since	2.0.11
-	 */
-	public function is_valid_status( $exclude = array() ) {
-
-		$valid_statuses = array( 'publish', 'future', 'draft', 'pending' );
-		$valid_statuses = array_diff( $valid_statuses, (array) $exclude );
-
-		$valid_statuses = (array) apply_filters( 'wptelegram_p2tg_valid_statuses', $valid_statuses, self::$post, $exclude );
-
-		// If not a valid status.
-		if ( in_array( self::$post->post_status, $valid_statuses ) ) {
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -1307,7 +1354,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 			if ( $this->send_files_by_url ) {
 
-				// featured image url.
+				// featured image URL.
 				$source = self::$post_data->get_field( 'featured_image_url' );
 
 			} else {

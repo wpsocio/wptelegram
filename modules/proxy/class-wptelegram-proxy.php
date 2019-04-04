@@ -90,6 +90,8 @@ class WPTelegram_Proxy extends WPTelegram_Module {
 
 		$handler = new WPTelegram_Proxy_Handler( $this->module_name, $this->module_title );
 
-		$this->loader->add_action( 'wptelegram_bot_api_before_request', $handler, 'configure_proxy', 20, 1 );
+		$this->loader->add_action( 'wptelegram_remote_request_init', $handler, 'configure_proxy' );
+
+		$this->loader->add_action( 'wptelegram_remote_request_finish', $handler, 'remove_proxy' );
 	}
 }

@@ -162,6 +162,9 @@ class WPTelegram_Bot_API {
             return new WP_Error( 'invalid_bot_token', 'Bot Token is required to make a request' );
         }
 
+        // to be used by proxy module
+        do_action( 'wptelegram_remote_request_init' );
+
         $this->request = $this->request( $api_method, $params );
         
         do_action( 'wptelegram_bot_api_before_request', $this->get_request(), $this->last_response );
@@ -171,6 +174,9 @@ class WPTelegram_Bot_API {
         do_action( 'wptelegram_bot_api_after_request', $this->get_request(), $this->last_response );
 
         do_action( 'wptelegram_bot_api_debug', $this->last_response, $this );
+
+        // to be used by proxy module
+        do_action( 'wptelegram_remote_request_finish' );
 
         return $this->last_response;
     }

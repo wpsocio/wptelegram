@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2019-03-27 08:34:43+00:00\n"
+"POT-Creation-Date: 2019-04-04 12:46:37+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:07+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -64,7 +64,7 @@ msgid "Failure"
 msgstr "失敗"
 
 #: admin/class-wptelegram-admin.php:99
-#: modules/notify/class-wptelegram-notify-admin.php:424
+#: modules/notify/class-wptelegram-notify-admin.php:413
 msgid "Error:"
 msgstr "錯誤:"
 
@@ -79,8 +79,8 @@ msgid ""
 msgstr "有了這個外掛，你可以發送文章至 Telegram 並且接收通知，以及更多事情 :)"
 
 #: admin/class-wptelegram-admin.php:186
-#: modules/notify/class-wptelegram-notify-admin.php:79
-#: modules/notify/class-wptelegram-notify-admin.php:350
+#: modules/notify/class-wptelegram-notify-admin.php:68
+#: modules/notify/class-wptelegram-notify-admin.php:339
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:101
 msgid "INSTRUCTIONS!"
 msgstr "操作說明"
@@ -221,12 +221,12 @@ msgid "Activate the modules you want to use."
 msgstr "啟用你想要使用的模組。"
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:957
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:956
 msgid "Hit %s below"
 msgstr "點選下面的 %s"
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:957
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:956
 msgid "Save Changes"
 msgstr "儲存設定"
 
@@ -288,196 +288,196 @@ msgstr ""
 msgid "Bypass the ban on Telegram by making use of proxy."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:74
+#: modules/notify/class-wptelegram-notify-admin.php:63
 msgid ""
 "The module will watch the Email Notifications sent from this site and "
 "deliver them on your Telegram"
 msgstr "此模組會監看此站寄出的電子郵件通知並且將它們傳送至你的 Telegram"
 
-#: modules/notify/class-wptelegram-notify-admin.php:96
+#: modules/notify/class-wptelegram-notify-admin.php:85
 msgid "Notification Settings"
 msgstr "通知設定"
 
-#: modules/notify/class-wptelegram-notify-admin.php:102
+#: modules/notify/class-wptelegram-notify-admin.php:91
 msgid "If Email goes to"
 msgstr "如果 Email 是寄到"
 
-#: modules/notify/class-wptelegram-notify-admin.php:104
+#: modules/notify/class-wptelegram-notify-admin.php:93
 msgid "If you want to receive notification for every email, then write %s"
 msgstr "如果你想要每個 email 都接收通知，請寫下 %s"
 
-#: modules/notify/class-wptelegram-notify-admin.php:112
-#: modules/notify/class-wptelegram-notify-admin.php:200
+#: modules/notify/class-wptelegram-notify-admin.php:101
+#: modules/notify/class-wptelegram-notify-admin.php:189
 msgid "Send it to"
 msgstr "傳送給"
 
-#: modules/notify/class-wptelegram-notify-admin.php:113
+#: modules/notify/class-wptelegram-notify-admin.php:102
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:125
 msgid "Send Test"
 msgstr "測試傳送"
 
-#: modules/notify/class-wptelegram-notify-admin.php:113
+#: modules/notify/class-wptelegram-notify-admin.php:102
 msgid "Telegram User or Group Chat ID."
 msgstr "Telegram 使用者或群組 Chat ID。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:126
+#: modules/notify/class-wptelegram-notify-admin.php:115
 msgid "Notifications to Users"
 msgstr "使用者通知"
 
-#: modules/notify/class-wptelegram-notify-admin.php:127
+#: modules/notify/class-wptelegram-notify-admin.php:116
 msgid "Allow users to receive their email notifications on Telegram"
 msgstr "允許使用者在 Telegram 上接收他們的 email 通知"
 
-#: modules/notify/class-wptelegram-notify-admin.php:128
+#: modules/notify/class-wptelegram-notify-admin.php:117
 msgid "Use %s to let them connect their Telegram account."
 msgstr "使用 %s 讓他們連接他們的 Telegram 帳戶。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:128
+#: modules/notify/class-wptelegram-notify-admin.php:117
 msgid "They can also enter their Telegram Chat ID manually on %s page"
 msgstr "他們也可以在 %s 頁面手動輸入他們的 Telegram Chat ID"
 
-#: modules/notify/class-wptelegram-notify-admin.php:128
+#: modules/notify/class-wptelegram-notify-admin.php:117
 msgid "profile"
 msgstr "設定檔"
 
-#: modules/notify/class-wptelegram-notify-admin.php:135
+#: modules/notify/class-wptelegram-notify-admin.php:124
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:193
 msgid "Message Settings"
 msgstr "訊息設定"
 
-#: modules/notify/class-wptelegram-notify-admin.php:141
+#: modules/notify/class-wptelegram-notify-admin.php:130
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:198
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:834
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:833
 msgid "Message Template"
 msgstr "訊息範本"
 
-#: modules/notify/class-wptelegram-notify-admin.php:142
+#: modules/notify/class-wptelegram-notify-admin.php:131
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:199
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:835
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:834
 msgid "Structure of the message to be sent"
 msgstr "訊息送出的結構"
 
-#: modules/notify/class-wptelegram-notify-admin.php:156
+#: modules/notify/class-wptelegram-notify-admin.php:145
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:290
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:545
 msgid "Parse Mode"
 msgstr "解析模式 (Parse Mode)"
 
-#: modules/notify/class-wptelegram-notify-admin.php:160
+#: modules/notify/class-wptelegram-notify-admin.php:149
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:294
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:415
 msgid "Learn more"
 msgstr "了解更多"
 
-#: modules/notify/class-wptelegram-notify-admin.php:162
+#: modules/notify/class-wptelegram-notify-admin.php:151
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:298
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:545
 msgid "None"
 msgstr "無"
 
-#: modules/notify/class-wptelegram-notify-admin.php:163
+#: modules/notify/class-wptelegram-notify-admin.php:152
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:299
 msgid "Markdown style"
 msgstr "Markdown 樣式"
 
-#: modules/notify/class-wptelegram-notify-admin.php:164
+#: modules/notify/class-wptelegram-notify-admin.php:153
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:300
 msgid "HTML style"
 msgstr "HTML 樣式"
 
-#: modules/notify/class-wptelegram-notify-admin.php:191
+#: modules/notify/class-wptelegram-notify-admin.php:180
 msgid "To receive notifications privately:"
 msgstr "私下接收通知："
 
-#: modules/notify/class-wptelegram-notify-admin.php:193
+#: modules/notify/class-wptelegram-notify-admin.php:182
 msgid "Get your Chat ID from %s and enter it below."
 msgstr "從 %s 取得你的 Chat ID 並且在下方輸入。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:194
+#: modules/notify/class-wptelegram-notify-admin.php:183
 msgid "Send YOUR OWN BOT a message to start the conversation."
 msgstr "傳送一則訊息給你自己的機器人以展開對話。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:197
+#: modules/notify/class-wptelegram-notify-admin.php:186
 msgid "To receive notifications into a group:"
 msgstr "在群組中接收通知:"
 
-#: modules/notify/class-wptelegram-notify-admin.php:199
+#: modules/notify/class-wptelegram-notify-admin.php:188
 msgid "Add %s to the group to get its Chat ID."
 msgstr "將 %s 新增到群組以取得其 Chat ID。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:200
+#: modules/notify/class-wptelegram-notify-admin.php:189
 msgid "Enter the Chat ID in %s field below."
 msgstr "在下方 %s 中輸入 chat_id。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:201
+#: modules/notify/class-wptelegram-notify-admin.php:190
 msgid "Add YOUR OWN BOT to the group."
 msgstr "新增你自己的機器人到群組中。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:223
+#: modules/notify/class-wptelegram-notify-admin.php:212
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:522
-#: modules/proxy/class-wptelegram-proxy-admin.php:256
+#: modules/proxy/class-wptelegram-proxy-admin.php:245
 msgid "Chat ID"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:224
+#: modules/notify/class-wptelegram-notify-admin.php:213
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:523
-#: modules/proxy/class-wptelegram-proxy-admin.php:257
+#: modules/proxy/class-wptelegram-proxy-admin.php:246
 msgid "Name/Title"
 msgstr "Name/Title (名稱/標題)"
 
-#: modules/notify/class-wptelegram-notify-admin.php:225
+#: modules/notify/class-wptelegram-notify-admin.php:214
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:524
-#: modules/proxy/class-wptelegram-proxy-admin.php:258
+#: modules/proxy/class-wptelegram-proxy-admin.php:247
 msgid "Chat Type"
 msgstr "Chat Type (對話類型)"
 
-#: modules/notify/class-wptelegram-notify-admin.php:226
+#: modules/notify/class-wptelegram-notify-admin.php:215
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:525
-#: modules/proxy/class-wptelegram-proxy-admin.php:259
+#: modules/proxy/class-wptelegram-proxy-admin.php:248
 msgid "Test Status"
 msgstr "測試狀態"
 
-#: modules/notify/class-wptelegram-notify-admin.php:254
+#: modules/notify/class-wptelegram-notify-admin.php:243
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:413
-#: modules/proxy/class-wptelegram-proxy-admin.php:287
+#: modules/proxy/class-wptelegram-proxy-admin.php:276
 msgid "You can use any text, emojis or these macros in any order:"
 msgstr "你可以使用任何文字、emoji 或是這些表情符號:"
 
-#: modules/notify/class-wptelegram-notify-admin.php:254
+#: modules/notify/class-wptelegram-notify-admin.php:243
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:413
-#: modules/proxy/class-wptelegram-proxy-admin.php:287
+#: modules/proxy/class-wptelegram-proxy-admin.php:276
 msgid "Click to insert"
 msgstr "點擊插入"
 
-#: modules/notify/class-wptelegram-notify-admin.php:321
+#: modules/notify/class-wptelegram-notify-admin.php:310
 msgid "Telegram Info"
 msgstr "Telegram 資訊"
 
-#: modules/notify/class-wptelegram-notify-admin.php:322
+#: modules/notify/class-wptelegram-notify-admin.php:311
 msgid "You can receive your email notifications on Telegram from %s"
 msgstr "從 %s ，你可以在 Telegram 接收到你的 email 通知"
 
-#: modules/notify/class-wptelegram-notify-admin.php:328
+#: modules/notify/class-wptelegram-notify-admin.php:317
 msgid "Telegram Chat ID"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:329
+#: modules/notify/class-wptelegram-notify-admin.php:318
 msgid "Please enter your Telegram Chat ID"
 msgstr "請輸入你的 Telegram Chat ID"
 
-#: modules/notify/class-wptelegram-notify-admin.php:352
+#: modules/notify/class-wptelegram-notify-admin.php:341
 msgid "Get your Chat ID from %s and enter it above."
 msgstr "從 %s 取得你的 Chat ID，並且輸入在上方。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:353
+#: modules/notify/class-wptelegram-notify-admin.php:342
 msgid "Start a conversation with %s to receive notifications."
 msgstr "與 %s 開啟對話以接收通知。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:379
+#: modules/notify/class-wptelegram-notify-admin.php:368
 msgid "via %s"
 msgstr "透過 %s"
 
-#: modules/notify/class-wptelegram-notify-admin.php:424
+#: modules/notify/class-wptelegram-notify-admin.php:413
 msgid "Please Enter a valid Chat ID"
 msgstr "請輸入有效 Chat ID"
 
@@ -752,47 +752,47 @@ msgstr "檔案"
 msgid "Files to be sent after the message"
 msgstr "檔案在訊息之後傳送"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:950
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:949
 msgid "Create a Channel/group/supergroup"
 msgstr "建立 Channel/group/supergroup"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:950
 msgid "Add the Bot as Administrator to your Channel/Group"
 msgstr "將你的 Bot 設定為該 Channel/Group 的管理員"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
 msgid "Enter the Channel Username in the field below"
 msgstr "在下方欄位輸入 Channel Username"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:953
 msgid "Username must start with %s"
 msgstr "Username 必須以 %s 為開頭"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
 msgid "You can also use the Chat ID of a group or private chat."
 msgstr "你也可以使用私人對話或群組的 Chat ID。"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
 msgid "Get it from %s"
 msgstr "從這裡取得 %s"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:958
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:957
 msgid "That's it. You are ready to rock :)"
 msgstr "就這樣。你已經準備好了 :)"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:989
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:988
 msgid "There was some error!"
 msgstr "部分錯誤!"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:995
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:994
 msgid "Channel"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:996
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:995
 msgid "Error code"
 msgstr "錯誤代碼"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:997
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:996
 msgid "Error message"
 msgstr "錯誤訊息"
 
@@ -838,78 +838,78 @@ msgstr "包含"
 msgid "is not in"
 msgstr "不包含"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:74
+#: modules/proxy/class-wptelegram-proxy-admin.php:63
 msgid ""
 "The module will help you bypass the ban on Telegram by making use of proxy."
 msgstr "此模組將協助你利用 proxy 來繞過 Telegram 的阻擋。"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:79
+#: modules/proxy/class-wptelegram-proxy-admin.php:68
 msgid "DISCLAIMER!"
 msgstr "免責聲明!"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:96
+#: modules/proxy/class-wptelegram-proxy-admin.php:85
 msgid "Proxy Method"
 msgstr ""
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:106
+#: modules/proxy/class-wptelegram-proxy-admin.php:95
 msgid "Google Script is preferred"
 msgstr "首選為 Google Script"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:108
-#: modules/proxy/class-wptelegram-proxy-admin.php:114
+#: modules/proxy/class-wptelegram-proxy-admin.php:97
+#: modules/proxy/class-wptelegram-proxy-admin.php:103
 msgid "Google Script"
 msgstr "Google Script"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:109
-#: modules/proxy/class-wptelegram-proxy-admin.php:129
+#: modules/proxy/class-wptelegram-proxy-admin.php:98
+#: modules/proxy/class-wptelegram-proxy-admin.php:118
 msgid "PHP Proxy"
 msgstr ""
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:121
+#: modules/proxy/class-wptelegram-proxy-admin.php:110
 msgid "Google Script URL"
 msgstr "Google Script URL"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:123
+#: modules/proxy/class-wptelegram-proxy-admin.php:112
 msgid "The requests to Telegram will be sent via your Google Script."
 msgstr "將會透過你的 Google Script 發送要求到 Telegram。"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:123
+#: modules/proxy/class-wptelegram-proxy-admin.php:112
 msgid "See this tutorial"
 msgstr "查看此教學課程"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:136
+#: modules/proxy/class-wptelegram-proxy-admin.php:125
 msgid "Proxy Host"
 msgstr "Proxy 代理伺服器主機"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:139
+#: modules/proxy/class-wptelegram-proxy-admin.php:128
 msgid "Host IP or domain name like %s"
 msgstr "主機 IP or 域名 like %s"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:144
+#: modules/proxy/class-wptelegram-proxy-admin.php:133
 msgid "Proxy Port"
 msgstr ""
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:147
+#: modules/proxy/class-wptelegram-proxy-admin.php:136
 msgid "Target Port like %s"
 msgstr "目標 Port 像是 %s"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:152
+#: modules/proxy/class-wptelegram-proxy-admin.php:141
 msgid "Proxy Type"
 msgstr "Proxy 類型"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:167
+#: modules/proxy/class-wptelegram-proxy-admin.php:156
 msgid "Username"
 msgstr "使用者名稱"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:170
-#: modules/proxy/class-wptelegram-proxy-admin.php:178
+#: modules/proxy/class-wptelegram-proxy-admin.php:159
+#: modules/proxy/class-wptelegram-proxy-admin.php:167
 msgid "Leave empty if not required"
 msgstr "如果不需要可以留空"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:175
+#: modules/proxy/class-wptelegram-proxy-admin.php:164
 msgid "Password"
 msgstr "密碼"
 
-#: modules/proxy/class-wptelegram-proxy-admin.php:193
+#: modules/proxy/class-wptelegram-proxy-admin.php:182
 msgid "Use the proxy at your own risk!"
 msgstr "你需自行承擔使用 proxy 代理伺服器的風險!"

@@ -58,7 +58,7 @@
 
 		this.build_url = function( api_method ) {
 
-			if ( 'browser' == wptelegram.ajax.use ) {
+			if ( 'browser' === wptelegram.ajax.use ) {
 				this.base_url = 'https://api.telegram.org';
 
 				return this.base_url+'/bot'+this.bot_token+'/'+api_method;
@@ -289,10 +289,8 @@
 				regex = /^\-?[^0\D]\d{6,51}$/i;
 				break;
 		}
-		if ( regex.test( value ) ) {
-			return true;
-		}
-		return false;
+		
+		return regex.test( value );
 	};
 	wptelegram.utils.validate = function( elem, validation_type ){
 		// remove spaces etc.

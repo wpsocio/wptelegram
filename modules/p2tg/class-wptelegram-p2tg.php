@@ -110,16 +110,16 @@ class WPTelegram_P2TG extends WPTelegram_Module {
 	private function define_sender_hooks() {
 
 		$post_sender = new WPTelegram_P2TG_Post_Sender( $this->module_name, $this->module_title );
-		
+
 		$this->loader->add_action( 'wp_insert_post', $post_sender, 'wp_insert_post', 20, 2 );
-		
+
 		// scheduled post handler
 		$this->loader->add_action( 'future_to_publish', $post_sender, 'future_to_publish', 20, 1 );
-		
+
 		// delay event handler
 		$this->loader->add_action( 'wptelegram_p2tg_delayed_post', $post_sender, 'delayed_post', 10, 1 );
-		
+
 		// trigger handler
-		$this->loader->add_action( 'wptelegram_p2tg_send_post', $post_sender, 'send_the_post', 10, 4 );
+		$this->loader->add_action( 'wptelegram_p2tg_send_post', $post_sender, 'send_post', 10, 3 );
 	}
 }
