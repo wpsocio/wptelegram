@@ -8,6 +8,17 @@ module.exports = function(grunt) {
 	// load all grunt tasks in package.json matching the `grunt-*` pattern
 	require('load-grunt-tasks')(grunt);
 
+	var verion_updater = {
+		version: '', // to be set dynamically
+		update: function (match, p1) {
+			if (!this.version) {
+				grunt.warn('No version number set!');
+			}
+			return match.replace(p1,this.version);
+		}
+	};
+	verion_updater.update = verion_updater.update.bind(verion_updater);
+
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON( 'package.json' ),
@@ -116,7 +127,7 @@ module.exports = function(grunt) {
 						pot.headers['last-translator'] = config(['pkg', 'title']);
 						pot.headers['language-team'] = config(['pkg', 'title']);
 						var today = new Date();
-						pot.headers['po-revision-date'] = today.getFullYear() +'-'+ ( today.getMonth() + 1 ) +'-'+ today.getDate() +' '+ today.getUTCHours() +':'+ today.getUTCMinutes() +'+'+ today.getTimezoneOffset();
+						pot.headers['po-revision-date'] = today.getFullYear() +'-'+ ('0' + (today.getMonth() + 1)).slice(-2) +'-'+ today.getDate() +' '+ today.getUTCHours() +':'+ today.getUTCMinutes() +'+'+ today.getTimezoneOffset();
 						return pot;
 					}
 				}
@@ -270,6 +281,19 @@ module.exports = function(grunt) {
 				src: []
 			}
 		},
+		phplint: {
+			options: {
+				phpCmd: '/usr/bin/php5.6',
+	            phpArgs: {
+	                '-d': ['display_errors', 'display_startup_errors']
+	            }
+	        },
+	        all: {
+				expand: true,
+				cwd: SOURCE_DIR,
+				src: [ '**/*.php' ],
+			},
+	    },
 		jshint: {
 			options: jshintrc,
 			config: {
@@ -384,6 +408,119 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		update_files: {
+			config: {
+				files: {
+					'./': 'package{-lock.json,.json}',
+				},
+				options: {
+					replacements: [
+						{
+							pattern: /"version":\s*"(\d+\.\d+\.\d+)"/i,
+							replacement: verion_updater.update
+						}
+					]
+				}
+			},
+			readme: {
+				files: {
+					'./': 'README.md',
+					[SOURCE_DIR]: SOURCE_DIR + 'README.txt',
+				},
+				options: {
+					replacements: [
+						{
+							pattern: /Stable tag:(?:\*\*)?[\s\t]*(\d+\.\d+\.\d+)/i,
+							replacement: verion_updater.update
+						}
+					]
+				}
+			},
+			mainfile: {
+				files: {
+					[SOURCE_DIR]: SOURCE_DIR + 'wptelegram.php'
+				},
+				options: {
+					replacements: [
+						{
+							pattern: /Version:\s*(\d+\.\d+\.\d+)/i,
+							replacement: verion_updater.update
+						},
+						{
+							pattern: /'WPTELEGRAM_VER',\s*'(\d+\.\d+\.\d+)'/i,
+							replacement: verion_updater.update
+						}
+					]
+				}
+			},
+			'since-xyz': {
+				files: [
+					{
+						expand: true,
+						cwd: SOURCE_DIR,
+						src: '**/*.php',
+						dest: SOURCE_DIR
+				    }
+			    ],
+				options: {
+					replacements: [
+						{
+							pattern: /@since[\s\t]*(x\.y\.z)/ig,
+							replacement: verion_updater.update
+						}
+					]
+				}
+			},
+			'changelog-readme': {
+				files: {
+					[SOURCE_DIR]: SOURCE_DIR + 'README.txt',
+				},
+				options: {
+					replacements: [
+						{
+							pattern: /== Changelog ==([\s\S])/i,
+							replacement: function (match, p1) {
+
+								const { version } = verion_updater;
+								if (!version) {
+									grunt.warn('No version number set!');
+								}
+
+								const changes = grunt.file.read('./changelog.md') // get contents of changelog file
+								.match(/(?<=\#\#\sUnreleased)[\s\S]+?(?=##\s?\[\d+\.\d+\.\d+)/i)[0] // match the changes in Unreleased section
+								.replace(/(^|\n)(\#\#.+)/g,'') // remove headings like Enhancements, Bug fixes
+								.replace(/\n[\s\t]*\n/g,`\n`) // replace empty lines
+								.trim(); // cleanup
+
+								const replace = `\n\n= ${version} =\n${changes}\n`;
+								return match.replace(p1, replace);
+							}
+						}
+					]
+				}
+			},
+			'changelog-md': {
+				files: {
+					'./': 'changelog.md'
+				},
+				options: {
+					replacements: [
+						{
+							pattern: /## (Unreleased)/i,
+							replacement: function (match, p1) {
+								const { version } = verion_updater;
+								if (!version) {
+									grunt.warn('No version number set!');
+								}
+								var today = new Date();
+								var replace = '[' + version + ' - ' + today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + today.getDate() + '](https://github.com/manzoorwanijk/wptelegram/releases/tag/v' + version + ')';
+								return match.replace(p1, replace);
+							}
+						}
+					]
+				}
+			}
+		},
 		buildcontrol: {
 		    options: {
 		      dir: 'build',
@@ -452,6 +589,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask( 'build', function() {
 		grunt.task.run( [
+			'phplint:all',
 			'jshint:all',
 			'build:files',
 			'build:js',
@@ -471,19 +609,55 @@ module.exports = function(grunt) {
 		'copy:i18n',
 	] );
 
-	grunt.registerTask( 'precommit', [
+	grunt.renameTask( 'string-replace', 'update_files' );
+
+	grunt.registerTask( 'update:version', function() {
+
+		let version = grunt.option('to');
+		if (!version) {
+			grunt.warn('No version number supplied! usage: grunt update:version --to=x.y.z');
+		}
+
+		verion_updater.version = version;
+
+		grunt.task.run( [
+			'update_files:config',
+			'update_files:readme',
+			'update_files:mainfile',
+			'update_files:since-xyz',
+		] );
+	} );
+
+	grunt.registerTask( 'update:changelog', function() {
+
+		let version = grunt.option('to');
+		if (!version) {
+			grunt.warn('No version number supplied! usage: grunt update:changelog --to=x.y.z');
+		}
+
+		verion_updater.version = version;
+
+		grunt.task.run( [
+			'update_files:changelog-readme',
+			'update_files:changelog-md',
+		] );
+	} );
+
+	grunt.registerTask( 'prerelease', [
 		'build',
 		'bundle:cmb2',
 		'i18n:all',
 		'copy:changelog',
 	] );
 
-	grunt.registerTask( 'gitpush:trunk', [
-		'buildcontrol'
-	]);
+	grunt.registerTask( 'precommit', [
+		'update:version',
+		'update:changelog',
+		'prerelease',
+	] );
 
 	grunt.registerTask( 'commit:git:trunk', [
-		'gitpush:trunk'
+		'buildcontrol'
 	] );
 
 	// Default task.

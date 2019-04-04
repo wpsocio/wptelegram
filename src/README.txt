@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 4.0
 Tested up to: 5.1.1
 Requires PHP: 5.2.4
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -128,6 +128,10 @@ Note: You can also contribute in translating this plugin into your local languag
 13. P2TG Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 2.1.2 =
+* Improved the proxy hooking
+* Fixed the fatal error with helper function
 
 = 2.1.1 =
 * Fixed the step in delay on post edit page

@@ -393,7 +393,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * The post statuses that are valid/allowed.
 	 *
-	 * @since x.y.z
+	 * @since 2.1.2
 	 */
 	public function get_valid_post_statuses() {
 		$valid_statuses = array(
@@ -425,7 +425,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * If it's a live/non_live status .
 	 *
-	 * @since x.y.z
+	 * @since 2.1.2
 	 */
 	public function is_status_of_type( $type ) {
 
@@ -437,7 +437,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Clear an existing scheduled event.
 	 *
-	 * @since	x.y.z
+	 * @since	2.1.2
 	 *
 	 */
 	public function clear_scheduled_hook( $hook = '' ) {

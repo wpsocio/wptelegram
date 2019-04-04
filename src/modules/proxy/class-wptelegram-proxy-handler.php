@@ -52,7 +52,7 @@ class WPTelegram_Proxy_Handler extends WPTelegram_Module_Base {
     /**
      * remove the proxy
      *
-     * @since  x.y.z
+     * @since  2.1.2
      */
     public function remove_proxy() {
         remove_action( 'http_api_curl', array( __CLASS__, 'modify_http_api_curl' ), 10, 3 );
