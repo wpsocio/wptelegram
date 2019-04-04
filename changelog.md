@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 
 ### Bug fixes
 * Fixed the fatal error with helper function
+* Fixed the issue with delayed posts
 
 ## [2.1.1 - 2019-03-27](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.1)
 
