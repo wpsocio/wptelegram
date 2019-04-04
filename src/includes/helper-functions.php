@@ -1,8 +1,7 @@
 <?php
-
 if ( ! function_exists( 'wptelegram_p2tg_send_post' ) ) {
 	/**
-	 * Function to send the post to Telegram
+	 * Function to send the post to Telegram.
 	 * 
 	 * @since  1.0.0
 	 *
@@ -12,9 +11,6 @@ if ( ! function_exists( 'wptelegram_p2tg_send_post' ) ) {
 	 */
 	function wptelegram_p2tg_send_post( WP_Post $post, $trigger = 'non_wp', $force = false ) {
 
-		if ( WPTG()->helpers->is_module_loaded( 'p2tg' ) ) {
-
-			do_action( 'wptelegram_p2tg_send_post', $post, $trigger, $force );
-		}
+		do_action( 'wptelegram_p2tg_send_post', $post, $trigger, $force );
 	}
 }
