@@ -276,11 +276,11 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * Use wptelegram_p2tg_send_post() instead.
 	 * Relying on this method is not safe as it may change in future
 	 *
-	 * @since	1.0.0
+	 * @since 1.0.0
 	 *
-	 * @param	WP_Post	$post		The post to be handled
-	 * @param	string	$trigger	The name of the source trigger hook
-	 * @param	bool	$force		Whether to bypass the custom rules
+	 * @param WP_Post $post    The post to be handled.
+	 * @param string  $trigger The name of the source trigger hook.
+	 * @param bool    $force   Whether to bypass the custom rules.
 	 */
 	public function send_the_post( WP_Post $post, $trigger, $force ) {
 
@@ -325,10 +325,10 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			 * Can be used to determine which condition actually failed
 			 * by checking for the integer value of $validity - the line number
 			 *
-			 * @since	1.0.0
+			 * @since 1.0.0
 			 *
-			 * @param	WP_Post		$post		The current post
-			 * @param	int|bool	$validity	The validity status
+			 * @param WP_Post  $post     The current post
+			 * @param int|bool $validity The validity status
 			 */
 			do_action( 'wptelegram_p2tg_post_sv_check_failed', $validity, self::$post, $trigger );
 		}
@@ -346,7 +346,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			}
 		}
 
-		if ( ! $ok && $this->is_valid_status() ) {
+		if ( 'no' === $this->send2tg && $this->is_valid_status() ) {
 			$this->clear_scheduled_hook();
 		}
 
@@ -437,7 +437,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Clear an existing scheduled event.
 	 *
-	 * @since	2.1.2
+	 * @since 2.1.2
 	 *
 	 */
 	public function clear_scheduled_hook( $hook = '' ) {
@@ -462,13 +462,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$delay = absint( $delay * MINUTE_IN_SECONDS );
 		$args  = array( strval( self::$post->ID ) ); // strval to match the exact event.
 
-		file_put_contents( WP_CONTENT_DIR . '/cron1.txt', json_encode( _get_cron_array(), JSON_PRETTY_PRINT ) . PHP_EOL );
-
 		$this->clear_scheduled_hook();
 
-		$res = wp_schedule_single_event( time() + $delay, $hook, $args );
-
-		file_put_contents( WP_CONTENT_DIR . '/cron2.txt', json_encode( _get_cron_array(), JSON_PRETTY_PRINT ) . PHP_EOL );
+		wp_schedule_single_event( time() + $delay, $hook, $args );
 	}
 
 	/**
