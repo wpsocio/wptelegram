@@ -1205,6 +1205,14 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * @return	string
 	 */
 	private function get_response_text( $template ) {
+		
+		// Remove wpautop() from the `the_content` filter
+		// to preserve newlines.
+		$priority = has_filter( 'the_content', 'wpautop' );
+		if ( false !== $priority ) {
+			remove_filter( 'the_content', 'wpautop', $priority );
+			add_filter( 'the_content', array( $this, '_restore_wpautop_hook' ), $priority + 1 );
+		}
 
 		$excerpt_source = $this->options->get( 'excerpt_source' );
 		$excerpt_length = (int) $this->options->get( 'excerpt_length' );
@@ -1331,6 +1339,25 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$template = preg_replace( '/(?:\A|[\n\r]).*?\{remove_line\}.*/u', '', $template );
 
 		return apply_filters( 'wptelegram_p2tg_process_template_logic', $template, $macro_values, $raw_template, self::$post, $this->options );
+	}
+
+	/**
+	 * Re-add wp_autop() to the `the_content` filter.
+	 *
+	 * @access public
+	 *
+	 * @since 2.1.3
+	 *
+	 * @param string $content The post content running through this filter.
+	 * @return string The unmodified content.
+	 */
+	public function _restore_wpautop_hook( $content ) {
+		$current_priority = has_filter( 'the_content', array( $this, '_restore_wpautop_hook' ) );
+
+		add_filter( 'the_content', 'wpautop', $current_priority - 1 );
+		remove_filter( 'the_content', array( $this, '_restore_wpautop_hook' ), $current_priority );
+
+		return $content;
 	}
 
 	/**
