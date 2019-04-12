@@ -587,13 +587,25 @@ module.exports = function(grunt) {
 		'copy:all'
 	] );
 
-	grunt.registerTask( 'build', function() {
+	grunt.registerTask( 'lint:all', function() {
 		grunt.task.run( [
 			'phplint:all',
 			'jshint:all',
+		] );
+	} );
+
+	grunt.registerTask( 'build:all', function() {
+		grunt.task.run( [
 			'build:files',
 			'build:js',
 			'build:css',
+		] );
+	} );
+
+	grunt.registerTask( 'build', function() {
+		grunt.task.run( [
+			'lint:all',
+			'build:all',
 		] );
 	} );
 
@@ -644,13 +656,15 @@ module.exports = function(grunt) {
 	} );
 
 	grunt.registerTask( 'prerelease', [
-		'build',
+		'lint:all',
+		'build:all',
 		'bundle:cmb2',
 		'i18n:all',
 		'copy:changelog',
 	] );
 
 	grunt.registerTask( 'precommit', [
+		'lint:all',
 		'update:version',
 		'update:changelog',
 		'prerelease',

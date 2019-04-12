@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.3 - 2019-04-13](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.3)
+### Bug fixes
+* Fixed the new lines removed by classic editor  
+
 ## [2.1.2 - 2019-04-4](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.2)
 ### Enhancements
 * Improved the proxy hooking
