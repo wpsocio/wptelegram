@@ -162,6 +162,11 @@ class WPTelegram_Bot_API {
             return new WP_Error( 'invalid_bot_token', 'Bot Token is required to make a request' );
         }
 
+        if ( isset( $params['chat_id'] ) ) {
+            // Make the chat_id as string to avoid long int issues
+            $params['chat_id'] = (string) $params['chat_id'];
+        }
+
         // to be used by proxy module
         do_action( 'wptelegram_remote_request_init' );
 
