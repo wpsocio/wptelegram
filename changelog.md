@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.4 - 2019-06-21](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.4)
+### Bug fixes
+* Fixed the long integer chat ID issue when using Google Script
+* Fixed the Notification Chat IDs sanitization issue
+* Minor fixes
+
 ## [2.1.3 - 2019-04-13](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.3)
 ### Bug fixes
 * Fixed the new lines removed by classic editor  

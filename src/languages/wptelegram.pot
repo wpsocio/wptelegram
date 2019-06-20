@@ -2,13 +2,13 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Telegram 2.1.3\n"
+"Project-Id-Version: WP Telegram 2.1.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2019-04-12 18:34:53+00:00\n"
+"POT-Creation-Date: 2019-06-20 18:59:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-13 18:34+-330\n"
+"PO-Revision-Date: 2019-06-21 18:59+-330\n"
 "Last-Translator: WP Telegram\n"
 "Language-Team: WP Telegram\n"
 "Language: en_US\n"
@@ -68,7 +68,7 @@ msgid "Failure"
 msgstr ""
 
 #: admin/class-wptelegram-admin.php:99
-#: modules/notify/class-wptelegram-notify-admin.php:413
+#: modules/notify/class-wptelegram-notify-admin.php:414
 msgid "Error:"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:186
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:339
+#: modules/notify/class-wptelegram-notify-admin.php:340
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:101
 msgid "INSTRUCTIONS!"
 msgstr ""
@@ -309,7 +309,7 @@ msgid "If you want to receive notification for every email, then write %s"
 msgstr ""
 
 #: modules/notify/class-wptelegram-notify-admin.php:101
-#: modules/notify/class-wptelegram-notify-admin.php:189
+#: modules/notify/class-wptelegram-notify-admin.php:190
 msgid "Send it to"
 msgstr ""
 
@@ -322,164 +322,164 @@ msgstr ""
 msgid "Telegram User or Group Chat ID."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:115
+#: modules/notify/class-wptelegram-notify-admin.php:116
 msgid "Notifications to Users"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:116
+#: modules/notify/class-wptelegram-notify-admin.php:117
 msgid "Allow users to receive their email notifications on Telegram"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:117
+#: modules/notify/class-wptelegram-notify-admin.php:118
 msgid "Use %s to let them connect their Telegram account."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:117
+#: modules/notify/class-wptelegram-notify-admin.php:118
 msgid "They can also enter their Telegram Chat ID manually on %s page"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:117
+#: modules/notify/class-wptelegram-notify-admin.php:118
 msgid "profile"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:124
+#: modules/notify/class-wptelegram-notify-admin.php:125
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:193
 msgid "Message Settings"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:130
+#: modules/notify/class-wptelegram-notify-admin.php:131
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:198
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:833
 msgid "Message Template"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:131
+#: modules/notify/class-wptelegram-notify-admin.php:132
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:199
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:834
 msgid "Structure of the message to be sent"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:145
+#: modules/notify/class-wptelegram-notify-admin.php:146
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:290
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:545
 msgid "Parse Mode"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:149
+#: modules/notify/class-wptelegram-notify-admin.php:150
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:294
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:415
 msgid "Learn more"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:151
+#: modules/notify/class-wptelegram-notify-admin.php:152
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:298
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:545
 msgid "None"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:152
+#: modules/notify/class-wptelegram-notify-admin.php:153
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:299
 msgid "Markdown style"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:153
+#: modules/notify/class-wptelegram-notify-admin.php:154
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:300
 msgid "HTML style"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:180
+#: modules/notify/class-wptelegram-notify-admin.php:181
 msgid "To receive notifications privately:"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:182
+#: modules/notify/class-wptelegram-notify-admin.php:183
 msgid "Get your Chat ID from %s and enter it below."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:183
+#: modules/notify/class-wptelegram-notify-admin.php:184
 msgid "Send YOUR OWN BOT a message to start the conversation."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:186
+#: modules/notify/class-wptelegram-notify-admin.php:187
 msgid "To receive notifications into a group:"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:188
+#: modules/notify/class-wptelegram-notify-admin.php:189
 msgid "Add %s to the group to get its Chat ID."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:189
+#: modules/notify/class-wptelegram-notify-admin.php:190
 msgid "Enter the Chat ID in %s field below."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:190
+#: modules/notify/class-wptelegram-notify-admin.php:191
 msgid "Add YOUR OWN BOT to the group."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:212
+#: modules/notify/class-wptelegram-notify-admin.php:213
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:522
 #: modules/proxy/class-wptelegram-proxy-admin.php:245
 msgid "Chat ID"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:213
+#: modules/notify/class-wptelegram-notify-admin.php:214
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:523
 #: modules/proxy/class-wptelegram-proxy-admin.php:246
 msgid "Name/Title"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:214
+#: modules/notify/class-wptelegram-notify-admin.php:215
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:524
 #: modules/proxy/class-wptelegram-proxy-admin.php:247
 msgid "Chat Type"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:215
+#: modules/notify/class-wptelegram-notify-admin.php:216
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:525
 #: modules/proxy/class-wptelegram-proxy-admin.php:248
 msgid "Test Status"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:243
+#: modules/notify/class-wptelegram-notify-admin.php:244
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:413
 #: modules/proxy/class-wptelegram-proxy-admin.php:276
 msgid "You can use any text, emojis or these macros in any order:"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:243
+#: modules/notify/class-wptelegram-notify-admin.php:244
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:413
 #: modules/proxy/class-wptelegram-proxy-admin.php:276
 msgid "Click to insert"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:310
+#: modules/notify/class-wptelegram-notify-admin.php:311
 msgid "Telegram Info"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:311
+#: modules/notify/class-wptelegram-notify-admin.php:312
 msgid "You can receive your email notifications on Telegram from %s"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:317
+#: modules/notify/class-wptelegram-notify-admin.php:318
 msgid "Telegram Chat ID"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:318
+#: modules/notify/class-wptelegram-notify-admin.php:319
 msgid "Please enter your Telegram Chat ID"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:341
+#: modules/notify/class-wptelegram-notify-admin.php:342
 msgid "Get your Chat ID from %s and enter it above."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:342
+#: modules/notify/class-wptelegram-notify-admin.php:343
 msgid "Start a conversation with %s to receive notifications."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:368
+#: modules/notify/class-wptelegram-notify-admin.php:369
 msgid "via %s"
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:413
+#: modules/notify/class-wptelegram-notify-admin.php:414
 msgid "Please Enter a valid Chat ID"
 msgstr ""
 
