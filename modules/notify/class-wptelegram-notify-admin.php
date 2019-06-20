@@ -102,6 +102,7 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			'desc'              => WPTG()->helpers->get_test_button_html( __( 'Send Test', 'wptelegram' ), '', 'chat_ids' ) . '<br>' . __( 'Telegram User or Group Chat ID.', 'wptelegram' ),
 			'id'                => 'chat_ids',
 			'type'              => 'text_medium',
+			'sanitization_cb'   => array( WPTG()->helpers, 'sanitize_channels' ),
 			'after'             => array( $this, 'after_chat_cb' ),
 			'before_row'        => WPTG()->helpers->add_grid_col_to_row(),
 			'after_row'         => WPTG()->helpers->close_grid_col_and_row(),
