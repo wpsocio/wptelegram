@@ -194,9 +194,12 @@ class WPTelegram_P2TG_Post_Data {
 					switch ( $match[1] ) {
 
 						case 'terms': // if taxonomy.
-							$cats_as_tags = ( isset( $params['cats_as_tags'] ) && 'on' === $params['cats_as_tags'] );
 
 							$taxonomy = $_field;
+
+							$cats_as_tags = ( isset( $params['cats_as_tags'] ) && 'on' === $params['cats_as_tags'] );
+
+							$cats_as_tags = apply_filters( "wptelegram_p2tg_post_data_send_{$taxonomy}_as_tags", $cats_as_tags, $this->post, $params );
 
 							if ( taxonomy_exists( $taxonomy ) ) {
 
