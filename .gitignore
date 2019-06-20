@@ -1,0 +1,37 @@
+# Editors
+project.xml
+project.properties
+/nbproject/private/
+.buildpath
+.project
+.settings*
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+.sublimelinterrc
+
+# Grunt
+build/
+node_modules/
+temp/
+none
+
+# Sass
+.sass-cache/
+
+# OS X metadata
+.DS_Store
+
+# Windows junk
+Thumbs.db
+
+# Logs
+/logs
+
+# Composer
+/vendor/
+contributors.md
+
+# Screenshots for e2e tests failures
+/screenshots/
