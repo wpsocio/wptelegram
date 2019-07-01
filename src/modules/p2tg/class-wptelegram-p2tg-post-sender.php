@@ -252,7 +252,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Make sure the global $post and its data is set
 	 *
-	 * @since	x.y.z
+	 * @since	2.1.5
 	 *
 	 * @param	WP_Post	$post		The post to be handled
 	 * @param	string	$trigger	The name of the source trigger hook
@@ -279,7 +279,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Make sure the global $post and its data is reset
 	 *
-	 * @since	x.y.z
+	 * @since	2.1.5
 	 *
 	 * @param	WP_Post|null	$previous_post	The post to be handled
 	 * @param	string			$trigger		The name of the source trigger hook
