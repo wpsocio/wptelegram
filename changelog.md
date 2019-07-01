@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.5 - 2019-07-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.5)
+### Bug fixes
+* Fixed the issue of unintended posts being scheduled for delay
+
 ## [2.1.4 - 2019-06-21](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.4)
 ### Bug fixes
 * Fixed the long integer chat ID issue when using Google Script
