@@ -250,6 +250,53 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	}
 
 	/**
+	 * Make sure the global $post and its data is set
+	 *
+	 * @since	x.y.z
+	 *
+	 * @param	WP_Post	$post		The post to be handled
+	 * @param	string	$trigger	The name of the source trigger hook
+	 */
+	private function may_be_setup_postdata( $post, $trigger ) {
+		$previous_post = null;
+
+		// make sure the global $post and its data is set
+		if ( 'delayed_post' === $trigger ) {
+
+
+			if ( ! empty( $GLOBALS['post'] ) ) {
+				$previous_post = $GLOBALS['post'];
+			}
+
+			$GLOBALS['post'] = $post;
+
+			setup_postdata( $post );
+		}
+
+		return $previous_post;
+	}
+
+	/**
+	 * Make sure the global $post and its data is reset
+	 *
+	 * @since	x.y.z
+	 *
+	 * @param	WP_Post|null	$previous_post	The post to be handled
+	 * @param	string			$trigger		The name of the source trigger hook
+	 */
+	private function may_be_reset_postdata( $previous_post, $trigger ) {
+
+		if ( 'delayed_post' === $trigger ) {
+
+			$GLOBALS['post'] = $previous_post;
+
+			if ( $previous_post ) {
+				setup_postdata( $previous_post );
+			}
+		}
+	}
+
+	/**
 	 * May be send the post to Telegram, if rules apply
 	 *
 	 * @since	2.0.0
@@ -260,6 +307,8 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 */
 	public function send_post( WP_Post $post, $trigger = 'non_wp', $force = false ) {
 
+		$previous_post = $this->may_be_setup_postdata( $post, $trigger );
+
 		$result = null;
 
 		do_action( 'wptelegram_p2tg_before_send_post', $result, $post, $trigger, $force );
@@ -267,6 +316,8 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$result = $this->send_the_post( $post, $trigger, $force );
 
 		do_action( 'wptelegram_p2tg_after_send_post', $result, $post, $trigger, $force );
+
+		$this->may_be_reset_postdata( $previous_post, $trigger );
 	}
 
 	/**
@@ -352,11 +403,20 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 		$result = __LINE__;
 
+		// if some rules should be bypassed.
+		if ( $ok && 'non_wp' === $trigger ) {
+			$this->bypass_rules( $force );
+		}
+
+		$rules_apply = $this->rules_apply();
+
+		$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, self::$post );
+
 		if ( $this->is_status_of_type( 'non_live' ) || ( $ok && ( $delay = $this->delay_in_posting( $trigger ) ) ) ) {
 
 			$this->may_be_save_options();
 
-			if ( ! empty( $delay ) ) {
+			if ( $delay && ( ! $apply_rules_before_delay || $rules_apply ) ) {
 
 				$this->delay_post( $delay );
 
@@ -371,12 +431,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			self::clean_up();
 		}
 
-		// if some rules should be bypassed.
-		if ( $ok && 'non_wp' === $trigger ) {
-			$this->bypass_rules( $force );
-		}
-
-		if ( $ok && $this->rules_apply() ) {
+		if ( $ok && $rules_apply ) {
 
 			// Everything looks good.
 			$result = $this->process();
