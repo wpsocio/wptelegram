@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.6 - 2019-07-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.6)
+### Bug fixes
+* Fix the fatal error caused on post edit page.
+
 ## [2.1.5 - 2019-07-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.5)
 ### Bug fixes
 * Fixed the issue of unintended posts being scheduled for delay
