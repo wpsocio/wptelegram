@@ -408,7 +408,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			$this->bypass_rules( $force );
 		}
 
-		$rules_apply = $this->rules_apply();
+		$rules_apply = $ok && $this->rules_apply();
 
 		$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, self::$post );
 
