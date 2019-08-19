@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 4.0
 Tested up to: 5.2.2
 Requires PHP: 5.2.4
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -128,6 +128,10 @@ Note: You can also contribute in translating this plugin into your local languag
 13. P2TG Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 2.1.7 =
+* Fix the issue of products not being sent when published via WC REST API
+* Fix CMB2 field conflict with Rank Math plugin
 
 = 2.1.6 =
 * Fix the fatal error caused on post edit page.
