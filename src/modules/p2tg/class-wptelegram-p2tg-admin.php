@@ -239,7 +239,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'name'            => __( 'Excerpt Newlines', 'wptelegram' ),
 				'desc'            => __( 'Preserve newlines in Post Excerpt.', 'wptelegram' ),
 				'id'              => 'excerpt_preserve_eol',
-				'type'            => 'switch',
+				'type'            => 'custom_switch',
 				'default'         => 'off',
 				'before_row'      => WPTG()->helpers->add_grid_col_to_row( 4 ),
 				'after_row'       => WPTG()->helpers->close_grid_col_and_row(),
@@ -249,7 +249,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'name'            => __( 'Featured Image', 'wptelegram' ),
 				'desc'            => __( 'Send Featured Image (if exists)', 'wptelegram' ),
 				'id'              => 'send_featured_image',
-				'type'            => 'switch',
+				'type'            => 'custom_switch',
 				'default'         => 'on',
 				'before_row'      => WPTG()->helpers->open_grid_row_with_col( 4 ),
 				'after_row'       => WPTG()->helpers->close_grid_col(),
@@ -271,7 +271,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'name'				=> __( 'Single message', 'wptelegram' ),
 				'desc'				=> __( 'Send both text and image in single message', 'wptelegram' ),
 				'id'				=> 'single_message',
-				'type'				=> 'switch',
+				'type'				=> 'custom_switch',
 				'before_row'	    => WPTG()->helpers->add_grid_col_to_row( 4 ),
 				'after_row'		    => WPTG()->helpers->close_grid_col_and_row(),
 				'after'				=> array( $this, 'after_single_message' ),
@@ -281,7 +281,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'name'			  => __( 'Categories as hashtags', 'wptelegram' ),
 				'desc'			  => __( 'Send categories as hashtags.', 'wptelegram' ),
 				'id'			  => 'cats_as_tags',
-				'type'			  => 'switch',
+				'type'			  => 'custom_switch',
 				'before_row'	  => WPTG()->helpers->open_grid_row_with_col( 6 ),
 				'after_row'		  => WPTG()->helpers->close_grid_col(),
 				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
@@ -318,7 +318,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'desc'				=> __( 'Add Inline URL Button', 'wptelegram' ),
 				'after'				=> '<p class="description">' . __( 'Add an inline clickable button for the post URL just below the message.', 'wptelegram' ) . '</p>',
 				'id'				=> 'inline_url_button',
-				'type'				=> 'switch',
+				'type'				=> 'custom_switch',
 				'before_row'		=> WPTG()->helpers->open_grid_row_with_col(),
 				'after_row'			=> WPTG()->helpers->close_grid_col(),
 				'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
@@ -349,7 +349,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'desc'				=> __( 'Show an ON/OFF switch on the post edit screen', 'wptelegram' ),
 				'after'				=> '<p class="description">' . __( 'You can use this switch to override the above settings for a particular post', 'wptelegram' ) . '</p>',
 				'id'				=> 'post_edit_switch',
-				'type'				=> 'switch',
+				'type'				=> 'custom_switch',
 				'default'			=> 'on',
 				'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
 			),
@@ -780,7 +780,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		$cmb2->add_field( array(
 			'name' 			=> __( 'Override settings', 'wptelegram' ),
 			'id'   			=> self::$prefix . 'override_switch',
-			'type' 			=> 'switch',
+			'type' 			=> 'custom_switch',
 		) );
 
 		$channels = $this->module_options->get( 'channels', '' );
@@ -799,7 +799,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		$cmb2->add_field( array(
 			'name' 			=> __( 'Disable Notifications', 'wptelegram' ),
 			'id'   			=> self::$prefix . 'disable_notification',
-			'type' 			=> 'switch',
+			'type' 			=> 'custom_switch',
 			'default_cb'	=> array( $this, 'override_opt_default_cb' ),
 			'classes'		=> 'hidden depends-upon-override_switch',
 		) );
