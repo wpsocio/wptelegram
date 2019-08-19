@@ -273,7 +273,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				'id'			=> $id,
 				'name'			=> $details['title'],
 				'desc2'			=> $details['desc'],
-				'type'			=> 'switch',
+				'type'			=> 'custom_switch',
 				'after_field'	=> array( __CLASS__, 'render_after_module' ),
 			);
 
@@ -293,7 +293,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				'desc'				=> __( 'Turn off to upload the files/images instead of passing the url.', 'wptelegram' ),
 				'after'				=> '<p class="description">' . __( 'Google Script proxy does not support file upload.', 'wptelegram' ) . '</p>',
 				'id'				=> 'send_files_by_url',
-				'type'				=> 'switch',
+				'type'				=> 'custom_switch',
 				'default'			=> 'on',
 				'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
 			),
@@ -320,7 +320,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			array(
 				'name'				=> __( 'Remove settings on uninstall', 'wptelegram' ),
 				'id'				=> 'clean_uninstall',
-				'type'				=> 'switch',
+				'type'				=> 'custom_switch',
 				'default'			=> 'on',
 				'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
 			),

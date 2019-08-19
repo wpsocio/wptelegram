@@ -349,10 +349,12 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$ok = true;
 
 		// if the post is published/updated using WP REST API.
-		$is_rest = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+		$is_rest      = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+		$rest_tag     = 'rest_after_insert_' . self::$post->post_type;
+		$is_rest_hook = current_filter() === $rest_tag;
 
 		// if WP 5+ and not doing "rest_after_insert_{$post_type}" action.
-		if ( $is_rest && WPTG()->utils->wp_at_least( '5.0' ) && current_filter() != ( $tag = 'rest_after_insert_' . self::$post->post_type ) ) {
+		if ( $is_rest && WPTG()->utils->wp_at_least( '5.0' ) && ! $is_rest_hook && 'product' !== self::$post->post_type ) {
 
 			// avoid the Gutenberg mess.
 			if ( ! WPTG()->utils->is_gutenberg_post( $post ) ) {
@@ -416,7 +418,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 			$this->may_be_save_options();
 
-			if ( $delay && ( ! $apply_rules_before_delay || $rules_apply ) ) {
+			if ( ! empty( $delay ) && ( ! $apply_rules_before_delay || $rules_apply ) ) {
 
 				$this->delay_post( $delay );
 

@@ -455,4 +455,15 @@ final class WPTelegram {
 		return 'wptelegram';
 	}
 
+	/**
+	 * Retrieve URL path to the plugin.
+	 *
+	 * @since 2.1.7
+	 * @param string $path Path to append.
+	 * @return string URL with optional path appended
+	 */
+	public function url( $path = '' ) {
+		return WPTELEGRAM_URL . $path;
+	}
+
 }

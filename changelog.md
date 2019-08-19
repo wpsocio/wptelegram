@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.7 - 2019-08-19](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.7)
+### Bug fixes
+* Fix the issue of products not being sent when published via WC REST API
+* Fix CMB2 field conflict with Rank Math plugin
+
 ## [2.1.6 - 2019-07-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.6)
 ### Bug fixes
 * Fix the fatal error caused on post edit page.
