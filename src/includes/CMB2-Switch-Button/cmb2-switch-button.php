@@ -21,7 +21,7 @@ if( !class_exists( 'CMB2_Switch_Button' ) ) {
 		
 		public function hook_up(){
 			if ( ! self::$hooked_up ) {
-				add_action( 'cmb2_render_switch', array( $this, 'callback' ), 10, 5 );
+				add_action( 'cmb2_render_custom_switch', array( $this, 'callback' ), 10, 5 );
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 
 				self::$hooked_up = true;
@@ -51,7 +51,7 @@ if( !class_exists( 'CMB2_Switch_Button' ) ) {
 		public function enqueue_styles() {
 			// Use minified libraries if SCRIPT_DEBUG is turned off
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-			wp_enqueue_style( 'cmb2-switch', plugins_url( '', __FILE__ ) . '/style' . $suffix . '.css', array(), false, 'all' );
+			wp_enqueue_style( 'cmb2-switch', WPTG()->url( '/includes/CMB2-Switch-Button/style' . $suffix . '.css' ), array(), false, 'all' );
 		}
 	}
 }

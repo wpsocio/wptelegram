@@ -117,7 +117,7 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			'desc'	=> __( 'Allow users to receive their email notifications on Telegram', 'wptelegram' ),
 			'after'	=> sprintf( __( 'Use %s to let them connect their Telegram account.', 'wptelegram' ), '<a href="' . esc_attr( 'https://wordpress.org/plugins/wptelegram-login' ) . '" target="_blank">WP Telegram Login & Register</a>' ) . '<br>' . sprintf( __( 'They can also enter their Telegram Chat ID manually on %s page', 'wptelegram' ), sprintf( '<a href="' . esc_url( get_edit_profile_url( get_current_user_id() ) . '#into-title' ) . '" target="_blank">%s</a>', __( 'profile', 'wptelegram' ) ) ),
 			'id'	=> 'user_notifications',
-			'type'	=> 'switch',
+			'type'	=> 'custom_switch',
 			'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
 		) );
 
