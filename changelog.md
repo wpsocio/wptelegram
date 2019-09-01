@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
-## Unreleased
+## [2.1.8 - 2019-09-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.8)
 ### Bug fixes
 * Fixed the issue with posts not being sent when published via WP REST API
 
