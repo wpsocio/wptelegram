@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## Unreleased
+### Bug fixes
+* Fixed the issue with posts not being sent when published via WP REST API
+
 ## [2.1.7 - 2019-08-19](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.7)
 ### Bug fixes
 * Fix the issue of products not being sent when published via WC REST API
