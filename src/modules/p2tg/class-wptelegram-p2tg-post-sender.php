@@ -359,7 +359,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			// avoid the Gutenberg mess.
 			if ( ! WPTG()->utils->is_gutenberg_post( $post ) ) {
 				// come back later.
-				add_action( $tag, array( $this, 'wp_rest_post' ), 10, 1 );
+				add_action( $rest_tag, array( $this, 'wp_rest_post' ), 10, 1 );
 			}
 
 			$ok = false;
