@@ -16,27 +16,27 @@ class WPTelegram_Logger {
 	/**
 	 * Enabled Log types
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		array 		$active_logs 	The enabled logs
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     array       $active_logs    The enabled logs
 	 */
 	private static $active_logs;
 
 	/**
 	 * Whether already hooked or not
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		array 		$hooked_up 	The enabled logs
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     array       $hooked_up  The enabled logs
 	 */
 	private static $hooked_up = false;
 
 	/**
 	 * Information about the processed post
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		array 		$p2tg_post_info 	The Post info
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     array       $p2tg_post_info     The Post info
 	 */
 	private $p2tg_post_info;
 
@@ -69,10 +69,10 @@ class WPTelegram_Logger {
 	 */
 	public function hookup() {
 
-		// avoid hooking in multiple times
+		// avoid hooking in multiple times.
 		if ( ! self::$hooked_up && ! empty( self::$active_logs ) ) {
 
-			$this->_hookup();
+			$this->hook_it_up();
 
 			self::$hooked_up = true;
 		}
@@ -81,12 +81,12 @@ class WPTelegram_Logger {
 	/**
 	 * Hook into WP Telegram to create logs
 	 */
-	protected function _hookup() {
+	protected function hook_it_up() {
 
 		foreach ( $this->get_active_logs() as $log_type ) {
 
 			$method = array( $this, "hookup_for_{$log_type}" );
-			
+
 			if ( is_callable( $method ) ) {
 				call_user_func( $method );
 			}
@@ -98,7 +98,7 @@ class WPTelegram_Logger {
 	 */
 	protected function hookup_for_bot_api() {
 
-		add_action( 'wptelegram_bot_api_debug', array( $this, 'hangle_bot_api_debug' ), 10, 2 );
+		add_action( 'wptelegram_bot_api_debug', array( $this, 'add_bot_api_debug' ), 10, 2 );
 	}
 
 	/**
@@ -135,8 +135,8 @@ class WPTelegram_Logger {
 		$key = $this->get_key( $post );
 
 		$this->p2tg_post_info[ $key ][] = array(
-			'hook'		=> 'before',
-			'trigger'	=> $trigger,
+			'hook'    => 'before',
+			'trigger' => $trigger,
 		);
 	}
 
@@ -149,8 +149,8 @@ class WPTelegram_Logger {
 		$key = $this->get_key( $post );
 
 		$this->p2tg_post_info[ $key ][] = array(
-			'hook'		=> 'sv',
-			'validity'	=> $validity,
+			'hook'     => 'sv',
+			'validity' => $validity,
 		);
 	}
 
@@ -163,8 +163,8 @@ class WPTelegram_Logger {
 		$key = $this->get_key( $post );
 
 		$this->p2tg_post_info[ $key ][] = array(
-			'hook'		=> 'rules',
-			'apply'		=> $rules_apply,
+			'hook'  => 'rules',
+			'apply' => $rules_apply,
 		);
 
 		return $rules_apply;
@@ -179,11 +179,11 @@ class WPTelegram_Logger {
 		$key = $this->get_key( $post );
 
 		$this->p2tg_post_info[ $key ][] = array(
-			'hook'			=> 'image_source',
-			'send_image'	=> $options->get( 'send_featured_image' ),
-			'has_image'		=> has_post_thumbnail( $post->ID ),
-			'send_by_url'	=> $send_files_by_url,
-			'source'		=> $source,
+			'hook'        => 'image_source',
+			'send_image'  => $options->get( 'send_featured_image' ),
+			'has_image'   => has_post_thumbnail( $post->ID ),
+			'send_by_url' => $send_files_by_url,
+			'source'      => $source,
 		);
 
 		return $source;
@@ -194,13 +194,13 @@ class WPTelegram_Logger {
 	 */
 	public function add_post_finish( $post, $trigger, $ok, $options, $processed_posts ) {
 
-		// create a an entry from post ID and its status
+		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
 		$this->p2tg_post_info[ $key ][] = array(
-			'hook'		=> 'finish',
-			'ok'		=> $ok,
-			'processed'	=> $processed_posts,
+			'hook'      => 'finish',
+			'ok'        => $ok,
+			'processed' => $processed_posts,
 		);
 	}
 
@@ -213,44 +213,77 @@ class WPTelegram_Logger {
 		$key = $this->get_key( $post );
 
 		$this->p2tg_post_info[ $key ][] = array(
-			'hook'		=> 'after',
-			'result'	=> $result,
+			'hook'   => 'after',
+			'result' => $result,
 		);
 
 		$text = WPTG()->utils->json_encode( $this->p2tg_post_info/*, 128*/ );
 
-        $this->write_log( 'p2tg', $text );
+		$this->write_log( 'p2tg', $text );
 	}
 
 	/**
-	 * Handle the debug action
+	 * Handle the debug action.
 	 */
-	public function hangle_bot_api_debug( $response, $tg_api ) {
+	public function add_bot_api_debug( $response, $tg_api ) {
 
 		$res = $tg_api->get_last_response();
-        // add the method and request params
-        $text = 'Method: ' . $tg_api->get_request()->get_api_method() . PHP_EOL . 'Params: ' . json_encode( $tg_api->get_request()->get_params() ) . PHP_EOL . '--------------------------------' . PHP_EOL;
+		// add the method and request params.
+		$text = 'Method: ' . $tg_api->get_request()->get_api_method() . PHP_EOL . 'Params: ' . json_encode( $tg_api->get_request()->get_params() ) . PHP_EOL . '--------------------------------' . PHP_EOL;
 
-        // add the response
-        if ( is_wp_error( $res ) ) {
-            $text .= 'WP_Error: ' . $res->get_error_code() . ' ' . $res->get_error_message();
-        } else{
-            $text .= 'Response: ' . $res->get_body();
-        }
+		// add the response.
+		if ( is_wp_error( $res ) ) {
+			$text .= 'WP_Error: ' . $res->get_error_code() . ' ' . $res->get_error_message();
+		} else {
+			$text .= 'Response: ' . $res->get_body();
+		}
 
-        $this->write_log( 'bot-api', $text );
+		$this->write_log( 'bot-api', $text );
 	}
 
 	/**
-	 * Write the log to file
+	 * Write the log to file.
 	 */
 	public function write_log( $type, $text ) {
 
-		$filename = WP_CONTENT_DIR . "/wptelegram-{$type}.log";
-        $filename = apply_filters( "wptelegram_logger_{$type}_log_filename", $filename );
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		WP_Filesystem();
 
-        $data = '[' . current_time( 'mysql' ) . ']' . PHP_EOL . $text . PHP_EOL . PHP_EOL;
+		global $wp_filesystem;
 
-        file_put_contents( $filename, $data, FILE_APPEND );
+		$file_path = $this->get_log_file_path( $type );
+
+		$contents = '[' . current_time( 'mysql' ) . ']' . PHP_EOL . $text . PHP_EOL . PHP_EOL;
+
+		// Default to 1 MB.
+		$max_filesize = apply_filters( 'wptelegram_logger_max_filesize', 1024 ** 2, $type, $file_path );
+
+		// Make sure that the file size remains less than $max_filesize.
+		if ( $wp_filesystem->exists( $file_path ) && $wp_filesystem->size( $file_path ) < $max_filesize ) {
+			// Append the existing content.
+			$contents = $wp_filesystem->get_contents( $file_path ) . $contents;
+		}
+
+		$wp_filesystem->put_contents( $file_path, $contents );
+	}
+
+	/**
+	 * Get log file path.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $type Log type.
+	 *
+	 * @return string
+	 */
+	public function get_log_file_path( $type ) {
+
+		$hash = $type . '-' . wp_hash( 'log' );
+
+		global $wp_filesystem;
+
+		$file_path = $wp_filesystem->wp_content_dir() . "wptelegram-{$hash}.log";
+
+		return apply_filters( 'wptelegram_logger_log_file_path', $file_path, $type, $hash );
 	}
 }
