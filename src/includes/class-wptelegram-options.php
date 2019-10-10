@@ -36,13 +36,28 @@ class WPTelegram_Options implements Iterator, ArrayAccess {
 	protected $data;
 
 	/**
+	 * Whether the data should be stored as json or as serialized.
+	 *
+	 * Non UTF-8 (old) databases do not support multibyte characters
+	 * (like emojis) when using the default (serialization) method.
+	 *
+	 * @since 1.0.0
+	 * @var string Whether to store data as json.
+	 */
+	protected $store_as_json;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $option_key The option key name.
+	 * @param string $option_key    The option key name.
+	 * @param string $store_as_json Whether to store data as json.
 	 */
-	public function __construct( $option_key = '' ) {
+	public function __construct( $option_key = '', $store_as_json = false ) {
+
+		$this->store_as_json = $store_as_json;
+
 		// Make sure we have an array to avoid adding values to null.
 		$this->data = array();
 
@@ -96,13 +111,16 @@ class WPTelegram_Options implements Iterator, ArrayAccess {
 	 */
 	public function set( $key, $value = '' ) {
 
-		if ( empty( $this->option_key ) ) {
-			return false;
+		if ( ! empty( $this->option_key ) ) {
+
+			$this->data[ $key ] = apply_filters( strtolower( __CLASS__ ) . "_{$this->option_key}_set_{$key}", $value );
+
+			return $this->update_data();
 		}
 
-		$this->data[ $key ] = apply_filters( strtolower( __CLASS__ ) . "_{$this->option_key}_set_{$key}", $value );
+		$this->data[ $key ] = $value;
 
-		return $this->update_data();
+		return $this;
 	}
 
 	/**
@@ -156,12 +174,25 @@ class WPTelegram_Options implements Iterator, ArrayAccess {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $options The options array.
+	 * @param array   $options The options array.
+	 * @param boolean $unslash Whether to unslash the data.
 	 */
-	public function set_data( array $options = array() ) {
+	public function set_data( array $options = array(), $unslash = false ) {
 		if ( empty( $options ) && ! empty( $this->option_key ) ) {
-			$this->data = get_option( $this->option_key, array() );
+
+			$default = $this->store_as_json ? '' : array();
+
+			$data = get_option( $this->option_key, $default );
+
+			if ( $this->store_as_json ) {
+				$data = wp_unslash( json_decode( $data, true ) );
+			}
+
+			$this->data = (array) $data;
 		} else {
+			if ( $unslash ) {
+				$options = wp_unslash( $options );
+			}
 			$this->data = (array) $options;
 		}
 
@@ -177,8 +208,12 @@ class WPTelegram_Options implements Iterator, ArrayAccess {
 
 		// Make sure we have something to work upon.
 		if ( ! empty( $this->option_key ) ) {
+			$data = $this->get_data();
+			if ( $this->store_as_json ) {
+				$data = json_encode( wp_unslash( $data ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+			}
 
-			return update_option( $this->option_key, $this->get_data() );
+			return update_option( $this->option_key, $data );
 		}
 		return false;
 	}

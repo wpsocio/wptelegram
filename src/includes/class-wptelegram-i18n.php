@@ -37,7 +37,7 @@ class WPTelegram_i18n {
 		load_plugin_textdomain(
 			'wptelegram',
 			false,
-			basename( WPTELEGRAM_DIR ) . '/languages/'
+			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
 
 	}

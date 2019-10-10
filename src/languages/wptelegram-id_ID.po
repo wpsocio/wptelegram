@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2019-06-20 18:46:14+00:00\n"
+"POT-Creation-Date: 2019-10-09 17:05:16+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:05+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -226,12 +226,12 @@ msgid "Activate the modules you want to use."
 msgstr "Aktifkan modul yang ingin Anda gunakan."
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:956
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
 msgid "Hit %s below"
 msgstr "Tekan %s dibawah ini"
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:956
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
 msgid "Save Changes"
 msgstr "Simpan Perubahan"
 
@@ -355,13 +355,13 @@ msgstr "Pengaturan Pesan"
 
 #: modules/notify/class-wptelegram-notify-admin.php:131
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:198
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:833
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:831
 msgid "Message Template"
 msgstr "Desain Pesan"
 
 #: modules/notify/class-wptelegram-notify-admin.php:132
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:199
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:834
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:832
 msgid "Structure of the message to be sent"
 msgstr "Struktur pesan yang akan dikirimkan"
 
@@ -662,12 +662,12 @@ msgid ""
 msgstr "Pengaturan khusus untuk posting tertentu"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:357
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:817
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:815
 msgid "Delay in Posting"
 msgstr "Keterlambatan Posting"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:358
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:818
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:816
 msgid "Minute(s)"
 msgstr "Menit"
 
@@ -681,7 +681,7 @@ msgid "Disable Web Page Preview"
 msgstr "Nonaktifkan Pratinjau Halaman Web"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:377
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:800
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:798
 msgid "Disable Notifications"
 msgstr "Nonaktifkan Notifikasi"
 
@@ -743,76 +743,76 @@ msgstr "%s tidak boleh dicentang"
 msgid "AND"
 msgstr "DAN"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:726
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:770
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:725
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:768
 msgid "Send to Telegram"
 msgstr "Kirim ke Telegram"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:775
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:773
 msgid "Yes"
 msgstr "Ya"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:776
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:774
 msgid "No"
 msgstr "Tidak"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:781
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:779
 msgid "Override settings"
 msgstr "Ganti pengaturan"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:790
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:788
 msgid "Send to"
 msgstr "Kirimkan ke"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:808
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:806
 msgid "Files"
 msgstr "File"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:809
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:807
 msgid "Files to be sent after the message"
 msgstr "File yang akan dikirim setelah pesan"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:949
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:947
 msgid "Create a Channel/group/supergroup"
 msgstr "Buatlah Sebuah Channel/Grup/SuperGrup"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:950
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:948
 msgid "Add the Bot as Administrator to your Channel/Group"
 msgstr "Berikan Akses Administrator pada Bot di Channel/Grup anda"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:949
 msgid "Enter the Channel Username in the field below"
 msgstr "Masukkan Nama Pengguna Kanal di bidang di bawah ini"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:953
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
 msgid "Username must start with %s"
 msgstr "Username harus dimulai dengan %s"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
 msgid "You can also use the Chat ID of a group or private chat."
 msgstr "Anda juga dapat menggunakan ID Obrolan grup atau obrolan pribadi."
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
 msgid "Get it from %s"
 msgstr "Dapatkan dari % s"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:957
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
 msgid "That's it. You are ready to rock :)"
 msgstr "Itu dia. Anda siap untuk mengayun :)"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:988
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:986
 msgid "There was some error!"
 msgstr "Ada beberapa kesalahan!"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:994
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:992
 msgid "Channel"
 msgstr "Saluran"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:995
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:993
 msgid "Error code"
 msgstr "Kode kesalahan"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:996
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:994
 msgid "Error message"
 msgstr "Pesan eror"
 
