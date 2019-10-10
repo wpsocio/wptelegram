@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2019-06-20 18:46:14+00:00\n"
+"POT-Creation-Date: 2019-10-09 17:05:16+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:04+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -222,12 +222,12 @@ msgid "Activate the modules you want to use."
 msgstr ""
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:956
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
 msgid "Hit %s below"
 msgstr "Prem %s a sota"
 
 #: admin/class-wptelegram-admin.php:542
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:956
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
 msgid "Save Changes"
 msgstr "Desa els canvis"
 
@@ -349,13 +349,13 @@ msgstr "Ajustaments del Missatge"
 
 #: modules/notify/class-wptelegram-notify-admin.php:131
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:198
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:833
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:831
 msgid "Message Template"
 msgstr "Plantilla del Missatge"
 
 #: modules/notify/class-wptelegram-notify-admin.php:132
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:199
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:834
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:832
 msgid "Structure of the message to be sent"
 msgstr "Estructura del missatge que s'ha d'enviar"
 
@@ -650,12 +650,12 @@ msgstr ""
 "publicació concreta"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:357
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:817
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:815
 msgid "Delay in Posting"
 msgstr ""
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:358
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:818
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:816
 msgid "Minute(s)"
 msgstr ""
 
@@ -669,7 +669,7 @@ msgid "Disable Web Page Preview"
 msgstr "Desactiva la Previsualització de la Pàgina Web"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:377
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:800
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:798
 msgid "Disable Notifications"
 msgstr "Desactiva les Notificacions"
 
@@ -729,76 +729,76 @@ msgstr ""
 msgid "AND"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:726
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:770
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:725
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:768
 msgid "Send to Telegram"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:775
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:773
 msgid "Yes"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:776
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:774
 msgid "No"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:781
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:779
 msgid "Override settings"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:790
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:788
 msgid "Send to"
 msgstr "Envia a"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:808
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:806
 msgid "Files"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:809
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:807
 msgid "Files to be sent after the message"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:949
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:947
 msgid "Create a Channel/group/supergroup"
 msgstr "Crea un Canal/grup/supergrup"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:950
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:948
 msgid "Add the Bot as Administrator to your Channel/Group"
 msgstr "Afegeix el Bot com administrador al teu Canal/Grup"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:949
 msgid "Enter the Channel Username in the field below"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:953
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:951
 msgid "Username must start with %s"
 msgstr "El nom d'usuari ha de començar amb %s"
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
 msgid "You can also use the Chat ID of a group or private chat."
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:954
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:952
 msgid "Get it from %s"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:957
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:955
 msgid "That's it. You are ready to rock :)"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:988
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:986
 msgid "There was some error!"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:994
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:992
 msgid "Channel"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:995
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:993
 msgid "Error code"
 msgstr ""
 
-#: modules/p2tg/class-wptelegram-p2tg-admin.php:996
+#: modules/p2tg/class-wptelegram-p2tg-admin.php:994
 msgid "Error message"
 msgstr ""
 

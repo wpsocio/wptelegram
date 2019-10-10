@@ -719,16 +719,14 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		$post_types = $this->get_override_meta_box_screens();
 
 		if ( in_array( $typenow, $post_types, true ) ) :
-			$default = $this->send2tg_default();
 			?>
 			<div class="misc-pub-section misc-pub-wptg-p2tg">
-				<input type="hidden" name="<?php echo self::$prefix; ?>send2tg" value="no" />
-				<label><input type="checkbox" name="<?php echo self::$prefix; ?>send2tg" value="yes" <?php checked( $this->send2tg_default(), 'yes' ); ?> /><span style="padding-left:4px;font-weight:600;"><?php esc_html_e( 'Send to Telegram', 'wptelegram' ); ?></span></label>
+				<input type="hidden" name="<?php echo esc_attr( self::$prefix . 'send2tg' ); ?>" value="no" />
+				<label><input type="checkbox" name="<?php echo esc_attr( self::$prefix . 'send2tg' ); ?>" value="yes" <?php checked( $this->send2tg_default(), 'yes' ); ?> /><span style="padding-left:4px;font-weight:600;"><?php esc_html_e( 'Send to Telegram', 'wptelegram' ); ?></span></label>
 				&nbsp;<a style="text-decoration: none;" href="#wptelegram_p2tg_override"><span class="dashicons dashicons-admin-generic"></span></a>
 			</div>
-
-		<?php endif;
-
+			<?php
+		endif;
 	}
 
 	/**

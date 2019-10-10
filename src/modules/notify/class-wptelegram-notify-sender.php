@@ -182,10 +182,11 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 		if ( ! empty( $text ) ) {
 
 			$parse_mode = WPTG()->helpers->valid_parse_mode( $this->module_options->get( 'parse_mode', 'HTML' ) );
+			$disable_web_page_preview = true;
 
 			$this->responses = array(
 				array(
-					'sendMessage'	=> compact( 'text', 'parse_mode' ),
+					'sendMessage'	=> compact( 'text', 'parse_mode', 'disable_web_page_preview' ),
 				),
 			);
 		}
