@@ -1,7 +1,11 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
-## [2.1.8 - 2019-09-10](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.9)
+## Unrleeased
+### Bug fixes
+* Fixed the warning for old log files not found.
+
+## [2.1.9 - 2019-09-10](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.9)
 ### Enhancements
 * Improved and secured logs by hashed names and by switching to wp_filesystem.
 * Dropped support for PHP < 5.6 and WP < 4.7
