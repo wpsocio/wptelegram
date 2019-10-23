@@ -362,7 +362,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			case 'bot_token':
 				if ( empty( $value ) ) {
 					$status = 'empty';
-				} elseif ( ! preg_match( '/\A\d{9}:[\w-]{35}\Z/', $value ) ) {
+				} elseif ( ! preg_match( '/\A\d{9,11}:[\w-]{35}\Z/', $value ) ) {
 					$status = 'invalid';
 				}
 				break;
@@ -422,7 +422,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				foreach ( (array) $invalid_fields as $field => $status ) {
 					$field_name = $cmb->get_field(
 						array(
-							'id' => $field,
+							'id'     => $field,
 							'cmb_id' => $cmb->prop( 'id' ),
 						)
 					)->args( 'name' );
