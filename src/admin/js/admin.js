@@ -279,7 +279,7 @@
 		var regex;
 		switch (type) {
 			case 'bot_token':
-				regex = /^\d{9}:[\w-]{35}$/;
+				regex = /^\d{9,11}:[\w-]{35}$/;
 				break;
 			case 'username':
 			case 'bot_username':
