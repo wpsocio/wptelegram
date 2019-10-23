@@ -3,9 +3,9 @@ Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 4.7
-Tested up to: 5.2.3
+Tested up to: 5.2.4
 Requires PHP: 5.6
-Stable tag: 2.1.9
+Stable tag: 2.1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -128,6 +128,10 @@ Note: You can also contribute in translating this plugin into your local languag
 13. P2TG Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 2.1.10 =
+* Updated bot token pattern to handle the latest change in tokens.
+* Fixed the warning for old log files not found.
 
 = 2.1.9 =
 * Improved and secured logs by hashed names and by switching to wp_filesystem.
