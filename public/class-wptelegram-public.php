@@ -375,7 +375,9 @@ class WPTelegram_Public extends WPTelegram_Core_Base {
 		foreach ( $types as $type ) {
 			$filename = WP_CONTENT_DIR . "/wptelegram-{$type}.log";
 			$filename = apply_filters( "wptelegram_logger_{$type}_log_filename", $filename );
-			unlink( $filename );
+			if ( file_exists( $filename ) ) {
+				unlink( $filename );
+			}
 		}
 	}
 }
