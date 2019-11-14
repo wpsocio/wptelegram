@@ -161,8 +161,12 @@ html[dir="rtl"] .wrap-wptelegram .wptelegram-column-2 {
 .wptelegram-box .highlight .cmb2-metabox-title {
     color: #f10e0e;
 }
+.wptelegram-box input[type=text],
+.wptelegram-box input[type=number] {
+    line-height: 1 !important;
+}
 .wptelegram-box .large-font input[type=text] {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: monospace;
     font-weight: 200;
     vertical-align: middle;
