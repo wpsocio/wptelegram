@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.11 - 2019-11-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.11)
+### Bug fixes
+* Fixed the text input styles.
+
 ## [2.1.10 - 2019-10-23](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.10)
 ### Enhancements
 * Updated bot token pattern to handle the latest change in tokens.
