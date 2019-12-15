@@ -110,6 +110,13 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	protected static $processed_posts;
 
 	/**
+	 * Whether the post is from Gutenberg REST Request.
+	 *
+	 * @var	bool	$is_gutenberg_post	Is Gutenberg post.
+	 */
+	public static $is_gutenberg_post;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since	2.0.0
@@ -191,6 +198,22 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	}
 
 	/**
+	 * Sets the values required for REST requests.
+	 *
+	 * @since x.y.z
+	 *
+	 * @param stdClass        $prepared_post An object representing a single post prepared
+	 *                                       for inserting or updating the database.
+	 * @param WP_REST_Request $request       Request object.
+	 */
+	public function rest_pre_insert_post( $prepared_post, WP_REST_Request $request ) {
+
+		self::$is_gutenberg_post = $request->get_param( 'WPTelegramIsGBPost' );
+
+		return $prepared_post;
+	}
+
+	/**
 	 * Handle wp_insert_post
 	 *
 	 * @since	2.0.0
@@ -199,6 +222,10 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * @param	$post		WP_Post
 	 */
 	public function wp_insert_post( $post_id, $post ) {
+
+		if ( self::$is_gutenberg_post ) {
+			return;
+		}
 
 		$this->send_post( $post, __FUNCTION__ );
 	}
