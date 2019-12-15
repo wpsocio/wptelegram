@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.12 - 2019-12-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.12)
+### Bug fixes
+* Fixed double posting by block editor.
+
 ## [2.1.11 - 2019-11-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.11)
 ### Bug fixes
 * Fixed the text input styles.

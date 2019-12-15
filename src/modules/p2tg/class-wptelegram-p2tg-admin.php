@@ -75,6 +75,22 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
+	 * Enqueue assets for the Gutenberg block
+	 *
+	 * @since    1.4.1
+	 */
+	public function enqueue_block_editor_assets() {
+		if ( apply_filters( 'wptelegram_p2tg_add_gb_detection_code', true ) ) {
+			parent::enqueue_script(
+				$this->module_name . '-block-editor',
+				'block-editor',
+				'js',
+				array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' )
+			);
+		}
+	}
+
+	/**
 	 * Build Options page
 	 *
 	 * @since    1.0.0

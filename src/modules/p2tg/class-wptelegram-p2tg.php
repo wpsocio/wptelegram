@@ -83,6 +83,8 @@ class WPTelegram_P2TG extends WPTelegram_Module {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_styles', 10, 1 );
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_scripts', 10, 1 );
+		$this->loader->add_action( 'enqueue_block_editor_assets', $admin, 'enqueue_block_editor_assets' );
+
 		$this->loader->add_action( 'wp_ajax_wptg_p2tg_rule_values', $admin, 'ajax_render_rule_values' );
 
 		$this->loader->add_action( 'post_submitbox_misc_actions', $admin, 'add_switch_to_submitbox', 10, 1 );
@@ -111,15 +113,21 @@ class WPTelegram_P2TG extends WPTelegram_Module {
 
 		$post_sender = new WPTelegram_P2TG_Post_Sender( $this->module_name, $this->module_title );
 
+		$post_types = WPTG()->options( $this->module_name )->get( 'post_types', array() );
+
+		foreach ( $post_types as $post_type ) {
+			$this->loader->add_action( "rest_pre_insert_{$post_type}", $post_sender, 'rest_pre_insert_post', 10, 2 );
+		}
+
 		$this->loader->add_action( 'wp_insert_post', $post_sender, 'wp_insert_post', 20, 2 );
 
-		// scheduled post handler
+		// scheduled post handler.
 		$this->loader->add_action( 'future_to_publish', $post_sender, 'future_to_publish', 20, 1 );
 
-		// delay event handler
+		// delay event handler.
 		$this->loader->add_action( 'wptelegram_p2tg_delayed_post', $post_sender, 'delayed_post', 10, 1 );
 
-		// trigger handler
+		// trigger handler.
 		$this->loader->add_action( 'wptelegram_p2tg_send_post', $post_sender, 'send_post', 10, 3 );
 	}
 }

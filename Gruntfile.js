@@ -1,30 +1,29 @@
-module.exports = function(grunt) {
-
+module.exports = function( grunt ) {
 	const SOURCE_DIR = 'src/',
-	BUILD_DIR = 'build/',
-	path = require('path'),
-	jshintrc = grunt.file.readJSON('.jshintrc');
+		BUILD_DIR = 'build/',
+		path = require( 'path' ),
+		jshintrc = grunt.file.readJSON( '.jshintrc' );
 
 	// load all grunt tasks in package.json matching the `grunt-*` pattern
-	require('load-grunt-tasks')(grunt);
+	require( 'load-grunt-tasks' )( grunt );
 
 	var verion_updater = {
 		version: '', // to be set dynamically
-		update: function (match, p1) {
-			if (!this.version) {
-				grunt.warn('No version number set!');
+		update( match, p1 ) {
+			if ( ! this.version ) {
+				grunt.warn( 'No version number set!' );
 			}
-			return match.replace(p1,this.version);
-		}
+			return match.replace( p1, this.version );
+		},
 	};
-	verion_updater.update = verion_updater.update.bind(verion_updater);
+	verion_updater.update = verion_updater.update.bind( verion_updater );
 
-	grunt.initConfig({
+	grunt.initConfig( {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
 
 		dirs: {
-			lang: SOURCE_DIR + 'languages'
+			lang: SOURCE_DIR + 'languages',
 		},
 		clean: {
 			css: [
@@ -47,13 +46,13 @@ module.exports = function(grunt) {
 				dot: true,
 				expand: true,
 				cwd: BUILD_DIR,
-				src: []
+				src: [],
 			},
 			all: [
 				BUILD_DIR + '*',
 				'!' + BUILD_DIR + 'includes/cmb2/**',
 				'!' + BUILD_DIR + '.git',
-			]
+			],
 		},
 		copy: {
 			all: {
@@ -61,14 +60,14 @@ module.exports = function(grunt) {
 				expand: true,
 				cwd: SOURCE_DIR,
 				src: [ '**/*' ],
-				dest: BUILD_DIR
+				dest: BUILD_DIR,
 			},
 			i18n: {
 				dot: true,
 				expand: true,
 				cwd: SOURCE_DIR + 'languages',
 				src: [ '*.{pot,po,mo}' ],
-				dest: BUILD_DIR + 'languages'
+				dest: BUILD_DIR + 'languages',
 			},
 			changelog: {
 				src: 'changelog.md',
@@ -79,15 +78,15 @@ module.exports = function(grunt) {
 				expand: true,
 				cwd: SOURCE_DIR,
 				dest: BUILD_DIR,
-				src: []
-			}
+				src: [],
+			},
 		},
 
 		makepot: {
 			gen: {
 				options: {
 					domainPath: 'languages/',
-					exclude: ['includes/cmb2/.*'],
+					exclude: [ 'includes/cmb2/.*' ],
 					potComments: '',
 					potFilename: '<%= pkg.name %>.pot',
 					type: 'wp-plugin',
@@ -97,57 +96,57 @@ module.exports = function(grunt) {
 					updatePoFiles: true,
 					potHeaders: {
 						poedit: true,
-						'language': 'en_US',
+						language: 'en_US',
 						'X-Poedit-Basepath': '..\n',
 						'Plural-Forms': 'nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n',
 						'X-Poedit-KeywordsList': '__;_e;_x;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n',
 						'X-Poedit-SearchPath-0': '.\n',
-						'X-Poedit-SearchPathExcluded-0': 'includes/cmb2\n'
+						'X-Poedit-SearchPathExcluded-0': 'includes/cmb2\n',
 					},
-					processPot: function( pot ) {
+					processPot( pot ) {
 						var translation,
-								excluded_meta = [
-										'Plugin Name of the plugin/theme',
-										'Plugin URI of the plugin/theme',
-										'Author of the plugin/theme',
-										'Author URI of the plugin/theme',
-										'Description of the plugin/theme'
-								];
+							excluded_meta = [
+								'Plugin Name of the plugin/theme',
+								'Plugin URI of the plugin/theme',
+								'Author of the plugin/theme',
+								'Author URI of the plugin/theme',
+								'Description of the plugin/theme',
+							];
 						const { config } = grunt;
 
-						for ( translation in pot.translations[''] ) {
-								if ( 'undefined' !== typeof pot.translations[''][ translation ].comments.extracted ) {
-										if ( excluded_meta.indexOf( pot.translations[''][ translation ].comments.extracted ) >= 0 ) {
-												delete pot.translations[''][ translation ];
-										}
+						for ( translation in pot.translations[ '' ] ) {
+							if ( 'undefined' !== typeof pot.translations[ '' ][ translation ].comments.extracted ) {
+								if ( excluded_meta.indexOf( pot.translations[ '' ][ translation ].comments.extracted ) >= 0 ) {
+									delete pot.translations[ '' ][ translation ];
 								}
+							}
 						}
 
-						pot.headers['report-msgid-bugs-to'] = 'http://wordpress.org/support/plugin/' + config(['pkg', 'name']);
-						pot.headers['last-translator'] = config(['pkg', 'title']);
-						pot.headers['language-team'] = config(['pkg', 'title']);
+						pot.headers[ 'report-msgid-bugs-to' ] = 'http://wordpress.org/support/plugin/' + config( [ 'pkg', 'name' ] );
+						pot.headers[ 'last-translator' ] = config( [ 'pkg', 'title' ] );
+						pot.headers[ 'language-team' ] = config( [ 'pkg', 'title' ] );
 						var today = new Date();
-						pot.headers['po-revision-date'] = today.getFullYear() +'-'+ ('0' + (today.getMonth() + 1)).slice(-2) +'-'+ today.getDate() +' '+ today.getUTCHours() +':'+ today.getUTCMinutes() +'+'+ today.getTimezoneOffset();
+						pot.headers[ 'po-revision-date' ] = today.getFullYear() + '-' + ( '0' + ( today.getMonth() + 1 ) ).slice( -2 ) + '-' + today.getDate() + ' ' + today.getUTCHours() + ':' + today.getUTCMinutes() + '+' + today.getTimezoneOffset();
 						return pot;
-					}
-				}
-			}
+					},
+				},
+			},
 		},
 
 		potomo: {
 			gen: {
 				options: {
-					poDel: false
+					poDel: false,
 				},
-				files: [{
+				files: [ {
 					expand: true,
 					cwd: '<%= dirs.lang %>/',
-					src: ['*.po'],
+					src: [ '*.po' ],
 					dest: '<%= dirs.lang %>/',
 					ext: '.mo',
-					nonull: true
-				}]
-			}
+					nonull: true,
+				} ],
+			},
 		},
 
 		checktextdomain: {
@@ -158,10 +157,10 @@ module.exports = function(grunt) {
 						cwd: SOURCE_DIR,
 						src: [
 							'**/*.php', // Include all files
-							'!includes/cmb2/**'
-						]
-					}
-				]
+							'!includes/cmb2/**',
+						],
+					},
+				],
 			},
 			options: {
 				text_domain: '<%= pkg.name %>',
@@ -184,13 +183,13 @@ module.exports = function(grunt) {
 					' __ngettext:1,2,3d',
 					'__ngettext_noop:1,2,3d',
 					'_c:1,2d',
-					'_nc:1,2,4c,5d'
-				]
-			}
+					'_nc:1,2,4c,5d',
+				],
+			},
 		},
 		cssmin: {
 			options: {
-				compatibility: 'ie7'
+				compatibility: 'ie7',
 			},
 			core: {
 				expand: true,
@@ -200,7 +199,7 @@ module.exports = function(grunt) {
 				src: [
 					'admin/css/*.css',
 					'public/css/*.css',
-				]
+				],
 			},
 			modules: {
 				expand: true,
@@ -209,7 +208,7 @@ module.exports = function(grunt) {
 				ext: '.min.css',
 				src: [
 					'modules/**/css/*.css',
-				]
+				],
 			},
 			/* blocks: {
 				expand: true,
@@ -229,8 +228,8 @@ module.exports = function(grunt) {
 					'admin/css/*-rtl.css',
 					'public/css/*-rtl.css',
 					'modules/**/css/*-rtl.css',
-				]
-			}
+				],
+			},
 		},
 		rtlcss: {
 			options: {
@@ -247,12 +246,12 @@ module.exports = function(grunt) {
 							replace: [ '-rtl.css' ],
 							options: {
 								scope: 'url',
-								ignoreCase: false
-							}
-						}
-					]
+								ignoreCase: false,
+							},
+						},
+					],
 				},
-				saveUnmodified: true
+				saveUnmodified: true,
 			},
 			core: {
 				expand: true,
@@ -261,8 +260,8 @@ module.exports = function(grunt) {
 				ext: '-rtl.css',
 				src: [
 					'admin/css/*.css',
-					'public/css/*.css'
-				]
+					'public/css/*.css',
+				],
 			},
 			modules: {
 				expand: true,
@@ -270,37 +269,37 @@ module.exports = function(grunt) {
 				dest: BUILD_DIR,
 				ext: '-rtl.css',
 				src: [
-					'modules/**/css/*.css'
-				]
+					'modules/**/css/*.css',
+				],
 			},
 			dynamic: {
 				expand: true,
 				cwd: SOURCE_DIR,
 				dest: BUILD_DIR,
 				ext: '-rtl.css',
-				src: []
-			}
+				src: [],
+			},
 		},
 		phplint: {
 			options: {
 				phpCmd: '/usr/bin/php5.6',
-	            phpArgs: {
-	                '-d': ['display_errors', 'display_startup_errors']
-	            }
-	        },
-	        all: {
+				phpArgs: {
+					'-d': [ 'display_errors', 'display_startup_errors' ],
+				},
+			},
+			all: {
 				expand: true,
 				cwd: SOURCE_DIR,
 				src: [ '**/*.php' ],
 			},
-	    },
+		},
 		jshint: {
 			options: jshintrc,
 			config: {
-				src: ['Gruntfile.js'],
+				src: [ 'Gruntfile.js' ],
 				options: {
-					esversion: 6
-				}
+					esversion: 6,
+				},
 			},
 			core: {
 				expand: true,
@@ -309,32 +308,32 @@ module.exports = function(grunt) {
 					'admin/js/*.js',
 					'!admin/js/*.min.js',
 					'public/js/*.js',
-					'!public/js/*.min.js'
+					'!public/js/*.min.js',
 				],
 				// Remove once other JSHint errors are resolved
 				options: {
 					curly: false,
-					eqeqeq: false
-				}
+					eqeqeq: false,
+				},
 			},
 			modules: {
 				expand: true,
 				cwd: SOURCE_DIR,
 				src: [
 					'modules/**/js/*.js',
-					'!modules/**/js/*.min.js'
+					'!modules/**/js/*.min.js',
 				],
 				// Remove once other JSHint errors are resolved
 				options: {
 					curly: false,
-					eqeqeq: false
-				}
-			}
+					eqeqeq: false,
+				},
+			},
 		},
 		uglify: {
 			options: {
 				ASCIIOnly: true,
-				screwIE8: false
+				screwIE8: false,
 			},
 			core: {
 				expand: true,
@@ -345,8 +344,8 @@ module.exports = function(grunt) {
 					'admin/js/*.js',
 					'public/js/*.js',
 					// Exceptions
-					'!*.min.js'
-				]
+					'!*.min.js',
+				],
 			},
 			modules: {
 				expand: true,
@@ -356,57 +355,57 @@ module.exports = function(grunt) {
 				src: [
 					'modules/**/js/*.js',
 					// Exceptions
-					'!*.min.js'
-				]
+					'!*.min.js',
+				],
 			},
 			dynamic: {
 				expand: true,
 				cwd: BUILD_DIR,
 				dest: BUILD_DIR,
 				ext: '.min.js',
-				src: []
-			}
+				src: [],
+			},
 		},
-		
+
 		_watch: {
 			options: {
-				interval: 2000
+				interval: 2000,
 			},
 			all: {
 				files: [
 					SOURCE_DIR + '**/*',
-					'!' + SOURCE_DIR + 'admin/blocks/**/*'
+					'!' + SOURCE_DIR + 'admin/blocks/**/*',
 				],
-				tasks: ['clean:dynamic', 'copy:dynamic'],
+				tasks: [ 'clean:dynamic', 'copy:dynamic' ],
 				options: {
 					dot: true,
-					spawn: false
-				}
+					spawn: false,
+				},
 			},
 			js: {
 				files: [
 					SOURCE_DIR + 'admin/js/*.js',
-					SOURCE_DIR + 'public/js/*.js'
+					SOURCE_DIR + 'public/js/*.js',
 				],
-				tasks: ['clean:dynamic', 'copy:dynamic', 'uglify:dynamic'],
+				tasks: [ 'clean:dynamic', 'copy:dynamic', 'uglify:dynamic' ],
 				options: {
 					dot: true,
-					spawn: false
-				}
+					spawn: false,
+				},
 			},
 			config: {
-				files: [ 'Gruntfile.js' ]
+				files: [ 'Gruntfile.js' ],
 			},
 			rtl: {
 				files: [
 					SOURCE_DIR + 'admin/css/*.css',
-					SOURCE_DIR + 'public/css/*.css'
+					SOURCE_DIR + 'public/css/*.css',
 				],
-				tasks: ['rtlcss:dynamic'],
+				tasks: [ 'rtlcss:dynamic' ],
 				options: {
-					spawn: false
-				}
-			}
+					spawn: false,
+				},
+			},
 		},
 		update_files: {
 			config: {
@@ -417,41 +416,41 @@ module.exports = function(grunt) {
 					replacements: [
 						{
 							pattern: /"version":\s*"(\d+\.\d+\.\d+)"/i,
-							replacement: verion_updater.update
-						}
-					]
-				}
+							replacement: verion_updater.update,
+						},
+					],
+				},
 			},
 			readme: {
 				files: {
 					'./': 'README.md',
-					[SOURCE_DIR]: SOURCE_DIR + 'README.txt',
+					[ SOURCE_DIR ]: SOURCE_DIR + 'README.txt',
 				},
 				options: {
 					replacements: [
 						{
 							pattern: /Stable tag:(?:\*\*)?[\s\t]*(\d+\.\d+\.\d+)/i,
-							replacement: verion_updater.update
-						}
-					]
-				}
+							replacement: verion_updater.update,
+						},
+					],
+				},
 			},
 			mainfile: {
 				files: {
-					[SOURCE_DIR]: SOURCE_DIR + 'wptelegram.php'
+					[ SOURCE_DIR ]: SOURCE_DIR + 'wptelegram.php',
 				},
 				options: {
 					replacements: [
 						{
 							pattern: /Version:\s*(\d+\.\d+\.\d+)/i,
-							replacement: verion_updater.update
+							replacement: verion_updater.update,
 						},
 						{
 							pattern: /'WPTELEGRAM_VER',\s*'(\d+\.\d+\.\d+)'/i,
-							replacement: verion_updater.update
-						}
-					]
-				}
+							replacement: verion_updater.update,
+						},
+					],
+				},
 			},
 			'since-xyz': {
 				files: [
@@ -459,101 +458,100 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: SOURCE_DIR,
 						src: '**/*.php',
-						dest: SOURCE_DIR
-				    }
-			    ],
+						dest: SOURCE_DIR,
+					},
+				],
 				options: {
 					replacements: [
 						{
 							pattern: /@since[\s\t]*(x\.y\.z)/ig,
-							replacement: verion_updater.update
-						}
-					]
-				}
+							replacement: verion_updater.update,
+						},
+					],
+				},
 			},
 			'changelog-readme': {
 				files: {
-					[SOURCE_DIR]: SOURCE_DIR + 'README.txt',
+					[ SOURCE_DIR ]: SOURCE_DIR + 'README.txt',
 				},
 				options: {
 					replacements: [
 						{
 							pattern: /== Changelog ==([\s\S])/i,
-							replacement: function (match, p1) {
-
+							replacement( match, p1 ) {
 								const { version } = verion_updater;
-								if (!version) {
-									grunt.warn('No version number set!');
+								if ( ! version ) {
+									grunt.warn( 'No version number set!' );
 								}
 
-								const changes = grunt.file.read('./changelog.md') // get contents of changelog file
-								.match(/(?<=\#\#\sUnreleased)[\s\S]+?(?=##\s?\[\d+\.\d+\.\d+)/i)[0] // match the changes in Unreleased section
-								.replace(/(^|\n)(\#\#.+)/g,'') // remove headings like Enhancements, Bug fixes
-								.replace(/\n[\s\t]*\n/g,`\n`) // replace empty lines
-								.trim(); // cleanup
+								const changes = grunt.file.read( './changelog.md' ) // get contents of changelog file
+									.match( /(?<=\#\#\sUnreleased)[\s\S]+?(?=##\s?\[\d+\.\d+\.\d+)/i )[ 0 ] // match the changes in Unreleased section
+									.replace( /(^|\n)(\#\#.+)/g, '' ) // remove headings like Enhancements, Bug fixes
+									.replace( /\n[\s\t]*\n/g, `\n` ) // replace empty lines
+									.trim(); // cleanup
 
 								const replace = `\n\n= ${version} =\n${changes}\n`;
-								return match.replace(p1, replace);
-							}
-						}
-					]
-				}
+								return match.replace( p1, replace );
+							},
+						},
+					],
+				},
 			},
 			'changelog-md': {
 				files: {
-					'./': 'changelog.md'
+					'./': 'changelog.md',
 				},
 				options: {
 					replacements: [
 						{
 							pattern: /## (Unreleased)/i,
-							replacement: function (match, p1) {
+							replacement( match, p1 ) {
 								const { version } = verion_updater;
-								if (!version) {
-									grunt.warn('No version number set!');
+								if ( ! version ) {
+									grunt.warn( 'No version number set!' );
 								}
 								var today = new Date();
-								var replace = '[' + version + ' - ' + today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + today.getDate() + '](https://github.com/manzoorwanijk/wptelegram/releases/tag/v' + version + ')';
-								return match.replace(p1, replace);
-							}
-						}
-					]
-				}
-			}
+								var replace = '[' + version + ' - ' + today.getFullYear() + '-' + ( '0' + ( today.getMonth() + 1 ) ).slice( -2 ) + '-' + today.getDate() + '](https://github.com/manzoorwanijk/wptelegram/releases/tag/v' + version + ')';
+								return match.replace( p1, replace );
+							},
+						},
+					],
+				},
+			},
 		},
 		buildcontrol: {
-		    options: {
-		      dir: 'build',
-		      commit: true,
-		      push: true,
-		      message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-		    },
-		    remote: {
-		      options: {
-		        remote: '<%= pkg.repository.url %>.git',
-		        branch: 'trunk'
-		      }
-		    },
-		    local: {
-		      options: {
-		        remote: '../',
-		        branch: 'trunk'
-		      }
-		    }
+			options: {
+				dir: 'build',
+				commit: true,
+				push: true,
+				message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
+			},
+			remote: {
+				options: {
+					remote: '<%= pkg.repository.url %>.git',
+					branch: 'trunk',
+				},
+			},
+			local: {
+				options: {
+					remote: '../',
+					branch: 'trunk',
+				},
+			},
 		},
 		exec: {
 			'bundle-cmb2': {
-				cmd: './tools/bundle-cmb2.sh'
-			}
-		}
+				cmd: './tools/bundle-cmb2.sh',
+			},
+		},
 
-	});
+	} );
 
 	// RTL task.
-	grunt.registerTask('rtl', [
+	grunt.registerTask( 'rtl', [
 		'rtlcss:core',
 		'rtlcss:modules',
-	]);
+	] );
 
 	// CSS task
 	grunt.registerTask( 'build:css', [
@@ -561,7 +559,7 @@ module.exports = function(grunt) {
 		'rtl',
 		'cssmin:core',
 		'cssmin:modules',
-		'cssmin:rtl'
+		'cssmin:rtl',
 	] );
 
 	// JSHint task.
@@ -584,7 +582,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask( 'build:files', [
 		'clean:all',
-		'copy:all'
+		'copy:all',
 	] );
 
 	grunt.registerTask( 'lint:all', function() {
@@ -610,8 +608,8 @@ module.exports = function(grunt) {
 	} );
 
 	grunt.registerTask( 'bundle:cmb2', [
-		'exec:bundle-cmb2'
-	]);
+		'exec:bundle-cmb2',
+	] );
 
 	grunt.registerTask( 'i18n:all', [
 		'checktextdomain:all',
@@ -624,10 +622,9 @@ module.exports = function(grunt) {
 	grunt.renameTask( 'string-replace', 'update_files' );
 
 	grunt.registerTask( 'update:version', function() {
-
-		let version = grunt.option('to');
-		if (!version) {
-			grunt.warn('No version number supplied! usage: grunt update:version --to=x.y.z');
+		const version = grunt.option( 'to' );
+		if ( ! version ) {
+			grunt.warn( 'No version number supplied! usage: grunt update:version --to=x.y.z' );
 		}
 
 		verion_updater.version = version;
@@ -641,10 +638,9 @@ module.exports = function(grunt) {
 	} );
 
 	grunt.registerTask( 'update:changelog', function() {
-
-		let version = grunt.option('to');
-		if (!version) {
-			grunt.warn('No version number supplied! usage: grunt update:changelog --to=x.y.z');
+		const version = grunt.option( 'to' );
+		if ( ! version ) {
+			grunt.warn( 'No version number supplied! usage: grunt update:changelog --to=x.y.z' );
 		}
 
 		verion_updater.version = version;
@@ -671,11 +667,11 @@ module.exports = function(grunt) {
 	] );
 
 	grunt.registerTask( 'commit:git:trunk', [
-		'buildcontrol'
+		'buildcontrol',
 	] );
 
 	// Default task.
-	grunt.registerTask('default', ['build']);
+	grunt.registerTask( 'default', [ 'build' ] );
 
 	grunt.renameTask( 'watch', '_watch' );
 
@@ -710,11 +706,9 @@ module.exports = function(grunt) {
 		}
 
 		if ( action === 'deleted' ) {
-
 			// Clean up only those files that were deleted.
 			grunt.config( [ 'clean', 'dynamic', 'src' ], src );
 		} else {
-
 			// Otherwise copy over only the changed file.
 			grunt.config( [ 'copy', 'dynamic', 'src' ], src );
 
@@ -723,5 +717,5 @@ module.exports = function(grunt) {
 				grunt.config( [ 'rtlcss', 'dynamic', 'src' ], src );
 			}
 		}
-	});
+	} );
 };
