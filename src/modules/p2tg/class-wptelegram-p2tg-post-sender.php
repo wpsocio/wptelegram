@@ -200,7 +200,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Sets the values required for REST requests.
 	 *
-	 * @since x.y.z
+	 * @since 2.1.12
 	 *
 	 * @param stdClass        $prepared_post An object representing a single post prepared
 	 *                                       for inserting or updating the database.

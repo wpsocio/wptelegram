@@ -20,7 +20,7 @@
 
 	var ComposedIsGutenbergPost = compose( [ withSelect( function( select ) {
 		return {
-			isDirty: select( 'core/editor' ).isEditedPostDirty(),
+			isDirty: select( 'core/editor' ).isEditedPostDirty()
 		};
 	} ), withDispatch( function( dispatch, _, registry ) {
 		var select = registry.select;
@@ -31,15 +31,15 @@
 
 				if ( ! isGBPost && isDirty ) {
 					dispatch( 'core/editor' ).editPost( {
-						WPTelegramIsGBPost: true,
+						WPTelegramIsGBPost: true
 					}, {
-						undoIgnore: true,
+						undoIgnore: true
 					} );
 				}
-			},
+			}
 		};
 	} ) ] )( PluginIsGutenbergPost );
 	registerPlugin( 'wptelegram-is-gb-post', {
-		render: ComposedIsGutenbergPost,
+		render: ComposedIsGutenbergPost
 	} );
-}( wp ) );
+}( window.wp ) );
