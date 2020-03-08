@@ -113,28 +113,34 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		);
 		$cmb2      = new_cmb2_box( $box );
 
-		$cmb2->add_field( array(
+		$cmb2->add_field(
+			array(
 				'name'    => __( 'INSTRUCTIONS!', 'wptelegram' ),
 				'type'    => 'title',
 				'id'      => 'instructions_title',
 				'classes' => 'highlight',
-		) );
+			)
+		);
 
 		// Instructions.
-		$cmb2->add_field( array(
+		$cmb2->add_field(
+			array(
 				'name'          => '',
 				'type'          => 'text', // fake
 				'show_names'    => false,
 				'save_field'    => false,
 				'id'            => 'telegram_guide',
 				'render_row_cb' => array( __CLASS__, 'render_telegram_guide' ),
-		) );
+			)
+		);
 
-		$cmb2->add_field( array(
-			'name' => __( 'Telegram Destination', 'wptelegram' ),
-			'type' => 'title',
-			'id'   => 'destination_title',
-		) );
+		$cmb2->add_field(
+			array(
+				'name' => __( 'Telegram Destination', 'wptelegram' ),
+				'type' => 'title',
+				'id'   => 'destination_title',
+			)
+		);
 
 		$args = array(
 			'name'            => __( 'Channel Username', 'wptelegram' ),
@@ -154,48 +160,48 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			unset( $args['desc'] );
 			$args['attributes']['readonly'] = 'readonly';
 			$args['attributes']['disabled'] = 'disabled';
-			$args['after'] = WPTG()->helpers->get_empty_bot_token_html();
+			$args['after']                  = WPTG()->helpers->get_empty_bot_token_html();
 		}
 
 		$cmb2->add_field( $args );
 
 		$fields = array(
 			array(
-				'name'	=> __( 'Rules', 'wptelegram' ),
-				'type'	=> 'title',
-				'id'	=> 'rules_title',
+				'name' => __( 'Rules', 'wptelegram' ),
+				'type' => 'title',
+				'id'   => 'rules_title',
 			),
 			array(
-				'name'				=> __( 'Send when', 'wptelegram' ),
-				'desc'				=> __( 'When the post should be sent to Telegram', 'wptelegram' ),
-				'id'				=> 'send_when',
-				'type'				=> 'multicheck',
-				'before_row'		=> WPTG()->helpers->open_grid_row_with_col(),
-				'after_row'			=> WPTG()->helpers->close_grid_col(),
-				'default'			=> $this->options_checkbox_default( 'new' ),
-				'select_all_button'	=> false,
-				'options'			=> array(
-					'new'		=> __( 'A new post is published', 'wptelegram' ),
-					'existing'	=> __( 'An existing post is updated', 'wptelegram' ),
+				'name'              => __( 'Send when', 'wptelegram' ),
+				'desc'              => __( 'When the post should be sent to Telegram', 'wptelegram' ),
+				'id'                => 'send_when',
+				'type'              => 'multicheck',
+				'before_row'        => WPTG()->helpers->open_grid_row_with_col(),
+				'after_row'         => WPTG()->helpers->close_grid_col(),
+				'default'           => $this->options_checkbox_default( 'new' ),
+				'select_all_button' => false,
+				'options'           => array(
+					'new'      => __( 'A new post is published', 'wptelegram' ),
+					'existing' => __( 'An existing post is updated', 'wptelegram' ),
 				),
 			),
 			array(
-				'name'				=> __( 'Post type', 'wptelegram' ),
-				'id'				=> 'post_types',
-				'type'				=> 'multicheck',
-				'desc'				=> __( 'Which post types should be sent.', 'wptelegram' ),
-				'options_cb'		=> array( $this, 'get_post_type_options' ),
-				'before_row'		=> WPTG()->helpers->add_grid_col_to_row(),
-				'after_row'			=> WPTG()->helpers->close_grid_col_and_row(),
-				'default'			=> $this->options_checkbox_default( 'post' ),
-				'select_all_button'	=> false,
+				'name'              => __( 'Post type', 'wptelegram' ),
+				'id'                => 'post_types',
+				'type'              => 'multicheck',
+				'desc'              => __( 'Which post types should be sent.', 'wptelegram' ),
+				'options_cb'        => array( $this, 'get_post_type_options' ),
+				'before_row'        => WPTG()->helpers->add_grid_col_to_row(),
+				'after_row'         => WPTG()->helpers->close_grid_col_and_row(),
+				'default'           => $this->options_checkbox_default( 'post' ),
+				'select_all_button' => false,
 			),
 			array(
-				'name'				=> __( 'Rules', 'wptelegram' ),
-				'id'				=> 'rules',
-				'type'				=> 'text',
-				'render_row_cb'		=> array( $this, 'render_rules' ),
-				'sanitization_cb'	=> array( $this, 'sanitize_rules' ),
+				'name'            => __( 'Rules', 'wptelegram' ),
+				'id'              => 'rules',
+				'type'            => 'text',
+				'render_row_cb'   => array( $this, 'render_rules' ),
+				'sanitization_cb' => array( $this, 'sanitize_rules' ),
 			),
 		);
 
@@ -206,49 +212,49 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		// Message settings
 		$fields = array(
 			array(
-				'name'	=> __( 'Message Settings', 'wptelegram' ),
-				'type'	=> 'title',
-				'id'	=> 'message_settings_title',
+				'name' => __( 'Message Settings', 'wptelegram' ),
+				'type' => 'title',
+				'id'   => 'message_settings_title',
 			),
 			array(
-				'name'				=> __( 'Message Template', 'wptelegram' ),
-				'desc'				=> __( 'Structure of the message to be sent', 'wptelegram' ),
-				'id'				=> 'message_template',
-				'type'				=> 'textarea',
-				'default'			=> json_encode( '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}' ),
-				'sanitization_cb'	=> array( $this, 'sanitize_message_template' ),
-				'escape_cb'			=> array( WPTG()->helpers, 'escape_message_template' ),
-				'after'				=> array( $this, 'message_template_after_cb' ),
-				'classes'			=> 'emojionearea-enabled',
-				'attributes'		=> array(
-					'data-emoji-container'   => 'p2tg-template-container',
+				'name'            => __( 'Message Template', 'wptelegram' ),
+				'desc'            => __( 'Structure of the message to be sent', 'wptelegram' ),
+				'id'              => 'message_template',
+				'type'            => 'textarea',
+				'default'         => json_encode( '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}' ),
+				'sanitization_cb' => array( $this, 'sanitize_message_template' ),
+				'escape_cb'       => array( WPTG()->helpers, 'escape_message_template' ),
+				'after'           => array( $this, 'message_template_after_cb' ),
+				'classes'         => 'emojionearea-enabled',
+				'attributes'      => array(
+					'data-emoji-container' => 'p2tg-template-container',
 				),
 			),
 			array(
-				'name'			=> __( 'Excerpt Source', 'wptelegram' ),
-				'id'			=> 'excerpt_source',
-				'type'			=> 'radio',
-				'default'		=> 'post_content',
-				'before_row'	=> WPTG()->helpers->open_grid_row_with_col( 4 ),
-				'after_row'		=> WPTG()->helpers->close_grid_col(),
-				'options'		=> array(
-					'post_content'	=> __( 'Post Content', 'wptelegram' ),
-					'before_more'	=> __( 'Post Content before Read More tag', 'wptelegram' ),
-					'post_excerpt'	=> __( 'Post Excerpt', 'wptelegram' ),
+				'name'       => __( 'Excerpt Source', 'wptelegram' ),
+				'id'         => 'excerpt_source',
+				'type'       => 'radio',
+				'default'    => 'post_content',
+				'before_row' => WPTG()->helpers->open_grid_row_with_col( 4 ),
+				'after_row'  => WPTG()->helpers->close_grid_col(),
+				'options'    => array(
+					'post_content' => __( 'Post Content', 'wptelegram' ),
+					'before_more'  => __( 'Post Content before Read More tag', 'wptelegram' ),
+					'post_excerpt' => __( 'Post Excerpt', 'wptelegram' ),
 				),
 			),
 			array(
-				'name'			=> __( 'Excerpt Length', 'wptelegram' ),
-				'desc'			=> '<br>' . __( 'Number of words for the excerpt. Won\'t be used when Caption Source is "Post Content before Read More tag"', 'wptelegram' ),
-				'default'		=> 55,
-				'id'			=> 'excerpt_length',
-				'type'			=> 'text_small',
-				'before_row'	=> WPTG()->helpers->add_grid_col_to_row( 4 ),
-				'after_row'		=> WPTG()->helpers->close_grid_col(),
-				'attributes'	=> array(
-					'type'	=> 'number',
-					'min'	=> 1,
-					'max'	=> 300,
+				'name'       => __( 'Excerpt Length', 'wptelegram' ),
+				'desc'       => '<br>' . __( 'Number of words for the excerpt. Won\'t be used when Caption Source is "Post Content before Read More tag"', 'wptelegram' ),
+				'default'    => 55,
+				'id'         => 'excerpt_length',
+				'type'       => 'text_small',
+				'before_row' => WPTG()->helpers->add_grid_col_to_row( 4 ),
+				'after_row'  => WPTG()->helpers->close_grid_col(),
+				'attributes' => array(
+					'type' => 'number',
+					'min'  => 1,
+					'max'  => 300,
 				),
 			),
 			array(
@@ -272,48 +278,48 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
 			),
 			array(
-				'name'			=> __( 'Image Position', 'wptelegram' ),
-				'id'			=> 'image_position',
-				'type'			=> 'radio',
-				'default'		=> 'before',
-				'before_row'	=> WPTG()->helpers->add_grid_col_to_row( 4 ),
-				'after_row'		=> WPTG()->helpers->close_grid_col(),
-				'options'		=> array(
-					'before'	=> __( 'Before the Text', 'wptelegram' ),
-					'after'		=> __( 'After the Text', 'wptelegram' ),
+				'name'       => __( 'Image Position', 'wptelegram' ),
+				'id'         => 'image_position',
+				'type'       => 'radio',
+				'default'    => 'before',
+				'before_row' => WPTG()->helpers->add_grid_col_to_row( 4 ),
+				'after_row'  => WPTG()->helpers->close_grid_col(),
+				'options'    => array(
+					'before' => __( 'Before the Text', 'wptelegram' ),
+					'after'  => __( 'After the Text', 'wptelegram' ),
 				),
 			),
 			array(
-				'name'				=> __( 'Single message', 'wptelegram' ),
-				'desc'				=> __( 'Send both text and image in single message', 'wptelegram' ),
-				'id'				=> 'single_message',
-				'type'				=> 'custom_switch',
-				'before_row'	    => WPTG()->helpers->add_grid_col_to_row( 4 ),
-				'after_row'		    => WPTG()->helpers->close_grid_col_and_row(),
-				'after'				=> array( $this, 'after_single_message' ),
-				'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
-			),
-			array(
-				'name'			  => __( 'Categories as hashtags', 'wptelegram' ),
-				'desc'			  => __( 'Send categories as hashtags.', 'wptelegram' ),
-				'id'			  => 'cats_as_tags',
-				'type'			  => 'custom_switch',
-				'before_row'	  => WPTG()->helpers->open_grid_row_with_col( 6 ),
-				'after_row'		  => WPTG()->helpers->close_grid_col(),
+				'name'            => __( 'Single message', 'wptelegram' ),
+				'desc'            => __( 'Send both text and image in single message', 'wptelegram' ),
+				'id'              => 'single_message',
+				'type'            => 'custom_switch',
+				'before_row'      => WPTG()->helpers->add_grid_col_to_row( 4 ),
+				'after_row'       => WPTG()->helpers->close_grid_col_and_row(),
+				'after'           => array( $this, 'after_single_message' ),
 				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
 			),
 			array(
-				'name'			=> __( 'Parse Mode', 'wptelegram' ),
-				'id'			=> 'parse_mode',
-				'type'			=> 'radio',
-				'default'		=> 'none',
-				'after'			=> '<a href="'. esc_url( 'https://core.telegram.org/bots/api/#formatting-options' ) . '" target="_blank">' . __( 'Learn more', 'wptelegram' ) . '</a>',
-				'before_row'	=> WPTG()->helpers->add_grid_col_to_row( 6 ),
-				'after_row'		=> WPTG()->helpers->close_grid_col_and_row(),
-				'options'		=> array(
-					'none'		=> __( 'None', 'wptelegram' ),
-					'Markdown'	=> __( 'Markdown style', 'wptelegram' ),
-					'HTML'		=> __( 'HTML style', 'wptelegram' ),
+				'name'            => __( 'Categories as hashtags', 'wptelegram' ),
+				'desc'            => __( 'Send categories as hashtags.', 'wptelegram' ),
+				'id'              => 'cats_as_tags',
+				'type'            => 'custom_switch',
+				'before_row'      => WPTG()->helpers->open_grid_row_with_col( 6 ),
+				'after_row'       => WPTG()->helpers->close_grid_col(),
+				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
+			),
+			array(
+				'name'       => __( 'Parse Mode', 'wptelegram' ),
+				'id'         => 'parse_mode',
+				'type'       => 'radio',
+				'default'    => 'none',
+				'after'      => '<a href="' . esc_url( 'https://core.telegram.org/bots/api/#formatting-options' ) . '" target="_blank">' . __( 'Learn more', 'wptelegram' ) . '</a>',
+				'before_row' => WPTG()->helpers->add_grid_col_to_row( 6 ),
+				'after_row'  => WPTG()->helpers->close_grid_col_and_row(),
+				'options'    => array(
+					'none'     => __( 'None', 'wptelegram' ),
+					'Markdown' => __( 'Markdown style', 'wptelegram' ),
+					'HTML'     => __( 'HTML style', 'wptelegram' ),
 				),
 			),
 		);
@@ -322,30 +328,30 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			$cmb2->add_field( $field );
 		}
 
-		// Inline Keyboard settings
+		// Inline Keyboard settings.
 		$fields = array(
 			array(
-				'name'	=> __( 'Inline Keyboard', 'wptelegram' ),
-				'type'	=> 'title',
-				'id'	=> 'inline_keyboard_title',
+				'name' => __( 'Inline Keyboard', 'wptelegram' ),
+				'type' => 'title',
+				'id'   => 'inline_keyboard_title',
 			),
 			array(
-				'name'				=> __( 'Inline Button', 'wptelegram' ),
-				'desc'				=> __( 'Add Inline URL Button', 'wptelegram' ),
-				'after'				=> '<p class="description">' . __( 'Add an inline clickable button for the post URL just below the message.', 'wptelegram' ) . '</p>',
-				'id'				=> 'inline_url_button',
-				'type'				=> 'custom_switch',
-				'before_row'		=> WPTG()->helpers->open_grid_row_with_col(),
-				'after_row'			=> WPTG()->helpers->close_grid_col(),
-				'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
+				'name'            => __( 'Inline Button', 'wptelegram' ),
+				'desc'            => __( 'Add Inline URL Button', 'wptelegram' ),
+				'after'           => '<p class="description">' . __( 'Add an inline clickable button for the post URL just below the message.', 'wptelegram' ) . '</p>',
+				'id'              => 'inline_url_button',
+				'type'            => 'custom_switch',
+				'before_row'      => WPTG()->helpers->open_grid_row_with_col(),
+				'after_row'       => WPTG()->helpers->close_grid_col(),
+				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
 			),
 			array(
-				'name'			=> __( 'Inline button text', 'wptelegram' ),
-				'default'		=> __( 'View Post', 'wptelegram' ),
-				'id'			=> 'inline_button_text',
-				'type'			=> 'text_medium',
-				'before_row'	=> WPTG()->helpers->add_grid_col_to_row(),
-				'after_row'		=> WPTG()->helpers->close_grid_col_and_row(),
+				'name'       => __( 'Inline button text', 'wptelegram' ),
+				'default'    => __( 'View Post', 'wptelegram' ),
+				'id'         => 'inline_button_text',
+				'type'       => 'text_medium',
+				'before_row' => WPTG()->helpers->add_grid_col_to_row(),
+				'after_row'  => WPTG()->helpers->close_grid_col_and_row(),
 			),
 		);
 
@@ -353,21 +359,29 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			$cmb2->add_field( $field );
 		}
 
-		// Other settings
+		// Other settings.
 		$fields = array(
 			array(
-				'name'	=> __( 'Miscellaneous', 'wptelegram' ),
-				'type'	=> 'title',
-				'id'	=> 'miscellaneous_title',
+				'name' => __( 'Miscellaneous', 'wptelegram' ),
+				'type' => 'title',
+				'id'   => 'miscellaneous_title',
 			),
 			array(
-				'name'				=> __( 'When editing a post', 'wptelegram' ),
-				'desc'				=> __( 'Show an ON/OFF switch on the post edit screen', 'wptelegram' ),
-				'after'				=> '<p class="description">' . __( 'You can use this switch to override the above settings for a particular post', 'wptelegram' ) . '</p>',
-				'id'				=> 'post_edit_switch',
-				'type'				=> 'custom_switch',
-				'default'			=> 'on',
-				'sanitization_cb'	=> array( $this, 'sanitize_checkbox' ),
+				'name'            => __( 'When editing a post', 'wptelegram' ),
+				'desc'            => __( 'Show an ON/OFF switch on the post edit screen', 'wptelegram' ),
+				'after'           => '<p class="description">' . __( 'You can use this switch to override the above settings for a particular post', 'wptelegram' ) . '</p>',
+				'id'              => 'post_edit_switch',
+				'type'            => 'custom_switch',
+				'default'         => 'on',
+				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
+			),
+			array(
+				'name'            => __( 'Plugin generated posts', 'wptelegram' ),
+				'after'           => '<p class="description">' . __( 'Enable this option if you use a plugin to generate posts', 'wptelegram' ) . '</p>',
+				'id'              => 'plugin_posts',
+				'type'            => 'custom_switch',
+				'default'         => 'on',
+				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
 			),
 			array(
 				'name'       => __( 'Delay in Posting', 'wptelegram' ),
@@ -384,13 +398,13 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				),
 			),
 			array(
-				'name'				=> __( 'Other settings', 'wptelegram' ),
-				'id'				=> 'misc',
-				'type'				=> 'multicheck',
-				'select_all_button'	=> false,
-				'options'			=> array(
-					'disable_web_page_preview'  => __( 'Disable Web Page Preview', 'wptelegram' ),
-					'disable_notification'      => __( 'Disable Notifications', 'wptelegram' ),
+				'name'              => __( 'Other settings', 'wptelegram' ),
+				'id'                => 'misc',
+				'type'              => 'multicheck',
+				'select_all_button' => false,
+				'options'           => array(
+					'disable_web_page_preview' => __( 'Disable Web Page Preview', 'wptelegram' ),
+					'disable_notification'     => __( 'Disable Notifications', 'wptelegram' ),
 				),
 			),
 		);
@@ -402,8 +416,9 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 	/**
 	 * Output a message if WordPress cron is disabled
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
+	 *
+	 * @param  object $field_args Current field args.
+	 * @param  object $field      Current field object.
 	 */
 	public function after_delay_cb( $field_args, $field ) {
 
@@ -420,7 +435,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * render after message template HTML
+	 * Render after message template HTML.
 	 *
 	 * @since  1.0.0
 	 */
@@ -435,15 +450,15 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * render macros
+	 * Render macros.
 	 *
 	 * @since  1.0.0
 	 */
 	private function render_macros() {
 		$macro_groups = array(
 			'post'  => array(
-				'label'     => __( 'Post Data', 'wptelegram' ),
-				'macros'    => array(
+				'label'  => __( 'Post Data', 'wptelegram' ),
+				'macros' => array(
 					'{ID}',
 					'{post_title}',
 					'{post_date}',
@@ -456,30 +471,30 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				),
 			),
 			'terms' => array(
-				'label'     => __( 'Taxonomy Terms', 'wptelegram' ),
-				'macros'    => array(
+				'label'  => __( 'Taxonomy Terms', 'wptelegram' ),
+				'macros' => array(
 					'{tags}',
 					'{categories}',
 					'{terms:taxonomy}',
 				),
 			),
 			'cf'    => array(
-				'label'     => __( 'Custom Fields', 'wptelegram' ),
-				'macros'    => array(
+				'label'  => __( 'Custom Fields', 'wptelegram' ),
+				'macros' => array(
 					'{cf:custom_field}',
 				),
 			),
 		);
-
+		/* translators: 1  taxonomy, 2  {terms:taxonomy} */
 		$macro_groups['terms']['html'] = sprintf( __( 'Replace %1$s in %2$s by the name of the taxonomy to insert its terms attached to the post.', 'wptelegram' ), '<code>taxonomy</code>', '<code>{terms:taxonomy}</code>' ) . '&nbsp;' . sprintf( __( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ), '<code>{terms:product_cat}</code>', '<code>{terms:product_tag}</code>' );
 
+		/* translators: 1  custom_field, 2  {cf:custom_field} */
 		$macro_groups['cf']['html'] = sprintf( __( 'Replace %1$s in %2$s by the name of the Custom Field.', 'wptelegram' ), '<code>custom_field</code>', '<code>{cf:custom_field}</code>' ) . '&nbsp;' . sprintf( __( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ), '<code>{cf:_regular_price}</code>', '<code>{cf:_sale_price}</code>' );
 
 		/**
 		 * If you add your own macro_groups using this filter
 		 * You should use "wptelegram_p2tg_macro_values" filter
 		 * to replace the macro with the corresponding values
-		 *
 		 */
 		$macro_groups = (array) apply_filters( 'wptelegram_p2tg_settings_macro_groups', $macro_groups );
 
@@ -508,7 +523,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 *
 	 * @param  mixed      $value      The unsanitized value from the form.
 	 * @param  array      $field_args Array of field arguments.
-	 * @param  CMB2_Field $field      The field object
+	 * @param  CMB2_Field $field      The field object.
 	 *
 	 * @return mixed                  Sanitized value to be stored.
 	 */
@@ -518,18 +533,17 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * after channels HTML
+	 * After channels HTML.
 	 *
 	 * @since  1.0.0
-	 * 
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
-	 * 
+	 *
+	 * @param  object $field_args Current field args.
+	 * @param  object $field      Current field object.
 	 */
 	public function after_channels_cb( $field_args, $field ) {
 		?>
 		<div class="cmb-row cmb-type-text cmb2-id-after-channels" data-fieldtype="text">
-			<p><span id="p2tg-mem-count" class="hidden"><?php esc_html_e( "Members Count:", "wptelegram" ); ?></span></p>
+			<p><span id="p2tg-mem-count" class="hidden"><?php esc_html_e( 'Members Count:', 'wptelegram' ); ?></span></p>
 			<ol style="list-style-type: disc;" id="p2tg-chat-list">
 			</ol>
 			<table id="p2tg-chat-table" class="hidden">
@@ -547,18 +561,17 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * after channels HTML
+	 * After channels HTML.
 	 *
 	 * @since  1.0.0
-	 * 
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
-	 * 
+	 *
+	 * @param  object $field_args Current field args.
+	 * @param  object $field      Current field object.
 	 */
 	public function after_single_message( $field_args, $field ) {
 		?>
 		<ul>
-			<li><span class="should-be" data-id="parse_mode"><?php printf( __( '%1$s should not be %2$s', 'wptelegram' ), '<b>' . __( 'Parse Mode', 'wptelegram' ) . '</b>', '<b>' . esc_html__( 'None', 'wptelegram' ) . '</b>' ); ?></span></li>
+			<li><span class="should-be" data-id="parse_mode"><?php printf( __( '%1$s should not be %2$s', 'wptelegram' ), '<b>' . esc_html__( 'Parse Mode', 'wptelegram' ) . '</b>', '<b>' . esc_html__( 'None', 'wptelegram' ) . '</b>' ); ?></span></li>
 			<li><span class="should-be" data-id="misc1"><?php printf( __( '%s should not be checked', 'wptelegram' ), '<b>' . esc_html__( 'Disable Web Page Preview', 'wptelegram' ) . '</b>' ); ?></span></li>
 		</ul>
 		<?php
@@ -571,8 +584,8 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 * @param  CMB2_Field $field      The field object
 	 */
 	public function render_rules( $field_args, $field ) {
-		$id          = $field->args( 'id' );
-		$label       = __( 'Send when', 'wptelegram' );
+		$id    = $field->args( 'id' );
+		$label = __( 'Send when', 'wptelegram' );
 		?>
 		<div class="cmb-row cmb-type-text cmb2-id-wptg_p2tg-and no-padding" data-fieldtype="text">
 			<!-- <div class="cmb-th">
@@ -613,9 +626,9 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	/**
 	 * Handles sanitization for rules
 	 *
-	 * @param  mixed		$value      The unsanitized value from the form.
-	 * @param  array		$field_args Array of field arguments.
-	 * @param  CMB2_Field	$field      The field object
+	 * @param  mixed      $value      The unsanitized value from the form.
+	 * @param  array      $field_args Array of field arguments.
+	 * @param  CMB2_Field $field      The field object
 	 *
 	 * @return mixed                  Sanitized value to be stored.
 	 */
@@ -631,7 +644,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 			if ( is_array( $rule_group ) ) {
 
-				foreach( $rule_group as $rule_id => $rule ) {
+				foreach ( $rule_group as $rule_id => $rule ) {
 
 					// remove empty values
 					$rule = array_filter( (array) $rule );
@@ -654,7 +667,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	/**
 	 * Only return default value if we don't have the settings saved
 	 *
-	 * @param  bool     $default The default value
+	 * @param  bool $default The default value
 	 * @return mixed    Returns true or '', the blank default
 	 */
 	public function options_checkbox_default( $default ) {
@@ -685,7 +698,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 			if ( 'attachment' != $post_type->name ) {
 
-				$options[ $post_type->name ] =  "{$post_type->labels->singular_name} ({$post_type->name})";
+				$options[ $post_type->name ] = "{$post_type->labels->singular_name} ({$post_type->name})";
 			}
 		}
 
@@ -708,7 +721,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	/**
 	 * Add send to Telegram swicth to post edit page
 	 * when using classic editor.
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	public function add_switch_to_submitbox() {
@@ -769,98 +782,112 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		/**
 		 * Initiate the metabox
 		 */
-		$box = array(
-			'id'            => 'wptelegram_p2tg_override',
-			'title'         => sprintf( '%s (%s)', $this->module_title, $this->plugin_title ),
-			'object_types'  => $screens,
-			'context'       => 'normal',
-			'priority'      => 'high',
-			'save_fields'   => false,
-			'classes'       => 'wptelegram-box',
+		$box  = array(
+			'id'           => 'wptelegram_p2tg_override',
+			'title'        => sprintf( '%s (%s)', $this->module_title, $this->plugin_title ),
+			'object_types' => $screens,
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'save_fields'  => false,
+			'classes'      => 'wptelegram-box',
 		);
 		$cmb2 = new_cmb2_box( $box );
 
-		$cmb2->add_field( array(
-			'name'      	=> __( 'Send to Telegram', 'wptelegram' ),
-			'id'        	=> self::$prefix . 'send2tg',
-			'type'      	=> 'radio_inline',
-			'default'   	=> $this->send2tg_default(),
-			'options'   	=> array(
-				'yes'  => __( 'Yes', 'wptelegram' ),
-				'no'   => __( 'No', 'wptelegram' ),
-			),
-		) );
+		$cmb2->add_field(
+			array(
+				'name'    => __( 'Send to Telegram', 'wptelegram' ),
+				'id'      => self::$prefix . 'send2tg',
+				'type'    => 'radio_inline',
+				'default' => $this->send2tg_default(),
+				'options' => array(
+					'yes' => __( 'Yes', 'wptelegram' ),
+					'no'  => __( 'No', 'wptelegram' ),
+				),
+			)
+		);
 
-		$cmb2->add_field( array(
-			'name' 			=> __( 'Override settings', 'wptelegram' ),
-			'id'   			=> self::$prefix . 'override_switch',
-			'type' 			=> 'custom_switch',
-		) );
+		$cmb2->add_field(
+			array(
+				'name' => __( 'Override settings', 'wptelegram' ),
+				'id'   => self::$prefix . 'override_switch',
+				'type' => 'custom_switch',
+			)
+		);
 
 		$channels = $this->module_options->get( 'channels', '' );
 		$channels = explode( ',', $channels );
 
-		$cmb2->add_field( array(
-			'name'				=> __( 'Send to', 'wptelegram' ),
-			'id'				=> self::$prefix . 'channels',
-			'type'				=> 'multicheck',
-			'select_all_button' => false,
-			'default_cb'		=> array( $this, 'override_opt_default_cb' ),
-			'options'			=> array_combine( $channels, $channels ),
-			'classes'			=> 'hidden depends-upon-override_switch',
-		) );
+		$cmb2->add_field(
+			array(
+				'name'              => __( 'Send to', 'wptelegram' ),
+				'id'                => self::$prefix . 'channels',
+				'type'              => 'multicheck',
+				'select_all_button' => false,
+				'default_cb'        => array( $this, 'override_opt_default_cb' ),
+				'options'           => array_combine( $channels, $channels ),
+				'classes'           => 'hidden depends-upon-override_switch',
+			)
+		);
 
-		$cmb2->add_field( array(
-			'name' 			=> __( 'Disable Notifications', 'wptelegram' ),
-			'id'   			=> self::$prefix . 'disable_notification',
-			'type' 			=> 'custom_switch',
-			'default_cb'	=> array( $this, 'override_opt_default_cb' ),
-			'classes'		=> 'hidden depends-upon-override_switch',
-		) );
+		$cmb2->add_field(
+			array(
+				'name'       => __( 'Disable Notifications', 'wptelegram' ),
+				'id'         => self::$prefix . 'disable_notification',
+				'type'       => 'custom_switch',
+				'default_cb' => array( $this, 'override_opt_default_cb' ),
+				'classes'    => 'hidden depends-upon-override_switch',
+			)
+		);
 
-		$cmb2->add_field( array(
-			'name'			=> __( 'Files', 'wptelegram' ),
-			'desc'			=> __( 'Files to be sent after the message', 'wptelegram' ),
-			'id'			=> self::$prefix . 'files',
-			'type'			=> 'file_list',
-			'default_cb'	=> array( $this, 'override_opt_default_cb' ),
-			'classes'		=> 'hidden depends-upon-override_switch',
-		) );
+		$cmb2->add_field(
+			array(
+				'name'       => __( 'Files', 'wptelegram' ),
+				'desc'       => __( 'Files to be sent after the message', 'wptelegram' ),
+				'id'         => self::$prefix . 'files',
+				'type'       => 'file_list',
+				'default_cb' => array( $this, 'override_opt_default_cb' ),
+				'classes'    => 'hidden depends-upon-override_switch',
+			)
+		);
 
-		$cmb2->add_field( array(
-			'name'          => __( 'Delay in Posting', 'wptelegram' ),
-			'desc'          => __( 'Minute(s)', 'wptelegram' ),
-			'default_cb'	=> array( $this, 'override_opt_default_cb' ),
-			'id'            => self::$prefix . 'delay',
-			'after'			=> array( $this, 'after_delay_cb' ),
-			'type'          => 'text_small',
-			'classes'		=> 'hidden depends-upon-override_switch',
-			'attributes'    => array(
-				'type'        => 'number',
-				'min'         => '0',
-				'placeholder' => '0.0',
-				'step'        => '0.5',
-			),
-		) );
+		$cmb2->add_field(
+			array(
+				'name'       => __( 'Delay in Posting', 'wptelegram' ),
+				'desc'       => __( 'Minute(s)', 'wptelegram' ),
+				'default_cb' => array( $this, 'override_opt_default_cb' ),
+				'id'         => self::$prefix . 'delay',
+				'after'      => array( $this, 'after_delay_cb' ),
+				'type'       => 'text_small',
+				'classes'    => 'hidden depends-upon-override_switch',
+				'attributes' => array(
+					'type'        => 'number',
+					'min'         => '0',
+					'placeholder' => '0.0',
+					'step'        => '0.5',
+				),
+			)
+		);
 
-		$cmb2->add_field( array(
-			'name'			=> __( 'Message Template', 'wptelegram' ),
-			'desc'			=> __( 'Structure of the message to be sent', 'wptelegram' ),
-			'id'			=> self::$prefix . 'message_template',
-			'type'			=> 'textarea',
-			'default_cb'	=> array( $this, 'override_opt_default_cb' ),
-			'after'			=> array( $this, 'message_template_after_cb' ),
-			'escape_cb'		=> array( WPTG()->helpers, 'escape_message_template' ),
-			'classes'		=> 'hidden emojionearea-enabled depends-upon-override_switch',
-			'attributes'	=> array(
-				'data-emoji-container'	=> 'p2tg-template-container',
-			),
-		) );
+		$cmb2->add_field(
+			array(
+				'name'       => __( 'Message Template', 'wptelegram' ),
+				'desc'       => __( 'Structure of the message to be sent', 'wptelegram' ),
+				'id'         => self::$prefix . 'message_template',
+				'type'       => 'textarea',
+				'default_cb' => array( $this, 'override_opt_default_cb' ),
+				'after'      => array( $this, 'message_template_after_cb' ),
+				'escape_cb'  => array( WPTG()->helpers, 'escape_message_template' ),
+				'classes'    => 'hidden emojionearea-enabled depends-upon-override_switch',
+				'attributes' => array(
+					'data-emoji-container' => 'p2tg-template-container',
+				),
+			)
+		);
 	}
 
 	/**
 	 * Set default value for override options
-	 * 
+	 *
 	 * @param  object $field_args Current field args
 	 * @param  object $field      Current field object
 	 *
@@ -889,7 +916,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 		switch ( $id ) {
 			case 'channels':
-				return explode( ',' , self::$saved_options->get( $id ) );
+				return explode( ',', self::$saved_options->get( $id ) );
 				break; // not really needed
 			case 'disable_notification':
 				return ( in_array( $id, self::$saved_options->get( 'misc', array() ) ) ) ? 'on' : 'off';
@@ -921,7 +948,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 				$default = $send2tg;
 
-			// if it's a published post
+				// if it's a published post
 			} elseif ( ( $post = get_post( $_GET['post'] ) ) && $post instanceof WP_Post && 'publish' == $post->post_status ) {
 
 				// whether already sent to Telegram
@@ -931,7 +958,6 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 					$default = 'no';
 				}
 			}
-
 		} elseif ( ! in_array( 'new', $send_when ) ) {
 			$default = 'no';
 		}
@@ -954,10 +980,12 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 	/**
 	 * Output the Telegram Instructions
+	 *
 	 * @param  object $field_args Current field args
 	 * @param  object $field      Current field object
 	 */
-	public static function render_telegram_guide( $field_args, $field ) { ?>
+	public static function render_telegram_guide( $field_args, $field ) {
+		?>
 		<div class="cmb-row cmb-type-text cmb2-id-telegram_guide">
 			<ol>
 				<li><?php esc_html_e( 'Create a Channel/group/supergroup', 'wptelegram' ); ?></li>
@@ -997,7 +1025,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 		$transient = 'wptelegram_p2tg_errors';
 
-		if ( isset( $_GET[ self::$prefix . 'error'] ) && $p2tg_errors = array_filter( (array) get_transient( $transient ) ) ) {
+		if ( isset( $_GET[ self::$prefix . 'error' ] ) && $p2tg_errors = array_filter( (array) get_transient( $transient ) ) ) {
 
 			$html = sprintf( '<b>%s (%s):</b> %s', $this->plugin_title, $this->module_title, __( 'There was some error!', 'wptelegram' ) );
 
@@ -1018,7 +1046,8 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 						'<tr><td><b>%s</b></td><td>%s</td><td><b>%s</b></td></tr>',
 						$channel,
 						$code,
-						$message );
+						$message
+					);
 				}
 			}
 
@@ -1034,15 +1063,17 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * Add admin sidebar content 
+	 * Add admin sidebar content
 	 *
 	 * @since  2.0.13
 	 */
 	public function add_sidebar_row( $object_id, $hookup ) {
-		if ( 'wptelegram_p2tg' === $object_id ) : ?>
+		if ( 'wptelegram_p2tg' === $object_id ) :
+			?>
 			<div class="cell">
 				<iframe src="https://www.youtube.com/embed/MFTQo3ObWmc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
-		<?php endif;
+			<?php
+		endif;
 	}
 }
