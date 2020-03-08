@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
+## [2.1.13 - 2020-03-8](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.13)
+### Enhancements
+* Added "Plugin generated posts" option to allow posts not created by humans.
+
 ## [2.1.12 - 2019-12-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.12)
 ### Bug fixes
 * Fixed double posting by block editor.
