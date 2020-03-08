@@ -3,73 +3,73 @@
 /**
  * Post Handling functionality of the plugin.
  *
- * @link		https://t.me/WPTelegram
- * @since		1.0.0
+ * @link        https://t.me/WPTelegram
+ * @since       1.0.0
  *
- * @package		WPTelegram
- * @subpackage	WPTelegram/includes
+ * @package     WPTelegram
+ * @subpackage  WPTelegram/includes
  */
 
 /**
  * The Post Handling functionality of the plugin.
  *
- * @package		WPTelegram
- * @subpackage	WPTelegram/includes
- * @author		Manzoor Wani <@manzoorwanijk>
+ * @package     WPTelegram
+ * @subpackage  WPTelegram/includes
+ * @author      Manzoor Wani <@manzoorwanijk>
  */
 class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 	/**
 	 * Bot Token to be used for Telegram API calls
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		string	Telegram Bot Token.
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     string  Telegram Bot Token.
 	 */
 	private $bot_token;
 
 	/**
 	 * The prefix for meta data
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		string	The prefix for meta data
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     string  The prefix for meta data
 	 */
 	private static $prefix = '_wptg_p2tg_';
 
 	/**
 	 * Settings/Options
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		array 		$options 	Options
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     array       $options    Options
 	 */
 	private $options;
 
 	/**
 	 * Responses prepared from settings
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		array		$responses
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     array       $responses
 	 */
 	private $responses;
 
 	/**
 	 * Meta box override switch
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		string 		$send2tg 
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     string      $send2tg
 	 */
 	private $send2tg;
 
 	/**
 	 * The Telegram API
 	 *
-	 * @since	1.0.0
-	 * @access	private
-	 * @var		WPTelegram_Bot_API $bot_api Telegram API Object
+	 * @since   1.0.0
+	 * @access  private
+	 * @var     WPTelegram_Bot_API $bot_api Telegram API Object
 	 */
 	private $bot_api;
 
@@ -83,21 +83,21 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * The post to be handled
 	 *
-	 * @var	WP_Post	$post	Post object.
+	 * @var WP_Post $post   Post object.
 	 */
 	protected static $post;
 
 	/**
 	 * Whether to send the files (photo etc.) by URL
 	 *
-	 * @var	bool	$send_files_by_url	Send files by URL
+	 * @var bool    $send_files_by_url  Send files by URL
 	 */
 	protected $send_files_by_url = true;
 
 	/**
 	 * The post data
 	 *
-	 * @var	WPTelegram_P2TG_Post_Data	$post_data	Post data.
+	 * @var WPTelegram_P2TG_Post_Data   $post_data  Post data.
 	 */
 	protected static $post_data;
 
@@ -105,21 +105,21 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * The posts processed in the current request
 	 * to be used to avoid double posting
 	 *
-	 * @var	array	$processed_posts
+	 * @var array   $processed_posts
 	 */
 	protected static $processed_posts;
 
 	/**
 	 * Whether the post is from Gutenberg REST Request.
 	 *
-	 * @var	bool	$is_gutenberg_post	Is Gutenberg post.
+	 * @var bool    $is_gutenberg_post  Is Gutenberg post.
 	 */
 	public static $is_gutenberg_post;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since	2.0.0
+	 * @since   2.0.0
 	 */
 	public function __construct( $module_name, $module_title ) {
 
@@ -131,9 +131,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Set up the basics
 	 *
-	 * @since	2.0.0
-	 * 
-	 * @param	$post	WP_Post
+	 * @since   2.0.0
+	 *
+	 * @param   $post   WP_Post
 	 */
 	public function init( $post, $trigger ) {
 
@@ -149,7 +149,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Get default options
 	 *
-	 * @since	2.0.0
+	 * @since   2.0.0
 	 */
 	public static function get_defaults() {
 		$array    = array();
@@ -167,6 +167,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			'single_message'       => 'off',
 			'parse_mode'           => null,
 			'cats_as_tags'         => 'off',
+			'plugin_posts'         => 'off',
 			'misc'                 => array(
 				// 'disable_web_page_preview',
 				// 'disable_notification',
@@ -182,7 +183,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Get Post To Telegram options
 	 *
-	 * @since	2.0.0
+	 * @since   2.0.0
 	 */
 	public function get_saved_options() {
 
@@ -216,10 +217,10 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle wp_insert_post
 	 *
-	 * @since	2.0.0
+	 * @since   2.0.0
 	 *
-	 * @param	$post_id	int
-	 * @param	$post		WP_Post
+	 * @param   $post_id    int
+	 * @param   $post       WP_Post
 	 */
 	public function wp_insert_post( $post_id, $post ) {
 
@@ -233,9 +234,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle Scheduled Post
 	 *
-	 * @since	2.0.0
+	 * @since   2.0.0
 	 *
-	 * @param	$post	WP_Post
+	 * @param   $post   WP_Post
 	 */
 	public function future_to_publish( $post ) {
 
@@ -250,9 +251,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle Delayed Post
 	 *
-	 * @since	2.0.0
+	 * @since   2.0.0
 	 *
-	 * @param	$post_id	string
+	 * @param   $post_id    string
 	 */
 	public function delayed_post( $post_id ) {
 
@@ -267,9 +268,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle the post published via WP REST API
 	 *
-	 * @since	2.0.13
+	 * @since   2.0.13
 	 *
-	 * @param	$post	WP_Post
+	 * @param   $post   WP_Post
 	 */
 	public function wp_rest_post( $post ) {
 
@@ -279,17 +280,16 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Make sure the global $post and its data is set
 	 *
-	 * @since	2.1.5
+	 * @since   2.1.5
 	 *
-	 * @param	WP_Post	$post		The post to be handled
-	 * @param	string	$trigger	The name of the source trigger hook
+	 * @param   WP_Post $post       The post to be handled
+	 * @param   string  $trigger    The name of the source trigger hook
 	 */
 	private function may_be_setup_postdata( $post, $trigger ) {
 		$previous_post = null;
 
 		// make sure the global $post and its data is set
 		if ( 'delayed_post' === $trigger ) {
-
 
 			if ( ! empty( $GLOBALS['post'] ) ) {
 				$previous_post = $GLOBALS['post'];
@@ -306,10 +306,10 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Make sure the global $post and its data is reset
 	 *
-	 * @since	2.1.5
+	 * @since   2.1.5
 	 *
-	 * @param	WP_Post|null	$previous_post	The post to be handled
-	 * @param	string			$trigger		The name of the source trigger hook
+	 * @param   WP_Post|null $previous_post  The post to be handled
+	 * @param   string       $trigger        The name of the source trigger hook
 	 */
 	private function may_be_reset_postdata( $previous_post, $trigger ) {
 
@@ -326,11 +326,11 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * May be send the post to Telegram, if rules apply
 	 *
-	 * @since	2.0.0
+	 * @since   2.0.0
 	 *
-	 * @param	WP_Post	$post		The post to be handled
-	 * @param	string	$trigger	The name of the source trigger hook
-	 * @param	bool	$force		Whether to bypass the custom rules
+	 * @param   WP_Post $post       The post to be handled
+	 * @param   string  $trigger    The name of the source trigger hook
+	 * @param   bool    $force      Whether to bypass the custom rules
 	 */
 	public function send_post( WP_Post $post, $trigger = 'non_wp', $force = false ) {
 
@@ -522,7 +522,6 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * Clear an existing scheduled event.
 	 *
 	 * @since 2.1.2
-	 *
 	 */
 	public function clear_scheduled_hook( $hook = '' ) {
 
@@ -554,7 +553,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Delay posts by minutes.
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
 	 * @return  int
 	 */
@@ -575,8 +574,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Save if the settings have been overridden
 	 *
-	 * @since	1.0.0
-	 *
+	 * @since   1.0.0
 	 */
 	private function may_be_save_options() {
 
@@ -598,8 +596,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Save options meta for the scheduled post
 	 *
-	 * @since	1.0.0
-	 *
+	 * @since   1.0.0
 	 */
 	private function save_options_to_meta() {
 
@@ -610,19 +607,18 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$options['message_template'] = addslashes( $options['message_template'] );
 
 		if ( ! add_post_meta( self::$post->ID, self::$prefix . 'options', $options, true ) ) {
-			update_post_meta ( self::$post->ID, self::$prefix . 'options', $options );
+			update_post_meta( self::$post->ID, self::$prefix . 'options', $options );
 		}
 	}
 
 	/**
 	 * Add the required filters to bypass some rules
-	 * 
+	 *
 	 * Post type rule will not be bypassed
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @param	bool	$force	Whether to bypass the custom rules
-	 *
+	 * @param   bool $force  Whether to bypass the custom rules
 	 */
 	private function bypass_rules( $force = false ) {
 
@@ -641,8 +637,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * This function was actually a requirement
 	 * to check which condition actually failed
 	 *
-	 * @since	2.0.0
-	 *
+	 * @since   2.0.0
 	 */
 	private function security_and_validity_check() {
 
@@ -670,7 +665,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$is_post_request = isset( $_SERVER['REQUEST_METHOD'] ) && 'post' == strtolower( $_SERVER['REQUEST_METHOD'] );
 
 		// Is the post created via wp-admin.
-		$from_web = $is_post_request && ( isset( $_POST[ self::$prefix . 'from_web'] ) || isset( $_POST[ self::$prefix . 'send2tg'] ) );
+		$from_web = $is_post_request && ( isset( $_POST[ self::$prefix . 'from_web' ] ) || isset( $_POST[ self::$prefix . 'send2tg' ] ) );
 
 		$from_web = (bool) apply_filters( 'wptelegram_p2tg_is_from_web', $from_web, self::$post );
 
@@ -723,8 +718,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		// if the post is published/updated via WP-CLI.
 		$is_cli = ( defined( 'WP_CLI' ) && WP_CLI );
 
+		$plugin_posts = $this->module_options->get( 'plugin_posts', 'off' );
 		// No need to check for user permissions when WP-CLI or Cron.
-		if ( ! $is_cli && ! $is_cron ) {
+		if ( ! $is_cli && ! $is_cron && 'on' !== $plugin_posts ) {
 
 			$user_has_permission = false;
 			// Allow custom code to control authentication.
@@ -733,7 +729,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 			if ( ! $user_has_permission ) {
 
-				if ( 'page' == self::$post->post_type && ! current_user_can( 'edit_page', self::$post->ID ) ) { // if user has not permissions to edit pages.
+				if ( 'page' === self::$post->post_type && ! current_user_can( 'edit_page', self::$post->ID ) ) { // if user has not permissions to edit pages.
 					return __LINE__;
 				} elseif ( ! current_user_can( 'edit_post', self::$post->ID ) ) { // if user has not permissions to edit posts.
 					return __LINE__;
@@ -753,7 +749,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Get nonce name for nonce verification
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 */
 	public static function get_nonce_name() {
 
@@ -787,9 +783,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		// default off.
 		$override_switch = 'off';
 
-		if ( 'on' === $post_edit_switch && isset( $_POST[ self::$prefix . 'override_switch'] ) ) {
+		if ( 'on' === $post_edit_switch && isset( $_POST[ self::$prefix . 'override_switch' ] ) ) {
 
-			$override_switch = WPTG()->utils->sanitize( $_POST[ self::$prefix . 'override_switch'] );
+			$override_switch = WPTG()->utils->sanitize( $_POST[ self::$prefix . 'override_switch' ] );
 		}
 
 		if ( 'on' === $override_switch ) {
@@ -821,7 +817,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 		if ( ! $this->send2tg && ( $send2tg = get_post_meta( self::$post->ID, self::$prefix . 'send2tg', true ) ) ) {
 			$this->send2tg = $send2tg;
-		}		
+		}
 
 		$this->options = new WPTelegram_Options();
 		$this->options->set_data( $options );
@@ -853,33 +849,33 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		if ( $this->defaults_overridden() ) {
 
 			// if no destination channel is selected.
-			if ( empty( $_POST[ self::$prefix . 'channels'] ) ) {
+			if ( empty( $_POST[ self::$prefix . 'channels' ] ) ) {
 
 				$options['channels'] = '';
 
 			} else {
 				// sanitize the values.
-				$channels = WPTG()->utils->sanitize( (array) $_POST[ self::$prefix . 'channels'] );
+				$channels = WPTG()->utils->sanitize( (array) $_POST[ self::$prefix . 'channels' ] );
 
 				// override the default channels.
 				$options['channels'] = implode( ',', $channels );
 			}
 
 			// if the template is set.
-			if ( isset( $_POST[ self::$prefix . 'message_template'] ) ) {
+			if ( isset( $_POST[ self::$prefix . 'message_template' ] ) ) {
 
 				// sanitize the template.
-				$template = WPTG()->helpers->sanitize_message_template( $_POST[ self::$prefix . 'message_template'], false );
+				$template = WPTG()->helpers->sanitize_message_template( $_POST[ self::$prefix . 'message_template' ], false );
 
 				// override the default template.
 				$options['message_template'] = $template;
 			}
 
 			// if files included.
-			if ( ! empty( $_POST[ self::$prefix . 'files'] ) ) {
+			if ( ! empty( $_POST[ self::$prefix . 'files' ] ) ) {
 
 				// sanitize the values.
-				$files = array_filter( WPTG()->utils->sanitize( (array) $_POST[ self::$prefix . 'files'] ) );
+				$files = array_filter( WPTG()->utils->sanitize( (array) $_POST[ self::$prefix . 'files' ] ) );
 
 				if ( ! empty( $files ) ) {
 					// add the files to the options.
@@ -890,14 +886,14 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			}
 
 			// if delay overridden.
-			if ( isset( $_POST[ self::$prefix . 'delay'] ) ) {
+			if ( isset( $_POST[ self::$prefix . 'delay' ] ) ) {
 
 				// sanitize the value.
-				$options['delay'] = (int) WPTG()->utils->sanitize( $_POST[ self::$prefix . 'delay'], true );
+				$options['delay'] = (int) WPTG()->utils->sanitize( $_POST[ self::$prefix . 'delay' ], true );
 			}
 
 			// if notifications to be disabled.
-			if ( isset( $_POST[ self::$prefix . 'disable_notification'] ) && ! in_array( 'disable_notification', (array) $options['misc'] ) ) {
+			if ( isset( $_POST[ self::$prefix . 'disable_notification' ] ) && ! in_array( 'disable_notification', (array) $options['misc'] ) ) {
 				$options['misc'][] = 'disable_notification';
 
 			} elseif ( ( $key = array_search( 'disable_notification', (array) $options['misc'] ) ) !== false ) {
@@ -912,7 +908,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Process
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 */
 	private function process() {
 
@@ -930,9 +926,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Prepare responses from options
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @return	array
+	 * @return  array
 	 */
 	private function get_responses() {
 
@@ -940,7 +936,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 		// For text message.
 		$template = $this->get_message_template();
-		$text = '';
+		$text     = '';
 
 		if ( ! empty( $template ) ) {
 
@@ -949,7 +945,8 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 		$this->send_files_by_url = ( 'on' === WPTG()->options()->get( 'send_files_by_url', 'on' ) );
 
-		/* TO BE REMOVED IN FUTURE */
+		/*
+		 TO BE REMOVED IN FUTURE */
 		// only for backward compatibility.
 		$this->send_files_by_url = apply_filters( 'wptelegram_send_image_by_url', $this->send_files_by_url, self::$post );
 		$this->send_files_by_url = apply_filters( 'wptelegram_send_file_by_url', $this->send_files_by_url );
@@ -981,9 +978,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Check if the rules apply to the post
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @return	bool
+	 * @return  bool
 	 */
 	private function rules_apply() {
 
@@ -996,13 +993,13 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Check if the rules apply to the post
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @return	bool
+	 * @return  bool
 	 */
 	private function check_for_rules() {
 
-		$bypass_date_rules = false;
+		$bypass_date_rules      = false;
 		$bypass_post_type_rules = false;
 
 		if ( 'yes' === $this->send2tg ) {
@@ -1070,7 +1067,6 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		}
 
 		// finally check for custom rules.
-
 		$bypass_custom_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_custom_rules', false, self::$post, $this->options );
 
 		if ( $bypass_custom_rules ) {
@@ -1086,29 +1082,29 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Create responses based on the text and image source
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @param	$text			string
-	 * @param	$image_source	string
+	 * @param   $text           string
+	 * @param   $image_source   string
 	 *
-	 * @return	array
+	 * @return  array
 	 */
 	private function get_default_responses( $text, $image_source ) {
 
-		$parse_mode	= WPTG()->helpers->valid_parse_mode( $this->options->get( 'parse_mode' ) );
+		$parse_mode = WPTG()->helpers->valid_parse_mode( $this->options->get( 'parse_mode' ) );
 
-		$misc_opts	= $this->options->get( 'misc' );
+		$misc_opts = $this->options->get( 'misc' );
 
-		$disable_web_page_preview	= in_array( 'disable_web_page_preview', $misc_opts );
+		$disable_web_page_preview = in_array( 'disable_web_page_preview', $misc_opts );
 
-		$disable_notification		= in_array( 'disable_notification', $misc_opts );
+		$disable_notification = in_array( 'disable_notification', $misc_opts );
 
 		$method_params = array(
-			'sendPhoto'		=> compact(
+			'sendPhoto'   => compact(
 				'parse_mode',
 				'disable_notification'
 			),
-			'sendMessage'	=> compact(
+			'sendMessage' => compact(
 				'parse_mode',
 				'disable_notification',
 				'disable_web_page_preview'
@@ -1117,9 +1113,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 		if ( ! empty( $image_source ) ) {
 
-			$image_position	= $this->options->get( 'image_position' );
-			$single_message	= $this->options->get( 'single_message' );
-			$caption = '';
+			$image_position = $this->options->get( 'image_position' );
+			$single_message = $this->options->get( 'single_message' );
+			$caption        = '';
 
 			if ( 'on' === $single_message ) {
 				// if only caption is to be sent.
@@ -1132,14 +1128,13 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 					preg_match( '/.{1,1024}(?=\s|$)/us', $text, $match );
 					$caption = $match[0];
 
-				} elseif ( 'after' === $image_position && NULL !== $parse_mode ) {
+				} elseif ( 'after' === $image_position && null !== $parse_mode ) {
 
 					$text = $this->add_hidden_image_url( $text, $image_source, $parse_mode );
 
 					// Remove "sendPhoto".
 					unset( $method_params['sendPhoto'] );
 				}
-
 			} elseif ( 'after' === $image_position ) {
 
 				$method_params = array_reverse( $method_params );
@@ -1149,7 +1144,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 				$caption = apply_filters( 'wptelegram_p2tg_post_image_caption', $caption, self::$post, $this->options, $text, $image_source );
 
-				$method_params['sendPhoto']['photo'] = $image_source;
+				$method_params['sendPhoto']['photo']   = $image_source;
 				$method_params['sendPhoto']['caption'] = $caption;
 			}
 		} else {
@@ -1170,7 +1165,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 		foreach ( $method_params as $method => $params ) {
 			$default_responses[] = array(
-				$method	=> $params,
+				$method => $params,
 			);
 		}
 
@@ -1180,11 +1175,11 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Create responses based on the files included
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @param	$files	array
+	 * @param   $files  array
 	 *
-	 * @return	array
+	 * @return  array
 	 */
 	private function get_file_responses( $files ) {
 
@@ -1199,9 +1194,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			$type = WPTG()->utils->guess_file_type( $id, $url );
 
 			$file_responses[] = array(
-				'send' . ucfirst( $type )	=> array(
-					$type		=> $this->send_files_by_url ? $url : get_attached_file( $id ),
-					'caption'	=> $caption,
+				'send' . ucfirst( $type ) => array(
+					$type     => $this->send_files_by_url ? $url : get_attached_file( $id ),
+					'caption' => $caption,
 				),
 			);
 		}
@@ -1212,9 +1207,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Get the message template
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @return	string
+	 * @return  string
 	 */
 	private function get_message_template() {
 
@@ -1227,7 +1222,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 	/**
 	 * May by add reply_markup to the message
-	 * 
+	 *
 	 * @param array &$method_params Methods and Params passed by reference
 	 *
 	 * @return  array
@@ -1254,13 +1249,13 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * get inline_keyboard 
-	 * 
+	 * get inline_keyboard
+	 *
 	 * @return  array
 	 */
 	public function get_inline_keyboard( $method_params ) {
 
-		$inline_url_button = $this->options->get( 'inline_url_button' );
+		$inline_url_button  = $this->options->get( 'inline_url_button' );
 		$inline_button_text = $this->options->get( 'inline_button_text' );
 
 		if ( 'on' !== $inline_url_button ) {
@@ -1268,8 +1263,8 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		}
 
 		$default_button = array(
-			'text'	=> '🔗 ' . $inline_button_text,
-			'url'	=> self::$post_data->get_field( 'full_url' ),
+			'text' => '🔗 ' . $inline_button_text,
+			'url'  => self::$post_data->get_field( 'full_url' ),
 		);
 
 		$default_button = (array) apply_filters( 'wptelegram_p2tg_default_inline_button', $default_button, self::$post, $method_params );
@@ -1282,14 +1277,14 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Get the text based response
 	 *
-	 * @since	1.0.0
-	 * 
-	 * @param	$template	string
+	 * @since   1.0.0
 	 *
-	 * @return	string
+	 * @param   $template   string
+	 *
+	 * @return  string
 	 */
 	private function get_response_text( $template ) {
-		
+
 		// Remove wpautop() from the `the_content` filter
 		// to preserve newlines.
 		$priority = has_filter( 'the_content', 'wpautop' );
@@ -1298,11 +1293,11 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			add_filter( 'the_content', array( $this, '_restore_wpautop_hook' ), $priority + 1 );
 		}
 
-		$excerpt_source = $this->options->get( 'excerpt_source' );
-		$excerpt_length = (int) $this->options->get( 'excerpt_length' );
+		$excerpt_source       = $this->options->get( 'excerpt_source' );
+		$excerpt_length       = (int) $this->options->get( 'excerpt_length' );
 		$excerpt_preserve_eol = $this->options->get( 'excerpt_preserve_eol' );
-		$cats_as_tags   = $this->options->get( 'cats_as_tags' );
-		$parse_mode		= WPTG()->helpers->valid_parse_mode( $this->options->get( 'parse_mode' ) );
+		$cats_as_tags         = $this->options->get( 'cats_as_tags' );
+		$parse_mode           = WPTG()->helpers->valid_parse_mode( $this->options->get( 'parse_mode' ) );
 
 		// replace {tags} and {categories} with taxonomy names.
 		$replace = array( '{terms:post_tag}', '{terms:category}' );
@@ -1339,7 +1334,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 			// get the value only if it's in the template.
 			if ( false !== strpos( $template, '{' . $macro_key . '}' ) ) {
 
-				$macro_values['{' . $macro_key . '}'] = self::$post_data->get_field( $macro_key, $params );
+				$macro_values[ '{' . $macro_key . '}' ] = self::$post_data->get_field( $macro_key, $params );
 			}
 		}
 
@@ -1348,7 +1343,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 			foreach ( $matches[0] as $field ) {
 
-				$macro_values['{' . $field . '}'] = self::$post_data->get_field( $field, $params );
+				$macro_values[ '{' . $field . '}' ] = self::$post_data->get_field( $field, $params );
 			}
 		}
 
@@ -1359,7 +1354,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$macro_values = (array) apply_filters( 'wptelegram_p2tg_macro_values', $macro_values, self::$post, $this->options );
 
 		if ( 'Markdown' === $parse_mode ) {
-			$callback = array( WPTG()->helpers,'esc_markdown' );
+			$callback = array( WPTG()->helpers, 'esc_markdown' );
 		} else {
 			$callback = 'stripslashes'; // to remove unwanted slashes.
 		}
@@ -1385,9 +1380,9 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Resolve the conditional macros in the template
 	 *
-	 * @since	2.0.17
+	 * @since   2.0.17
 	 *
-	 * @return	string
+	 * @return  string
 	 */
 	private function process_template_logic( $template, $macro_values ) {
 
@@ -1515,7 +1510,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 				if ( $message_as_reply && $this->bot_api->is_success( $res ) ) {
 
-					$result = $res->get_result();
+					$result                        = $res->get_result();
 					$params['reply_to_message_id'] = $result ? $result['message_id'] : null;
 				}
 
@@ -1523,12 +1518,12 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 				 * Filters the params for the Telegram API method
 				 * It can be used to modify the behavior in a number of ways
 				 * You can use it to change the text based on the channel/chat
-				 * 
-				 * @since	1.0.0
+				 *
+				 * @since   1.0.0
 				 */
 				$params = apply_filters( 'wptelegram_p2tg_api_method_params', $params, $method, $this->responses, self::$post, $this->options );
 
-				$res = call_user_func( array( $this->bot_api, $method ), $params );
+				$res                         = call_user_func( array( $this->bot_api, $method ), $params );
 				$api_responses[ $channel ][] = $res;
 
 				do_action( 'wptelegram_p2tg_api_response', $res, $this->responses, self::$post, $this->options, $this->bot_api );
@@ -1626,7 +1621,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Handle WP_Error of wp_remote_post()
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 */
 	private function handle_wp_error( $wp_error, $channel ) {
 
@@ -1644,7 +1639,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Add query variable upon error
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 */
 	public function add_admin_notice_query_var( $location ) {
 
@@ -1656,11 +1651,11 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Add hidden URL at the beginning of the text
 	 *
-	 * @since	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @param 	string	$text
-	 * @param 	string	$image_url
-	 * @param 	string 	$parse_mode
+	 * @param   string $text
+	 * @param   string $image_url
+	 * @param   string $parse_mode
 	 *
 	 * @return string
 	 */
