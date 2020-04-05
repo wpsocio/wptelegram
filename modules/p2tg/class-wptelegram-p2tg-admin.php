@@ -37,19 +37,6 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	private static $saved_options = null;
 
 	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $module_name  The name of the module.
-	 * @param string $module_title The title of the module.
-	 */
-	public function __construct( $module_name, $module_title ) {
-
-		parent::__construct( $module_name, $module_title );
-	}
-
-	/**
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    1.0.0
@@ -126,7 +113,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		$cmb2->add_field(
 			array(
 				'name'          => '',
-				'type'          => 'text', // fake
+				'type'          => 'text', // fake.
 				'show_names'    => false,
 				'save_field'    => false,
 				'id'            => 'telegram_guide',
@@ -144,7 +131,9 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 		$args = array(
 			'name'            => __( 'Channel Username', 'wptelegram' ),
-			'desc'            => WPTG()->helpers->get_test_button_html( __( 'Send Test', 'wptelegram' ), 'channels' ) . '<br>' . sprintf( __( 'Telegram Channel Username or Chat ID. Username must start with %s.', 'wptelegram' ), '<code>@</code>' ) . '<br>' . __( 'If more than one, separate them by comma', 'wptelegram' ),
+			'desc'            => WPTG()->helpers->get_test_button_html( __( 'Send Test', 'wptelegram' ), 'channels' ) . '<br>' .
+			/* translators: %s is @ */
+			sprintf( __( 'Telegram Channel Username or Chat ID. Username must start with %s.', 'wptelegram' ), '<code>@</code>' ) . '<br>' . __( 'If more than one, separate them by comma', 'wptelegram' ),
 			'id'              => 'channels',
 			'type'            => 'text_medium',
 			'sanitization_cb' => array( WPTG()->helpers, 'sanitize_channels' ),
@@ -209,7 +198,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			$cmb2->add_field( $field );
 		}
 
-		// Message settings
+		// Message settings.
 		$fields = array(
 			array(
 				'name' => __( 'Message Settings', 'wptelegram' ),
@@ -221,7 +210,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'desc'            => __( 'Structure of the message to be sent', 'wptelegram' ),
 				'id'              => 'message_template',
 				'type'            => 'textarea',
-				'default'         => json_encode( '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}' ),
+				'default'         => json_encode( '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}' ), // phpcs:ignore WordPress.WP.AlternativeFunctions
 				'sanitization_cb' => array( $this, 'sanitize_message_template' ),
 				'escape_cb'       => array( WPTG()->helpers, 'escape_message_template' ),
 				'after'           => array( $this, 'message_template_after_cb' ),
@@ -455,6 +444,31 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 * @since  1.0.0
 	 */
 	private function render_macros() {
+		$to_skip = array(
+			'product_shipping_class',
+		);
+
+		$taxonomies = get_taxonomies(
+			array(
+				'public'   => true,
+				'_builtin' => false,
+			),
+			'names'
+		);
+
+		$term_macros = array(
+			'{tags}',
+			'{categories}',
+			'{terms:taxonomy}',
+		);
+
+		foreach ( $taxonomies as $taxonomy ) {
+			if ( in_array( $taxonomy, $to_skip, true ) ) {
+				continue;
+			}
+			$term_macros[] = "{terms:{$taxonomy}}";
+		}
+
 		$macro_groups = array(
 			'post'  => array(
 				'label'  => __( 'Post Data', 'wptelegram' ),
@@ -472,11 +486,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			),
 			'terms' => array(
 				'label'  => __( 'Taxonomy Terms', 'wptelegram' ),
-				'macros' => array(
-					'{tags}',
-					'{categories}',
-					'{terms:taxonomy}',
-				),
+				'macros' => $term_macros,
 			),
 			'cf'    => array(
 				'label'  => __( 'Custom Fields', 'wptelegram' ),
@@ -501,7 +511,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		echo '<table class="wptelegram-macro" data-target="p2tg"><tbody>';
 
 		foreach ( $macro_groups as $group ) {
-
+			// phpcs:ignore WordPress.Security.EscapeOutput
 			printf( '<tr><th>%s</th>', $group['label'] );
 
 			echo '<td>';
@@ -512,6 +522,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			echo '</td></tr>';
 
 			if ( ! empty( $group['html'] ) ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput
 				printf( '<tr><td colspan="2"><span class="description">%s</span></td></tr>', $group['html'] );
 			}
 		}
@@ -571,8 +582,8 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	public function after_single_message( $field_args, $field ) {
 		?>
 		<ul>
-			<li><span class="should-be" data-id="parse_mode"><?php printf( __( '%1$s should not be %2$s', 'wptelegram' ), '<b>' . esc_html__( 'Parse Mode', 'wptelegram' ) . '</b>', '<b>' . esc_html__( 'None', 'wptelegram' ) . '</b>' ); ?></span></li>
-			<li><span class="should-be" data-id="misc1"><?php printf( __( '%s should not be checked', 'wptelegram' ), '<b>' . esc_html__( 'Disable Web Page Preview', 'wptelegram' ) . '</b>' ); ?></span></li>
+			<li><span class="should-be" data-id="parse_mode"><?php printf( /* translators: 1 - field name, 2 - value */ __( '%1$s should not be %2$s', 'wptelegram' ), '<b>' . esc_html__( 'Parse Mode', 'wptelegram' ) . '</b>', '<b>' . esc_html__( 'None', 'wptelegram' ) . '</b>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span></li>
+			<li><span class="should-be" data-id="misc1"><?php printf( /* translators: %s is field name */ __( '%s should not be checked', 'wptelegram' ), '<b>' . esc_html__( 'Disable Web Page Preview', 'wptelegram' ) . '</b>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span></li>
 		</ul>
 		<?php
 	}
@@ -581,7 +592,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 * Manually render a field.
 	 *
 	 * @param  array      $field_args Array of field arguments.
-	 * @param  CMB2_Field $field      The field object
+	 * @param  CMB2_Field $field      The field object.
 	 */
 	public function render_rules( $field_args, $field ) {
 		$id    = $field->args( 'id' );
@@ -591,13 +602,13 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			<!-- <div class="cmb-th">
 			</div> -->
 			<div class="cmb-td">
-				<h4 style="text-align:center;margin:0px;"><?php _e( 'AND', 'wptelegram' ); ?></h4>
+				<h4 style="text-align:center;margin:0px;"><?php _e( 'AND', 'wptelegram' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h4>
 			</div>
 		</div>
 
 		<div class="cmb-row cmb-type-text cmb2-id-wptg_p2tg-rules" data-fieldtype="text">
 			<div class="cmb-th">
-			<label for="<?php echo $id; ?>"><?php echo $label; ?></label>
+			<label for="<?php echo $id; // phpcs:ignore WordPress.Security.EscapeOutput ?>"><?php echo $label; ?></label>
 			</div>
 			<div class="cmb-td">
 			<?php
@@ -624,11 +635,11 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * Handles sanitization for rules
+	 * Handles sanitization for rules.
 	 *
-	 * @param  mixed      $value      The unsanitized value from the form.
-	 * @param  array      $field_args Array of field arguments.
-	 * @param  CMB2_Field $field      The field object
+	 * @param  mixed      $rule_groups The unsanitized value from the form.
+	 * @param  array      $field_args  Array of field arguments.
+	 * @param  CMB2_Field $field       The field object.
 	 *
 	 * @return mixed                  Sanitized value to be stored.
 	 */
@@ -646,7 +657,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 				foreach ( $rule_group as $rule_id => $rule ) {
 
-					// remove empty values
+					// remove empty values.
 					$rule = array_filter( (array) $rule );
 
 					if ( empty( $rule['param'] ) || empty( $rule['operator'] ) || empty( $rule['values'] ) ) {
@@ -667,14 +678,14 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	/**
 	 * Only return default value if we don't have the settings saved
 	 *
-	 * @param  bool $default The default value
+	 * @param  bool $default The default value.
 	 * @return mixed    Returns true or '', the blank default
 	 */
 	public function options_checkbox_default( $default ) {
 
 		$options = WPTG()->options( $this->module_name )->get();
 
-		// set default if no options found
+		// set default if no options found.
 		if ( empty( $options ) ) {
 			return $default;
 		}
@@ -683,7 +694,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * get registered post types
+	 * Get registered post types.
 	 *
 	 * @since  1.0.0
 	 * @return array
@@ -696,7 +707,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 		foreach ( $post_types  as $post_type ) {
 
-			if ( 'attachment' != $post_type->name ) {
+			if ( 'attachment' !== $post_type->name ) {
 
 				$options[ $post_type->name ] = "{$post_type->labels->singular_name} ({$post_type->name})";
 			}
@@ -713,7 +724,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 * @since    1.0.0
 	 */
 	public function post_edit_form_hidden_input() {
-
+		// phpcs:ignore WordPress.Security.EscapeOutput
 		echo '<input type="hidden" id="' . self::$prefix . 'from_web" name="' . self::$prefix . 'from_web" value="ok" />';
 
 	}
@@ -888,20 +899,21 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	/**
 	 * Set default value for override options
 	 *
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
+	 * @param  object $field_args Current field args.
+	 * @param  object $field      Current field object.
 	 *
 	 * @since  2.0.9
 	 */
 	public function override_opt_default_cb( $field_args, $field ) {
 
-		// if not previously set
+		// if not previously set.
 		if ( is_null( self::$saved_options ) ) {
-			// so as no to modify original options
+			// so as no to modify original options.
 			self::$saved_options = $this->module_options;
-
+			// phpcs:ignore WordPress.Security.NonceVerification
 			if ( isset( $_GET['post'] ) ) {
-				// try to get the options from meta
+				// try to get the options from meta.
+				// phpcs:ignore
 				$_options = get_post_meta( $_GET['post'], self::$prefix . 'options', true );
 
 				if ( ! empty( $_options ) ) {
@@ -911,21 +923,18 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			}
 		}
 
-		// remove prefix
+		// remove prefix.
 		$id = str_replace( self::$prefix, '', $field->args( 'id' ) );
 
 		switch ( $id ) {
 			case 'channels':
 				return explode( ',', self::$saved_options->get( $id ) );
-				break; // not really needed
 			case 'disable_notification':
-				return ( in_array( $id, self::$saved_options->get( 'misc', array() ) ) ) ? 'on' : 'off';
-				break;
+				return ( in_array( $id, self::$saved_options->get( 'misc', array() ), true ) ) ? 'on' : 'off';
 			case 'files':
 			case 'delay':
 			case 'message_template':
 				return self::$saved_options->get( $id );
-				break;
 		}
 	}
 
@@ -940,25 +949,29 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 		$default = 'yes';
 
-		// if we are on edit page
+		// if we are on edit page.
+		// phpcs:ignore WordPress.Security.NonceVerification
 		if ( isset( $_GET['post'] ) ) {
 
-			// if saved in meta e.g. for future or draft
+			// if saved in meta e.g. for future or draft.
+			// phpcs:ignore
 			if ( $send2tg = get_post_meta( $_GET['post'], self::$prefix . 'send2tg', true ) ) {
 
 				$default = $send2tg;
 
-				// if it's a published post
-			} elseif ( ( $post = get_post( $_GET['post'] ) ) && $post instanceof WP_Post && 'publish' == $post->post_status ) {
+				// if it's a published post.
+				// phpcs:ignore
+			} elseif ( ( $post = get_post( $_GET['post'] ) ) && $post instanceof WP_Post && 'publish' === $post->post_status ) {
 
-				// whether already sent to Telegram
+				// whether already sent to Telegram.
+				// phpcs:ignore
 				$sent = get_post_meta( $_GET['post'], self::$prefix . 'sent2tg', true );
 
-				if ( ! in_array( 'existing', $send_when ) || ! empty( $sent ) ) {
+				if ( ! in_array( 'existing', $send_when, true ) || ! empty( $sent ) ) {
 					$default = 'no';
 				}
 			}
-		} elseif ( ! in_array( 'new', $send_when ) ) {
+		} elseif ( ! in_array( 'new', $send_when, true ) ) {
 			$default = 'no';
 		}
 
@@ -966,7 +979,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	}
 
 	/**
-	 * get registered post type names
+	 * Get registered post type names.
 	 *
 	 * @since  1.0.0
 	 * @return array
@@ -981,8 +994,8 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	/**
 	 * Output the Telegram Instructions
 	 *
-	 * @param  object $field_args Current field args
-	 * @param  object $field      Current field object
+	 * @param  object $field_args Current field args.
+	 * @param  object $field      Current field object.
 	 */
 	public static function render_telegram_guide( $field_args, $field ) {
 		?>
@@ -992,10 +1005,10 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				<li><?php esc_html_e( 'Add the Bot as Administrator to your Channel/Group', 'wptelegram' ); ?></li>
 				<li><?php esc_html_e( 'Enter the Channel Username in the field below', 'wptelegram' ); ?></li>
 					<ol style="list-style-type: disc;">
-						<li><?php echo sprintf( __( 'Username must start with %s', 'wptelegram' ), '<code>@</code>' ); ?></li>
-						<li><?php esc_html_e( 'You can also use the Chat ID of a group or private chat.', 'wptelegram' ); ?>&nbsp;<?php printf( __( 'Get it from %s', 'wptelegram' ), '<a href="https://t.me/MyChatInfoBot" target="_blank">@MyChatInfoBot</a>' ); ?></li>
+						<li><?php echo sprintf( /* translators: %s - @ */ __( 'Username must start with %s', 'wptelegram' ), '<code>@</code>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
+						<li><?php esc_html_e( 'You can also use the Chat ID of a group or private chat.', 'wptelegram' ); ?>&nbsp;<?php printf( /* translators: %s - Bot username */ __( 'Get it from %s', 'wptelegram' ), '<a href="https://t.me/MyChatInfoBot" target="_blank">@MyChatInfoBot</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
 					</ol>
-				<li><?php printf( __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes', 'wptelegram' ) . '</b>' ); ?></li>
+				<li><?php printf( /* translators: %s - Save changes */ __( 'Hit %s below', 'wptelegram' ), '<b>' . __( 'Save Changes', 'wptelegram' ) . '</b>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
 				<li><?php esc_html_e( 'That\'s it. You are ready to rock :)', 'wptelegram' ); ?></li>
 			</ol>
 		</div>
@@ -1007,7 +1020,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	 *
 	 * @param  mixed      $value      The unsanitized value from the form.
 	 * @param  array      $field_args Array of field arguments.
-	 * @param  CMB2_Field $field      The field object
+	 * @param  CMB2_Field $field      The field object.
 	 *
 	 * @return mixed                  Sanitized value to be stored.
 	 */
@@ -1024,7 +1037,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 	public function admin_notices() {
 
 		$transient = 'wptelegram_p2tg_errors';
-
+		// phpcs:ignore
 		if ( isset( $_GET[ self::$prefix . 'error' ] ) && $p2tg_errors = array_filter( (array) get_transient( $transient ) ) ) {
 
 			$html = sprintf( '<b>%s (%s):</b> %s', $this->plugin_title, $this->module_title, __( 'There was some error!', 'wptelegram' ) );
@@ -1055,7 +1068,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 			?>
 			<div class="notice notice-error is-dismissible">
-			  <p><?php echo $html; ?></p>
+				<p><?php echo $html; // phpcs:ignore WordPress.Security.EscapeOutput ?></p>
 			</div>
 			<?php
 		}
@@ -1064,6 +1077,9 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 
 	/**
 	 * Add admin sidebar content
+	 *
+	 * @param  string  $object_id The mobule ID.
+	 * @param  boolean $hookup    Whether to hook up.
 	 *
 	 * @since  2.0.13
 	 */
