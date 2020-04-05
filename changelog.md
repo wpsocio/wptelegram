@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project are documented in this file.
 
-## Unreleased
+## [2.1.15 - 2020-04-5](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.15)
 ### Enhancements
 * Added all the registered taxonomies to macros for Message Template
 
