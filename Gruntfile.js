@@ -29,14 +29,11 @@ module.exports = function( grunt ) {
 			css: [
 				BUILD_DIR + 'admin/css/*.min.css',
 				BUILD_DIR + 'admin/css/*rtl*',
-				BUILD_DIR + 'public/css/*.min.css',
-				BUILD_DIR + 'public/css/*rtl*',
 				BUILD_DIR + 'modules/**/css/*.min.css',
 				BUILD_DIR + 'modules/**/css/*rtl*',
 			],
 			js: [
 				BUILD_DIR + 'admin/js/*.min.js',
-				BUILD_DIR + 'public/js/*.min.js',
 				BUILD_DIR + 'modules/**/js/*.min.js',
 			],
 			i18n: [
@@ -198,7 +195,6 @@ module.exports = function( grunt ) {
 				ext: '.min.css',
 				src: [
 					'admin/css/*.css',
-					'public/css/*.css',
 				],
 			},
 			modules: {
@@ -226,7 +222,6 @@ module.exports = function( grunt ) {
 				ext: '.min.css',
 				src: [
 					'admin/css/*-rtl.css',
-					'public/css/*-rtl.css',
 					'modules/**/css/*-rtl.css',
 				],
 			},
@@ -260,7 +255,6 @@ module.exports = function( grunt ) {
 				ext: '-rtl.css',
 				src: [
 					'admin/css/*.css',
-					'public/css/*.css',
 				],
 			},
 			modules: {
@@ -307,8 +301,6 @@ module.exports = function( grunt ) {
 				src: [
 					'admin/js/*.js',
 					'!admin/js/*.min.js',
-					'public/js/*.js',
-					'!public/js/*.min.js',
 				],
 				// Remove once other JSHint errors are resolved
 				options: {
@@ -342,7 +334,6 @@ module.exports = function( grunt ) {
 				ext: '.min.js',
 				src: [
 					'admin/js/*.js',
-					'public/js/*.js',
 					// Exceptions
 					'!*.min.js',
 				],
@@ -385,7 +376,6 @@ module.exports = function( grunt ) {
 			js: {
 				files: [
 					SOURCE_DIR + 'admin/js/*.js',
-					SOURCE_DIR + 'public/js/*.js',
 				],
 				tasks: [ 'clean:dynamic', 'copy:dynamic', 'uglify:dynamic' ],
 				options: {
@@ -399,7 +389,6 @@ module.exports = function( grunt ) {
 			rtl: {
 				files: [
 					SOURCE_DIR + 'admin/css/*.css',
-					SOURCE_DIR + 'public/css/*.css',
 				],
 				tasks: [ 'rtlcss:dynamic' ],
 				options: {
