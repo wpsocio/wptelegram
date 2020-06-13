@@ -276,7 +276,7 @@ module.exports = function( grunt ) {
 		},
 		phplint: {
 			options: {
-				phpCmd: '/usr/bin/php5.6',
+				phpCmd: '/usr/bin/php',
 				phpArgs: {
 					'-d': [ 'display_errors', 'display_startup_errors' ],
 				},
