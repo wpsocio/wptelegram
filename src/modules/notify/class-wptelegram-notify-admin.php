@@ -318,7 +318,7 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			'name'	=> __( 'Telegram Chat ID', 'wptelegram' ),
 			'desc'	=> '<br>' . __( 'Please enter your Telegram Chat ID', 'wptelegram' ),
 			'after'	=> array( $this, 'after_telegram_chat_id_cb' ),
-			'id'                => 'telegram_chat_id',
+			'id'                => WPTELEGRAM_USER_META_KEY,
 			'type'              => 'text_medium',
 			'display_cb'		=> array( $this, 'chat_id_column_display_cb' ),
 			'sanitization_cb'	=> array( $this, 'sanitize_chat_id' ),
@@ -405,9 +405,9 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 	 */
 	public function validate_user_profile_fields( &$errors, $update = null, &$user = null ) {
 
-		if ( isset( $_POST['telegram_chat_id'] ) ) {
+		if ( isset( $_POST[ WPTELEGRAM_USER_META_KEY ] ) ) {
 
-			$chat_id = WPTG()->utils->sanitize( $_POST['telegram_chat_id'], true );
+			$chat_id = WPTG()->utils->sanitize( $_POST[ WPTELEGRAM_USER_META_KEY ], true );
 
 			if ( $chat_id && ! preg_match( '/^\-?[^0\D]\d{6,51}$/', $chat_id ) ) {
 

@@ -365,4 +365,31 @@ class WPTelegram_Upgrade {
 			}
 		}
 	}
+
+	/**
+	 * Upgrade to a specific version
+	 * Changes telegram user id meta key to share between other plugins.
+	 *
+	 * @since    2.2.0
+	 */
+	private function upgrade_to_220() {
+		$old_meta_key = 'telegram_chat_id';
+
+		$args  = array(
+			'fields'       => 'ID',
+			'meta_key'     => $old_meta_key, // phpcs:ignore
+			'meta_compare' => 'EXISTS',
+			'number'       => -1,
+		);
+		$users = get_users( $args );
+
+		foreach ( $users as $id ) {
+			// get the existing value.
+			$meta_value = get_user_meta( $id, $old_meta_key, true );
+			// use the new meta key to retain existing value.
+			update_user_meta( $id, WPTELEGRAM_USER_META_KEY, $meta_value );
+			// housekeeping.
+			delete_user_meta( $id, $old_meta_key );
+		}
+	}
 }

@@ -296,7 +296,7 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 
 		if ( $user instanceof WP_User ) {
 
-			$chat_id = $user->telegram_chat_id;
+			$chat_id = $user->{WPTELEGRAM_USER_META_KEY};
 		}
 		return apply_filters( 'wptelegram_notify_user_chat_id', $chat_id, $email, $this->wp_mail_args );
 	}
@@ -306,10 +306,10 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 	 *
 	 * @since	1.0.0
 	 * 
-     * @param	string	$text
+	 * @param	string	$text
 	 */
 	private function convert_links_for_parsing( $text ) {
-		
+
 		$parse_mode = WPTG()->helpers->valid_parse_mode( $this->module_options->get( 'parse_mode', 'HTML' ) );
 
 		if ( 'Markdown' !== $parse_mode ) {
