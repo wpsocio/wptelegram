@@ -64,6 +64,7 @@ class WPTelegram_Upgrade {
 			$version_upgrades = array(
 				'2.0.0', // first upgrade.
 				'2.1.9',
+				'2.2.0',
 			);
 		}
 

@@ -320,7 +320,6 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			'after'	=> array( $this, 'after_telegram_chat_id_cb' ),
 			'id'                => WPTELEGRAM_USER_META_KEY,
 			'type'              => 'text_medium',
-			'display_cb'		=> array( $this, 'chat_id_column_display_cb' ),
 			'sanitization_cb'	=> array( $this, 'sanitize_chat_id' ),
 			'column'            => array(
 				'position'  => 6,
@@ -342,37 +341,6 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			<li><?php printf( __( 'Get your Chat ID from %s and enter it above.', 'wptelegram' ), '<a href="https://t.me/MyChatInfoBot" target="_blank">@MyChatInfoBot</a>' ); ?></li>
 			<li><?php printf( __( 'Start a conversation with %s to receive notifications.', 'wptelegram' ), '<a href="https://t.me/' . $bot_username . '"  target="_blank">@' . $bot_username . '</a>' ); ?></li>
 		</ul>
-		<?php
-	}
-
-	/**
-	 * Manually render a field column display.
-	 *
-	 * @param  array      $field_args Array of field arguments.
-	 * @param  CMB2_Field $field      The field object
-	 */
-	public function chat_id_column_display_cb( $field_args, $field ) {
-
-		$value = $field->escaped_value();
-
-		// if empty, get the value from Login plugin
-		if ( empty( $value ) && defined( 'WPTELEGRAM_LOGIN_LOADED' ) && WPTELEGRAM_LOGIN_LOADED ) {
-
-			$user_id = $field->object_id;
-
-			$user = get_user_by( 'id', $user_id );
-
-			if ( $user && $user instanceof WP_User ) {
-				
-				$value = $user->wptelegram_login_user_id;
-
-				$value .= ' (' . sprintf( __( 'via %s', 'wptelegram' ), 'WP Telegram Login' ) . ')';
-			}
-		}
-		?>
-		<div class="chat-id-column-display <?php echo $field->row_classes(); ?>">
-			<?php echo $value; ?>
-		</div>
 		<?php
 	}
 
