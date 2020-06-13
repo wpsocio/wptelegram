@@ -1,5 +1,6 @@
 <?php
 /**
+ * Plugin mainfile.
  *
  * @link              https://t.me/manzoorwanijk
  * @since             1.0.0
@@ -9,7 +10,7 @@
  * Plugin Name:       WP Telegram
  * Plugin URI:        https://t.me/WPTelegram
  * Description:       Integrate your WordPress website perfectly with Telegram. Send posts automatically to Telegram when published or updated, whether to a Telegram Channel, Group, Supergroup or private chat, with full control. Get your email notifications on Telegram.
- * Version:           2.1.15
+ * Version:           2.2.0
  * Author:            Manzoor Wani
  * Author URI:        https://t.me/manzoorwanijk
  * License:           GPL-2.0+
@@ -23,7 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'WPTELEGRAM_VER', '2.1.15' );
+define( 'WPTELEGRAM_VER', '2.2.0' );
 
 define( 'WPTELEGRAM_BASENAME', plugin_basename( __FILE__ ) );
 
@@ -34,6 +35,12 @@ define( 'WPTELEGRAM_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
 define( 'WPTELEGRAM_MODULES_DIR', WPTELEGRAM_DIR . '/modules' );
 
 define( 'WPTELEGRAM_MODULES_URL', WPTELEGRAM_URL . '/modules' );
+
+// Telegram user ID meta key.
+if ( ! defined( 'WPTELEGRAM_USER_META_KEY' ) ) {
+	// Common for all WP Telegram plugins.
+	define( 'WPTELEGRAM_USER_META_KEY', 'wptelegram_user_id' );
+}
 
 /**
  * The code that runs during plugin activation.
@@ -74,12 +81,12 @@ require WPTELEGRAM_DIR . '/includes/class-wptelegram.php';
  *
  * @since    1.0.0
  */
-function WPTG() {
+function WPTG() { // phpcs:ignore
 
 	return WPTelegram::instance();
 }
 
-// Fire
+// Fire.
 WPTG();
 
 define( 'WPTELEGRAM_LOADED', true );
