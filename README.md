@@ -1,13 +1,13 @@
 # WP Telegram
 
-**Contributors:**      [manzoorwanijk](https://github.com/manzoorwanijk)  
-**Tags:**              telegram, notifications, posts, channel, group  
+**Contributors:** [manzoorwanijk](https://github.com/manzoorwanijk)  
+**Tags:** telegram, notifications, posts, channel, group  
 **Requires at least:** 4.7  
-**Requires PHP:**      5.6  
-**Tested up to:**      5.4 
-**Stable tag:**        2.1.15  
-**License:**           GPLv2 or later  
-**License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
+**Requires PHP:** 5.6  
+**Tested up to:** 5.4.2
+**Stable tag:** 2.1.15  
+**License:** GPLv2 or later  
+**License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
 
 [![Wordpress plugin](https://img.shields.io/wordpress/plugin/v/wptelegram.svg)](https://wordpress.org/plugins/wptelegram/)
 [![Wordpress](https://img.shields.io/wordpress/plugin/dt/wptelegram.svg)](https://wordpress.org/plugins/wptelegram/)
@@ -22,61 +22,68 @@ Complete contributors list found here: [github.com/manzoorwanijk/wptelegram/grap
 Integrate your WordPress site perfectly with Telegram with full control.
 
 ## Modules
+
 **1. Post to Telegram**
-* 📝 Send posts automatically to Telegram when published or updated
-* 📢 You can send to a Telegram Channel, Group, Supergroup or private chat
-* 👥 Supports multiple Channels/chats
-* 🙂 Has Message Template composer with Emojis
-* ⏳ Supports Conditional logic inside Message Template
-* 🖼 Supports sending featured image along with the text
-* 🏞 You can choose to send only the Featured Image
-* ⏱ Supports scheduled (future) posts
-* 🕰 Messages can be delayed by a specific interval
-* ⬜️ You can add an Inline button for the post URL
-* 🛒 Supports WooCommerce products and other Custom Post Types
-* ✒️ Direct Support for sending Custom Fields
-* 🗃 You can send Custom Taxonomy Terms
-* 📋 You can select the post types to be sent
-* ⏲ You can choose when to send (New and/or existing posts)
-* 🎛 Make use of Custom Rules to filter posts by authors, categories, tags, post formats or custom taxonomy terms
-* 🎚 You can override the default settings on post edit page
+
+- 📝 Send posts automatically to Telegram when published or updated
+- 📢 You can send to a Telegram Channel, Group, Supergroup or private chat
+- 👥 Supports multiple Channels/chats
+- 🙂 Has Message Template composer with Emojis
+- ⏳ Supports Conditional logic inside Message Template
+- 🖼 Supports sending featured image along with the text
+- 🏞 You can choose to send only the Featured Image
+- ⏱ Supports scheduled (future) posts
+- 🕰 Messages can be delayed by a specific interval
+- ⬜️ You can add an Inline button for the post URL
+- 🛒 Supports WooCommerce products and other Custom Post Types
+- ✒️ Direct Support for sending Custom Fields
+- 🗃 You can send Custom Taxonomy Terms
+- 📋 You can select the post types to be sent
+- ⏲ You can choose when to send (New and/or existing posts)
+- 🎛 Make use of Custom Rules to filter posts by authors, categories, tags, post formats or custom taxonomy terms
+- 🎚 You can override the default settings on post edit page
 
 **2. Private Notifications**
-* 📧 Get your email notifications on Telegram
-* 🔔 Supports WooCommerce order notifications, Contact Form 7 and other plugin notifications
-* 🔕 Allow users to receive their email notifications on Telegram
-* 🔐 Integrated with [WP Telegram Login](https://wordpress.org/plugins/wptelegram-login) to let users connect their Telegram.
-* 🖊 Users can also enter their Telegram Chat ID manually on page
 
+- 📧 Get your email notifications on Telegram
+- 🔔 Supports WooCommerce order notifications, Contact Form 7 and other plugin notifications
+- 🔕 Allow users to receive their email notifications on Telegram
+- 🔐 Integrated with [WP Telegram Login](https://wordpress.org/plugins/wptelegram-login) to let users connect their Telegram.
+- 🖊 Users can also enter their Telegram Chat ID manually on page
 
 **3. Proxy**
-* 🚫 If your host blocks Telegram, you can use this module
-* ✅ Bypass the ban on Telegram by making use of proxy
-* 😍 Option to use custom **Google Script as proxy**
-* ❇️ Supports all proxies supported by PHP
-* 🔛 You can select Proxy type - HTTP, SOCKS4, SOCKS4A, SOCKS5, SOCKS5_HOSTNAME
+
+- 🚫 If your host blocks Telegram, you can use this module
+- ✅ Bypass the ban on Telegram by making use of proxy
+- 😍 Option to use custom **Google Script as proxy**
+- ❇️ Supports all proxies supported by PHP
+- 🔛 You can select Proxy type - HTTP, SOCKS4, SOCKS4A, SOCKS5, SOCKS5_HOSTNAME
 
 ## Features:
-* **Excellent LIVE Support on Telegram**
-* Easy to install and set up for the admin
-* Fully customizable with actions and filters
-* Can be extended with custom code
-* Translation ready
+
+- **Excellent LIVE Support on Telegram**
+- Easy to install and set up for the admin
+- Fully customizable with actions and filters
+- Can be extended with custom code
+- Translation ready
 
 ### Get in touch
-*	Website [wptelegram.com](https://wptelegram.com)
-*	Telegram [@WPTelegram](https://t.me/WPTelegram)
-*	Facebook [@WPTelegram](https://fb.com/WPTelegram)
-*	Twitter [@WPTelegram](https://twitter.com/WPTelegram)
+
+- Website [wptelegram.com](https://wptelegram.com)
+- Telegram [@WPTelegram](https://t.me/WPTelegram)
+- Facebook [@WPTelegram](https://fb.com/WPTelegram)
+- Twitter [@WPTelegram](https://twitter.com/WPTelegram)
 
 **Join the Chat**
 We have a public group on Telegram to provide help setting up the plugin, discuss issues, features, translations etc. Join [@WPTelegramChat](https://t.me/WPTelegramChat)
 For rules, see the pinned message. No spam please.
 
 ### Contribution
+
 Development occurs on Github, and all contributions welcome.
 
 ### Translation
+
 If you are looking to provide language translation files, Please do so via [WordPress Plugin Translations](https://translate.wordpress.org/projects/wp-plugins/wptelegram).
 
 ### Installation
