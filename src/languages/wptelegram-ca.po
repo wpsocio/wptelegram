@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-04-05 10:17:10+00:00\n"
+"POT-Creation-Date: 2020-06-13 19:03:41+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:04+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -65,7 +65,7 @@ msgid "Failure"
 msgstr "Error"
 
 #: admin/class-wptelegram-admin.php:99
-#: modules/notify/class-wptelegram-notify-admin.php:414
+#: modules/notify/class-wptelegram-notify-admin.php:382
 msgid "Error:"
 msgstr "Error:"
 
@@ -81,7 +81,7 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:186
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:340
+#: modules/notify/class-wptelegram-notify-admin.php:339
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:105
 msgid "INSTRUCTIONS!"
 msgstr "INSTRUCCIONS!"
@@ -468,19 +468,15 @@ msgstr "Chat ID de Telegram"
 msgid "Please enter your Telegram Chat ID"
 msgstr "Si us plau, escriu la teva Chat ID de Telegram"
 
-#: modules/notify/class-wptelegram-notify-admin.php:342
+#: modules/notify/class-wptelegram-notify-admin.php:341
 msgid "Get your Chat ID from %s and enter it above."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:343
+#: modules/notify/class-wptelegram-notify-admin.php:342
 msgid "Start a conversation with %s to receive notifications."
 msgstr ""
 
-#: modules/notify/class-wptelegram-notify-admin.php:369
-msgid "via %s"
-msgstr ""
-
-#: modules/notify/class-wptelegram-notify-admin.php:414
+#: modules/notify/class-wptelegram-notify-admin.php:382
 msgid "Please Enter a valid Chat ID"
 msgstr "Si us plau, escriu una Chat ID vàlida"
 

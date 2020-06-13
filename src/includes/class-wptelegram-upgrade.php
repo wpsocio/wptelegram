@@ -3,7 +3,7 @@
  * Do the necessary db upgrade
  *
  * @link       https://t.me/manzoorwanijk
- * @since      x.y.z
+ * @since      2.2.0
  *
  * @package    WPTelegram
  * @subpackage WPTelegram/includes
@@ -23,7 +23,7 @@ class WPTelegram_Upgrade {
 	/**
 	 * The plugin class instance.
 	 *
-	 * @since    x.y.z
+	 * @since    2.2.0
 	 * @access   private
 	 * @var      WPTelegram $plugin The plugin class instance.
 	 */
@@ -32,7 +32,7 @@ class WPTelegram_Upgrade {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since x.y.z
+	 * @since 2.2.0
 	 * @param WPTelegram $plugin The plugin class instance.
 	 */
 	public function __construct( $plugin ) {

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-04-05 10:17:10+00:00\n"
+"POT-Creation-Date: 2020-06-13 19:03:41+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:07+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -64,7 +64,7 @@ msgid "Failure"
 msgstr "失敗"
 
 #: admin/class-wptelegram-admin.php:99
-#: modules/notify/class-wptelegram-notify-admin.php:414
+#: modules/notify/class-wptelegram-notify-admin.php:382
 msgid "Error:"
 msgstr "錯誤:"
 
@@ -80,7 +80,7 @@ msgstr "有了這個外掛，你可以發送文章至 Telegram 並且接收通�
 
 #: admin/class-wptelegram-admin.php:186
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:340
+#: modules/notify/class-wptelegram-notify-admin.php:339
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:105
 msgid "INSTRUCTIONS!"
 msgstr "操作說明"
@@ -466,19 +466,15 @@ msgstr ""
 msgid "Please enter your Telegram Chat ID"
 msgstr "請輸入你的 Telegram Chat ID"
 
-#: modules/notify/class-wptelegram-notify-admin.php:342
+#: modules/notify/class-wptelegram-notify-admin.php:341
 msgid "Get your Chat ID from %s and enter it above."
 msgstr "從 %s 取得你的 Chat ID，並且輸入在上方。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:343
+#: modules/notify/class-wptelegram-notify-admin.php:342
 msgid "Start a conversation with %s to receive notifications."
 msgstr "與 %s 開啟對話以接收通知。"
 
-#: modules/notify/class-wptelegram-notify-admin.php:369
-msgid "via %s"
-msgstr "透過 %s"
-
-#: modules/notify/class-wptelegram-notify-admin.php:414
+#: modules/notify/class-wptelegram-notify-admin.php:382
 msgid "Please Enter a valid Chat ID"
 msgstr "請輸入有效 Chat ID"
 
@@ -929,3 +925,6 @@ msgstr "密碼"
 #: modules/proxy/class-wptelegram-proxy-admin.php:182
 msgid "Use the proxy at your own risk!"
 msgstr "你需自行承擔使用 proxy 代理伺服器的風險!"
+
+#~ msgid "via %s"
+#~ msgstr "透過 %s"

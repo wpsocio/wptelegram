@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 4.7
 Tested up to: 5.4.2
 Requires PHP: 5.6
-Stable tag: 2.1.15
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,67 +129,8 @@ Note: You can also contribute in translating this plugin into your local languag
 
 == Changelog ==
 
-= 2.1.15 =
-* Added all the registered taxonomies to macros for Message Template
-
-= 2.1.13 =
-* Added "Plugin generated posts" option to allow posts not created by humans.
-
-= 2.1.12 =
-* Fixed double posting by block editor.
-
-= 2.1.11 =
-* Fixed the text input styles.
-
-= 2.1.10 =
-* Updated bot token pattern to handle the latest change in tokens.
-* Fixed the warning for old log files not found.
-
-= 2.1.9 =
-* Improved and secured logs by hashed names and by switching to wp_filesystem.
-* Dropped support for PHP < 5.6 and WP < 4.7
-* Prevent the notification links being previewed
-
-= 2.1.8 =
-* Fixed the issue with posts not being sent when published via WP REST API
-
-= 2.1.7 =
-* Fix the issue of products not being sent when published via WC REST API
-* Fix CMB2 field conflict with Rank Math plugin
-
-= 2.1.6 =
-* Fix the fatal error caused on post edit page.
-
-= 2.1.5 =
-* Fixed the issue of unintended posts being scheduled for delay
-
-= 2.1.4 =
-* Fixed the long integer chat ID issue when using Google Script
-* Fixed the Notification Chat IDs sanitization issue
-* Minor fixes
-
-= 2.1.4 =
-* Fixed the long integer chat ID issue when using Google Script
-* Fixed the Notification Chat IDs sanitization issue
-* Minor fixes
-
-= 2.1.3 =
-* Fixed the new lines removed by classic editor
-
-= 2.1.2 =
-* Improved the proxy hooking
-* Fixed the fatal error with helper function
-* Fixed the issue with delayed posts
-
-= 2.1.1 =
-* Fixed the step in delay on post edit page
-
-= 2.1.0 =
-* Improved the template conditional logic
-* Made delay to be more granular - can be set in half a minute steps
-* Added option to allow newlines in `{post_excerpt`
-* Added option to send `{categories}` as hashtags
-* Fixed the issue with scheduled posts not being sent to Telegram
+= 2.2.0 =
+- Unified Telegram user ID for all plugins
 
 == Upgrade Notice ==
 
