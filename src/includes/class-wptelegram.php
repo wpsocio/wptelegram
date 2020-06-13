@@ -157,7 +157,7 @@ final class WPTelegram {
 
 		$this->run();
 
-		$this->utils = WPTelegram_Utils::instance();
+		$this->utils   = WPTelegram_Utils::instance();
 		$this->helpers = WPTelegram_Helpers::instance();
 	}
 
@@ -234,6 +234,11 @@ final class WPTelegram {
 		require_once WPTELEGRAM_DIR . '/includes/class-wptelegram-core-base.php';
 
 		/**
+		 * The class responsible for plugin upgrades.
+		 */
+		require_once WPTELEGRAM_DIR . '/includes/class-wptelegram-upgrade.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once WPTELEGRAM_DIR . '/admin/class-wptelegram-admin.php';
@@ -247,13 +252,6 @@ final class WPTelegram {
 		 * The class responsible for loading WPTelegram_Bot_API library
 		 */
 		require_once WPTELEGRAM_DIR . '/includes/wptelegram-bot-api/class-wptelegram-bot-api-loader.php';
-
-
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
-		require_once WPTELEGRAM_DIR . '/public/class-wptelegram-public.php';
 
 		/**
 		 * Helper functions
@@ -350,13 +348,9 @@ final class WPTelegram {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new WPTelegram_Public( $this->get_plugin_title(), $this->get_plugin_name(), $this->get_version() );
+		$plugin_upgrade = new WPTelegram_Upgrade( $this );
 
-		$this->loader->add_action( 'after_setup_theme', $plugin_public, 'do_upgrade' );
-
-		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'after_setup_theme', $plugin_upgrade, 'do_upgrade' );
 	}
 
 	/**

@@ -1,62 +1,43 @@
 <?php
-
 /**
- * The public-facing functionality of the plugin.
+ * Do the necessary db upgrade
  *
  * @link       https://t.me/manzoorwanijk
- * @since      1.0.0
+ * @since      x.y.z
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/public
+ * @subpackage WPTelegram/includes
  */
 
 /**
- * The public-facing functionality of the plugin.
+ * Do the necessary db upgrade.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the public-facing stylesheet and JavaScript.
+ * Do the nececessary the incremental upgrade.
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/public
+ * @subpackage WPTelegram/includes
  * @author     Manzoor Wani <@manzoorwanijk>
  */
-class WPTelegram_Public extends WPTelegram_Core_Base {
+class WPTelegram_Upgrade {
+
+	/**
+	 * The plugin class instance.
+	 *
+	 * @since    x.y.z
+	 * @access   private
+	 * @var      WPTelegram $plugin The plugin class instance.
+	 */
+	private $plugin;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since   1.0.0
-	 * @param   string $plugin_title Title of the plugin
-	 * @param   string $plugin_name  The name of the plugin.
-	 * @param   string $version      The version of this plugin.
+	 * @since x.y.z
+	 * @param WPTelegram $plugin The plugin class instance.
 	 */
-	public function __construct( $plugin_title, $plugin_name, $version ) {
+	public function __construct( $plugin ) {
 
-		parent::__construct( $plugin_title, $plugin_name, $version );
-
-		$this->sub_dir = 'public';
-	}
-
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-
-		parent::enqueue_style( $this->plugin_name, $this->sub_dir );
-
-	}
-
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		parent::enqueue_script( $this->plugin_name, $this->sub_dir, 'js', array( 'jquery' ) );
-
+		$this->plugin = $plugin;
 	}
 
 	/**
@@ -72,12 +53,19 @@ class WPTelegram_Public extends WPTelegram_Core_Base {
 			return;
 		}
 
-		// the sequential upgrades.
-		// subsequent upgrade depends upon the previous on.
-		$version_upgrades = array(
-			'2.0.0', // first upgrade.
-			'2.1.9',
-		);
+		do_action( 'wptelegram_before_do_upgrade', $current_version );
+
+		$is_new_install = ! get_option( 'wptelegram_telegram' ) && ! get_option( 'wptelegram' );
+
+		$version_upgrades = array();
+		if ( ! $is_new_install ) {
+			// the sequential upgrades
+			// subsequent upgrade depends upon the previous one.
+			$version_upgrades = array(
+				'2.0.0', // first upgrade.
+				'2.1.9',
+			);
+		}
 
 		// always.
 		if ( ! in_array( WPTELEGRAM_VER, $version_upgrades, true ) ) {
@@ -93,6 +81,8 @@ class WPTelegram_Public extends WPTelegram_Core_Base {
 				$current_version = $target_version;
 			}
 		}
+
+		do_action( 'wptelegram_after_do_upgrade', $current_version );
 	}
 
 	/**
@@ -125,11 +115,6 @@ class WPTelegram_Public extends WPTelegram_Core_Base {
 	private function upgrade_to_200() {
 
 		$telegram_opts = get_option( 'wptelegram_telegram', array() );
-
-		// possibly a new install.
-		if ( empty( $telegram_opts['bot_token'] ) ) {
-			return;
-		}
 
 		$wptelegram['bot_token'] = $telegram_opts['bot_token'];
 
