@@ -318,9 +318,8 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			'name'	=> __( 'Telegram Chat ID', 'wptelegram' ),
 			'desc'	=> '<br>' . __( 'Please enter your Telegram Chat ID', 'wptelegram' ),
 			'after'	=> array( $this, 'after_telegram_chat_id_cb' ),
-			'id'                => 'telegram_chat_id',
+			'id'                => WPTELEGRAM_USER_META_KEY,
 			'type'              => 'text_medium',
-			'display_cb'		=> array( $this, 'chat_id_column_display_cb' ),
 			'sanitization_cb'	=> array( $this, 'sanitize_chat_id' ),
 			'column'            => array(
 				'position'  => 6,
@@ -342,37 +341,6 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			<li><?php printf( __( 'Get your Chat ID from %s and enter it above.', 'wptelegram' ), '<a href="https://t.me/MyChatInfoBot" target="_blank">@MyChatInfoBot</a>' ); ?></li>
 			<li><?php printf( __( 'Start a conversation with %s to receive notifications.', 'wptelegram' ), '<a href="https://t.me/' . $bot_username . '"  target="_blank">@' . $bot_username . '</a>' ); ?></li>
 		</ul>
-		<?php
-	}
-
-	/**
-	 * Manually render a field column display.
-	 *
-	 * @param  array      $field_args Array of field arguments.
-	 * @param  CMB2_Field $field      The field object
-	 */
-	public function chat_id_column_display_cb( $field_args, $field ) {
-
-		$value = $field->escaped_value();
-
-		// if empty, get the value from Login plugin
-		if ( empty( $value ) && defined( 'WPTELEGRAM_LOGIN_LOADED' ) && WPTELEGRAM_LOGIN_LOADED ) {
-
-			$user_id = $field->object_id;
-
-			$user = get_user_by( 'id', $user_id );
-
-			if ( $user && $user instanceof WP_User ) {
-				
-				$value = $user->wptelegram_login_user_id;
-
-				$value .= ' (' . sprintf( __( 'via %s', 'wptelegram' ), 'WP Telegram Login' ) . ')';
-			}
-		}
-		?>
-		<div class="chat-id-column-display <?php echo $field->row_classes(); ?>">
-			<?php echo $value; ?>
-		</div>
 		<?php
 	}
 
@@ -405,9 +373,9 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 	 */
 	public function validate_user_profile_fields( &$errors, $update = null, &$user = null ) {
 
-		if ( isset( $_POST['telegram_chat_id'] ) ) {
+		if ( isset( $_POST[ WPTELEGRAM_USER_META_KEY ] ) ) {
 
-			$chat_id = WPTG()->utils->sanitize( $_POST['telegram_chat_id'], true );
+			$chat_id = WPTG()->utils->sanitize( $_POST[ WPTELEGRAM_USER_META_KEY ], true );
 
 			if ( $chat_id && ! preg_match( '/^\-?[^0\D]\d{6,51}$/', $chat_id ) ) {
 

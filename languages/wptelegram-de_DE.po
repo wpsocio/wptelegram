@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-04-05 10:17:10+00:00\n"
+"POT-Creation-Date: 2020-06-13 19:03:41+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:05+0530\n"
 "Last-Translator: Robert Skiba <info@skibamedia.de>\n"
 "Language-Team: Deutsch\n"
@@ -66,7 +66,7 @@ msgid "Failure"
 msgstr "Fehler"
 
 #: admin/class-wptelegram-admin.php:99
-#: modules/notify/class-wptelegram-notify-admin.php:414
+#: modules/notify/class-wptelegram-notify-admin.php:382
 msgid "Error:"
 msgstr "Fehler:"
 
@@ -84,7 +84,7 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:186
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:340
+#: modules/notify/class-wptelegram-notify-admin.php:339
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:105
 msgid "INSTRUCTIONS!"
 msgstr "Konfigurationsanweisung"
@@ -491,19 +491,15 @@ msgstr "Telegram Chat ID"
 msgid "Please enter your Telegram Chat ID"
 msgstr "Bitte gib deine Telegram Chat ID ein"
 
-#: modules/notify/class-wptelegram-notify-admin.php:342
+#: modules/notify/class-wptelegram-notify-admin.php:341
 msgid "Get your Chat ID from %s and enter it above."
 msgstr "Beim %s die persönliche Chat ID abfragen und im Feld oben eingeben"
 
-#: modules/notify/class-wptelegram-notify-admin.php:343
+#: modules/notify/class-wptelegram-notify-admin.php:342
 msgid "Start a conversation with %s to receive notifications."
 msgstr "Eine Konversation mit %s beginnen, um Benachrichtigungen zu erhalten"
 
-#: modules/notify/class-wptelegram-notify-admin.php:369
-msgid "via %s"
-msgstr "über %s"
-
-#: modules/notify/class-wptelegram-notify-admin.php:414
+#: modules/notify/class-wptelegram-notify-admin.php:382
 msgid "Please Enter a valid Chat ID"
 msgstr "Bitte gib eine gültige Chat ID ein"
 
@@ -979,3 +975,6 @@ msgstr "Passwort"
 #: modules/proxy/class-wptelegram-proxy-admin.php:182
 msgid "Use the proxy at your own risk!"
 msgstr "Die Nutzung des Proxy erfolgt auf eigenes Risiko!"
+
+#~ msgid "via %s"
+#~ msgstr "über %s"
