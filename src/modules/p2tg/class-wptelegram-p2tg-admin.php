@@ -369,7 +369,6 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'after'           => '<p class="description">' . __( 'Enable this option if you use a plugin to generate posts', 'wptelegram' ) . '</p>',
 				'id'              => 'plugin_posts',
 				'type'            => 'custom_switch',
-				'default'         => 'on',
 				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
 			),
 			array(
