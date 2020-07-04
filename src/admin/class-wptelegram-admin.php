@@ -48,6 +48,8 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 
 		parent::enqueue_style( $this->plugin_name.'-emojicss', 'emojionearea', 'emojionearea' );
 
+		parent::enqueue_style( $this->plugin_name.'-menu', 'admin-menu' );
+
 		// load only on plugin pages
 		if ( WPTG()->helpers->is_settings_page() ) {
 
