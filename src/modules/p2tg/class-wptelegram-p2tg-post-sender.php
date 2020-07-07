@@ -154,6 +154,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	public static function get_defaults() {
 		$array    = array();
 		$defaults = array(
+			'notepost'             => 'on',
 			'channels'             => '',
 			'send_when'            => $array,
 			'post_types'           => $array,
@@ -912,6 +913,10 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 */
 	private function process() {
 
+        if($this->options->get( 'notepost' ) === 'on') {
+            return $this->notepost_process();
+        }
+
 		do_action( 'wptelegram_p2tg_before_process', self::$post, $this->options );
 
 		$this->responses = $this->get_responses();
@@ -919,6 +924,20 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$responses = $this->send_responses();
 
 		do_action( 'wptelegram_p2tg_after_process', self::$post, $this->options, $this->responses );
+
+		return $responses;
+	}
+
+	private function notepost_process()
+	{
+		do_action('wptelegram_p2tg_before_process', self::$post, $this->options);
+
+		$notepost_responses = $this->get_notepost_responses();
+		$this->responses = (array)apply_filters('wptelegram_p2tg_responses', $notepost_responses, self::$post, $this->options);
+		$responses = $this->send_notepost_responses();
+
+
+		do_action('wptelegram_p2tg_after_process', self::$post, $this->options, $this->responses);
 
 		return $responses;
 	}
@@ -939,7 +958,6 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		$text     = '';
 
 		if ( ! empty( $template ) ) {
-
 			$text = $this->get_response_text( $template );
 		}
 
@@ -1172,6 +1190,45 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		return apply_filters( 'wptelegram_p2tg_default_responses', $default_responses, self::$post, $this->options, $text, $image_source );
 	}
 
+    /**
+     * @param   $text           string
+     * @param   $image_source   string
+     *
+     * @return  array
+     */
+    private function get_notepost_responses() {
+
+        $template = $this->get_message_template();
+        $text     = '';
+
+        if ( ! empty( $template ) ) {
+            $text = $this->get_response_text( $template );
+        }
+
+        $misc_opts = $this->options->get( 'misc' );
+        $params = array(
+            'url' => self::$post_data->get_field( 'full_url' ),
+            'text' => $text,
+            'parse_mode' => WPTG()->helpers->valid_parse_mode( $this->options->get( 'parse_mode' ) ),
+            'disable_web_page_preview' => in_array( 'disable_web_page_preview', $misc_opts, true ),
+            'disable_notification' => in_array( 'disable_notification', $misc_opts, true ),
+            'image_source' => $this->get_featured_image_source(),
+        );
+
+        if ( ! empty( $params['image_source'] ) ) {
+            $params['image_position'] = $this->options->get( 'image_position' );
+            $params['single_message'] = $this->options->get( 'single_message' );
+        }
+
+        $params['inline_keyboard'] = $this->get_inline_keyboard($params);
+
+        $responses = array(
+            'notePost' => $params
+        );
+
+        return apply_filters( 'wptelegram_p2tg_notepost_responses', $responses, self::$post, $this->options, $params );
+    }
+
 	/**
 	 * Create responses based on the files included
 	 *
@@ -1371,8 +1428,10 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 		// decode all HTML entities.
 		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
 
-		// fix the malformed text.
-		$text = WPTG()->helpers->filter_text_for_parse_mode( $text, $parse_mode );
+		if (!$this->options->get( 'notepost' ) === 'on') {
+            // fix the malformed text.
+            $text = WPTG()->helpers->filter_text_for_parse_mode($text, $parse_mode);
+        }
 
 		return apply_filters( 'wptelegram_p2tg_response_text', $text, $template, self::$post, $this->options );
 	}
@@ -1531,6 +1590,58 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 				if ( is_wp_error( $res ) ) {
 					$this->handle_wp_error( $res, $channel );
 				}
+			}
+		}
+
+		// remove cURL modification.
+		remove_action( 'http_api_curl', array( $this, 'modify_http_api_curl' ), 10, 3 );
+
+		// update post meta if the message was successful.
+		$this->update_post_meta( $api_responses );
+
+		do_action( 'wptelegram_p2tg_after_send_responses', $this->responses, $api_responses, self::$post, $this->options, $this->bot_api );
+
+		return $api_responses;
+	}
+
+	/**
+	 * Send the responses
+	 */
+	private function send_notepost_responses() {
+
+		// Remove query variable, if present.
+		remove_query_arg( self::$prefix . 'error' );
+		// Remove error transient.
+		delete_transient( 'wptelegram_p2tg_errors' );
+
+		$this->bot_api = new WPTelegram_Bot_API_NotePost( $this->bot_token );
+
+		$api_responses = array();
+
+		do_action( 'wptelegram_p2tg_before_send_responses', $this->responses, $api_responses, self::$post, $this->options, $this->bot_api );
+
+		$channels = explode( ',', $this->options->get( 'channels', '' ) );
+		$channels = (array) apply_filters( 'wptelegram_p2tg_send_to_channels', $channels, $this->responses, self::$post, $this->options, $this->bot_api );
+
+		// loop through the prepared responses.
+		foreach ( $this->responses as $method => $params ) {
+			$params['chat_ids'] = $channels;
+
+			$response_key = implode('|', $channels);
+			$params = apply_filters(
+				'wptelegram_p2tg_api_notepost_params',
+				$params,
+				self::$post,
+				$this->options
+			);
+
+			$res = call_user_func( array( $this->bot_api, $method ), $params );
+			$api_responses[ $response_key ][] = $res;
+
+			do_action( 'wptelegram_p2tg_api_response', $res, $this->responses, self::$post, $this->options, $this->bot_api );
+
+			if ( is_wp_error( $res ) ) {
+				$this->handle_wp_error( $res, $response_key );
 			}
 		}
 

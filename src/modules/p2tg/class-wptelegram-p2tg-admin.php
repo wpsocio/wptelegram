@@ -121,13 +121,31 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 			)
 		);
 
-		$cmb2->add_field(
-			array(
-				'name' => __( 'Telegram Destination', 'wptelegram' ),
-				'type' => 'title',
-				'id'   => 'destination_title',
-			)
-		);
+	  $cmb2->add_field(
+		  array(
+			  'name' => __( 'Posting mode', 'wptelegram' ),
+			  'type' => 'title',
+			  'id'   => 'posting_mode',
+		  )
+	  );
+
+	  $cmb2->add_field(
+      array(
+        'name'    => __( 'Send posts via NotePost', 'wptelegram' ),
+        'id'      => 'notepost',
+        'type'    => 'custom_switch',
+        'default' => 'on',
+        'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
+      )
+	  );
+
+	  $cmb2->add_field(
+		  array(
+			  'name' => __( 'Telegram Destination', 'wptelegram' ),
+			  'type' => 'title',
+			  'id'   => 'destination_title',
+		  )
+	  );
 
 		$args = array(
 			'name'            => __( 'Channel Username', 'wptelegram' ),
@@ -369,6 +387,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'after'           => '<p class="description">' . __( 'Enable this option if you use a plugin to generate posts', 'wptelegram' ) . '</p>',
 				'id'              => 'plugin_posts',
 				'type'            => 'custom_switch',
+				'default'         => 'on',
 				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
 			),
 			array(
