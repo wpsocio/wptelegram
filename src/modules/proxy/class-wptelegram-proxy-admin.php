@@ -97,6 +97,7 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 				'google_script'	=> __( 'Google Script', 'wptelegram' ),
 				'php_proxy'		=> __( 'PHP Proxy', 'wptelegram' ),
 			),
+			'after'         => $this->upgrade_for_proxy(),
 		) );
 
 		$cmb2->add_field( array(
@@ -170,6 +171,22 @@ class WPTelegram_Proxy_Admin extends WPTelegram_Module_Base {
 			),
 			'classes'       => 'php-proxy',
 		) );
+	}
+
+	public function upgrade_for_proxy() {
+		return '
+			<div>
+				<p><b>' .
+					sprintf(
+						esc_html__( '%s supports Cloudflare proxy for featured image upload!', 'wptelegram' ),
+						__( 'WP Telegram Pro', 'wptelegram' )
+					) . '&nbsp;
+					<a class="button button-primary" href="https://wptelegram.pro" target="_blank">' .
+						esc_html__( 'Upgrade NOW', 'wptelegram' ) . '
+					</a>
+				</b></p>
+			</div>
+		';
 	}
 
 	/**

@@ -229,7 +229,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'after'				=> sprintf( __( 'Use %s to set automatically.', 'wptelegram' ), '<b>' . __( 'Test Token', 'wptelegram' ) . '</b>' ),
 			'type'				=> 'text_medium',
 			'before_row'        => WPTG()->helpers->add_grid_col_to_row( 5 ),
-			'after_row'         => WPTG()->helpers->close_grid_col_and_row(),
+			'after_row'         => WPTG()->helpers->close_grid_col_and_row() . $this->upgrade_for_bots(),
 			'sanitization_cb'	=> array( $this, 'sanitize_values' ),
 			'before_field'		=> '<code>@</code>',
 			'after_field'		=> array( __CLASS__, 'render_after_field' ),
@@ -331,6 +331,20 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 		foreach ( $fields as $field ) {
 			$cmb2->add_field( $field );
 		}
+	}
+
+
+	public function upgrade_for_bots() {
+		return '
+			<div>
+				<p><b>' .
+					esc_html__( 'Want to add more bots?', 'wptelegram' ) . ' 
+					<a class="button button-primary" href="https://wptelegram.pro" target="_blank">' .
+						esc_html__( 'Upgrade to Pro', 'wptelegram' ) . '
+					</a>
+				</b></p>
+			</div>
+		';
 	}
 
 	/**
@@ -452,7 +466,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 		$pattern = '/^wptelegram(?:_(?:p2tg|proxy|notify))?$/';
 
 		if ( 'options-page' === $object_type && preg_match( $pattern, $object_id ) ) {
-			
+
 			$header = new WPTelegram_Admin_Header( WPTG() );
 			$header->render();
 
@@ -461,6 +475,12 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				echo '<p>', $desc, '</p>';
 				echo '</div>';
 			}
+			?>
+			<h3>
+				<?php _e( 'Want an absolute integration with Telegram?', 'wptelegram' ); ?>&nbsp;
+				<a class="button button-primary" href="https://wptelegram.pro" target="_blank"><?php _e( 'Upgrade to Pro', 'wptelegram' ); ?></a>
+			</h3>
+			<?php
 		}
 	}
 
@@ -490,6 +510,13 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 						<?php printf( __( 'Do you like %s?', 'wptelegram' ), WPTG()->get_plugin_title() ); ?>
 						<br>
 						<a href="https://wordpress.org/support/plugin/wptelegram/reviews/#new-post" target="_blank"><?php _e( 'Give it a rating', 'wptelegram' ); ?><br><span style="color:orange;font-size:1.6em;">★★★★★</span></a>
+					</p>
+				</div>
+				<div class="cell">
+					<p>
+						<?php _e( 'Need more features?', 'wptelegram' ); ?>
+						<br><br>
+						<a class="button button-primary" href="https://wptelegram.pro" target="_blank"><?php _e( 'Upgrade to Pro', 'wptelegram' ); ?></a>
 					</p>
 				</div>
 				<div class="cell">
