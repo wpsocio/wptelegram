@@ -576,7 +576,7 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'lint:all', function() {
 		grunt.task.run( [
-			'phplint:all',
+			// 'phplint:all',
 			'jshint:all',
 		] );
 	} );
