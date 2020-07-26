@@ -212,7 +212,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'id'				=> 'bot_token',
 			'type'				=> 'text_medium',
 			'before_row'        => WPTG()->helpers->open_grid_row_with_col( 7 ),
-			'after_row'         => WPTG()->helpers->close_grid_col(),
+			'after_row'         => $this->upgrade_for_bots() . WPTG()->helpers->close_grid_col(),
 			'sanitization_cb'	=> array( $this, 'sanitize_values' ),
 			'after_field'		=> array( __CLASS__, 'render_after_field' ),
 			'attributes'        => array(
@@ -229,7 +229,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'after'				=> sprintf( __( 'Use %s to set automatically.', 'wptelegram' ), '<b>' . __( 'Test Token', 'wptelegram' ) . '</b>' ),
 			'type'				=> 'text_medium',
 			'before_row'        => WPTG()->helpers->add_grid_col_to_row( 5 ),
-			'after_row'         => WPTG()->helpers->close_grid_col_and_row() . $this->upgrade_for_bots(),
+			'after_row'         => WPTG()->helpers->close_grid_col_and_row(),
 			'sanitization_cb'	=> array( $this, 'sanitize_values' ),
 			'before_field'		=> '<code>@</code>',
 			'after_field'		=> array( __CLASS__, 'render_after_field' ),

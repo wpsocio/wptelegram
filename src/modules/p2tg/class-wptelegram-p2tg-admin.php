@@ -604,14 +604,14 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 					</tr>
 				</tbody>
 			</table>
-		</div>
-		<div>
-			<p><b>
-				<?php esc_html_e( 'Want to add more channels?', 'wptelegram' ); ?>&nbsp;
-				<a class="button button-primary" href="https://wptelegram.pro" target="_blank">
-				<?php esc_html_e( 'Upgrade to Pro', 'wptelegram' ); ?>
-				</a>
-			</b></p>
+			<div>
+				<p><b>
+					<?php esc_html_e( 'Want to add more channels?', 'wptelegram' ); ?>&nbsp;
+					<a class="button button-primary" href="https://wptelegram.pro" target="_blank">
+					<?php esc_html_e( 'Upgrade to Pro', 'wptelegram' ); ?>
+					</a>
+				</b></p>
+			</div>
 		</div>
 		<?php
 	}
