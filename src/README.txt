@@ -21,6 +21,10 @@ Integrate your WordPress site perfectly with Telegram with full control.
 We have a public group on Telegram to provide help setting up the plugin, discuss issues, features, translations etc. Join [@WPTelegramChat](https://t.me/WPTelegramChat)
 For rules, see the pinned message. No spam please.
 
+**Upgrade to Pro**
+
+WP Telegram Pro comes with more powerful features to give you more control. [Upgrade NOW](https://wptelegram.pro)
+
 == Modules ==
 
 **1. Post to Telegram**
@@ -43,10 +47,12 @@ For rules, see the pinned message. No spam please.
 * 🎛 Make use of Custom Rules to filter posts by authors, categories, tags, post formats or custom taxonomy terms
 * 🎚 You can override the default settings on post edit page
 
+[WP Telegram Pro](https://wptelegram.pro) supports multiple channels based upon category/tag/author/post type etc. and also supports unlimited Reaction buttons.
+
 **2. Private Notifications**
 
 * 📧 Get your email notifications on Telegram
-* 🔔 Supports WooCommerce order notifications, Contact Form 7 and other plugin notifications
+* 🔔 Supports **WooCommerce** order notifications, **Contact Form 7** and other plugin notifications
 * 🔕 Allow users to receive their email notifications on Telegram
 * 🔐 Integrated with [WP Telegram Login](https://wordpress.org/plugins/wptelegram-login) to let users connect their Telegram.
 * 🖊 Users can also enter their Telegram Chat ID manually on page
