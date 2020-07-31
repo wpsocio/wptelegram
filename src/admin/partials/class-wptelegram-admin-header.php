@@ -77,7 +77,7 @@ class WPTelegram_Admin_Header {
 	public function render_logo() {
 		?>
 		<div class="wptelegram-logo">
-			<img src="<?php echo esc_url( $this->plugin->get_url() . '/admin/icons/icon-100x100.svg' ); ?>" alt="<?php echo $this->plugin->get_plugin_title(); ?>" />
+			<img src="<?php echo esc_url( $this->plugin->get_url() . '/admin/icons/icon-128x128.png' ); ?>" alt="<?php echo $this->plugin->get_plugin_title(); ?>" />
 		</div>
 		<?php
 	}
@@ -89,7 +89,12 @@ class WPTelegram_Admin_Header {
 	 */
 	public function render_title() {
 		?>
-		<div class="wptelegram-title"><h1><?php echo esc_html( sprintf( '%1$s %2$s', $this->plugin->get_plugin_title(), $this->plugin->get_version() ) ); ?></h1></div>
+		<div>
+			<h1 class="wptelegram-title">
+				<?php echo esc_html( $this->plugin->get_plugin_title() ); ?>
+			</h1>
+			<span>v<?php echo esc_html( $this->plugin->get_version() ); ?></span>
+		</div>
 		<?php
 	}
 

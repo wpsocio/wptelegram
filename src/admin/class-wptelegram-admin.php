@@ -175,12 +175,12 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'title'			=> $this->plugin_title,
 			'object_types'	=> array( 'options-page' ),
 			'option_key'	=> $this->plugin_name,
-			'icon_url'		=> WPTELEGRAM_URL . '/admin/icons/icon-16x16-white.svg',
 			'capability'	=> 'manage_options',
 			'message_cb'	=> array( $this, 'custom_settings_messages' ),
 			'classes'       => 'wptelegram-box',
 			'display_cb'	=> array( WPTG()->helpers, 'render_cmb2_options_page' ),
 			'desc'			=> __( 'With this plugin, you can send posts to Telegram and receive notifications and do lot more :)', 'wptelegram' ),
+			'position'      => 80,
 		);
 		$cmb2 = new_cmb2_box( $box );
 
