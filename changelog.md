@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.1 - 2020-08-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.1)
+
+### Enhancements
+
+- Update for WP Telegram Pro
+
 ## [2.2.0 - 2020-06-14](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.0)
 
 ### Enhancements

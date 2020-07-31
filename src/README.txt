@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 4.7
 Tested up to: 5.4.2
 Requires PHP: 5.6
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,9 @@ Note: You can also contribute in translating this plugin into your local languag
 13. P2TG Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 2.2.1 =
+- Update for WP Telegram Pro
 
 = 2.2.0 =
 - Unified Telegram user ID for all plugins
