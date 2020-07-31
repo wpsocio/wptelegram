@@ -340,7 +340,7 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'id'         => 'inline_button_text',
 				'type'       => 'text_medium',
 				'before_row' => WPTG()->helpers->add_grid_col_to_row(),
-				'after_row'  => WPTG()->helpers->close_grid_col_and_row(),
+				'after_row'  => $this->upgrade_for_buttons() . WPTG()->helpers->close_grid_col_and_row(),
 			),
 		);
 
@@ -369,7 +369,6 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 				'after'           => '<p class="description">' . __( 'Enable this option if you use a plugin to generate posts', 'wptelegram' ) . '</p>',
 				'id'              => 'plugin_posts',
 				'type'            => 'custom_switch',
-				'default'         => 'on',
 				'sanitization_cb' => array( $this, 'sanitize_checkbox' ),
 			),
 			array(
@@ -403,6 +402,19 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		}
 	}
 
+	public function upgrade_for_buttons() {
+		return '
+			<div>
+				<p><b>' .
+					esc_html__( 'Want to add more buttons?', 'wptelegram' ) . ' 
+					<a class="button button-primary" href="https://wptelegram.pro" target="_blank">' .
+						esc_html__( 'Upgrade to Pro', 'wptelegram' ) . '
+					</a>
+				</b></p>
+			</div>
+		';
+	}
+
 	/**
 	 * Output a message if WordPress cron is disabled
 	 *
@@ -421,6 +433,19 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		} else {
 			esc_html_e( 'The delay starts after the post gets published.', 'wptelegram' );
 		}
+		?>
+		<div>
+			<p><b>
+				<?php echo sprintf(
+					esc_html__( '%s supports delay based upon channel', 'wptelegram' ),
+					__( 'WP Telegram Pro', 'wptelegram' )
+				); ?>&nbsp;
+				<a class="button button-primary" href="https://wptelegram.pro" target="_blank">
+					<?php esc_html_e( 'Upgrade NOW', 'wptelegram' ); ?>
+				</a>
+			</b></p>
+		</div>
+		<?php
 	}
 
 	/**
@@ -499,7 +524,19 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 		$macro_groups['terms']['html'] = sprintf( __( 'Replace %1$s in %2$s by the name of the taxonomy to insert its terms attached to the post.', 'wptelegram' ), '<code>taxonomy</code>', '<code>{terms:taxonomy}</code>' ) . '&nbsp;' . sprintf( __( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ), '<code>{terms:product_cat}</code>', '<code>{terms:product_tag}</code>' );
 
 		/* translators: 1  custom_field, 2  {cf:custom_field} */
-		$macro_groups['cf']['html'] = sprintf( __( 'Replace %1$s in %2$s by the name of the Custom Field.', 'wptelegram' ), '<code>custom_field</code>', '<code>{cf:custom_field}</code>' ) . '&nbsp;' . sprintf( __( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ), '<code>{cf:_regular_price}</code>', '<code>{cf:_sale_price}</code>' );
+		$macro_groups['cf']['html'] = sprintf( __( 'Replace %1$s in %2$s by the name of the Custom Field.', 'wptelegram' ), '<code>custom_field</code>', '<code>{cf:custom_field}</code>' ) . '&nbsp;' . sprintf( __( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ), '<code>{cf:_regular_price}</code>', '<code>{cf:_sale_price}</code>' ) . '
+		<div>
+			<p><b>' .
+				sprintf(
+					esc_html__( '%s supports ALL WooCommerce and ACF text fields.', 'wptelegram' ),
+					__( 'WP Telegram Pro', 'wptelegram' )
+				) . ' 
+				<a class="button button-primary" href="https://wptelegram.pro" target="_blank">' .
+					esc_html__( 'Upgrade NOW', 'wptelegram' ) . '
+				</a>
+			</b></p>
+		</div>
+		';
 
 		/**
 		 * If you add your own macro_groups using this filter
@@ -567,6 +604,14 @@ class WPTelegram_P2TG_Admin extends WPTelegram_Module_Base {
 					</tr>
 				</tbody>
 			</table>
+			<div>
+				<p><b>
+					<?php esc_html_e( 'Want to add more channels?', 'wptelegram' ); ?>&nbsp;
+					<a class="button button-primary" href="https://wptelegram.pro" target="_blank">
+					<?php esc_html_e( 'Upgrade to Pro', 'wptelegram' ); ?>
+					</a>
+				</b></p>
+			</div>
 		</div>
 		<?php
 	}
