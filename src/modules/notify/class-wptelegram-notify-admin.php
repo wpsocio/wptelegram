@@ -94,7 +94,7 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 			'type'          => 'text',
 			'default'       => get_option( 'admin_email' ),
 			'before_row'    => WPTG()->helpers->open_grid_row_with_col(),
-			'after_row'     => WPTG()->helpers->close_grid_col(),
+			'after_row'     => $this->upgrade_for_emails() . WPTG()->helpers->close_grid_col(),
 		) );
 
 		$cmb2->add_field( array(
@@ -154,6 +154,19 @@ class WPTelegram_Notify_Admin extends WPTelegram_Module_Base {
 				'HTML'      => __( 'HTML style', 'wptelegram' ),
 			),
 		) );
+	}
+
+	public function upgrade_for_emails() {
+		return '
+			<div>
+				<p><b>' .
+					esc_html__( 'Want to add more emails?', 'wptelegram' ) . ' 
+					<a class="button button-primary" href="https://wptelegram.pro" target="_blank">' .
+						esc_html__( 'Upgrade to Pro', 'wptelegram' ) . '
+					</a>
+				</b></p>
+			</div>
+		';
 	}
 
 	/**

@@ -48,6 +48,8 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 
 		parent::enqueue_style( $this->plugin_name.'-emojicss', 'emojionearea', 'emojionearea' );
 
+		parent::enqueue_style( $this->plugin_name.'-menu', 'admin-menu' );
+
 		// load only on plugin pages
 		if ( WPTG()->helpers->is_settings_page() ) {
 
@@ -173,12 +175,12 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'title'			=> $this->plugin_title,
 			'object_types'	=> array( 'options-page' ),
 			'option_key'	=> $this->plugin_name,
-			'icon_url'		=> WPTELEGRAM_URL . '/admin/icons/icon-16x16-white.svg',
 			'capability'	=> 'manage_options',
 			'message_cb'	=> array( $this, 'custom_settings_messages' ),
 			'classes'       => 'wptelegram-box',
 			'display_cb'	=> array( WPTG()->helpers, 'render_cmb2_options_page' ),
 			'desc'			=> __( 'With this plugin, you can send posts to Telegram and receive notifications and do lot more :)', 'wptelegram' ),
+			'position'      => 80,
 		);
 		$cmb2 = new_cmb2_box( $box );
 
@@ -210,7 +212,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 			'id'				=> 'bot_token',
 			'type'				=> 'text_medium',
 			'before_row'        => WPTG()->helpers->open_grid_row_with_col( 7 ),
-			'after_row'         => WPTG()->helpers->close_grid_col(),
+			'after_row'         => $this->upgrade_for_bots() . WPTG()->helpers->close_grid_col(),
 			'sanitization_cb'	=> array( $this, 'sanitize_values' ),
 			'after_field'		=> array( __CLASS__, 'render_after_field' ),
 			'attributes'        => array(
@@ -329,6 +331,20 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 		foreach ( $fields as $field ) {
 			$cmb2->add_field( $field );
 		}
+	}
+
+
+	public function upgrade_for_bots() {
+		return '
+			<div>
+				<p><b>' .
+					esc_html__( 'Want to add more bots?', 'wptelegram' ) . ' 
+					<a class="button button-primary" href="https://wptelegram.pro" target="_blank">' .
+						esc_html__( 'Upgrade to Pro', 'wptelegram' ) . '
+					</a>
+				</b></p>
+			</div>
+		';
 	}
 
 	/**
@@ -450,7 +466,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 		$pattern = '/^wptelegram(?:_(?:p2tg|proxy|notify))?$/';
 
 		if ( 'options-page' === $object_type && preg_match( $pattern, $object_id ) ) {
-			
+
 			$header = new WPTelegram_Admin_Header( WPTG() );
 			$header->render();
 
@@ -459,6 +475,12 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				echo '<p>', $desc, '</p>';
 				echo '</div>';
 			}
+			?>
+			<h3>
+				<?php _e( 'Want an absolute integration with Telegram?', 'wptelegram' ); ?>&nbsp;
+				<a class="button button-primary" href="https://wptelegram.pro" target="_blank"><?php _e( 'Upgrade to Pro', 'wptelegram' ); ?></a>
+			</h3>
+			<?php
 		}
 	}
 
@@ -488,6 +510,13 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 						<?php printf( __( 'Do you like %s?', 'wptelegram' ), WPTG()->get_plugin_title() ); ?>
 						<br>
 						<a href="https://wordpress.org/support/plugin/wptelegram/reviews/#new-post" target="_blank"><?php _e( 'Give it a rating', 'wptelegram' ); ?><br><span style="color:orange;font-size:1.6em;">★★★★★</span></a>
+					</p>
+				</div>
+				<div class="cell">
+					<p>
+						<?php _e( 'Need more features?', 'wptelegram' ); ?>
+						<br><br>
+						<a class="button button-primary" href="https://wptelegram.pro" target="_blank"><?php _e( 'Upgrade to Pro', 'wptelegram' ); ?></a>
 					</p>
 				</div>
 				<div class="cell">
