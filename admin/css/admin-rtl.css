@@ -2,25 +2,26 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
-@font-face {
-	font-family: "WPTelegram";
-	src: url("../fonts/WPTelegram.eot");
-	src: url("../fonts/WPTelegram.eot?#iefix") format("embedded-opentype"),
-		url("../fonts/WPTelegram.woff2") format("woff2"),
-		url("../fonts/WPTelegram.woff") format("woff"),
-		url("../fonts/WPTelegram.ttf") format("truetype"),
-		url("../fonts/WPTelegram.svg#WPTelegram") format("svg");
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
+#adminmenu #toplevel_page_wptelegram div.wp-menu-image::before {
+	content: " ";
+	background-image: url("../icons/icon-20x20.png");
+	background-repeat: no-repeat;
+	background-position: 100% 0;
+	background-size: 20px;
+	padding: 0px;
+	position: absolute;
+	right: 8px;
+	top: 7px;
+	transition: none;
 }
-
 #adminmenu
-	#toplevel_page_wptelegram
-	.menu-icon-generic
+	#toplevel_page_wptelegram:not(.wp-menu-open):not(.current):hover
 	div.wp-menu-image::before {
-	font-family: WPTelegram !important;
-	content: "\e006";
+	background-position: 100% -40px;
+}
+#adminmenu #toplevel_page_wptelegram.wp-menu-open div.wp-menu-image::before,
+#adminmenu #toplevel_page_wptelegram.current div.wp-menu-image::before {
+	background-position: 100% -20px;
 }
 .wptelegram-header-wrapper {
 	background: #fff;
