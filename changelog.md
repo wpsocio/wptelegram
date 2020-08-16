@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 ### Bug fixes
 
 - Fixed HTML characters in categories as hashtags.
+- Fixed admin menu icon
 
 ## [2.2.1 - 2020-08-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.1)
 
