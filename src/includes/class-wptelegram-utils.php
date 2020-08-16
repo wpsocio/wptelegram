@@ -3,10 +3,10 @@
 /**
  * WPTelegram Utilities
  *
- * @link	   https://t.me/manzoorwanijk
- * @since	  1.0.0
+ * @link       https://t.me/manzoorwanijk
+ * @since     1.0.0
  *
- * @package	WPTelegram
+ * @package WPTelegram
  * @subpackage WPTelegram/includes
  */
 class WPTelegram_Utils {
@@ -24,7 +24,7 @@ class WPTelegram_Utils {
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return Main instance.
 	 */
 	public static function instance() {
@@ -48,10 +48,10 @@ class WPTelegram_Utils {
 	/**
 	 * Sanitize the input
 	 *
-	 * @param  mixed	$input
-	 * @param  bool		$typefy Whether to convert strings to the appropriate data type 
+	 * @param  mixed $input
+	 * @param  bool  $typefy Whether to convert strings to the appropriate data type
 	 * @since  1.0.0
-	 * 
+	 *
 	 * @return mixed
 	 */
 	public function sanitize( $input, $typefy = false ) {
@@ -80,9 +80,9 @@ class WPTelegram_Utils {
 	/**
 	 * Convert the input into the proper data type
 	 *
-	 * @param  mixed	$input
+	 * @param  mixed $input
 	 * @since  1.0.0
-	 * 
+	 *
 	 * @return mixed
 	 */
 	public function typefy( $input ) {
@@ -111,9 +111,9 @@ class WPTelegram_Utils {
 	public function error_to_response( $error, $json_encode = false ) {
 
 		$response = array(
-			'ok'			=> false,
-			'error_code'	=> 500,
-			'description'	=> $error->get_error_code() . ' - ' . $error->get_error_message(),
+			'ok'          => false,
+			'error_code'  => 500,
+			'description' => $error->get_error_code() . ' - ' . $error->get_error_message(),
 		);
 
 		if ( $json_encode ) {
@@ -133,7 +133,7 @@ class WPTelegram_Utils {
 	public function set_status_header( $code ) {
 
 		$protocol = function_exists( 'wp_get_server_protocol' ) ? wp_get_server_protocol() : $this->server_protocol();
-		
+
 		$description = get_status_header_desc( $code );
 
 		$status_header = "{$protocol} {$code} {$description}";
@@ -145,7 +145,7 @@ class WPTelegram_Utils {
 	 * Set HTTP status header.
 	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return string
 	 */
 	public function server_protocol() {
@@ -159,7 +159,7 @@ class WPTelegram_Utils {
 
 	/**
 	 * For PHP < 5.4 and WP < 4.1
-	 * 
+	 *
 	 * @since 1.0.0
 	 *
 	 * @return string
@@ -180,7 +180,7 @@ class WPTelegram_Utils {
 	 * dirty hack for PHP < 5.4
 	 *
 	 * has $delimiter param
-	 * 
+	 *
 	 * @since 1.0.0
 	 *
 	 * @return string
@@ -192,7 +192,7 @@ class WPTelegram_Utils {
 		$delims = preg_split( '//u', $delimiters, -1, PREG_SPLIT_NO_EMPTY );
 
 		foreach ( $delims as $delim ) {
-			
+
 			if ( false !== strpos( $str, $delim ) ) {
 
 				$str = implode( $delim, array_map( 'ucfirst', explode( $delim, $str ) ) );
@@ -229,11 +229,11 @@ class WPTelegram_Utils {
 			switch ( $type ) {
 				case 'video':
 				case 'audio':
-					break; 
+					break;
 				case 'image':
 					$type = 'photo';
 					break;
-				default: 
+				default:
 					$type = 'document';
 					break;
 			}
@@ -250,11 +250,11 @@ class WPTelegram_Utils {
 	 * @since 1.0.0
 	 *
 	 * @param string|array $hashtag The string or array of strings to be sanitized.
-	 * 
+	 *
 	 * @return string|array The sanitized string or array of strings
 	 */
 	public function sanitize_hashtag( $hashtag ) {
-			
+
 		$raw_hashtag = $hashtag;
 
 		if ( is_array( $hashtag ) ) {
@@ -274,15 +274,18 @@ class WPTelegram_Utils {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $text The target string
-	 * 
+	 * @param string $text The target string.
+	 *
 	 * @return string
 	 */
 	public function strip_non_word_chars( $text ) {
 		$raw_text = $text;
-		// remove trailing non-word characters
-		$text = preg_replace( '/(^\W+|\W+$)/u', '', $text );
-		// replace one or more continuous non-word characters by _
+		// decode all HTML entities.
+		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
+
+		// remove trailing non-word characters.
+		$text = preg_replace( '/(?:^\W+|\W+$)/u', '', $text );
+		// replace one or more continuous non-word characters by _.
 		$text = preg_replace( '/\W+/u', '_', $text );
 
 		return apply_filters( 'wptelegram_utils_strip_non_word_chars', $text, $raw_text );
@@ -325,42 +328,42 @@ class WPTelegram_Utils {
 	 * Gets the current post type in the WordPress Admin
 	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return string|NULL
 	 */
 	public function get_current_post_type() {
 
 		global $post, $typenow, $pagenow, $current_screen;
 
-		//we have a post so we can just get the post type from that
+		// we have a post so we can just get the post type from that
 		if ( $post && $post->post_type ) {
 
 			return $post->post_type;
 
-		} elseif ( $typenow ) { //check the global $typenow - set in admin.php
-			
+		} elseif ( $typenow ) { // check the global $typenow - set in admin.php
+
 			return $typenow;
 
-		} elseif ( $current_screen && $current_screen->post_type ) { //check the global $current_screen object - set in screen.php
+		} elseif ( $current_screen && $current_screen->post_type ) { // check the global $current_screen object - set in screen.php
 
 			return $current_screen->post_type;
 
-		} elseif ( isset( $_GET['post_type'] ) ) { //check the post_type query string
+		} elseif ( isset( $_GET['post_type'] ) ) { // check the post_type query string
 
 			return sanitize_key( $_GET['post_type'] );
 
-		} elseif ( isset( $_GET['post'] ) ) { //check if post ID is in query string
+		} elseif ( isset( $_GET['post'] ) ) { // check if post ID is in query string
 
 			return get_post_type( $_GET['post'] );
 
-		} elseif ( $pagenow == 'edit.php' || $pagenow == 'post-new.php' ) { //lastly check if the page is edit.php or post-new.php
+		} elseif ( $pagenow == 'edit.php' || $pagenow == 'post-new.php' ) { // lastly check if the page is edit.php or post-new.php
 
 			return 'post';
 
 		}
 
-		//we do not know the post type!
-		return NULL;
+		// we do not know the post type!
+		return null;
 	}
 
 	/**
@@ -370,8 +373,8 @@ class WPTelegram_Utils {
 	 *
 	 * @since   2.0.13
 	 *
-	 * @param   WP_Post		$post	Post
-	 * @return  bool				Post created using Gutenberg Editor
+	 * @param   WP_Post $post   Post
+	 * @return  bool                Post created using Gutenberg Editor
 	 */
 	public function is_gutenberg_post( $post ) {
 

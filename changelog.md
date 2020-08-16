@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## Unreleased
+
+### Bug fixes
+
+- Fixed HTML characters in categories as hashtags.
+
 ## [2.2.1 - 2020-08-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.1)
 
 ### Enhancements
