@@ -74,15 +74,6 @@ class WPTelegram_Notify extends WPTelegram_Module {
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_scripts', 10, 1 );
 
 		$this->loader->add_action( 'cmb2_admin_init', $admin, 'create_options_page' );
-
-		$user_notify = WPTG()->options( 'notify' )->get( 'user_notifications', 'off' );
-
-		if ( 'on' === $user_notify ) {
-
-			$this->loader->add_action( 'cmb2_init', $admin, 'add_user_profile_fields' );
-
-			$this->loader->add_filter( 'user_profile_update_errors', $admin, 'validate_user_profile_fields', 10, 3 );
-		}
 	}
 
 	/**
