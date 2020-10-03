@@ -4,7 +4,7 @@
 **Tags:** telegram, notifications, posts, channel, group  
 **Requires at least:** 4.7  
 **Requires PHP:** 5.6  
-**Tested up to:** 5.5
+**Tested up to:** 5.5.1
 **Stable tag:** 2.2.2  
 **License:** GPLv2 or later  
 **License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
@@ -20,6 +20,10 @@ Complete contributors list found here: [github.com/manzoorwanijk/wptelegram/grap
 ## Description
 
 Integrate your WordPress site perfectly with Telegram with full control.
+
+**Upgrade to Pro**
+
+WP Telegram Pro comes with more powerful features to give you more control. [Upgrade NOW](https://wptelegram.pro)
 
 ## Modules
 
@@ -42,6 +46,8 @@ Integrate your WordPress site perfectly with Telegram with full control.
 - ⏲ You can choose when to send (New and/or existing posts)
 - 🎛 Make use of Custom Rules to filter posts by authors, categories, tags, post formats or custom taxonomy terms
 - 🎚 You can override the default settings on post edit page
+
+[WP Telegram Pro](https://wptelegram.pro) supports multiple channels based upon category/tag/author/post type etc. and also supports unlimited Reaction buttons.
 
 **2. Private Notifications**
 
