@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-08-16 09:10:23+00:00\n"
+"POT-Creation-Date: 2020-10-03 13:56:32+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:04+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -65,7 +65,6 @@ msgid "Failure"
 msgstr "فشل"
 
 #: admin/class-wptelegram-admin.php:104
-#: modules/notify/class-wptelegram-notify-admin.php:395
 msgid "Error:"
 msgstr "خطأ:"
 
@@ -81,7 +80,6 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:196
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:352
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:105
 msgid "INSTRUCTIONS!"
 msgstr "تعليمات!"
@@ -482,34 +480,6 @@ msgstr "يمكنك استخدام أي نص أو رموز تعبيرية أو و
 #: modules/proxy/class-wptelegram-proxy-admin.php:293
 msgid "Click to insert"
 msgstr "انقر للإدراج"
-
-#: modules/notify/class-wptelegram-notify-admin.php:324
-msgid "Telegram Info"
-msgstr "معلومات التلغرام"
-
-#: modules/notify/class-wptelegram-notify-admin.php:325
-msgid "You can receive your email notifications on Telegram from %s"
-msgstr "يمكنك تلقي اشعارات بريدك الالكتروني على التلغرام من %s"
-
-#: modules/notify/class-wptelegram-notify-admin.php:331
-msgid "Telegram Chat ID"
-msgstr "معرف الدردشة التلغرام"
-
-#: modules/notify/class-wptelegram-notify-admin.php:332
-msgid "Please enter your Telegram Chat ID"
-msgstr "الرجاء ادخال معرف دردشة التلغرام الخاص بك"
-
-#: modules/notify/class-wptelegram-notify-admin.php:354
-msgid "Get your Chat ID from %s and enter it above."
-msgstr ""
-
-#: modules/notify/class-wptelegram-notify-admin.php:355
-msgid "Start a conversation with %s to receive notifications."
-msgstr ""
-
-#: modules/notify/class-wptelegram-notify-admin.php:395
-msgid "Please Enter a valid Chat ID"
-msgstr "الرجاء ادخال معرف دردشة صالح"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:99
 msgid "With this module, you can configure how the posts are sent to Telegram"
@@ -994,6 +964,21 @@ msgstr ""
 #: modules/proxy/class-wptelegram-proxy-admin.php:199
 msgid "Use the proxy at your own risk!"
 msgstr ""
+
+#~ msgid "Telegram Info"
+#~ msgstr "معلومات التلغرام"
+
+#~ msgid "You can receive your email notifications on Telegram from %s"
+#~ msgstr "يمكنك تلقي اشعارات بريدك الالكتروني على التلغرام من %s"
+
+#~ msgid "Telegram Chat ID"
+#~ msgstr "معرف الدردشة التلغرام"
+
+#~ msgid "Please enter your Telegram Chat ID"
+#~ msgstr "الرجاء ادخال معرف دردشة التلغرام الخاص بك"
+
+#~ msgid "Please Enter a valid Chat ID"
+#~ msgstr "الرجاء ادخال معرف دردشة صالح"
 
 #~ msgid "Shout in"
 #~ msgstr "يصرخ في"

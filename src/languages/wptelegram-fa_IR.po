@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-08-16 09:10:23+00:00\n"
+"POT-Creation-Date: 2020-10-03 13:56:32+00:00\n"
 "PO-Revision-Date: 2019-06-03 03:09+0430\n"
 "Last-Translator: \n"
 "Language-Team: Taktaweb Group <info@taktaweb.ir>\n"
@@ -67,7 +67,6 @@ msgid "Failure"
 msgstr "شکست"
 
 #: admin/class-wptelegram-admin.php:104
-#: modules/notify/class-wptelegram-notify-admin.php:395
 msgid "Error:"
 msgstr "خطا:"
 
@@ -85,7 +84,6 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:196
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:352
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:105
 msgid "INSTRUCTIONS!"
 msgstr "دستورالعمل‌ها!"
@@ -491,35 +489,6 @@ msgstr "شما می‌توانید از هر متن، شکلک‌ها یا ای�
 #: modules/proxy/class-wptelegram-proxy-admin.php:293
 msgid "Click to insert"
 msgstr "برای اضافه کردن کلیک کنید"
-
-#: modules/notify/class-wptelegram-notify-admin.php:324
-msgid "Telegram Info"
-msgstr "اطلاعات تلگرام"
-
-#: modules/notify/class-wptelegram-notify-admin.php:325
-msgid "You can receive your email notifications on Telegram from %s"
-msgstr ""
-"شما می توانید اعلان های ایمیلی خود را روی تلگرام از طریق %s دریافت کنید"
-
-#: modules/notify/class-wptelegram-notify-admin.php:331
-msgid "Telegram Chat ID"
-msgstr "شناسه چت تلگرام"
-
-#: modules/notify/class-wptelegram-notify-admin.php:332
-msgid "Please enter your Telegram Chat ID"
-msgstr "لطفا شناسه چت تلگرام خود را وارد کنید"
-
-#: modules/notify/class-wptelegram-notify-admin.php:354
-msgid "Get your Chat ID from %s and enter it above."
-msgstr "شناسه چت خود را از %s دریافت کرده و در بالا وارد کنید"
-
-#: modules/notify/class-wptelegram-notify-admin.php:355
-msgid "Start a conversation with %s to receive notifications."
-msgstr "یک گفتگو با %s شروع کنید تا اعلانات را دریافت نمایید."
-
-#: modules/notify/class-wptelegram-notify-admin.php:395
-msgid "Please Enter a valid Chat ID"
-msgstr "لطفا یک شناسه چت معتبر وارد نمایید"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:99
 msgid "With this module, you can configure how the posts are sent to Telegram"
@@ -1008,6 +977,28 @@ msgstr ""
 #: modules/proxy/class-wptelegram-proxy-admin.php:199
 msgid "Use the proxy at your own risk!"
 msgstr "پراکسی را با مسئولیت خود استفاده کنید!"
+
+#~ msgid "Telegram Info"
+#~ msgstr "اطلاعات تلگرام"
+
+#~ msgid "You can receive your email notifications on Telegram from %s"
+#~ msgstr ""
+#~ "شما می توانید اعلان های ایمیلی خود را روی تلگرام از طریق %s دریافت کنید"
+
+#~ msgid "Telegram Chat ID"
+#~ msgstr "شناسه چت تلگرام"
+
+#~ msgid "Please enter your Telegram Chat ID"
+#~ msgstr "لطفا شناسه چت تلگرام خود را وارد کنید"
+
+#~ msgid "Get your Chat ID from %s and enter it above."
+#~ msgstr "شناسه چت خود را از %s دریافت کرده و در بالا وارد کنید"
+
+#~ msgid "Start a conversation with %s to receive notifications."
+#~ msgstr "یک گفتگو با %s شروع کنید تا اعلانات را دریافت نمایید."
+
+#~ msgid "Please Enter a valid Chat ID"
+#~ msgstr "لطفا یک شناسه چت معتبر وارد نمایید"
 
 #~ msgid "via %s"
 #~ msgstr "با استفاده از %s"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-08-16 09:10:23+00:00\n"
+"POT-Creation-Date: 2020-10-03 13:56:32+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:05+0530\n"
 "Last-Translator: Robert Skiba <info@skibamedia.de>\n"
 "Language-Team: Deutsch\n"
@@ -66,7 +66,6 @@ msgid "Failure"
 msgstr "Fehler"
 
 #: admin/class-wptelegram-admin.php:104
-#: modules/notify/class-wptelegram-notify-admin.php:395
 msgid "Error:"
 msgstr "Fehler:"
 
@@ -84,7 +83,6 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:196
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:352
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:105
 msgid "INSTRUCTIONS!"
 msgstr "Konfigurationsanweisung"
@@ -506,34 +504,6 @@ msgstr ""
 #: modules/proxy/class-wptelegram-proxy-admin.php:293
 msgid "Click to insert"
 msgstr "Auf Makro klicken zum einzufügen"
-
-#: modules/notify/class-wptelegram-notify-admin.php:324
-msgid "Telegram Info"
-msgstr "Telegram Info"
-
-#: modules/notify/class-wptelegram-notify-admin.php:325
-msgid "You can receive your email notifications on Telegram from %s"
-msgstr "Du kannst deine E-Mail-Benachrichtigungen auf Telegram von %s erhalten"
-
-#: modules/notify/class-wptelegram-notify-admin.php:331
-msgid "Telegram Chat ID"
-msgstr "Telegram Chat ID"
-
-#: modules/notify/class-wptelegram-notify-admin.php:332
-msgid "Please enter your Telegram Chat ID"
-msgstr "Bitte gib deine Telegram Chat ID ein"
-
-#: modules/notify/class-wptelegram-notify-admin.php:354
-msgid "Get your Chat ID from %s and enter it above."
-msgstr "Beim %s die persönliche Chat ID abfragen und im Feld oben eingeben"
-
-#: modules/notify/class-wptelegram-notify-admin.php:355
-msgid "Start a conversation with %s to receive notifications."
-msgstr "Eine Konversation mit %s beginnen, um Benachrichtigungen zu erhalten"
-
-#: modules/notify/class-wptelegram-notify-admin.php:395
-msgid "Please Enter a valid Chat ID"
-msgstr "Bitte gib eine gültige Chat ID ein"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:99
 msgid "With this module, you can configure how the posts are sent to Telegram"
@@ -1040,6 +1010,29 @@ msgstr ""
 #: modules/proxy/class-wptelegram-proxy-admin.php:199
 msgid "Use the proxy at your own risk!"
 msgstr "Die Nutzung des Proxy erfolgt auf eigenes Risiko!"
+
+#~ msgid "Telegram Info"
+#~ msgstr "Telegram Info"
+
+#~ msgid "You can receive your email notifications on Telegram from %s"
+#~ msgstr ""
+#~ "Du kannst deine E-Mail-Benachrichtigungen auf Telegram von %s erhalten"
+
+#~ msgid "Telegram Chat ID"
+#~ msgstr "Telegram Chat ID"
+
+#~ msgid "Please enter your Telegram Chat ID"
+#~ msgstr "Bitte gib deine Telegram Chat ID ein"
+
+#~ msgid "Get your Chat ID from %s and enter it above."
+#~ msgstr "Beim %s die persönliche Chat ID abfragen und im Feld oben eingeben"
+
+#~ msgid "Start a conversation with %s to receive notifications."
+#~ msgstr ""
+#~ "Eine Konversation mit %s beginnen, um Benachrichtigungen zu erhalten"
+
+#~ msgid "Please Enter a valid Chat ID"
+#~ msgstr "Bitte gib eine gültige Chat ID ein"
 
 #~ msgid "via %s"
 #~ msgstr "über %s"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-08-16 09:10:23+00:00\n"
+"POT-Creation-Date: 2020-10-03 13:56:32+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:05+0530\n"
 "Last-Translator: Robert Skiba <info@skibamedia.de>\n"
 "Language-Team: Deutsch\n"
@@ -64,7 +64,6 @@ msgid "Failure"
 msgstr "Dështim"
 
 #: admin/class-wptelegram-admin.php:104
-#: modules/notify/class-wptelegram-notify-admin.php:395
 msgid "Error:"
 msgstr "Gabim: "
 
@@ -80,7 +79,6 @@ msgstr ""
 
 #: admin/class-wptelegram-admin.php:196
 #: modules/notify/class-wptelegram-notify-admin.php:68
-#: modules/notify/class-wptelegram-notify-admin.php:352
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:105
 msgid "INSTRUCTIONS!"
 msgstr "UDHËZIME!"
@@ -480,34 +478,6 @@ msgstr ""
 #: modules/proxy/class-wptelegram-proxy-admin.php:293
 msgid "Click to insert"
 msgstr "Klikoni që të futet"
-
-#: modules/notify/class-wptelegram-notify-admin.php:324
-msgid "Telegram Info"
-msgstr "Info mbi Telegram-in"
-
-#: modules/notify/class-wptelegram-notify-admin.php:325
-msgid "You can receive your email notifications on Telegram from %s"
-msgstr "Mund të merrni njoftime email në Telegram nga %s"
-
-#: modules/notify/class-wptelegram-notify-admin.php:331
-msgid "Telegram Chat ID"
-msgstr "ID Fjalosjeje Telegram"
-
-#: modules/notify/class-wptelegram-notify-admin.php:332
-msgid "Please enter your Telegram Chat ID"
-msgstr "Ju lutemi, jepni ID-në tuaj për Fjalosje Telegram"
-
-#: modules/notify/class-wptelegram-notify-admin.php:354
-msgid "Get your Chat ID from %s and enter it above."
-msgstr ""
-
-#: modules/notify/class-wptelegram-notify-admin.php:355
-msgid "Start a conversation with %s to receive notifications."
-msgstr "Nisni gjithashtu një bisedë me %s që të merrni njoftime."
-
-#: modules/notify/class-wptelegram-notify-admin.php:395
-msgid "Please Enter a valid Chat ID"
-msgstr "Ju lutemi, jepni një ID të vlefshme Fjalosjeje"
 
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:99
 msgid "With this module, you can configure how the posts are sent to Telegram"
@@ -993,3 +963,21 @@ msgstr ""
 #: modules/proxy/class-wptelegram-proxy-admin.php:199
 msgid "Use the proxy at your own risk!"
 msgstr ""
+
+#~ msgid "Telegram Info"
+#~ msgstr "Info mbi Telegram-in"
+
+#~ msgid "You can receive your email notifications on Telegram from %s"
+#~ msgstr "Mund të merrni njoftime email në Telegram nga %s"
+
+#~ msgid "Telegram Chat ID"
+#~ msgstr "ID Fjalosjeje Telegram"
+
+#~ msgid "Please enter your Telegram Chat ID"
+#~ msgstr "Ju lutemi, jepni ID-në tuaj për Fjalosje Telegram"
+
+#~ msgid "Start a conversation with %s to receive notifications."
+#~ msgstr "Nisni gjithashtu një bisedë me %s që të merrni njoftime."
+
+#~ msgid "Please Enter a valid Chat ID"
+#~ msgstr "Ju lutemi, jepni një ID të vlefshme Fjalosjeje"
