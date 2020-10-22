@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## Unreleased
+
+### Enhancements
+
+- Added links to view logs
+
 ## [2.2.3 - 2020-10-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.3)
 
 ### Bug fixes

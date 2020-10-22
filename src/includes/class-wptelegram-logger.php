@@ -209,7 +209,7 @@ class WPTelegram_Logger {
 	 */
 	public function after_p2tg_log( $result, $post, $trigger ) {
 
-		// create a an entry from post ID and its status
+		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
 		$this->p2tg_post_info[ $key ][] = array(
@@ -245,13 +245,9 @@ class WPTelegram_Logger {
 	 * Write the log to file.
 	 */
 	public function write_log( $type, $text ) {
-
-		require_once ABSPATH . 'wp-admin/includes/file.php';
-		WP_Filesystem();
+		$file_path = self::get_log_file_path( $type );
 
 		global $wp_filesystem;
-
-		$file_path = $this->get_log_file_path( $type );
 
 		$contents = '[' . current_time( 'mysql' ) . ']' . PHP_EOL . $text . PHP_EOL . PHP_EOL;
 
@@ -276,14 +272,35 @@ class WPTelegram_Logger {
 	 *
 	 * @return string
 	 */
-	public function get_log_file_path( $type ) {
+	public static function get_log_file_path( $type ) {
 
-		$hash = $type . '-' . wp_hash( 'log' );
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		WP_Filesystem();
 
 		global $wp_filesystem;
 
-		$file_path = $wp_filesystem->wp_content_dir() . "wptelegram-{$hash}.log";
+		$file_name = self::get_log_file_name( $type );
+
+		$file_path = $wp_filesystem->wp_content_dir() . $file_name;
 
 		return apply_filters( 'wptelegram_logger_log_file_path', $file_path, $type, $hash );
+	}
+
+	/**
+	 * Get log file name.
+	 *
+	 * @since x.y.z
+	 *
+	 * @param string $type Log type.
+	 *
+	 * @return string
+	 */
+	public static function get_log_file_name( $type ) {
+
+		$hash = $type . '-' . wp_hash( 'log' );
+
+		$file_name = "wptelegram-{$hash}.log";
+
+		return apply_filters( 'wptelegram_logger_log_file_name', $file_name, $type, $hash );
 	}
 }
