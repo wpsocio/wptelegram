@@ -33,7 +33,7 @@
 /* line 26, sass/partials/_display.scss */
 .cmb2-display-file-list li {
   display: inline;
-  margin: 0 0 0.5em 0.5em;
+  margin: 0 0 .5em .5em;
 }
 
 /* line 31, sass/partials/_display.scss */
@@ -41,3 +41,5 @@
   max-width: 100%;
   height: auto;
 }
+
+/*# sourceMappingURL=cmb2-display.css.map */

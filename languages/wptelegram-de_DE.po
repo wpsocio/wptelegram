@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-10-03 13:56:32+00:00\n"
+"POT-Creation-Date: 2021-01-03 15:50:17+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:05+0530\n"
 "Last-Translator: Robert Skiba <info@skibamedia.de>\n"
 "Language-Team: Deutsch\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Could not connect"
 msgstr "Konnte keine Verbindung herstellen"
 
-#: admin/class-wptelegram-admin.php:94 admin/class-wptelegram-admin.php:732
+#: admin/class-wptelegram-admin.php:94 admin/class-wptelegram-admin.php:748
 msgid "Bot Token is empty"
 msgstr "Bot API-Token ist leer"
 
@@ -34,7 +34,7 @@ msgstr "Benutzername ist leer"
 msgid "Chat ID is empty"
 msgstr "Chat ID ist leer"
 
-#: admin/class-wptelegram-admin.php:97 admin/class-wptelegram-admin.php:626
+#: admin/class-wptelegram-admin.php:97 admin/class-wptelegram-admin.php:642
 msgid "Invalid Bot Token"
 msgstr "Ungültiges Bot API-Token"
 
@@ -69,7 +69,7 @@ msgstr "Fehler"
 msgid "Error:"
 msgstr "Fehler:"
 
-#: admin/class-wptelegram-admin.php:123 admin/class-wptelegram-admin.php:659
+#: admin/class-wptelegram-admin.php:123 admin/class-wptelegram-admin.php:675
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -147,141 +147,146 @@ msgstr "Google Script proxy unterstützt keinen Dateiupload."
 msgid "Enable logs for"
 msgstr "Logs aktivieren für"
 
-#: admin/class-wptelegram-admin.php:334
+#: admin/class-wptelegram-admin.php:336
+msgid "Debug Info"
+msgstr "Debug-Informationen"
+
+#: admin/class-wptelegram-admin.php:344
+msgid "Remove settings on uninstall"
+msgstr "Entferne Einstellungen bei der Deinstallation"
+
+#: admin/class-wptelegram-admin.php:368
+#, fuzzy
+msgid "View"
+msgstr "Beitrag anzeigen"
+
+#: admin/class-wptelegram-admin.php:371
 msgid "Bot API"
 msgstr "Bot API"
 
-#: admin/class-wptelegram-admin.php:335
+#: admin/class-wptelegram-admin.php:372
 #: includes/class-wptelegram-modules.php:68
 msgid "Post to Telegram"
 msgstr "An Telegram posten"
 
-#: admin/class-wptelegram-admin.php:339
-msgid "Debug Info"
-msgstr "Debug-Informationen"
-
-#: admin/class-wptelegram-admin.php:347
-msgid "Remove settings on uninstall"
-msgstr "Entferne Einstellungen bei der Deinstallation"
-
-#: admin/class-wptelegram-admin.php:369
+#: admin/class-wptelegram-admin.php:385
 msgid "Want to add more bots?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:371 admin/class-wptelegram-admin.php:511
-#: admin/class-wptelegram-admin.php:549
+#: admin/class-wptelegram-admin.php:387 admin/class-wptelegram-admin.php:527
+#: admin/class-wptelegram-admin.php:565
 #: modules/notify/class-wptelegram-notify-admin.php:165
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:411
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:611
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:461
+#: admin/class-wptelegram-admin.php:477
 msgid "Settings updated"
 msgstr "Einstellungen aktualisiert"
 
 #. translators: field name
-#: admin/class-wptelegram-admin.php:477
+#: admin/class-wptelegram-admin.php:493
 msgid "%s is empty"
 msgstr "%s ist leer"
 
 #. translators: field name
-#: admin/class-wptelegram-admin.php:479
+#: admin/class-wptelegram-admin.php:495
 msgid "Invalid %s"
 msgstr "%s ungültig"
 
-#: admin/class-wptelegram-admin.php:510
+#: admin/class-wptelegram-admin.php:526
 msgid "Want an absolute integration with Telegram?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:536
+#: admin/class-wptelegram-admin.php:552
 msgid "Integrate your WordPress website perfectly with Telegram."
 msgstr "Integriere Telegram perfekt in deine WordPress-Website."
 
 #. translators: plugin name
-#: admin/class-wptelegram-admin.php:540
+#: admin/class-wptelegram-admin.php:556
 msgid "Do you like %s?"
 msgstr "Gefällt dir %s?"
 
-#: admin/class-wptelegram-admin.php:542
+#: admin/class-wptelegram-admin.php:558
 msgid "Give it a rating"
 msgstr "Bewertung abgeben"
 
-#: admin/class-wptelegram-admin.php:547
+#: admin/class-wptelegram-admin.php:563
 msgid "Need more features?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:554
+#: admin/class-wptelegram-admin.php:570
 msgid "Need help?"
 msgstr "Du brauchst Hilfe?"
 
-#: admin/class-wptelegram-admin.php:556
+#: admin/class-wptelegram-admin.php:572
 msgid "Get LIVE support on Telegram"
 msgstr "LIVE-Support bei Problemen direkt über Telegram erhalten"
 
-#: admin/class-wptelegram-admin.php:572
+#: admin/class-wptelegram-admin.php:588
 msgid "What is NEW?"
 msgstr ""
 
 #. translators: plugin name
-#: admin/class-wptelegram-admin.php:578
+#: admin/class-wptelegram-admin.php:594
 msgid "Enjoy %s"
 msgstr "Viel Spaß mit %s"
 
 #. translators: 1 - command name, 2 - Bot
-#: admin/class-wptelegram-admin.php:597
+#: admin/class-wptelegram-admin.php:613
 #, fuzzy
 msgid "Create a Bot by sending %1$s command to %2$s"
 msgstr "Einen Bot erstellen, indem der Befehl %s an den %s geschickt wird"
 
-#: admin/class-wptelegram-admin.php:600
+#: admin/class-wptelegram-admin.php:616
 msgid "After completing the steps %s will provide you the Bot Token."
 msgstr ""
 "Der %s fragt nach Bezeichnung und Benutzername des neuen Bot und teilt im "
 "Anschluss das API-Token des Bot mit."
 
-#: admin/class-wptelegram-admin.php:601
+#: admin/class-wptelegram-admin.php:617
 msgid "Copy the token and paste into the Bot Token field below."
 msgstr ""
 "Das API-Token des Bot kopieren und in das unten stehende Feld \"Bot API-Token"
 "\" einfügen."
 
-#: admin/class-wptelegram-admin.php:601
+#: admin/class-wptelegram-admin.php:617
 msgid "For ease, use %s"
 msgstr "Zum einfacheren kopieren %s benutzen!"
 
-#: admin/class-wptelegram-admin.php:602
+#: admin/class-wptelegram-admin.php:618
 msgid "Test your bot token below."
 msgstr "Den Bot-Token im Anschluss unten auf dieser Seite testen."
 
-#: admin/class-wptelegram-admin.php:603
+#: admin/class-wptelegram-admin.php:619
 msgid "Activate the modules you want to use."
 msgstr "Die Module aktiveren, die benutzt werden sollen."
 
 #. translators: %s - Save changes
-#: admin/class-wptelegram-admin.php:604
+#: admin/class-wptelegram-admin.php:620
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:1056
 msgid "Hit %s below"
 msgstr "Zum Speichern der Einstellungen %s klicken"
 
-#: admin/class-wptelegram-admin.php:604
+#: admin/class-wptelegram-admin.php:620
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:1056
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
-#: admin/class-wptelegram-admin.php:605
+#: admin/class-wptelegram-admin.php:621
 msgid "Configure the activated modules."
 msgstr "Die aktivierten Module konfigurieren."
 
-#: admin/class-wptelegram-admin.php:606
+#: admin/class-wptelegram-admin.php:622
 msgid "That's it! :)"
 msgstr "Das wars! :)"
 
-#: admin/class-wptelegram-admin.php:624
+#: admin/class-wptelegram-admin.php:640
 msgid "Test Result:"
 msgstr "Testergebnis:"
 
-#: admin/class-wptelegram-admin.php:631
+#: admin/class-wptelegram-admin.php:647
 msgid "Invalid Bot Username"
 msgstr "Ungültiger Benutzername des Bot"
 

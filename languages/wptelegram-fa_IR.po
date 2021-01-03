@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-10-03 13:56:32+00:00\n"
+"POT-Creation-Date: 2021-01-03 15:50:17+00:00\n"
 "PO-Revision-Date: 2019-06-03 03:09+0430\n"
 "Last-Translator: \n"
 "Language-Team: Taktaweb Group <info@taktaweb.ir>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Could not connect"
 msgstr "نتوانست متصل شود"
 
-#: admin/class-wptelegram-admin.php:94 admin/class-wptelegram-admin.php:732
+#: admin/class-wptelegram-admin.php:94 admin/class-wptelegram-admin.php:748
 msgid "Bot Token is empty"
 msgstr "توکن ربات خالی است"
 
@@ -35,7 +35,7 @@ msgstr "نام کاربری خالی است"
 msgid "Chat ID is empty"
 msgstr "شناسه چت خالی است"
 
-#: admin/class-wptelegram-admin.php:97 admin/class-wptelegram-admin.php:626
+#: admin/class-wptelegram-admin.php:97 admin/class-wptelegram-admin.php:642
 msgid "Invalid Bot Token"
 msgstr "توکن ربات نامعتبر است"
 
@@ -70,7 +70,7 @@ msgstr "شکست"
 msgid "Error:"
 msgstr "خطا:"
 
-#: admin/class-wptelegram-admin.php:123 admin/class-wptelegram-admin.php:659
+#: admin/class-wptelegram-admin.php:123 admin/class-wptelegram-admin.php:675
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -147,137 +147,142 @@ msgstr ""
 msgid "Enable logs for"
 msgstr "فعال کردن لیست لاگ برای"
 
-#: admin/class-wptelegram-admin.php:334
+#: admin/class-wptelegram-admin.php:336
+msgid "Debug Info"
+msgstr "اطلاعات ایرادزدایی"
+
+#: admin/class-wptelegram-admin.php:344
+msgid "Remove settings on uninstall"
+msgstr "حذف همه تنظیمات در موقع حذف افزونه"
+
+#: admin/class-wptelegram-admin.php:368
+#, fuzzy
+msgid "View"
+msgstr "نمایش مطلب"
+
+#: admin/class-wptelegram-admin.php:371
 msgid "Bot API"
 msgstr "رابط برنامه نویسی کاربردی ربات"
 
-#: admin/class-wptelegram-admin.php:335
+#: admin/class-wptelegram-admin.php:372
 #: includes/class-wptelegram-modules.php:68
 msgid "Post to Telegram"
 msgstr "ارسال مطلب به تلگرام"
 
-#: admin/class-wptelegram-admin.php:339
-msgid "Debug Info"
-msgstr "اطلاعات ایرادزدایی"
-
-#: admin/class-wptelegram-admin.php:347
-msgid "Remove settings on uninstall"
-msgstr "حذف همه تنظیمات در موقع حذف افزونه"
-
-#: admin/class-wptelegram-admin.php:369
+#: admin/class-wptelegram-admin.php:385
 msgid "Want to add more bots?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:371 admin/class-wptelegram-admin.php:511
-#: admin/class-wptelegram-admin.php:549
+#: admin/class-wptelegram-admin.php:387 admin/class-wptelegram-admin.php:527
+#: admin/class-wptelegram-admin.php:565
 #: modules/notify/class-wptelegram-notify-admin.php:165
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:411
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:611
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:461
+#: admin/class-wptelegram-admin.php:477
 msgid "Settings updated"
 msgstr "تنظیمات بروز شد"
 
 #. translators: field name
-#: admin/class-wptelegram-admin.php:477
+#: admin/class-wptelegram-admin.php:493
 msgid "%s is empty"
 msgstr "%s خالی است"
 
 #. translators: field name
-#: admin/class-wptelegram-admin.php:479
+#: admin/class-wptelegram-admin.php:495
 msgid "Invalid %s"
 msgstr "%s نامعتبر است"
 
-#: admin/class-wptelegram-admin.php:510
+#: admin/class-wptelegram-admin.php:526
 msgid "Want an absolute integration with Telegram?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:536
+#: admin/class-wptelegram-admin.php:552
 msgid "Integrate your WordPress website perfectly with Telegram."
 msgstr "وبسایت وردپرسی خود را با تلگرام ادغام کنید."
 
 #. translators: plugin name
-#: admin/class-wptelegram-admin.php:540
+#: admin/class-wptelegram-admin.php:556
 msgid "Do you like %s?"
 msgstr "آیا شما %s را می پسندید؟"
 
-#: admin/class-wptelegram-admin.php:542
+#: admin/class-wptelegram-admin.php:558
 msgid "Give it a rating"
 msgstr "به آن امتیاز بدهید"
 
-#: admin/class-wptelegram-admin.php:547
+#: admin/class-wptelegram-admin.php:563
 msgid "Need more features?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:554
+#: admin/class-wptelegram-admin.php:570
 msgid "Need help?"
 msgstr "کمک نیاز دارید؟"
 
-#: admin/class-wptelegram-admin.php:556
+#: admin/class-wptelegram-admin.php:572
 msgid "Get LIVE support on Telegram"
 msgstr "پشتیبانی زنده در تلگرام"
 
-#: admin/class-wptelegram-admin.php:572
+#: admin/class-wptelegram-admin.php:588
 msgid "What is NEW?"
 msgstr "چه خبرا؟"
 
 #. translators: plugin name
-#: admin/class-wptelegram-admin.php:578
+#: admin/class-wptelegram-admin.php:594
 msgid "Enjoy %s"
 msgstr "لذت ببرید از  %s"
 
 #. translators: 1 - command name, 2 - Bot
-#: admin/class-wptelegram-admin.php:597
+#: admin/class-wptelegram-admin.php:613
 #, fuzzy
 msgid "Create a Bot by sending %1$s command to %2$s"
 msgstr "ایجاد یک ربات با ارسال دستور  %s به %s"
 
-#: admin/class-wptelegram-admin.php:600
+#: admin/class-wptelegram-admin.php:616
 msgid "After completing the steps %s will provide you the Bot Token."
 msgstr "پس از اتمام مراحل %s به شما یک توکن ربات را می دهد."
 
-#: admin/class-wptelegram-admin.php:601
+#: admin/class-wptelegram-admin.php:617
 msgid "Copy the token and paste into the Bot Token field below."
 msgstr "توکن را کپی کنید و در فیلد نشانگر ربات در پایین وارد کنید."
 
-#: admin/class-wptelegram-admin.php:601
+#: admin/class-wptelegram-admin.php:617
 msgid "For ease, use %s"
 msgstr "برای آسانی، از %s استفاده کنید"
 
-#: admin/class-wptelegram-admin.php:602
+#: admin/class-wptelegram-admin.php:618
 msgid "Test your bot token below."
 msgstr "توکن ربات خود را در زیر آزمایش کنید."
 
-#: admin/class-wptelegram-admin.php:603
+#: admin/class-wptelegram-admin.php:619
 msgid "Activate the modules you want to use."
 msgstr "ماژول‌های مورد استفاده خودتان را فعال کنید."
 
 #. translators: %s - Save changes
-#: admin/class-wptelegram-admin.php:604
+#: admin/class-wptelegram-admin.php:620
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:1056
 msgid "Hit %s below"
 msgstr "روی  %s  در پایین کلیک کنید"
 
-#: admin/class-wptelegram-admin.php:604
+#: admin/class-wptelegram-admin.php:620
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:1056
 msgid "Save Changes"
 msgstr "ذخیره تغییرات"
 
-#: admin/class-wptelegram-admin.php:605
+#: admin/class-wptelegram-admin.php:621
 msgid "Configure the activated modules."
 msgstr "مدیریت ماژول‌های فعال."
 
-#: admin/class-wptelegram-admin.php:606
+#: admin/class-wptelegram-admin.php:622
 msgid "That's it! :)"
 msgstr "خودشه! :)"
 
-#: admin/class-wptelegram-admin.php:624
+#: admin/class-wptelegram-admin.php:640
 msgid "Test Result:"
 msgstr "نتیجه تست:"
 
-#: admin/class-wptelegram-admin.php:631
+#: admin/class-wptelegram-admin.php:647
 msgid "Invalid Bot Username"
 msgstr "شناسه ربات نامعتبر است"
 

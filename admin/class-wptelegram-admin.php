@@ -330,10 +330,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 				'select_all_button' => false,
 				'before_row'        => WPTG()->helpers->open_grid_row_with_col(),
 				'after_row'         => WPTG()->helpers->close_grid_col(),
-				'options'           => array(
-					'bot_api' => __( 'Bot API', 'wptelegram' ),
-					'p2tg'    => __( 'Post to Telegram', 'wptelegram' ),
-				),
+				'options_cb'        => array( $this, 'log_options_cb' ),
 			),
 			array(
 				'name'          => __( 'Debug Info', 'wptelegram' ),
@@ -355,6 +352,25 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 		foreach ( $fields as $field ) {
 			$cmb2->add_field( $field );
 		}
+	}
+
+	/**
+	 * Return options for logs.
+	 *
+	 * @since 2.2.4
+	 *
+	 * @return array
+	 */
+	public function log_options_cb() {
+		$bot_api_file = WPTelegram_Logger::get_log_file_name( 'bot-api' );
+		$p2tg_file    = WPTelegram_Logger::get_log_file_name( 'p2tg' );
+
+		$link = '&ensp;[<a href="%1$s" target="_blank" rel="noreferrer noopener">' . __( 'View', 'wptelegram' ) . '</a>]';
+
+		return array(
+			'bot_api' => __( 'Bot API', 'wptelegram' ) . sprintf( $link, esc_url( content_url( $bot_api_file ) ) ),
+			'p2tg'    => __( 'Post to Telegram', 'wptelegram' ) . sprintf( $link, esc_url( content_url( $p2tg_file ) ) ),
+		);
 	}
 
 	/**

@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.4 - 2021-01-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.4)
+
+### Enhancements
+
+- Added links to view logs
+
+### Bug fixes
+
+- Fixed the bug in notifications when email has multiple recepients.
+
 ## [2.2.3 - 2020-10-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.3)
 
 ### Bug fixes
