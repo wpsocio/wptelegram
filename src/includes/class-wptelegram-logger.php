@@ -289,7 +289,7 @@ class WPTelegram_Logger {
 	/**
 	 * Get log file name.
 	 *
-	 * @since x.y.z
+	 * @since 2.2.4
 	 *
 	 * @param string $type Log type.
 	 *

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram 2.0.12\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2020-10-03 13:56:32+00:00\n"
+"POT-Creation-Date: 2021-01-03 15:50:17+00:00\n"
 "PO-Revision-Date: 2018-12-23 23:05+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Could not connect"
 msgstr "Tidak dapat tersambung"
 
-#: admin/class-wptelegram-admin.php:94 admin/class-wptelegram-admin.php:732
+#: admin/class-wptelegram-admin.php:94 admin/class-wptelegram-admin.php:748
 msgid "Bot Token is empty"
 msgstr "Token Bot Tidak Boleh Kosong"
 
@@ -34,7 +34,7 @@ msgstr "Nama pengguna kosong"
 msgid "Chat ID is empty"
 msgstr "ID Obrolan kosong"
 
-#: admin/class-wptelegram-admin.php:97 admin/class-wptelegram-admin.php:626
+#: admin/class-wptelegram-admin.php:97 admin/class-wptelegram-admin.php:642
 msgid "Invalid Bot Token"
 msgstr "Kesalahan pada Token Bot"
 
@@ -68,7 +68,7 @@ msgstr "Gagal"
 msgid "Error:"
 msgstr "Kesalahan:"
 
-#: admin/class-wptelegram-admin.php:123 admin/class-wptelegram-admin.php:659
+#: admin/class-wptelegram-admin.php:123 admin/class-wptelegram-admin.php:675
 msgid "Settings"
 msgstr "Pengaturan"
 
@@ -144,137 +144,142 @@ msgstr "Google Script proxy tidak mendukung pengunggahan file."
 msgid "Enable logs for"
 msgstr "Aktifkan log untuk"
 
-#: admin/class-wptelegram-admin.php:334
+#: admin/class-wptelegram-admin.php:336
+msgid "Debug Info"
+msgstr "Info Debug"
+
+#: admin/class-wptelegram-admin.php:344
+msgid "Remove settings on uninstall"
+msgstr "Hapus pengaturan pada uninstall"
+
+#: admin/class-wptelegram-admin.php:368
+#, fuzzy
+msgid "View"
+msgstr "Lihat Pos"
+
+#: admin/class-wptelegram-admin.php:371
 msgid "Bot API"
 msgstr "Bot API"
 
-#: admin/class-wptelegram-admin.php:335
+#: admin/class-wptelegram-admin.php:372
 #: includes/class-wptelegram-modules.php:68
 msgid "Post to Telegram"
 msgstr "Posting ke Telegram"
 
-#: admin/class-wptelegram-admin.php:339
-msgid "Debug Info"
-msgstr "Info Debug"
-
-#: admin/class-wptelegram-admin.php:347
-msgid "Remove settings on uninstall"
-msgstr "Hapus pengaturan pada uninstall"
-
-#: admin/class-wptelegram-admin.php:369
+#: admin/class-wptelegram-admin.php:385
 msgid "Want to add more bots?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:371 admin/class-wptelegram-admin.php:511
-#: admin/class-wptelegram-admin.php:549
+#: admin/class-wptelegram-admin.php:387 admin/class-wptelegram-admin.php:527
+#: admin/class-wptelegram-admin.php:565
 #: modules/notify/class-wptelegram-notify-admin.php:165
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:411
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:611
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:461
+#: admin/class-wptelegram-admin.php:477
 msgid "Settings updated"
 msgstr "Pengaturan diperbarui"
 
 #. translators: field name
-#: admin/class-wptelegram-admin.php:477
+#: admin/class-wptelegram-admin.php:493
 msgid "%s is empty"
 msgstr "%s kosong"
 
 #. translators: field name
-#: admin/class-wptelegram-admin.php:479
+#: admin/class-wptelegram-admin.php:495
 msgid "Invalid %s"
 msgstr "%s Tidak valid"
 
-#: admin/class-wptelegram-admin.php:510
+#: admin/class-wptelegram-admin.php:526
 msgid "Want an absolute integration with Telegram?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:536
+#: admin/class-wptelegram-admin.php:552
 msgid "Integrate your WordPress website perfectly with Telegram."
 msgstr "Integrasikan situs WordPress Anda secara sempurna dengan Telegram"
 
 #. translators: plugin name
-#: admin/class-wptelegram-admin.php:540
+#: admin/class-wptelegram-admin.php:556
 msgid "Do you like %s?"
 msgstr "Apa kamu suka %s?"
 
-#: admin/class-wptelegram-admin.php:542
+#: admin/class-wptelegram-admin.php:558
 msgid "Give it a rating"
 msgstr "Beri peringkat"
 
-#: admin/class-wptelegram-admin.php:547
+#: admin/class-wptelegram-admin.php:563
 msgid "Need more features?"
 msgstr ""
 
-#: admin/class-wptelegram-admin.php:554
+#: admin/class-wptelegram-admin.php:570
 msgid "Need help?"
 msgstr "Anda Butuh bantuan?"
 
-#: admin/class-wptelegram-admin.php:556
+#: admin/class-wptelegram-admin.php:572
 msgid "Get LIVE support on Telegram"
 msgstr "Dapatkan dukungan LIVE di Telegram"
 
-#: admin/class-wptelegram-admin.php:572
+#: admin/class-wptelegram-admin.php:588
 msgid "What is NEW?"
 msgstr ""
 
 #. translators: plugin name
-#: admin/class-wptelegram-admin.php:578
+#: admin/class-wptelegram-admin.php:594
 msgid "Enjoy %s"
 msgstr "Nikmati %s"
 
 #. translators: 1 - command name, 2 - Bot
-#: admin/class-wptelegram-admin.php:597
+#: admin/class-wptelegram-admin.php:613
 #, fuzzy
 msgid "Create a Bot by sending %1$s command to %2$s"
 msgstr "Buat Bot dengan mengirimkan perintah %s ke %s"
 
-#: admin/class-wptelegram-admin.php:600
+#: admin/class-wptelegram-admin.php:616
 msgid "After completing the steps %s will provide you the Bot Token."
 msgstr "Setelah selesai tahapan %s anda akan mendapat info Token Bot."
 
-#: admin/class-wptelegram-admin.php:601
+#: admin/class-wptelegram-admin.php:617
 msgid "Copy the token and paste into the Bot Token field below."
 msgstr "Salin token dan tempelkan ke bidang Token Bot di bawah ini."
 
-#: admin/class-wptelegram-admin.php:601
+#: admin/class-wptelegram-admin.php:617
 msgid "For ease, use %s"
 msgstr "Untuk kemudahan, gunakan %s"
 
-#: admin/class-wptelegram-admin.php:602
+#: admin/class-wptelegram-admin.php:618
 msgid "Test your bot token below."
 msgstr "Uji token bot Anda di bawah ini."
 
-#: admin/class-wptelegram-admin.php:603
+#: admin/class-wptelegram-admin.php:619
 msgid "Activate the modules you want to use."
 msgstr "Aktifkan modul yang ingin Anda gunakan."
 
 #. translators: %s - Save changes
-#: admin/class-wptelegram-admin.php:604
+#: admin/class-wptelegram-admin.php:620
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:1056
 msgid "Hit %s below"
 msgstr "Tekan %s dibawah ini"
 
-#: admin/class-wptelegram-admin.php:604
+#: admin/class-wptelegram-admin.php:620
 #: modules/p2tg/class-wptelegram-p2tg-admin.php:1056
 msgid "Save Changes"
 msgstr "Simpan Perubahan"
 
-#: admin/class-wptelegram-admin.php:605
+#: admin/class-wptelegram-admin.php:621
 msgid "Configure the activated modules."
 msgstr "Konfigurasikan modul yang diaktifkan."
 
-#: admin/class-wptelegram-admin.php:606
+#: admin/class-wptelegram-admin.php:622
 msgid "That's it! :)"
 msgstr "Itu dia! :)"
 
-#: admin/class-wptelegram-admin.php:624
+#: admin/class-wptelegram-admin.php:640
 msgid "Test Result:"
 msgstr "Hasil tes:"
 
-#: admin/class-wptelegram-admin.php:631
+#: admin/class-wptelegram-admin.php:647
 msgid "Invalid Bot Username"
 msgstr "Username Bot Tidak Valid"
 

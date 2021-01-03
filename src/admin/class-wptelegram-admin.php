@@ -357,7 +357,7 @@ class WPTelegram_Admin extends WPTelegram_Core_Base {
 	/**
 	 * Return options for logs.
 	 *
-	 * @since x.y.z
+	 * @since 2.2.4
 	 *
 	 * @return array
 	 */
