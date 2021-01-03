@@ -2,6 +2,33 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.4 - 2021-01-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.4)
+
+### Enhancements
+
+- Added links to view logs
+
+### Bug fixes
+
+- Fixed the bug in notifications when email has multiple recepients.
+
+## [2.2.3 - 2020-10-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.3)
+
+### Bug fixes
+
+- Fixed 404 for CSS map files
+
+### Enhancements
+
+- Moved Telegram user ID field to WP Telegram Login
+
+## [2.2.2 - 2020-08-16](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.2)
+
+### Bug fixes
+
+- Fixed HTML characters in categories as hashtags.
+- Fixed admin menu icon
+
 ## [2.2.1 - 2020-08-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.1)
 
 ### Enhancements

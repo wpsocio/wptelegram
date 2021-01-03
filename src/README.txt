@@ -3,9 +3,9 @@ Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 4.7
-Tested up to: 5.4.2
+Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 2.2.1
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,18 @@ Note: You can also contribute in translating this plugin into your local languag
 13. P2TG Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 2.2.4 =
+- Added links to view logs
+- Fixed the bug in notifications when email has multiple recepients.
+
+= 2.2.3 =
+- Fixed 404 for CSS map files
+- Moved Telegram user ID field to WP Telegram Login
+
+= 2.2.2 =
+- Fixed HTML characters in categories as hashtags.
+- Fixed admin menu icon
 
 = 2.2.1 =
 - Update for WP Telegram Pro

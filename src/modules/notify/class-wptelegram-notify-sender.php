@@ -19,14 +19,14 @@
  */
 class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 
-    /**
+	/**
 	 * Bot Token to be used for Telegram API calls
 	 *
 	 * @since  	1.0.0
 	 * @access 	private
-     * @var		string	Telegram Bot Token.
-     */
-    private $bot_token;
+	 * @var		string	Telegram Bot Token.
+	 */
+	private $bot_token;
 
 	/**
 	 * wp_mail arguments
@@ -51,7 +51,7 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 	 *
 	 * @since	1.0.0
 	 * @access	private
-	 * @var		array		$responses
+	 * @var		array  $responses
 	 */
 	private $responses;
 
@@ -77,7 +77,7 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 
 		$this->wp_mail_args = $args;
 
-        $this->bot_token = WPTG()->options()->get( 'bot_token' );
+		$this->bot_token = WPTG()->options()->get( 'bot_token' );
 
 		do_action( 'wptelegram_notify_init', $args );
 	}
@@ -85,9 +85,9 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 	/**
 	 * Filters the wp_mail() arguments
 	 *
-	 * @since	1.0.0
+	 * @since 1.0.0
 	 *
-	 * @param	array	$args	A compacted array of wp_mail() arguments,
+	 * @param	array	$args	A compacted array of wp_mail() arguments.
 	 * including the "to" email, subject, message, headers, and attachments values.
 	 */
 	public function handle_wp_mail( $args ) {
@@ -117,26 +117,26 @@ class WPTelegram_Notify_Sender extends WPTelegram_Module_Base {
 		if ( ! is_array( $to ) ) {
 			$to = explode( ',', $to );
 		}
+		$to = array_map( 'trim', $to );
 
 		foreach ( (array) $to as $recipient ) {
 			// Break $recipient into name and address parts if in the format "Foo <bar@baz.com>"
-			if ( preg_match( '/(.*)<(.+)>/', $recipient, $matches ) && count( $matches ) == 3 ) {
+			if ( preg_match( '/(.*)<(.+)>/', $recipient, $matches ) && count( $matches ) === 3 ) {
 				$email = $matches[2];
 			} else {
 				$email = $recipient;
 			}
 
-			// for comparisons
+			// for comparisons.
 			$email = strtolower( $email );
 
 			if ( 'on' === $user_notify && $chat_id = $this->get_user_chat_id( $email ) ) {
 
 				$this->chats2emails[ $chat_id ] = $email;
 
-			} elseif ( 'any' == $_watch_emails || in_array( $email, $watch_emails ) ) {
+			} elseif ( 'any' == $_watch_emails || in_array( $email, $watch_emails, true ) ) {
 
 				foreach ( $notify_chat_ids as $chat_id ) {
-					
 					$this->chats2emails[ $chat_id ] = $email;
 				}
 
