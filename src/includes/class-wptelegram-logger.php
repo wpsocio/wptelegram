@@ -283,7 +283,7 @@ class WPTelegram_Logger {
 
 		$file_path = $wp_filesystem->wp_content_dir() . $file_name;
 
-		return apply_filters( 'wptelegram_logger_log_file_path', $file_path, $type, $hash );
+		return apply_filters( 'wptelegram_logger_log_file_path', $file_path, $type );
 	}
 
 	/**
