@@ -501,7 +501,7 @@ class WPTelegram_P2TG_Rules {
 		$post_data = array();
 
 		// convert to one dimensional array.
-		$rule_types = array_keys( call_user_func_array( 'array_merge', $this->get_rule_types() ) );
+		$rule_types = array_keys( call_user_func_array( 'array_merge', array_values( $this->get_rule_types() ) ) );
 
 		foreach ( $rule_types as $param ) {
 
