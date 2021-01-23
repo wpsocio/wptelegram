@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented in this file.
 
+## Unreleased
+
+### Enhancements
+
+- Improved the logic to decide new and existing posts
+- Added support for PHP 8
+
+### Bug fixes
+
+- Fixed errors for PHP 8
+
 ## [2.2.4 - 2021-01-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.4)
 
 ### Enhancements
