@@ -1013,33 +1013,25 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 
 			$send_when = $this->options->get( 'send_when' );
 
-			// don't use post_date by default.
-			$use_post_date = (bool) apply_filters( 'wptelegram_p2tg_rules_use_post_date', false, self::$post, $this->options );
+			// if the post has been published more than one day ago.
+			$is_more_than_a_day_old = ( ( time() - get_post_time( 'U', true, self::$post, false ) ) / DAY_IN_SECONDS ) > 1;
 
-			if ( $use_post_date ) {
-				// New/existing.
-				$is_new = ( self::$post->post_date_gmt === self::$post->post_modified_gmt );
-
-			} else {
-
-				// whether the post has already been sent to Telegram.
-				$sent2tg = get_post_meta( self::$post->ID, self::$prefix . 'sent2tg', true );
-				// if the meta value is empty - it's new.
-				$is_new = empty( $sent2tg );
-			}
+			// whether the post has already been sent to Telegram.
+			$sent2tg = get_post_meta( self::$post->ID, self::$prefix . 'sent2tg', true );
+			// if the meta value is empty - it's new.
+			$is_new = empty( $sent2tg ) && ! $is_more_than_a_day_old;
 
 			$is_new = (bool) apply_filters( 'wptelegram_p2tg_rules_is_new_post', $is_new, self::$post, $this->options );
 
-			$send_new = in_array( 'new', $send_when );
+			$send_new = in_array( 'new', $send_when, true );
 			$send_new = (bool) apply_filters( 'wptelegram_p2tg_rules_send_new_post', $send_new, self::$post, $this->options );
 
 			// if sending new posts is disabled and is new post.
 			if ( $is_new && ! $send_new ) {
-
 				return false;
 			}
 
-			$send_existing = in_array( 'existing', $send_when );
+			$send_existing = in_array( 'existing', $send_when, true );
 			$send_existing = (bool) apply_filters( 'wptelegram_p2tg_rules_send_existing_post', $send_existing, self::$post, $this->options );
 
 			// if sending existing posts is disabled and is existing post.
