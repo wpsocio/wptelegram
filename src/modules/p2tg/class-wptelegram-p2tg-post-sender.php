@@ -501,7 +501,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 */
 	public function is_valid_status() {
 
-		$valid_statuses = call_user_func_array( 'array_merge', $this->get_valid_post_statuses() );
+		$valid_statuses = call_user_func_array( 'array_merge', array_values( $this->get_valid_post_statuses() ) );
 
 		return in_array( self::$post->post_status, $valid_statuses, true );
 	}
