@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Unreleased
+## [2.2.5 - 2021-01-23](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.5)
 
 ### Enhancements
 
