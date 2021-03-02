@@ -4,24 +4,22 @@
  */
 #adminmenu #toplevel_page_wptelegram div.wp-menu-image::before {
 	content: " ";
-	background-image: url("../icons/icon-20x20.png");
+	background-image: url("../icons/icon-36x34.png");
 	background-repeat: no-repeat;
 	background-position: 0 0;
-	background-size: 20px;
-	padding: 0px;
-	position: absolute;
-	left: 8px;
-	top: 7px;
+	width: 36px;
+	height: 36px;
+	padding: 0px !important;
 	transition: none;
 }
 #adminmenu
 	#toplevel_page_wptelegram:not(.wp-menu-open):not(.current):hover
 	div.wp-menu-image::before {
-	background-position: 0 -40px;
+	background-position: 0 -68px;
 }
 #adminmenu #toplevel_page_wptelegram.wp-menu-open div.wp-menu-image::before,
 #adminmenu #toplevel_page_wptelegram.current div.wp-menu-image::before {
-	background-position: 0 -20px;
+	background-position: 0 -34px;
 }
 .wptelegram-header-wrapper {
 	background: #fff;
