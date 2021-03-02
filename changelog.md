@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## Unreleased
+
+### Bug fixes
+
+- Fixed the YouTube links being stripped out from the content.
+
 ## [2.2.5 - 2021-01-23](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.5)
 
 ### Enhancements

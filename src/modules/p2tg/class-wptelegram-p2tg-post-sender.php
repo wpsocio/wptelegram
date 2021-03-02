@@ -1575,12 +1575,12 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 * @param array    $r       The HTTP request arguments.
 	 * @param string   $url     The request URL.
 	 *
-	 * @return string
+	 * @return void
 	 */
 	public function modify_http_api_curl( &$handle, $r, $url ) {
 
 		$to_telegram   = ( 0 === strpos( $url, 'https://api.telegram.org/bot' ) );
-		$by_wptelegram = ( isset( $r['headers']['wptelegram_bot'] ) && $r['headers']['wptelegram_bot'] );
+		$by_wptelegram = ! empty( $r['headers']['wptelegram_bot'] );
 		// if the request is sent to Telegram by WP Telegram.
 		if ( $to_telegram && $by_wptelegram ) {
 
@@ -1653,7 +1653,7 @@ class WPTelegram_P2TG_Post_Sender extends WPTelegram_Module_Base {
 	 */
 	private function add_hidden_image_url( $text, $image_url, $parse_mode ) {
 
-		if ( 'HTML' == $parse_mode ) {
+		if ( 'HTML' === $parse_mode ) {
 			// Add Zero Width Non Joiner &#8204; as the anchor text.
 			$string = '<a href="' . $image_url . '">&#8204;</a>';
 		} else {

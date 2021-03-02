@@ -1,45 +1,45 @@
 <?php
-
 /**
  * Post Handling functionality of the plugin.
  *
- * @link		https://t.me/WPTelegram
- * @since		2.0.0
+ * @link        https://t.me/WPTelegram
+ * @since       2.0.0
  *
- * @package		WPTelegram
- * @subpackage	WPTelegram/includes
+ * @package     WPTelegram
+ * @subpackage  WPTelegram/includes
  */
 
 /**
  * The Post Handling functionality of the plugin.
  *
- * @package		WPTelegram
- * @subpackage	WPTelegram/includes
- * @author		Manzoor Wani <@manzoorwanijk>
+ * @package    WPTelegram
+ * @subpackage WPTelegram/includes
+ * @author     Manzoor Wani <@manzoorwanijk>
  */
 class WPTelegram_P2TG_Post_Data {
 
 	/**
-	 * The post to be handled
+	 * The post to be handled.
 	 *
-	 * @var	WP_Post	$post	Post object.
+	 * @var WP_Post $post Post object.
 	 */
 	protected $post;
 
 	/**
 	 * The post data
 	 *
-	 * @since	2.0.0
-	 * @access	protected
-	 * @var		array 		$data 	The array containing the post data
+	 * @since  2.0.0
+	 * @access protected
+	 * @var    array     $data The array containing the post data.
 	 */
 	protected $data;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since   2.0.0
-	 * @param   string    $module_name  The name of the module.
+	 * @since 2.0.0
+	 *
+	 * @param string $post The current post.
 	 */
 	public function __construct( $post ) {
 
@@ -49,9 +49,11 @@ class WPTelegram_P2TG_Post_Data {
 	}
 
 	/**
-	 * Set the post
+	 * Set the post.
 	 *
 	 * @since    2.0.0
+	 *
+	 * @param string $post The current post.
 	 */
 	public function set_post( $post ) {
 
@@ -64,10 +66,10 @@ class WPTelegram_P2TG_Post_Data {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param  string $field	The field to be retrieved
-	 * @param  string $params	Optional params to be used for some fields
+	 * @param  string $field  The field to be retrieved.
+	 * @param  string $params Optional params to be used for some fields.
 	 *
-	 * @return mixed			Field value
+	 * @return mixed Field value.
 	 */
 	public function get_field( $field, $params = array() ) {
 
@@ -90,7 +92,7 @@ class WPTelegram_P2TG_Post_Data {
 	 * @param string $field  The field to be retrieved.
 	 * @param string $params Optional params to be used for some fields.
 	 *
-	 * @return mixed			Field value
+	 * @return mixed Field value.
 	 */
 	public function get_field_value( $field, $params = array() ) {
 
@@ -143,8 +145,12 @@ class WPTelegram_P2TG_Post_Data {
 
 					$filter = str_replace( 'post', 'the', $excerpt_source );
 
+					self::remove_autoembed_filter();
+
 					// apply the_content or the_excerpt.
 					$excerpt = apply_filters( $filter, $excerpt );
+
+					self::restore_autoembed_filter();
 				}
 
 				// remove shortcodes and convert <br> to EOL.
@@ -158,7 +164,11 @@ class WPTelegram_P2TG_Post_Data {
 			case 'post_content':
 				$content = get_post_field( 'post_content', $this->post );
 				$content = str_replace( '<br>', PHP_EOL, $content );
+
+				self::remove_autoembed_filter();
 				$content = apply_filters( 'the_content', $content );
+				self::restore_autoembed_filter();
+
 				$content = trim( strip_tags( html_entity_decode( $content ), '<b><strong><em><i><a><pre><code>' ) );
 				$value   = trim( strip_shortcodes( $content ) );
 				break;
@@ -194,7 +204,6 @@ class WPTelegram_P2TG_Post_Data {
 					switch ( $match[1] ) {
 
 						case 'terms': // if taxonomy.
-
 							$taxonomy = $_field;
 
 							$cats_as_tags = ( isset( $params['cats_as_tags'] ) && 'on' === $params['cats_as_tags'] );
@@ -233,5 +242,23 @@ class WPTelegram_P2TG_Post_Data {
 		$value = apply_filters( 'wptelegram_p2tg_post_data_field_value', $value, $field, $this->post, $params );
 
 		return (string) apply_filters( "wptelegram_p2tg_post_data_{$field}_value", $value, $this->post, $params );
+	}
+
+	/**
+	 * Removes the autoembed filter from the_content
+	 *
+	 * @since x.y.z
+	 */
+	public static function remove_autoembed_filter() {
+		remove_filter( 'the_content', array( $GLOBALS['wp_embed'], 'autoembed' ), 8 );
+	}
+
+	/**
+	 * Restores the autoembed filter to the_content
+	 *
+	 * @since x.y.z
+	 */
+	public static function restore_autoembed_filter() {
+		add_filter( 'the_content', array( $GLOBALS['wp_embed'], 'autoembed' ), 8 );
 	}
 }
