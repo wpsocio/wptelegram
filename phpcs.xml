@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ruleset name="WPTelegram">
+
+     <!-- Enable colors in report -->
+     <arg name="colors"/>
+
+     <!-- Add source codes in the report -->
+     <arg value="s"/>
+
+     <!-- Load WordPress Coding standards -->
+     <rule ref="WordPress"/>
+
+     <!-- Customize -->
+     <rule ref="WordPress">
+          <exclude name="WordPress.Files.FileName" />
+     </rule>
+
+</ruleset>
