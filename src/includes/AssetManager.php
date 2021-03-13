@@ -25,7 +25,7 @@ use WPTelegram\Core\includes\restApi\RESTController;
 class AssetManager extends BaseClass {
 
 	const ADMIN_MAIN_JS_HANDLE    = 'wptelegram--main';
-	const ADMIN_P2TG_GB_JS_HANDLE = 'wptelegram--is-gb-post';
+	const ADMIN_P2TG_GB_JS_HANDLE = 'wptelegram--p2tg-gb';
 
 	/**
 	 * Register the stylesheets for the admin area.
