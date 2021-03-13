@@ -1,0 +1,16 @@
+#adminmenu #toplevel_page_wptelegram div.wp-menu-image::before {
+	content: ' ';
+	background-image: url('../icons/icon-36x34.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 36px;
+	height: 36px;
+	padding: 0px !important;
+	transition: none;
+}
+#adminmenu #toplevel_page_wptelegram:not(.current):hover div.wp-menu-image::before {
+	background-position: 0 -68px;
+}
+#adminmenu #toplevel_page_wptelegram.current div.wp-menu-image::before {
+	background-position: 0 -34px;
+}

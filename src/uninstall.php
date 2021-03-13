@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Fired when the plugin is uninstalled.
  *
@@ -10,27 +9,29 @@
  */
 
 // If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) || ! WP_UNINSTALL_PLUGIN || dirname( WP_UNINSTALL_PLUGIN ) != dirname( plugin_basename( __FILE__ ) ) ) {
-	
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) || ! WP_UNINSTALL_PLUGIN || dirname( WP_UNINSTALL_PLUGIN ) !== dirname( plugin_basename( __FILE__ ) ) ) {
+
 	status_header( 404 );
 	exit;
 }
 
-wptelegram_uninstall();
 
-function wptelegram_uninstall() {
+$options = get_option( 'wptelegram', '' );
 
-	$options = get_option( 'wptelegram' );
+$options = json_decode( $options, true );
 
-	if ( isset( $options['clean_uninstall'] ) && 'on' !== $options['clean_uninstall'] ) {
+/**
+ * Cleans up the stale data.
+ *
+ * @return void
+ */
+function uninstall_wptelegram() {
+	if ( isset( $options['advanced']['clean_uninstall'] ) && false === $options['advanced']['clean_uninstall'] ) {
 		return;
 	}
 
 	$uninstall_options = array(
 		'wptelegram',
-		'wptelegram_notify',
-		'wptelegram_p2tg',
-		'wptelegram_proxy',
 		'wptelegram_ver',
 	);
 
@@ -40,3 +41,5 @@ function wptelegram_uninstall() {
 		delete_option( $option );
 	}
 }
+
+uninstall_wptelegram();

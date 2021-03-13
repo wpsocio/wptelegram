@@ -4,9 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Enhancements
+
+- Switched to PHP namespaces
+- Removed CMB2 dependency
+- Improved and changed admin UI to single page
+- Added option for inline button URL source
+- Added option to change the inline button icon
+
 ### Bug fixes
 
 - Fixed the YouTube links being stripped out from the content.
+- Minor fixes.
 
 ## [2.2.5 - 2021-01-23](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.5)
 

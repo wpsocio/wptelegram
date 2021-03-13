@@ -2,9 +2,9 @@
 Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
-Requires at least: 4.7
-Tested up to: 5.6
-Requires PHP: 5.6
+Requires at least: 5.3
+Tested up to: 5.7
+Requires PHP: 7.0
 Stable tag: 2.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

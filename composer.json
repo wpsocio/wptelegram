@@ -17,5 +17,24 @@
 		"lint": "vendor/bin/phpcs",
 		"lint:skip-warnings": "vendor/bin/phpcs -n",
 		"lint:fix": "vendor/bin/phpcbf"
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org",
+			"only": [
+				"wpackagist-plugin/*"
+			]
+		}
+	],
+	"require": {
+		"wpackagist-plugin/cmb2": ">=2.9.0"
+	},
+	"extra": {
+		"installer-paths": {
+			"temp/{$name}/": [
+				"wpackagist-plugin/cmb2"
+			]
+		}
 	}
 }

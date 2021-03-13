@@ -32,23 +32,22 @@ define( 'WPTELEGRAM_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 define( 'WPTELEGRAM_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
 
-define( 'WPTELEGRAM_MODULES_DIR', WPTELEGRAM_DIR . '/modules' );
-
-define( 'WPTELEGRAM_MODULES_URL', WPTELEGRAM_URL . '/modules' );
-
 // Telegram user ID meta key.
-if ( ! defined( 'WPTELEGRAM_USER_META_KEY' ) ) {
+if ( ! defined( 'WPTELEGRAM_USER_ID_META_KEY' ) ) {
 	// Common for all WP Telegram plugins.
-	define( 'WPTELEGRAM_USER_META_KEY', 'wptelegram_user_id' );
+	define( 'WPTELEGRAM_USER_ID_META_KEY', 'wptelegram_user_id' );
 }
 
+/**
+ * Include autoloader.
+ */
+require WPTELEGRAM_DIR . '/autoload.php';
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wptelegram-activator.php
  */
 function activate_wptelegram() {
-	require_once WPTELEGRAM_DIR . '/includes/class-wptelegram-activator.php';
-	WPTelegram_Activator::activate();
+	\WPTelegram\Core\includes\Activator::activate();
 }
 
 /**
@@ -56,18 +55,11 @@ function activate_wptelegram() {
  * This action is documented in includes/class-wptelegram-deactivator.php
  */
 function deactivate_wptelegram() {
-	require_once WPTELEGRAM_DIR . '/includes/class-wptelegram-deactivator.php';
-	WPTelegram_Deactivator::deactivate();
+	\WPTelegram\Core\includes\Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wptelegram' );
 register_deactivation_hook( __FILE__, 'deactivate_wptelegram' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require WPTELEGRAM_DIR . '/includes/class-wptelegram.php';
 
 /**
  * Begins execution of the plugin and acts as the main instance of WPTelegram.
@@ -80,10 +72,11 @@ require WPTELEGRAM_DIR . '/includes/class-wptelegram.php';
  * not affect the page life cycle.
  *
  * @since    1.0.0
+ *
+ * @return \WPTelegram\Core\includes\Main
  */
 function WPTG() { // phpcs:ignore
-
-	return WPTelegram::instance();
+	return \WPTelegram\Core\includes\Main::instance();
 }
 
 // Fire.
