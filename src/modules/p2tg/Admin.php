@@ -361,7 +361,7 @@ class Admin extends BaseClass {
 		$cmb2->add_field(
 			array(
 				'name'       => __( 'Files', 'wptelegram' ),
-				'desc'       => __( 'Files to be sent after the message', 'wptelegram' ),
+				'desc'       => __( 'Files to be sent after the message.', 'wptelegram' ),
 				'id'         => self::$prefix . 'files',
 				'type'       => 'file_list',
 				'default_cb' => array( $this, 'override_opt_default_cb' ),
@@ -389,7 +389,7 @@ class Admin extends BaseClass {
 		$cmb2->add_field(
 			array(
 				'name'       => __( 'Message Template', 'wptelegram' ),
-				'desc'       => __( 'Structure of the message to be sent', 'wptelegram' ),
+				'desc'       => __( 'Structure of the message to be sent.', 'wptelegram' ),
 				'id'         => self::$prefix . 'message_template',
 				'type'       => 'textarea',
 				'default_cb' => array( $this, 'override_opt_default_cb' ),

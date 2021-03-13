@@ -200,8 +200,10 @@ msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/Sidebar.tsx:17
 msgid ""
-"Display the Telegram Public Channel or Group Feed in a WordPress widget or "
-"anywhere you want using a shortcode."
+"Integrate your WordPress website perfectly with Telegram. Send posts "
+"automatically to Telegram when published or updated, whether to a Telegram "
+"Channel, Group or private chat, with full control. Get your email "
+"notifications on Telegram."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/Sidebar.tsx:20
@@ -347,7 +349,8 @@ msgid "Structure of the message to be sent."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/notify/MessageSettings.tsx:20
-msgid "You can use any text, emojis or these macros in any order:"
+#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:18
+msgid "You can use any text, emojis or these macros in any order."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/notify/Notify.tsx:19
@@ -541,10 +544,6 @@ msgstr ""
 msgid "%s should not be enabled."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:18
-msgid "You can use any text, emojis or these macros in any order."
-msgstr ""
-
 #: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:23
 msgid "You can also use conditional logic in the template."
 msgstr ""
@@ -726,9 +725,6 @@ msgid "Members Count:"
 msgstr ""
 
 #: packages/components/src/TestResult/TestMessageResult.tsx:15
-msgid "Test result:"
-msgstr ""
-
 #: packages/components/src/TestResult/TestResult.tsx:14
 msgid "Test Result:"
 msgstr ""
