@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Improved and changed admin UI to single page
 - Added option for inline button URL source
 - Added option to change the inline button icon
+- Better support for block editor override settings
 
 ### Bug fixes
 

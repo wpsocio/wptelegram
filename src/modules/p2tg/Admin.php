@@ -344,7 +344,7 @@ class Admin extends BaseClass {
 				'select_all_button' => false,
 				'default_cb'        => array( $this, 'override_opt_default_cb' ),
 				'options'           => array_combine( $channels, $channels ),
-				'classes'           => 'hiddens depends-upon-override_switch',
+				'classes'           => 'hidden depends-upon-override_switch',
 			)
 		);
 
@@ -354,7 +354,7 @@ class Admin extends BaseClass {
 				'id'         => self::$prefix . 'disable_notification',
 				'type'       => 'checkbox',
 				'default_cb' => array( $this, 'override_opt_default_cb' ),
-				'classes'    => 'hiddens depends-upon-override_switch',
+				'classes'    => 'hidden depends-upon-override_switch',
 			)
 		);
 
@@ -365,7 +365,7 @@ class Admin extends BaseClass {
 				'id'         => self::$prefix . 'files',
 				'type'       => 'file_list',
 				'default_cb' => array( $this, 'override_opt_default_cb' ),
-				'classes'    => 'hiddens depends-upon-override_switch',
+				'classes'    => 'hidden depends-upon-override_switch',
 			)
 		);
 
@@ -376,7 +376,7 @@ class Admin extends BaseClass {
 				'default_cb' => array( $this, 'override_opt_default_cb' ),
 				'id'         => self::$prefix . 'delay',
 				'type'       => 'text_small',
-				'classes'    => 'hiddens depends-upon-override_switch',
+				'classes'    => 'hidden depends-upon-override_switch',
 				'attributes' => array(
 					'type'        => 'number',
 					'min'         => '0',
@@ -394,7 +394,7 @@ class Admin extends BaseClass {
 				'type'       => 'textarea',
 				'default_cb' => array( $this, 'override_opt_default_cb' ),
 				'escape_cb'  => array( __CLASS__, 'escape_message_template' ),
-				'classes'    => 'hiddens depends-upon-override_switch',
+				'classes'    => 'hidden depends-upon-override_switch',
 				'attributes' => array(
 					'data-emoji-container' => 'p2tg-template-container',
 				),

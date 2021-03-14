@@ -24,8 +24,9 @@ use WPTelegram\Core\includes\restApi\RESTController;
  */
 class AssetManager extends BaseClass {
 
-	const ADMIN_MAIN_JS_HANDLE    = 'wptelegram--main';
-	const ADMIN_P2TG_GB_JS_HANDLE = 'wptelegram--p2tg-gb';
+	const ADMIN_MAIN_JS_HANDLE         = 'wptelegram--main';
+	const ADMIN_P2TG_GB_JS_HANDLE      = 'wptelegram--p2tg-gb';
+	const ADMIN_P2TG_CLASSIC_JS_HANDLE = 'wptelegram--p2tg-classic';
 
 	/**
 	 * Register the stylesheets for the admin area.
@@ -83,6 +84,19 @@ class AssetManager extends BaseClass {
 				$entrypoint,
 				sprintf( 'var wptelegram = %s;', json_encode( $data ) ), // phpcs:ignore WordPress.WP.AlternativeFunctions
 				'before'
+			);
+		}
+
+		// Load Post to Telegram js for classic editor if CMB2 is loaded.
+		if ( $this->is_post_edit_page( $hook_suffix ) && did_action( 'cmb2_init' ) && ! did_action( 'enqueue_block_editor_assets' ) ) {
+			$entrypoint = self::ADMIN_P2TG_CLASSIC_JS_HANDLE;
+
+			wp_enqueue_script(
+				$entrypoint,
+				$this->plugin->assets()->get_asset_url( $entrypoint ),
+				$this->plugin->assets()->get_asset_dependencies( $entrypoint ),
+				$this->plugin->assets()->get_asset_version( $entrypoint ),
+				true
 			);
 		}
 	}
@@ -177,12 +191,24 @@ class AssetManager extends BaseClass {
 	}
 
 	/**
-	 * Enqueue assets for the Gutenberg block
+	 * Whether the current page is the plugin settings page.
 	 *
 	 * @since x.y.z
+	 *
 	 * @param string $hook_suffix The current admin page.
 	 */
 	public function is_settings_page( $hook_suffix ) {
 		return 'toplevel_page_' . $this->plugin->name() === $hook_suffix;
+	}
+
+	/**
+	 * Whether the current page is the post edit page.
+	 *
+	 * @since x.y.z
+	 *
+	 * @param string $hook_suffix The current admin page.
+	 */
+	public function is_post_edit_page( $hook_suffix ) {
+		return 'post-new.php' === $hook_suffix || 'post.php' === $hook_suffix;
 	}
 }
