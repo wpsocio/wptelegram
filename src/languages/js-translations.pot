@@ -696,12 +696,12 @@ msgstr ""
 msgid "Please read the instructions above."
 msgstr ""
 
-#: packages/components/src/InstructionsLink.tsx:12
-msgid "Click here for instructions."
-msgstr ""
-
 #: packages/components/src/Instructions/Instructions.tsx:15
 msgid "INSTRUCTIONS!"
+msgstr ""
+
+#: packages/components/src/InstructionsLink.tsx:12
+msgid "Click here for instructions."
 msgstr ""
 
 #: packages/components/src/PluginInfo/PluginInfoCard.tsx:42
@@ -712,7 +712,7 @@ msgstr ""
 msgid "Need help?"
 msgstr ""
 
-#: packages/components/src/ProxyDisclaimer.tsx:10
+#: packages/components/src/ProxyDisclaimer.tsx:11
 msgid "Use the proxy at your own risk!"
 msgstr ""
 
