@@ -124,7 +124,7 @@ msgid "Proxy Host"
 msgstr ""
 
 #: domains/wptelegram/core/main/src/services/fields.ts:42
-#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:31
+#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:32
 msgid "Proxy Method"
 msgstr ""
 
@@ -194,11 +194,11 @@ msgid "HTML style"
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/ParseModeField.tsx:38
-#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:26
+#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:27
 msgid "Learn more"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:17
+#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:18
 msgid ""
 "Integrate your WordPress website perfectly with Telegram. Send posts "
 "automatically to Telegram when published or updated, whether to a Telegram "
@@ -206,7 +206,7 @@ msgid ""
 "notifications on Telegram."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:20
+#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:21
 msgid "Get LIVE support on Telegram"
 msgstr ""
 
@@ -239,6 +239,54 @@ msgstr ""
 msgid "Advanced settings"
 msgstr ""
 
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:37
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:47
+msgid "Want to add more bots?"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:51
+msgid "Need more features?"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:55
+msgid "Want to use different channels for different categories?"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:60
+msgid "%s supports multiple instances of Post to Telgram with different rules."
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:66
+msgid "%s supports ALL WooCommerce and ACF text fields."
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:70
+msgid "Want to add more buttons?"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:74
+msgid "%s supports delay per channel."
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:78
+msgid "Want to add more emails?"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:82
+msgid "WP Telegram Pro"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:82
+msgid "%s supports Cloudflare proxy for featured image upload!"
+msgstr ""
+
+#: domains/wptelegram/core/main/src/ui/Upsell.tsx:87
+msgid "Upgrade NOW"
+msgstr ""
+
 #: domains/wptelegram/core/main/src/ui/advanced/Advanced.tsx:20
 msgid "Bot API"
 msgstr ""
@@ -257,11 +305,11 @@ msgstr ""
 msgid "Turn off to upload the files/images instead of passing the url."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/basics/Basics.tsx:25
+#: domains/wptelegram/core/main/src/ui/basics/Basics.tsx:26
 msgid "Use %s above to set automatically."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/basics/Basics.tsx:25
+#: domains/wptelegram/core/main/src/ui/basics/Basics.tsx:26
 #: packages/components/src/useBotTokenTest.tsx:46
 msgid "Test Token"
 msgstr ""
@@ -349,7 +397,7 @@ msgid "Structure of the message to be sent."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/notify/MessageSettings.tsx:20
-#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:18
+#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:19
 msgid "You can use any text, emojis or these macros in any order."
 msgstr ""
 
@@ -381,19 +429,19 @@ msgstr ""
 msgid "profile"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/notify/WatchEmails.tsx:21
+#: domains/wptelegram/core/main/src/ui/notify/WatchEmails.tsx:22
 msgid "If you want to receive notification for every email, then write %s."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/notify/WatchEmails.tsx:33
+#: domains/wptelegram/core/main/src/ui/notify/WatchEmails.tsx:35
 msgid "Telegram User or Group Chat ID."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:18
+#: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:19
 msgid "Destination"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:23
+#: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:24
 msgid "Channel Username or Chat ID."
 msgstr ""
 
@@ -421,41 +469,41 @@ msgstr ""
 msgid "Get it from %s."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:13
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:14
 msgid "Miscellaneous"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:15
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:16
 msgid "Show an ON/OFF switch on the post edit screen."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:16
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:17
 msgid ""
 "You can use this switch to override the above settings for a particular "
 "post."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:23
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:24
 msgid "Enable this option if you use a plugin to generate posts."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:33
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:34
 msgid "The delay starts after the post gets published."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:36
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:37
 msgid "Minute(s)"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:40
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:41
 msgid "WordPress cron should not be disabled!"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:53
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:55
 msgid "Send the messages silently."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:54
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:56
 msgid "Users will receive a notification with no sound."
 msgstr ""
 
@@ -463,24 +511,24 @@ msgstr ""
 msgid "With this module, you can configure how the posts are sent to Telegram."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:13
+#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:14
 msgid "Inline Keyboard"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:15
+#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:16
 msgid "Add an inline clickable button for the post URL just below the message."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:27
+#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:28
 msgid "View Post"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:33
+#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:34
 #. template tag/macro
 msgid "You can specify any custom field like %s."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:36
+#: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:37
 msgid "Source of the button URL."
 msgstr ""
 
@@ -544,7 +592,7 @@ msgstr ""
 msgid "%s should not be enabled."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:23
+#: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:24
 msgid "You can also use conditional logic in the template."
 msgstr ""
 
@@ -590,23 +638,23 @@ msgstr ""
 msgid "Select..."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:14
+#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:15
 msgid "A new post is published"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:18
+#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:19
 msgid "An existing post is updated"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:25
+#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:26
 msgid "Rules"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:30
+#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:31
 msgid "When the post should be sent to Telegram."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:38
+#: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:39
 msgid "Which post types should be sent."
 msgstr ""
 
@@ -648,19 +696,19 @@ msgstr ""
 msgid "Leave empty if not required."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:13
+#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:14
 msgid "Google Script"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:17
+#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:18
 msgid "PHP Proxy"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:25
+#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:26
 msgid "The module will help you bypass the ban on Telegram by making use of proxy."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:36
+#: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:37
 msgid "Google Script is preferred."
 msgstr ""
 
@@ -704,11 +752,11 @@ msgstr ""
 msgid "Click here for instructions."
 msgstr ""
 
-#: packages/components/src/PluginInfo/PluginInfoCard.tsx:42
+#: packages/components/src/PluginInfo/PluginInfoCard.tsx:44
 msgid "Do you like %s?"
 msgstr ""
 
-#: packages/components/src/PluginInfo/PluginInfoCard.tsx:61
+#: packages/components/src/PluginInfo/PluginInfoCard.tsx:64
 msgid "Need help?"
 msgstr ""
 
