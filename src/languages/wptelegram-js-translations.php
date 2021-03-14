@@ -522,11 +522,11 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/BotTokenField.tsx:38
 	__( 'Please read the instructions above.', 'wptelegram' ),
 
-	// Reference: packages/components/src/InstructionsLink.tsx:12
-	__( 'Click here for instructions.', 'wptelegram' ),
-
 	// Reference: packages/components/src/Instructions/Instructions.tsx:15
 	__( 'INSTRUCTIONS!', 'wptelegram' ),
+
+	// Reference: packages/components/src/InstructionsLink.tsx:12
+	__( 'Click here for instructions.', 'wptelegram' ),
 
 	// Reference: packages/components/src/PluginInfo/PluginInfoCard.tsx:42
 	__( 'Do you like %s?', 'wptelegram' ),
@@ -534,7 +534,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/PluginInfo/PluginInfoCard.tsx:61
 	__( 'Need help?', 'wptelegram' ),
 
-	// Reference: packages/components/src/ProxyDisclaimer.tsx:10
+	// Reference: packages/components/src/ProxyDisclaimer.tsx:11
 	__( 'Use the proxy at your own risk!', 'wptelegram' ),
 
 	// Reference: packages/components/src/ProxyDisclaimer.tsx:8

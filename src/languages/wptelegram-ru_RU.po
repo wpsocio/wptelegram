@@ -1,9 +1,9 @@
 # Copyright (C) 2017 WP Telegram
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Telegram 2.0.12\n"
+"Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2021-03-13 21:03:36+00:00\n"
+"POT-Creation-Date: 2021-03-14 08:19:44+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:21+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Настройки"
 
-#: includes/AssetManager.php:134
+#: includes/AssetManager.php:148
 msgid ""
 "With this plugin, you can send posts to Telegram and receive notifications "
 "and do lot more :)"
@@ -723,12 +723,12 @@ msgid "Please read the instructions above."
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:526
-msgid "Click here for instructions."
-msgstr ""
-
-#: languages/wptelegram-js-translations.php:529
 msgid "INSTRUCTIONS!"
 msgstr "ИНСТРУКЦИЯ!"
+
+#: languages/wptelegram-js-translations.php:529
+msgid "Click here for instructions."
+msgstr ""
 
 #: languages/wptelegram-js-translations.php:532
 msgid "Do you like %s?"
