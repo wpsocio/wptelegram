@@ -13,10 +13,12 @@ import potomo from 'gulp-potomo';
 import through2 from 'through2';
 import gulpIgnore from 'gulp-ignore';
 import minifycss from 'gulp-uglifycss';
-
+import semverInc from 'semver/functions/inc';
 import config from './gulp.config';
 
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+
+const RELEASES = ['major', 'minor', 'patch'];
 
 /**
  * Gets CLI args as object.
@@ -49,6 +51,29 @@ const errorHandler = (r) => {
 	notify.onError('\n\n❌  ===> ERROR: <%= error.message %>\n')(r);
 	beep();
 };
+
+const calculateVersion = () => {
+	const { type, ver } = getCommandArgs();
+
+	// if the version is passed explicitly, then use that.
+	if (ver) {
+		return ver;
+	}
+
+	// default release.
+	let release = 'patch';
+
+	if (type) {
+		if (!RELEASES.includes(type)) {
+			throw new Error('Unknown release type: ' + type + '\n Usage: gulp release --type minor');
+		}
+		release = type;
+	}
+	const currentVersion = pkg.version;
+
+	const newVersion = semverInc(currentVersion, release);
+	return newVersion;
+}
 
 /**
  * Converts JS POT file to PHP using @wordpress/i18n
@@ -108,6 +133,7 @@ export const generatePotFile = (done) => {
 				}
 			}
 
+			// pot.headers['project-id-version'] = sprintf('%s - %s', pkg.title, calculateVersion());
 			pot.headers['report-msgid-bugs-to'] = config.bugReport;
 			pot.headers['last-translator'] = pkg.title;
 			pot.headers['language-team'] = pkg.title;
@@ -192,17 +218,14 @@ const createVersionUpdateCB = (forFile, version) => {
 	});
 };
 
-export const updateVersion = (done) => {
-	const { ver: version } = getCommandArgs();
-	if (!version) {
-		done(new Error('No version number supplied! usage: gulp updateVersion --ver "x.y.z"'));
-	}
+export const updateVersion = () => {
+	const version = calculateVersion();
 
 	const srcOptions = { base: './' };
 
 	return (
 		gulp
-			.src(['./package.json'], srcOptions)
+			.src(['./package.json', './composer.json'], srcOptions)
 			.pipe(createVersionUpdateCB('package', version))
 			.pipe(gulp.dest('./'))
 
@@ -232,11 +255,8 @@ export const updateVersion = (done) => {
 	);
 };
 
-export const updateChangelog = (done) => {
-	const { ver: version } = getCommandArgs();
-	if (!version) {
-		done(new Error('No version number supplied! usage: gulp updateChangelog --ver "x.y.z"'));
-	}
+export const updateChangelog = () => {
+	const version = calculateVersion();
 
 	const srcOptions = { cwd: './', base: './' };
 

@@ -16,10 +16,13 @@
 		"url": "https://github.com/manzoorwanijk/wptelegram/issues"
 	},
 	"scripts": {
-		"start": "npm run dev",
 		"build": "gulp build",
 		"dev": "gulp dev",
-		"release": "gulp release --ver"
+		"release": "gulp release --ver",
+		"release:major": "gulp release --type major",
+		"release:minor": "gulp release --type minor",
+		"release:patch": "gulp release --type patch",
+		"start": "npm run dev"
 	},
 	"browserslist": [
 		">1%",
@@ -44,6 +47,7 @@
 		"gulp-rename": "^2.0.0",
 		"gulp-uglifycss": "^1.1.0",
 		"node-wp-i18n": "^1.2.5",
-		"prettier": "^2.2.1"
+		"prettier": "^2.2.1",
+		"semver": "7.3.4"
 	}
 }
