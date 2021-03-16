@@ -43,6 +43,6 @@ class Main extends BaseModule {
 
 		$sender = new NotifySender( $this );
 
-		$this->loader->add_filter( 'wp_mail', $sender, 'handle_wp_mail', 10, 1 );
+		add_filter( 'wp_mail', array( $sender, 'handle_wp_mail' ), 10, 1 );
 	}
 }

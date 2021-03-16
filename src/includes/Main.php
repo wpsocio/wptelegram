@@ -41,16 +41,6 @@ final class Main {
 	protected static $instance = null;
 
 	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      Loader    $loader    Maintains and registers all hooks for the plugin.
-	 */
-	protected $loader;
-
-	/**
 	 * Title of the plugin.
 	 *
 	 * @since    1.0.0
@@ -141,14 +131,43 @@ final class Main {
 
 		$this->load_dependencies();
 
-		$this->load_modules();
-
 		$this->set_locale();
 
-		$this->define_admin_hooks();
-		$this->define_other_hooks();
+		$this->init();
+	}
 
-		$this->run();
+	/**
+	 * Registers the initial hooks.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function init() {
+
+		$plugin_upgrade = new Upgrade( $this );
+
+		$modules = new Modules( $this );
+
+		// First lets do the upgrades, if needed.
+		add_action( 'plugins_loaded', array( $plugin_upgrade, 'do_upgrade' ), 10 );
+
+		// Then lets hook everything up.
+		add_action( 'plugins_loaded', array( $this, 'hookup' ), 20 );
+		add_action( 'plugins_loaded', array( $modules, 'load' ), 20 );
+	}
+
+	/**
+	 * Registers the initial hooks.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function hookup() {
+		// If an upgrade is going on.
+		if ( defined( 'WPTELEGRAM_DOING_UPGRADE' ) && WPTELEGRAM_DOING_UPGRADE ) {
+			return;
+		}
+		$this->define_admin_hooks();
 	}
 
 	/**
@@ -174,21 +193,6 @@ final class Main {
 		 */
 		require_once $this->dir( '/includes/html2text/html2text.php' );
 
-		$this->loader = new Loader();
-
-	}
-
-	/**
-	 * Load the active modules
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function load_modules() {
-
-		$modules = new Modules( $this );
-
-		$this->loader->add_action( 'plugins_loaded', $modules, 'load', 15 );
 	}
 
 	/**
@@ -204,7 +208,7 @@ final class Main {
 
 		$plugin_i18n = new I18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		add_action( 'plugins_loaded', array( $plugin_i18n, 'load_plugin_textdomain' ) );
 	}
 
 	/**
@@ -270,43 +274,20 @@ final class Main {
 
 		$plugin_admin = new Admin( $this );
 
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu', 8 );
+		add_action( 'admin_menu', array( $plugin_admin, 'add_plugin_admin_menu' ), 8 );
 
-		$this->loader->add_action( 'rest_api_init', $plugin_admin, 'register_rest_routes' );
+		add_action( 'rest_api_init', array( $plugin_admin, 'register_rest_routes' ) );
 
-		$this->loader->add_filter( 'plugin_action_links_' . WPTELEGRAM_BASENAME, $plugin_admin, 'plugin_action_links' );
+		add_filter( 'plugin_action_links_' . WPTELEGRAM_BASENAME, array( $plugin_admin, 'plugin_action_links' ) );
 
-		$this->loader->add_action( 'init', $plugin_admin, 'initiate_logger' );
+		add_action( 'init', array( $plugin_admin, 'initiate_logger' ) );
 
 		$asset_manager = new AssetManager( $this );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $asset_manager, 'enqueue_admin_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $asset_manager, 'enqueue_admin_scripts' );
+		add_action( 'admin_enqueue_scripts', array( $asset_manager, 'enqueue_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $asset_manager, 'enqueue_admin_scripts' ) );
 
-		$this->loader->add_action( 'enqueue_block_editor_assets', $asset_manager, 'enqueue_block_editor_assets' );
-	}
-
-	/**
-	 * Register all of the hooks related to the public-facing functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_other_hooks() {
-
-		$plugin_upgrade = new Upgrade( $this );
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_upgrade, 'do_upgrade' );
-	}
-
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
-	 * @since    1.0.0
-	 */
-	private function run() {
-		$this->loader->run();
+		add_action( 'enqueue_block_editor_assets', array( $asset_manager, 'enqueue_block_editor_assets' ) );
 	}
 
 	/**

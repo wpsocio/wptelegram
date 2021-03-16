@@ -41,4 +41,14 @@ abstract class BaseClass {
 
 		$this->plugin = $plugin;
 	}
+
+	/**
+	 * Get the instance of the plugin.
+	 *
+	 * @since     x.y.z
+	 * @return    string    The name of the plugin.
+	 */
+	protected function plugin() {
+		return $this->plugin;
+	}
 }

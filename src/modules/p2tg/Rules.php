@@ -214,27 +214,6 @@ class Rules {
 		$values = ! empty( $rule['values'] ) ? wp_list_pluck( $rule['values'], 'value' ) : array();
 		$param  = $rule['param'];
 
-		// if the param is a taxonomy, add children of each taxonomy to values.
-		if ( preg_match( '/^(?:tax:|category$|post_tag$)/i', $param ) && ! empty( $values ) ) {
-
-			$taxonomy = preg_replace( '/^tax:/i', '', $param );
-
-			$include_child = (bool) apply_filters( 'wptelegram_p2tg_rules_include_child_terms', true, $param, $post_data );
-
-			if ( $include_child && is_taxonomy_hierarchical( $taxonomy ) ) {
-
-				// create a copy for loop.
-				$_values = $values;
-
-				foreach ( $_values as $term_id ) {
-
-					$children = get_term_children( (int) $term_id, $taxonomy );
-					// unite children and their parents.
-					$values = array_unique( array_merge( $values, $children ) );
-				}
-			}
-		}
-
 		// if the param doesn't exist in $post_data.
 		if ( ! isset( $post_data[ $param ] ) ) {
 
@@ -266,12 +245,14 @@ class Rules {
 	 * Get the data for post params
 	 *
 	 * @since   1.0.0
+	 * @access   private
+	 *
 	 * @param string  $param The post field.
 	 * @param WP_Post $post  The post.
 	 *
 	 * @return  bool
 	 */
-	public function get_post_data_for_param( $param, $post ) {
+	private function get_post_data_for_param( $param, $post ) {
 
 		$data = array();
 
@@ -289,7 +270,7 @@ class Rules {
 					$post_format = 'standard';
 				}
 
-				$data = $post_format;
+				$data = array( $post_format );
 
 				break;
 
@@ -310,6 +291,21 @@ class Rules {
 					if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
 
 						$data = wp_list_pluck( array_filter( $terms ), 'term_id' );
+
+						$include_child = (bool) apply_filters( 'wptelegram_p2tg_rules_include_child_terms', true, $param, $data );
+
+						if ( ! empty( $data ) && $include_child && is_taxonomy_hierarchical( $taxonomy ) ) {
+
+							// create a copy for loop.
+							$_data = $data;
+							foreach ( $_data as $term_id ) {
+
+								$children = get_term_children( (int) $term_id, $taxonomy );
+								// unite children and their parents.
+								$data = array_merge( $data, $children );
+							}
+							$data = array_unique( $data );
+						}
 					}
 				}
 

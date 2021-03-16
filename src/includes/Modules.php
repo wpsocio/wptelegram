@@ -34,17 +34,21 @@ class Modules extends BaseClass {
 	 * Load the active modules
 	 *
 	 * @since   1.0.0
-	 * @access   private
+	 * @access   public
 	 */
 	public function load() {
+		// If an upgrade is going on.
+		if ( defined( 'WPTELEGRAM_DOING_UPGRADE' ) && WPTELEGRAM_DOING_UPGRADE ) {
+			return;
+		}
 
-		$namespace = '\WPTelegram\Core\modules';
+		$namespace = 'WPTelegram\Core\modules';
 
 		foreach ( self::get_all_modules() as $module ) {
 
 			$main = "{$namespace}\\{$module}\Main";
 
-			$main::instance( $module )->run();
+			$main::instance( $module );
 
 			define( 'WPTELEGRAM_' . strtoupper( $module ) . '_LOADED', true );
 		}

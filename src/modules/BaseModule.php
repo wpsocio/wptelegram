@@ -13,7 +13,6 @@
 
 namespace WPTelegram\Core\modules;
 
-use WPTelegram\Core\includes\Loader;
 use WPTelegram\Core\includes\Options;
 
 /**
@@ -33,16 +32,6 @@ abstract class BaseModule {
 	 * @var   Main $instance The instance.
 	 */
 	protected static $instance = null;
-
-	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      Loader    $loader    Maintains and registers all hooks for the plugin.
-	 */
-	protected $loader;
 
 	/**
 	 * The module options
@@ -91,24 +80,11 @@ abstract class BaseModule {
 
 		$this->module_name = $module_name;
 
-		$this->set_options();
-
-		$this->loader = new Loader();
-
 		$this->define_necessary_hooks();
 
-		if ( $this->options->get( 'active' ) ) {
+		if ( $this->options()->get( 'active' ) ) {
 			$this->define_on_active_hooks();
 		}
-	}
-
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
-	 * @since    x.y.z
-	 */
-	public function run() {
-		$this->loader->run();
 	}
 
 	/**
@@ -122,7 +98,7 @@ abstract class BaseModule {
 
 		$this->options = new Options();
 
-		$this->options->set_data( $data );
+		$this->options->set_data( (array) $data );
 	}
 
 
@@ -135,6 +111,9 @@ abstract class BaseModule {
 	 * @return Options
 	 */
 	public function options() {
+		if ( ! $this->options ) {
+			$this->set_options();
+		}
 		return $this->options;
 	}
 

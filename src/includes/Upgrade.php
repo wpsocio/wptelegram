@@ -57,6 +57,10 @@ class Upgrade {
 			return;
 		}
 
+		if ( ! defined( 'WPTELEGRAM_DOING_UPGRADE' ) ) {
+			define( 'WPTELEGRAM_DOING_UPGRADE', true );
+		}
+
 		do_action( 'wptelegram_before_do_upgrade', $current_version );
 
 		$is_new_install = ! get_option( 'wptelegram_telegram' ) && ! get_option( 'wptelegram' );
@@ -405,9 +409,22 @@ class Upgrade {
 	 * @since    x.y.z
 	 */
 	protected function upgrade_to_3_0_0() {
+		/**
+		 * Since this upgrade needs taxonomies registered,
+		 * we will run it on init.
+		 */
+		add_action( 'init', array( $this, 'upgrade_to_3_0_0_on_init' ), 50 );
+	}
+
+	/**
+	 * Upgrade to 3.0.0
+	 *
+	 * @since    x.y.z
+	 */
+	public function upgrade_to_3_0_0_on_init() {
 		$main_options = get_option( 'wptelegram', array() );
 
-		$modules = $main_options['modules'];
+		$modules = reset( $main_options['modules'] );
 		unset( $modules['fake'] );
 
 		$active_modules = array_keys( $modules );

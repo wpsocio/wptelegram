@@ -148,6 +148,9 @@ class RulesController extends RESTController {
 							return in_array( $option['value'], $include, true );
 						}
 					);
+
+					// Reset array keys.
+					$options = array_values( $options );
 				}
 
 				break;
@@ -227,6 +230,10 @@ class RulesController extends RESTController {
 				'include'    => $include,
 			)
 		);
+
+		if ( is_wp_error( $terms ) ) {
+			return $term_list;
+		}
 
 		$terms_count = count( $terms );
 

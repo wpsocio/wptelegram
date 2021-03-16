@@ -74,7 +74,7 @@ class Admin extends BaseClass {
 	 * @return array
 	 */
 	public function plugin_action_links( $links ) {
-		$settings_link = '<a href="' . menu_page_url( $this->plugin_name, false ) . '">' . esc_html( __( 'Settings', 'wptelegram' ) ) . '</a>';
+		$settings_link = '<a href="' . menu_page_url( $this->plugin->name(), false ) . '">' . esc_html( __( 'Settings', 'wptelegram' ) ) . '</a>';
 		array_unshift( $links, $settings_link );
 
 		return $links;
