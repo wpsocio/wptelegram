@@ -97,6 +97,68 @@ class SettingsController extends RESTController {
 	}
 
 	/**
+	 * Get the default values for settings.
+	 *
+	 * @return array
+	 */
+	public static function get_default_values() {
+		return array(
+			'bot_token'    => '',
+			'bot_username' => '',
+			'p2tg'         => array(
+				// flag.
+				'active'                   => false,
+				// Destination.
+				'channels'                 => array(),
+				// Rules.
+				'send_when'                => array( 'new' ),
+				'post_types'               => array( 'post' ),
+				'rules'                    => array(),
+				// Message.
+				'message_template'         => '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}',
+				'excerpt_source'           => 'post_content',
+				'excerpt_length'           => 55,
+				'excerpt_preserve_eol'     => true,
+				// Image.
+				'send_featured_image'      => true,
+				'image_position'           => 'before',
+				'single_message'           => true,
+				// Formatting.
+				'cats_as_tags'             => false,
+				'parse_mode'               => 'none',
+				'disable_web_page_preview' => false,
+				// Inline button.
+				'inline_url_button'        => false,
+				'inline_button_text'       => sprintf( '🔗 %s', __( 'View Post', 'wptelegram' ) ),
+				'inline_button_url'        => '{full_url}',
+				// Misc.
+				'plugin_posts'             => false,
+				'post_edit_switch'         => true,
+				'delay'                    => 0.5,
+				'disable_notification'     => false,
+			),
+			'notify'       => array(
+				'active'             => false,
+				'watch_emails'       => get_option( 'admin_email' ),
+				'chat_ids'           => array(),
+				'user_notifications' => false,
+				'message_template'   => '🔔‌<b>{email_subject}</b>🔔' . PHP_EOL . PHP_EOL . '{email_message}',
+				'parse_mode'         => 'HTML',
+			),
+			'proxy'        => array(
+				'active'       => false,
+				'proxy_method' => 'google_script',
+				'proxy_type'   => 'CURLPROXY_HTTP',
+			),
+			'advanced'     => array(
+				'send_files_by_url' => true,
+				'enable_logs'       => array(),
+				'clean_uninstall'   => true,
+			),
+		);
+	}
+
+	/**
 	 * Get the default settings.
 	 *
 	 * @return array
@@ -105,16 +167,9 @@ class SettingsController extends RESTController {
 
 		$settings = WPTG()->options()->get_data();
 
-		// If we have somethings saved.
-		if ( ! empty( $settings ) ) {
-			return $settings;
-		}
-
-		// Get the default values.
-		$settings = self::get_settings_params();
-
-		foreach ( $settings as $key => $args ) {
-			$settings[ $key ] = isset( $args['default'] ) ? $args['default'] : '';
+		// If we have something saved.
+		if ( empty( $settings ) ) {
+			$settings = self::get_default_values();
 		}
 
 		return $settings;
@@ -166,17 +221,20 @@ class SettingsController extends RESTController {
 
 		return array(
 			'bot_token'    => array(
-				'type'     => 'string',
-				'required' => ( 'edit' === $context ),
-				'pattern'  => Utils::enhance_regex( API::BOT_TOKEN_PATTERN, true ),
+				'type'              => 'string',
+				'required'          => ( 'edit' === $context ),
+				'pattern'           => Utils::enhance_regex( API::BOT_TOKEN_PATTERN, true ),
+				'sanitize_callback' => 'sanitize_text_field',
 			),
 			'bot_username' => array(
-				'type'    => 'string',
-				'pattern' => Utils::enhance_regex( self::TG_USERNAME_PATTERN, true ),
+				'type'              => 'string',
+				'pattern'           => Utils::enhance_regex( self::TG_USERNAME_PATTERN, true ),
+				'sanitize_callback' => 'sanitize_text_field',
 			),
 			'p2tg'         => array(
-				'type'       => 'object',
-				'properties' => array(
+				'type'              => 'object',
+				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
+				'properties'        => array(
 					'active'                   => array(
 						'type' => 'boolean',
 					),
@@ -291,8 +349,9 @@ class SettingsController extends RESTController {
 				),
 			),
 			'notify'       => array(
-				'type'       => 'object',
-				'properties' => array(
+				'type'              => 'object',
+				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
+				'properties'        => array(
 					'active'             => array(
 						'type' => 'boolean',
 					),
@@ -318,8 +377,9 @@ class SettingsController extends RESTController {
 				),
 			),
 			'proxy'        => array(
-				'type'       => 'object',
-				'properties' => array(
+				'type'              => 'object',
+				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
+				'properties'        => array(
 					'active'            => array(
 						'type' => 'boolean',
 					),
@@ -356,8 +416,9 @@ class SettingsController extends RESTController {
 				),
 			),
 			'advanced'     => array(
-				'type'       => 'object',
-				'properties' => array(
+				'type'              => 'object',
+				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
+				'properties'        => array(
 					'send_files_by_url' => array(
 						'type' => 'boolean',
 					),
@@ -374,5 +435,26 @@ class SettingsController extends RESTController {
 				),
 			),
 		);
+	}
+
+	/**
+	 * Sanitize the request param.
+	 *
+	 * @since x.y.z
+	 *
+	 * @param mixed           $value   Value of the param.
+	 * @param WP_REST_Request $request WP REST API request.
+	 * @param string          $param     The param key.
+	 */
+	public static function sanitize_param( $value, WP_REST_Request $request, $param ) {
+		// First lets make the value safer.
+		$safe_value = Utils::sanitize( $value );
+
+		if ( in_array( $param, array( 'p2tg', 'notify' ), true ) ) {
+			// Sanitize the template separately.
+			$safe_value['message_template'] = Utils::sanitize_message_template( $value['message_template'] );
+		}
+
+		return $safe_value;
 	}
 }

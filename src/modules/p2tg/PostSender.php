@@ -160,7 +160,7 @@ class PostSender extends BaseClass {
 
 					$form_data = Utils::sanitize( $data );
 					// Sanitize the template separately.
-					$form_data['message_template'] = Utils::sanitize_message_template( $data['message_template'], false, false );
+					$form_data['message_template'] = Utils::sanitize_message_template( $data['message_template'] );
 
 					$form_data['send2tg'] = $form_data['send2tg'] ? 'yes' : 'no';
 
@@ -195,7 +195,7 @@ class PostSender extends BaseClass {
 				// if the template is set.
 				if ( isset( $_POST[ self::$prefix . 'message_template' ] ) ) { // phpcs:ignore
 					// sanitize the template.
-					$template = Utils::sanitize_message_template( $_POST[ self::$prefix . 'message_template' ], false, false ); // phpcs:ignore
+					$template = Utils::sanitize_message_template( $_POST[ self::$prefix . 'message_template' ] ); // phpcs:ignore
 					// override the default template.
 					$this->form_data['message_template'] = $template;
 				}
@@ -1220,18 +1220,23 @@ class PostSender extends BaseClass {
 	 */
 	public function get_inline_keyboard( $method_params ) {
 
-		$inline_url_button = $this->options->get( 'inline_url_button' );
-
-		if ( ! $inline_url_button ) {
-			return false;
-		}
-
+		$inline_url_button  = $this->options->get( 'inline_url_button' );
 		$inline_button_text = $this->options->get( 'inline_button_text' );
 		$inline_button_url  = $this->options->get( 'inline_button_url' );
 
+		if ( ! $inline_url_button || ! $inline_button_text || ! $inline_button_url ) {
+			return false;
+		}
+
+		$url = self::get_parsed_button_url( $inline_button_url, self::$post->ID );
+
+		if ( ! $url ) {
+			return false;
+		}
+
 		$default_button = array(
 			'text' => $inline_button_text,
-			'url'  => self::get_parsed_button_url( $inline_button_url, self::$post->ID ),
+			'url'  => $url,
 		);
 
 		$default_button = (array) apply_filters( 'wptelegram_p2tg_default_inline_button', $default_button, self::$post, $method_params );
@@ -1256,8 +1261,6 @@ class PostSender extends BaseClass {
 			'full_url',
 			'short_url',
 		);
-
-		$full_url = self::$post_data->get_field( 'full_url' );
 
 		$post_data = new PostData( $post_id );
 
@@ -1288,13 +1291,9 @@ class PostSender extends BaseClass {
 		$macro_values = (array) apply_filters( 'wptelegram_p2tg_button_url_macro_values', $macro_values, $url_template, $post_id );
 
 		// decode all HTML entities & URL encode non-URL values.
-		foreach ( $macro_values as $macro_key => &$value ) {
+		foreach ( $macro_values as &$value ) {
 			// decode all HTML entities.
 			$value = html_entity_decode( $value, ENT_QUOTES, 'UTF-8' );
-			// the key should not contain the keyword "url".
-			if ( ! preg_match( '/url/i', $macro_key ) ) {
-				$value = rawurlencode( $value );
-			}
 		}
 
 		$url = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $url_template );

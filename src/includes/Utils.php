@@ -33,25 +33,29 @@ class Utils {
 	 */
 	public static function sanitize( $input, $typefy = false ) {
 
-		$raw_input = $input;
-
 		if ( is_array( $input ) ) {
 
 			foreach ( $input as $key => $value ) {
 
 				$input[ sanitize_text_field( $key ) ] = self::sanitize( $value, $typefy );
 			}
-		} else {
-			$input = sanitize_text_field( $input );
-
-			// avoid numeric or boolean values as strings.
-			if ( $typefy ) {
-
-				$input = self::typefy( $input );
-			}
+			return $input;
 		}
 
-		return apply_filters( 'wptelegram_utils_sanitize', $input, $raw_input, $typefy );
+		// These are safe types.
+		if ( is_bool( $input ) || is_int( $input ) || is_float( $input ) ) {
+			return $input;
+		}
+
+		// Now we will treat it as string.
+		$input = sanitize_text_field( $input );
+
+		// avoid numeric or boolean values as strings.
+		if ( $typefy ) {
+			return self::typefy( $input );
+		}
+
+		return $input;
 	}
 
 	/**
@@ -64,18 +68,16 @@ class Utils {
 	 */
 	public static function typefy( $input ) {
 
-		$raw_input = $input;
-
 		if ( is_numeric( $input ) ) {
 
-			$input = floatval( $input );
+			return floatval( $input );
 
 		} elseif ( is_string( $input ) && preg_match( '/^(?:true|false)$/i', $input ) ) {
 
-			$input = ( 'true' === strtolower( $input ) ) ? true : false;
+			return ( 'true' === strtolower( $input ) ) ? true : false;
 		}
 
-		return apply_filters( 'wptelegram_utils_typefy', $input, $raw_input );
+		return $input;
 	}
 
 	/**
@@ -214,12 +216,12 @@ class Utils {
 	 * @since 1.0.0
 	 *
 	 * @param  mixed   $value       The unsanitized value from the form.
-	 * @param  boolean $addslashes Whether to addslashes for database.
-	 * @param  boolean $json_encode   Whether to json_encode.
+	 * @param  boolean $addslashes  Whether to addslashes for database.
+	 * @param  boolean $json_encode Whether to json_encode.
 	 *
-	 * @return mixed                  Sanitized value
+	 * @return mixed Sanitized value.
 	 */
-	public static function sanitize_message_template( $value, $addslashes = true, $json_encode = true ) {
+	public static function sanitize_message_template( $value, $addslashes = false, $json_encode = false ) {
 
 		$filtered = wp_check_invalid_utf8( $value );
 
@@ -253,10 +255,7 @@ class Utils {
 			$filtered = addslashes( $filtered );
 		}
 
-		// save to a variable for PHP < 5.3.
-		$args = func_get_args();
-
-		return apply_filters( 'wptelegram_sanitize_message_template', $filtered, $args );
+		return apply_filters( 'wptelegram_sanitize_message_template', $filtered, func_get_args() );
 	}
 
 	/**

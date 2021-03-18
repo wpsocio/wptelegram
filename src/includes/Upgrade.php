@@ -289,7 +289,7 @@ class Upgrade {
 				}
 			}
 
-			$wptelegram_p2tg['message_template'] = Utils::sanitize_message_template( $template, false );
+			$wptelegram_p2tg['message_template'] = Utils::sanitize_message_template( $template, false, true );
 		}
 
 		// now decide about single_message.
@@ -316,7 +316,7 @@ class Upgrade {
 				$template .= PHP_EOL . PHP_EOL . $notify_opts['hashtag'];
 			}
 
-			$wptelegram_notify['message_template'] = Utils::sanitize_message_template( $template, false );
+			$wptelegram_notify['message_template'] = Utils::sanitize_message_template( $template, false, true );
 
 			$wptelegram_notify['parse_mode'] = 'HTML';
 		}
