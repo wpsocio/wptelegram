@@ -120,18 +120,18 @@ Note: You can also contribute in translating this plugin into your local languag
 == Screenshots ==
 
 1. Basic Settings
-2. Advanced Settings
-3. Post To Telegram (P2TG) Settings 
-4. P2TG Settings (Cont...)
-5. P2TG Settings (Cont...)
-6. P2TG Settings (Cont...)
-7. P2TG Settings (Cont...)
-8. Private Notification Settings
-9. User profile page
-10. Proxy Settings
-11. Proxy Settings (Cont...)
-12. P2TG Post Edit Page (Classic Editor)
-13. P2TG Post Edit Page (Block Editor)
+2. Post To Telegram Settings 
+3. Post To Telegram Settings (Cont...)
+4. Post To Telegram Settings (Cont...)
+5. Post To Telegram Settings (Cont...)
+6. Private Notifications Settings
+7. Private Notifications Settings (Cont...)
+8. Proxy Settings
+9. Proxy Settings (Cont...)
+10. Advanced Settings
+11. Post Edit Page (Classic Editor)
+12. Post Edit Page (Block Editor)
+13. Post Edit Page (Block Editor)
 
 == Changelog ==
 
