@@ -74,7 +74,13 @@ WP Telegram Pro comes with more powerful features to give you more control. [Upg
 * Can be extended with custom code
 * Translation ready
 
-https://www.youtube.com/watch?v=MFTQo3ObWmc
+**Getting Started | Post to Telegram**
+
+https://www.youtube.com/watch?v=m48V-gWz9-o
+
+**WooCommerce, CF7 etc. Notifications**
+
+https://www.youtube.com/watch?v=gVJCtwkorMA
 
 **Get in touch**
 
