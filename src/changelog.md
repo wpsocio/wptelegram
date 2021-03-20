@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.1 - 2021-03-20](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.1)
+
 ## [3.0.0 - 2021-03-20](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.0)
 
 ### Enhancements
