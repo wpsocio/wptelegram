@@ -20,8 +20,8 @@
  * autoloading classes.
  */
 
-require_once( dirname(__FILE__) . "/src/Html2Text.php");
-require_once( dirname(__FILE__) . "/src/Html2TextException.php");
+require_once dirname( __FILE__ ) . '/src/Html2Text.php';
+require_once dirname( __FILE__ ) . '/src/Html2TextException.php';
 // Better safe than sorry :)
 if ( ! function_exists( 'convert_html_to_text' ) ) {
 	function convert_html_to_text( $html, $ignore_error ) {
@@ -29,7 +29,7 @@ if ( ! function_exists( 'convert_html_to_text' ) ) {
 	}
 }
 if ( ! function_exists( 'fix_newlines' ) ) {
-	function fix_newlines($text) {
-		return Html2Text::fixNewlines($text);
+	function fix_newlines( $text ) {
+		return Html2Text::fixNewlines( $text );
 	}
 }

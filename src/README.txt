@@ -2,10 +2,10 @@
 Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
-Requires at least: 4.7
-Tested up to: 5.6
-Requires PHP: 5.6
-Stable tag: 2.2.5
+Requires at least: 5.3
+Tested up to: 5.7
+Requires PHP: 7.0
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,7 +74,13 @@ WP Telegram Pro comes with more powerful features to give you more control. [Upg
 * Can be extended with custom code
 * Translation ready
 
-https://www.youtube.com/watch?v=MFTQo3ObWmc
+**Getting Started | Post to Telegram**
+
+https://www.youtube.com/watch?v=m48V-gWz9-o
+
+**WooCommerce, CF7 etc. Notifications**
+
+https://www.youtube.com/watch?v=gVJCtwkorMA
 
 **Get in touch**
 
@@ -120,43 +126,30 @@ Note: You can also contribute in translating this plugin into your local languag
 == Screenshots ==
 
 1. Basic Settings
-2. Advanced Settings
-3. Post To Telegram (P2TG) Settings 
-4. P2TG Settings (Cont...)
-5. P2TG Settings (Cont...)
-6. P2TG Settings (Cont...)
-7. P2TG Settings (Cont...)
-8. Private Notification Settings
-9. User profile page
-10. Proxy Settings
-11. Proxy Settings (Cont...)
-12. P2TG Post Edit Page (Classic Editor)
-13. P2TG Post Edit Page (Block Editor)
+2. Post To Telegram Settings 
+3. Post To Telegram Settings (Cont...)
+4. Post To Telegram Settings (Cont...)
+5. Post To Telegram Settings (Cont...)
+6. Private Notifications Settings
+7. Private Notifications Settings (Cont...)
+8. Proxy Settings
+9. Proxy Settings (Cont...)
+10. Advanced Settings
+11. Post Edit Page (Classic Editor)
+12. Post Edit Page (Block Editor)
+13. Post Edit Page (Block Editor)
 
 == Changelog ==
 
-= 2.2.5 =
-- Improved the logic to decide new and existing posts
-- Added support for PHP 8
-- Fixed errors for PHP 8
-
-= 2.2.4 =
-- Added links to view logs
-- Fixed the bug in notifications when email has multiple recepients.
-
-= 2.2.3 =
-- Fixed 404 for CSS map files
-- Moved Telegram user ID field to WP Telegram Login
-
-= 2.2.2 =
-- Fixed HTML characters in categories as hashtags.
-- Fixed admin menu icon
-
-= 2.2.1 =
-- Update for WP Telegram Pro
-
-= 2.2.0 =
-- Unified Telegram user ID for all plugins
+= 3.0.0 =
+- Switched to PHP namespaces
+- Removed CMB2 dependency
+- Improved and changed admin UI to single page
+- Added option for inline button URL source
+- Added option to change the inline button icon
+- Better support for block editor override settings
+- Fixed the YouTube links being stripped out from the content.
+- Minor fixes.
 
 == Upgrade Notice ==
 

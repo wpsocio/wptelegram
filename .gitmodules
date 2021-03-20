@@ -1,0 +1,3 @@
+[submodule "src/includes/wptelegram-bot-api"]
+	path = src/includes/wptelegram-bot-api
+	url = https://github.com/manzoorwanijk/wptelegram-bot-api.git

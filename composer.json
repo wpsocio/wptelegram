@@ -1,0 +1,43 @@
+{
+	"name": "wptelegram/core",
+	"version": "3.0.0",
+	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "*",
+		"object-calisthenics/phpcs-calisthenics-rules": "*",
+		"phpcompatibility/php-compatibility": "*",
+		"wp-coding-standards/wpcs": "*",
+		"wp-cli/wp-cli-bundle": "*"
+	},
+	"scripts": {
+		"post-install-cmd": [
+            "composer run set-config"
+        ],
+		"set-config": [
+			"\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs",
+			"\"vendor/bin/phpcs\" --config-set default_standard WordPress"
+		],
+		"lint": "vendor/bin/phpcs",
+		"lint:skip-warnings": "vendor/bin/phpcs -n",
+		"lint:fix": "vendor/bin/phpcbf"
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org",
+			"only": [
+				"wpackagist-plugin/*"
+			]
+		}
+	],
+	"require": {
+		"wpackagist-plugin/cmb2": ">=2.9.0"
+	},
+	"extra": {
+		"installer-paths": {
+			"temp/{$name}/": [
+				"wpackagist-plugin/cmb2"
+			]
+		}
+	}
+}

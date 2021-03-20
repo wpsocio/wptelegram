@@ -14,7 +14,7 @@ project.properties
 # Grunt
 build/
 node_modules/
-temp/
+/temp/
 none
 
 # Sass
