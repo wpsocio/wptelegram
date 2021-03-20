@@ -133,7 +133,7 @@ class PostSender extends BaseClass {
 	/**
 	 * Sets the form submission data.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public function set_form_data() {
 		// Default data.
@@ -1249,7 +1249,7 @@ class PostSender extends BaseClass {
 	/**
 	 * Parse the tags/macros in a button URL.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param string $url_template The dynamic url template.
 	 * @param int    $post_id      The post ID.

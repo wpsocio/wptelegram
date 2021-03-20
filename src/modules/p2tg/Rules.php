@@ -176,7 +176,7 @@ class Rules {
 	/**
 	 * Get the types of rules.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 *
 	 * @param WP_Post $post  The post being processed.
 	 *

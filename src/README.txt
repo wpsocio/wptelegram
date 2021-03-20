@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 2.2.5
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,28 +141,15 @@ Note: You can also contribute in translating this plugin into your local languag
 
 == Changelog ==
 
-= 2.2.5 =
-- Improved the logic to decide new and existing posts
-- Added support for PHP 8
-- Fixed errors for PHP 8
-
-= 2.2.4 =
-- Added links to view logs
-- Fixed the bug in notifications when email has multiple recepients.
-
-= 2.2.3 =
-- Fixed 404 for CSS map files
-- Moved Telegram user ID field to WP Telegram Login
-
-= 2.2.2 =
-- Fixed HTML characters in categories as hashtags.
-- Fixed admin menu icon
-
-= 2.2.1 =
-- Update for WP Telegram Pro
-
-= 2.2.0 =
-- Unified Telegram user ID for all plugins
+= 3.0.0 =
+- Switched to PHP namespaces
+- Removed CMB2 dependency
+- Improved and changed admin UI to single page
+- Added option for inline button URL source
+- Added option to change the inline button icon
+- Better support for block editor override settings
+- Fixed the YouTube links being stripped out from the content.
+- Minor fixes.
 
 == Upgrade Notice ==
 

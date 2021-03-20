@@ -406,7 +406,7 @@ class Upgrade {
 	/**
 	 * Upgrade to 3.0.0
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 */
 	protected function upgrade_to_3_0_0() {
 		/**
@@ -419,7 +419,7 @@ class Upgrade {
 	/**
 	 * Upgrade to 3.0.0
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 */
 	public function upgrade_to_3_0_0_on_init() {
 		$main_options = get_option( 'wptelegram', array() );

@@ -3,7 +3,7 @@
  * Check the current request details.
  *
  * @link       https://t.me/manzoorwanijk
- * @since      x.y.z
+ * @since      3.0.0
  *
  * @package    WPTelegram
  * @subpackage WPTelegram/modules
@@ -45,7 +45,7 @@ class RequestCheck {
 	/**
 	 * If the request is a POST request
 	 *
-	 * @since   x.y.z
+	 * @since   3.0.0
 	 *
 	 * @access  private
 	 * @var     boolean  If the request is a POST request.
@@ -64,7 +64,7 @@ class RequestCheck {
 	/**
 	 * If the request is a POST request
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 */
 	public static function is_post_request() {
 
@@ -77,7 +77,7 @@ class RequestCheck {
 	/**
 	 * Get the taxonomy for rule types
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 *
 	 * @param string  $type The type of request.
 	 * @param WP_Post $post The to check against.

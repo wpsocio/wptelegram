@@ -79,7 +79,7 @@ final class Main {
 	/**
 	 * The assets handler.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   protected
 	 * @var      string    $assets    The assets handler.
 	 */
@@ -225,7 +225,7 @@ final class Main {
 	/**
 	 * Set the assets handler.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   private
 	 */
 	private function set_assets() {
@@ -235,7 +235,7 @@ final class Main {
 	/**
 	 * Get the plugin assets handler.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   public
 	 *
 	 * @return Assets The assets instance.
@@ -293,7 +293,7 @@ final class Main {
 	/**
 	 * The title of the plugin.
 	 *
-	 * @since     x.y.z
+	 * @since     3.0.0
 	 * @return    string    The title of the plugin.
 	 */
 	public function title() {
@@ -309,7 +309,7 @@ final class Main {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     x.y.z
+	 * @since     3.0.0
 	 * @return    string    The name of the plugin.
 	 */
 	public function name() {
@@ -319,7 +319,7 @@ final class Main {
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     x.y.z
+	 * @since     3.0.0
 	 * @return    string    The version number of the plugin.
 	 */
 	public function version() {
@@ -329,7 +329,7 @@ final class Main {
 	/**
 	 * Retrieve directory path to the plugin.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 * @param string $path Path to append.
 	 * @return string Directory with optional path appended
 	 */

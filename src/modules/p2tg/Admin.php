@@ -49,7 +49,7 @@ class Admin extends BaseClass {
 	/**
 	 * Register WP REST API routes.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public function register_rest_routes() {
 		$controller = new RulesController();
@@ -102,7 +102,7 @@ class Admin extends BaseClass {
 	/**
 	 * Get the registered post types.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 * @return array
 	 */
 	public function get_macros() {
@@ -174,7 +174,7 @@ class Admin extends BaseClass {
 	/**
 	 * Get the registered post types.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 * @return array
 	 */
 	public function get_post_type_options() {
@@ -210,7 +210,7 @@ class Admin extends BaseClass {
 	/**
 	 * Create a hidden field into block editor metabox section.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public function block_editor_hidden_fields() {
 		// phpcs:ignore WordPress.Security.EscapeOutput
@@ -279,7 +279,7 @@ class Admin extends BaseClass {
 	/**
 	 * Override metabox.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 */
 	public function may_be_remove_override_metabox() {
 		if ( did_action( 'enqueue_block_editor_assets' ) ) {
@@ -439,7 +439,7 @@ class Admin extends BaseClass {
 	 *
 	 * @param string $field The field name.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 */
 	public function get_field_default( $field ) {
 
@@ -460,7 +460,7 @@ class Admin extends BaseClass {
 	/**
 	 * Get the latest saved options.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 *
 	 * @return Options
 	 */

@@ -30,7 +30,7 @@ class Admin extends BaseClass {
 	/**
 	 * Register WP REST API routes.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public function register_rest_routes() {
 		$controller = new SettingsController();
@@ -40,7 +40,7 @@ class Admin extends BaseClass {
 	/**
 	 * Register the admin menu.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public function add_plugin_admin_menu() {
 		add_menu_page(
@@ -57,7 +57,7 @@ class Admin extends BaseClass {
 	/**
 	 * Render the settings page for this plugin.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public function display_plugin_admin_page() {
 		?>

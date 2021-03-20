@@ -5,7 +5,7 @@
  * A class definition that includes attributes and functions used across the module
  *
  * @link       https://t.me/manzoorwanijk
- * @since      x.y.z
+ * @since      3.0.0
  *
  * @package    WPTelegram
  * @subpackage WPTelegram/modules
@@ -28,7 +28,7 @@ abstract class BaseModule {
 	/**
 	 * The single instance of the class.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 * @var   Main $instance The instance.
 	 */
 	protected static $instance = null;
@@ -36,7 +36,7 @@ abstract class BaseModule {
 	/**
 	 * The module options
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   protected
 	 * @var      Options    $options    The module options.
 	 */
@@ -45,7 +45,7 @@ abstract class BaseModule {
 	/**
 	 * The module name
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   protected
 	 * @var      Options    $options    The module name.
 	 */
@@ -56,7 +56,7 @@ abstract class BaseModule {
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param string $module_name The module name.
 	 *
@@ -90,7 +90,7 @@ abstract class BaseModule {
 	/**
 	 * Set the plugin options
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   private
 	 */
 	protected function set_options() {
@@ -105,7 +105,7 @@ abstract class BaseModule {
 	/**
 	 * Get the plugin options
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   public
 	 *
 	 * @return Options

@@ -3,7 +3,7 @@
  * The base class of the module.
  *
  * @link       https://t.me/manzoorwanijk
- * @since      x.y.z
+ * @since      3.0.0
  *
  * @package    WPTelegram\Core
  * @subpackage WPTelegram\Core\includes
@@ -25,7 +25,7 @@ abstract class BaseClass {
 	/**
 	 * The module class instance.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @access   protected
 	 * @var      BaseModule $module The module class instance.
 	 */
@@ -34,7 +34,7 @@ abstract class BaseClass {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 * @param BaseModule $module The module class instance.
 	 */
 	public function __construct( $module ) {

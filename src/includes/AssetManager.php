@@ -3,7 +3,7 @@
  * The assets manager of the plugin.
  *
  * @link       https://t.me/manzoorwanijk
- * @since      x.y.z
+ * @since      3.0.0
  *
  * @package    WPTelegram\Core
  * @subpackage WPTelegram\Core\includes
@@ -31,7 +31,7 @@ class AssetManager extends BaseClass {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @param string $hook_suffix The current admin page.
 	 */
 	public function enqueue_admin_styles( $hook_suffix ) {
@@ -61,7 +61,7 @@ class AssetManager extends BaseClass {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 * @param string $hook_suffix The current admin page.
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
@@ -104,7 +104,7 @@ class AssetManager extends BaseClass {
 	/**
 	 * Enqueue assets for the Gutenberg block
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 */
 	public function enqueue_block_editor_assets() {
 		$add_gb_detection_code = $this->plugin->options()->get_path( 'p2tg.active' );
@@ -193,7 +193,7 @@ class AssetManager extends BaseClass {
 	/**
 	 * Whether the current page is the plugin settings page.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param string $hook_suffix The current admin page.
 	 */
@@ -204,7 +204,7 @@ class AssetManager extends BaseClass {
 	/**
 	 * Whether the current page is the post edit page.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param string $hook_suffix The current admin page.
 	 */

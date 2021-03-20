@@ -363,7 +363,7 @@ class Utils {
 	 *
 	 * @source gutenberg_get_jed_locale_data()
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param  string $domain Translation domain.
 	 *
@@ -393,7 +393,7 @@ class Utils {
 	/**
 	 * Create a regex from the given pattern.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 *
 	 * @param string  $pattern     The pattern to match.
 	 * @param boolean $allow_empty Whether to allow an ampty string.
@@ -418,7 +418,7 @@ class Utils {
 	/**
 	 * Convert a key value array to value label options.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.0
 	 *
 	 * @param array $data The values to be converted.
 	 */
@@ -436,7 +436,7 @@ class Utils {
 	/**
 	 * Generate a unique nonce field.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 *
 	 * @param boolean $echo Whether to echo the HTML.
 	 * @return string
@@ -448,7 +448,7 @@ class Utils {
 	/**
 	 * Generate a nonce.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 * @param string $name The name suffix.
 	 * @return string unique nonce string.
 	 */

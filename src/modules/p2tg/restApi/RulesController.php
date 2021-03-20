@@ -3,7 +3,7 @@
  * P2Tg rules endpoint for WordPress REST API.
  *
  * @link       https://t.me/manzoorwanijk
- * @since      x.y.z
+ * @since      3.0.0
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\p2tg\restApi
@@ -19,7 +19,7 @@ use WP_REST_Request;
 /**
  * Class to handle the rules endpoint.
  *
- * @since x.y.z
+ * @since 3.0.0
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\p2tg\restApi
@@ -37,7 +37,7 @@ class RulesController extends RESTController {
 	/**
 	 * Register the routes for the objects of the controller.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public function register_routes() {
 
@@ -58,7 +58,7 @@ class RulesController extends RESTController {
 	/**
 	 * Check request permissions.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @return bool
 	 */
@@ -69,7 +69,7 @@ class RulesController extends RESTController {
 	/**
 	 * Handle REST request for p2tg rule values.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param WP_REST_Request $request WP REST API request.
 	 */
@@ -88,7 +88,7 @@ class RulesController extends RESTController {
 	/**
 	 * Get the P2Tg rule values.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param string $param   The param to get the rules for.
 	 * @param string $search  Search keywords.
@@ -178,7 +178,7 @@ class RulesController extends RESTController {
 	/**
 	 * Get all post authors.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 * @param string $search The serach query.
 	 * @param array  $include Limit the result to given IDs.
 	 * @return array
@@ -210,7 +210,7 @@ class RulesController extends RESTController {
 	/**
 	 * Get all terms of a taxonomy.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.0
 	 *
 	 * @param string $taxonomy Taxonomy name.
 	 * @param string $search search query.
@@ -286,7 +286,7 @@ class RulesController extends RESTController {
 	/**
 	 * Retrieves the query params for the endpoint.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @return array Query parameters for the endpoint.
 	 */

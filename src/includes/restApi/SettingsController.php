@@ -440,7 +440,7 @@ class SettingsController extends RESTController {
 	/**
 	 * Sanitize the request param.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 *
 	 * @param mixed           $value   Value of the param.
 	 * @param WP_REST_Request $request WP REST API request.

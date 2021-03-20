@@ -28,7 +28,7 @@ class Main extends BaseModule {
 	/**
 	 * The single instance of the class.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 * @var   Main $instance The instance.
 	 */
 	protected static $instance = null;

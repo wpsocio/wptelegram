@@ -251,7 +251,7 @@ class PostData {
 	/**
 	 * Removes the autoembed filter from the_content
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public static function remove_autoembed_filter() {
 		remove_filter( 'the_content', array( $GLOBALS['wp_embed'], 'autoembed' ), 8 );
@@ -260,7 +260,7 @@ class PostData {
 	/**
 	 * Restores the autoembed filter to the_content
 	 *
-	 * @since x.y.z
+	 * @since 3.0.0
 	 */
 	public static function restore_autoembed_filter() {
 		add_filter( 'the_content', array( $GLOBALS['wp_embed'], 'autoembed' ), 8 );

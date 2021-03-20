@@ -5,7 +5,7 @@
  * Parts of this code are copied from https://github.com/eventespresso/event-espresso-core
  *
  * @link       https://t.me/manzoorwanijk
- * @since      x.y.z
+ * @since      3.0.0
  *
  * @package    WPTelegram\Core
  * @subpackage WPTelegram\Core\includes
