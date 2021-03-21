@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.2 - 2021-03-21](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.2)
+
 ### Bug fixes
 
 - Fixed the issue of posts not sent when using WP CLI

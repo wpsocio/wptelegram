@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2021-03-20 09:39:11+00:00\n"
+"POT-Creation-Date: 2021-03-21 06:42:03+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:02+0530\n"
 "Last-Translator: \n"
 "Language-Team: Taktaweb Group <info@taktaweb.ir>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "با این افزونه، شما می توانید نوشته‌ها را به تلگرام بفرستید و اعلان دریافت "
 "کنید و کلی کارهای دیگه انجام بدید :)"
 
-#: includes/Main.php:303
+#: includes/Main.php:300
 msgid "WP Telegram"
 msgstr ""
 

@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,9 @@ Note: You can also contribute in translating this plugin into your local languag
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.2 =
+- Fixed the issue of posts not sent when using WP CLI
 
 = 3.0.1 =
 - Fixed the last messed up update
