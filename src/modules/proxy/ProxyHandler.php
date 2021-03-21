@@ -50,7 +50,7 @@ class ProxyHandler extends BaseClass {
 	 * @since  2.1.2
 	 */
 	public function remove_proxy() {
-		remove_action( 'http_api_curl', array( __CLASS__, 'modify_http_api_curl' ), 10, 3 );
+		remove_action( 'http_api_curl', [ __CLASS__, 'modify_http_api_curl' ], 10, 3 );
 	}
 
 	/**
@@ -74,9 +74,9 @@ class ProxyHandler extends BaseClass {
 
 		} elseif ( $script_url ) {
 			// setup Google Script args.
-			add_filter( 'wptelegram_bot_api_remote_post_args', array( __CLASS__, 'google_script_request_args' ), 20, 2 );
+			add_filter( 'wptelegram_bot_api_remote_post_args', [ __CLASS__, 'google_script_request_args' ], 20, 2 );
 			// set URL.
-			add_filter( 'wptelegram_bot_api_request_url', array( __CLASS__, 'google_script_request_url' ), 20, 1 );
+			add_filter( 'wptelegram_bot_api_request_url', [ __CLASS__, 'google_script_request_url' ], 20, 1 );
 		}
 	}
 
@@ -86,13 +86,13 @@ class ProxyHandler extends BaseClass {
 	 * @since  2.0.8
 	 */
 	private function setup_php_proxy() {
-		$defaults = array(
+		$defaults = [
 			'host'     => '',
 			'port'     => '',
 			'type'     => '',
 			'username' => '',
 			'password' => '',
-		);
+		];
 
 		// Met the values from settings/defaults.
 		foreach ( $defaults as $key => $value ) {
@@ -100,7 +100,7 @@ class ProxyHandler extends BaseClass {
 		}
 
 		// Modify curl.
-		add_action( 'http_api_curl', array( __CLASS__, 'modify_http_api_curl' ), 10, 3 );
+		add_action( 'http_api_curl', [ __CLASS__, 'modify_http_api_curl' ], 10, 3 );
 	}
 
 	/**
@@ -169,11 +169,11 @@ class ProxyHandler extends BaseClass {
 	 */
 	public static function google_script_request_args( $args, $request ) {
 
-		$args['body']   = array(
+		$args['body']   = [
 			'bot_token' => $request->get_bot_token(),
 			'method'    => $request->get_api_method(),
 			'args'      => wp_json_encode( $args['body'] ),
-		);
+		];
 		$args['method'] = 'GET';
 
 		return $args;

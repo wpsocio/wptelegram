@@ -12,7 +12,13 @@
 
      <!-- Customize -->
      <rule ref="WordPress">
+          <!-- Disable File Name warning -->
           <exclude name="WordPress.Files.FileName" />
+          <!-- Disable short array syntax warning -->
+          <exclude name="Generic.Arrays.DisallowShortArraySyntax" />
      </rule>
-
+     <!-- Disallow Long Array Syntax -->
+     <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+          <type>warning</type>
+     </rule>
 </ruleset>

@@ -46,7 +46,7 @@ abstract class BaseClass {
 	 * Get the instance of the plugin.
 	 *
 	 * @since     3.0.0
-	 * @return    string    The name of the plugin.
+	 * @return    Main    The plugin class instance.
 	 */
 	protected function plugin() {
 		return $this->plugin;

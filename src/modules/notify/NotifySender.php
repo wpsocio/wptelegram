@@ -97,11 +97,11 @@ class NotifySender extends BaseClass {
 		$watch_emails  = array_map( 'trim', explode( ',', $_watch_emails ) );
 		$watch_emails  = array_map( 'strtolower', $watch_emails );
 
-		$notify_chat_ids = array_map( 'trim', $this->module->options()->get( 'chat_ids', array() ) );
+		$notify_chat_ids = array_map( 'trim', $this->module->options()->get( 'chat_ids', [] ) );
 		$user_notify     = $this->module->options()->get( 'user_notifications' );
 
-		$this->chats2emails = array();
-		$no_chat_emails     = array();
+		$this->chats2emails = [];
+		$no_chat_emails     = [];
 
 		if ( ! apply_filters( 'wptelegram_notify_send_notification', true, $args ) ) {
 			return $args;
@@ -168,7 +168,7 @@ class NotifySender extends BaseClass {
 	 */
 	private function prepare_default_responses() {
 
-		$this->responses = array();
+		$this->responses = [];
 
 		$template = $this->get_message_template();
 
@@ -180,11 +180,11 @@ class NotifySender extends BaseClass {
 
 			$disable_web_page_preview = true;
 
-			$this->responses = array(
-				array(
+			$this->responses = [
+				[
 					'sendMessage' => compact( 'text', 'parse_mode', 'disable_web_page_preview' ),
-				),
-			);
+				],
+			];
 		}
 
 		$this->responses = apply_filters( 'wptelegram_notify_default_responses', $this->responses, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
@@ -224,10 +224,10 @@ class NotifySender extends BaseClass {
 		$message = $this->convert_links_for_parsing( $message );
 		$message = apply_filters( 'wptelegram_notify_email_message', $message, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
 
-		$macro_values = array(
+		$macro_values = [
 			'{email_subject}' => $subject,
 			'{email_message}' => $message,
-		);
+		];
 		/**
 		 * Use this filter to replace your own macros
 		 * with the corresponding values
@@ -263,7 +263,7 @@ class NotifySender extends BaseClass {
 
 				$params = apply_filters( 'wptelegram_notify_api_method_params', $params, $method, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
 
-				$api_res = call_user_func( array( $tg_api, $method ), $params );
+				$api_res = call_user_func( [ $tg_api, $method ], $params );
 
 				do_action( 'wptelegram_notify_api_response', $api_res, $tg_api, $response, $email, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
 			}

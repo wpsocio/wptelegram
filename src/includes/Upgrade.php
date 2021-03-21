@@ -22,27 +22,7 @@ use WPTelegram\Core\modules\p2tg\restApi\RulesController;
  * @subpackage WPTelegram/includes
  * @author     Manzoor Wani <@manzoorwanijk>
  */
-class Upgrade {
-
-	/**
-	 * The plugin class instance.
-	 *
-	 * @since    2.2.0
-	 * @access   private
-	 * @var      WPTelegram $plugin The plugin class instance.
-	 */
-	private $plugin;
-
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since 2.2.0
-	 * @param WPTelegram $plugin The plugin class instance.
-	 */
-	public function __construct( $plugin ) {
-
-		$this->plugin = $plugin;
-	}
+class Upgrade extends BaseClass {
 
 	/**
 	 * Do the necessary db upgrade, if needed
@@ -53,7 +33,7 @@ class Upgrade {
 
 		$current_version = get_option( 'wptelegram_ver', '1.9.4' );
 
-		if ( ! version_compare( $current_version, WPTELEGRAM_VER, '<' ) ) {
+		if ( ! version_compare( $current_version, $this->plugin()->version(), '<' ) ) {
 			return;
 		}
 
@@ -65,21 +45,21 @@ class Upgrade {
 
 		$is_new_install = ! get_option( 'wptelegram_telegram' ) && ! get_option( 'wptelegram' );
 
-		$version_upgrades = array();
+		$version_upgrades = [];
 		if ( ! $is_new_install ) {
 			// the sequential upgrades
 			// subsequent upgrade depends upon the previous one.
-			$version_upgrades = array(
+			$version_upgrades = [
 				'2.0.0', // first upgrade.
 				'2.1.9',
 				'2.2.0',
 				'3.0.0',
-			);
+			];
 		}
 
 		// always.
-		if ( ! in_array( WPTELEGRAM_VER, $version_upgrades, true ) ) {
-			$version_upgrades[] = WPTELEGRAM_VER;
+		if ( ! in_array( $this->plugin()->version(), $version_upgrades, true ) ) {
+			$version_upgrades[] = $this->plugin()->version();
 		}
 
 		foreach ( $version_upgrades as $target_version ) {
@@ -107,7 +87,7 @@ class Upgrade {
 		// 2.0.1 becomes 2_0_1
 		$_version = str_replace( '.', '_', $version );
 
-		$method = array( $this, "upgrade_to_{$_version}" );
+		$method = [ $this, "upgrade_to_{$_version}" ];
 
 		if ( is_callable( $method ) ) {
 
@@ -124,7 +104,7 @@ class Upgrade {
 	 */
 	protected function upgrade_to_2_0_0() {
 
-		$telegram_opts = get_option( 'wptelegram_telegram', array() );
+		$telegram_opts = get_option( 'wptelegram_telegram', [] );
 
 		$wptelegram['bot_token'] = $telegram_opts['bot_token'];
 
@@ -139,7 +119,7 @@ class Upgrade {
 		}
 
 		// fetch other stuff.
-		$wordpress_opts = get_option( 'wptelegram_wordpress', array() );
+		$wordpress_opts = get_option( 'wptelegram_wordpress', [] );
 
 		/**
 		 * Migrate Rules
@@ -161,7 +141,7 @@ class Upgrade {
 			$wptelegram_p2tg['post_types'] = (array) $wordpress_opts['which_post_type'];
 		}
 
-		$author_rule = array();
+		$author_rule = [];
 
 		// Authors.
 		if ( ! empty( $wordpress_opts['from_authors'][0] ) && 'all' !== $wordpress_opts['from_authors'][0] && ! empty( $wordpress_opts['authors'] ) ) {
@@ -173,13 +153,13 @@ class Upgrade {
 			$author_rule = compact( 'param', 'operator', 'values' );
 		}
 
-		$taxonomy_rules = array();
+		$taxonomy_rules = [];
 
 		// categories.
 		if ( ! empty( $wordpress_opts['from_terms'][0] ) && 'all' !== $wordpress_opts['from_terms'][0] && ! empty( $wordpress_opts['terms'] ) ) {
 
 			// taxonomy with their terms.
-			$tax_terms = array();
+			$tax_terms = [];
 
 			foreach ( $wordpress_opts['terms'] as $term_tax ) {
 
@@ -202,10 +182,10 @@ class Upgrade {
 			}
 		}
 
-		$rule_groups = array();
+		$rule_groups = [];
 
 		foreach ( $taxonomy_rules as $tax_rule ) {
-			$rule_group = array();
+			$rule_group = [];
 
 			$rule_group[] = $tax_rule;
 
@@ -219,7 +199,7 @@ class Upgrade {
 		// if we do not have anything.
 		if ( empty( $rule_groups ) && ! empty( $author_rule ) ) {
 
-			$rule_group = array();
+			$rule_group = [];
 
 			$rule_group[] = $author_rule;
 
@@ -233,8 +213,8 @@ class Upgrade {
 		}
 
 		/* Migrate Message settings */
-		$message_opts = get_option( 'wptelegram_message', array() );
-		$keys         = array(
+		$message_opts = get_option( 'wptelegram_message', [] );
+		$keys         = [
 			'message_template',
 			'excerpt_source',
 			'excerpt_length',
@@ -244,7 +224,7 @@ class Upgrade {
 			'send_featured_image',
 			'image_position',
 			'misc',
-		);
+		];
 
 		foreach ( $keys as $key ) {
 
@@ -259,12 +239,12 @@ class Upgrade {
 
 			$template = json_decode( $wptelegram_p2tg['message_template'] );
 
-			$macros = array(
+			$macros = [
 				'title',
 				'author',
 				'excerpt',
 				'content',
-			);
+			];
 
 			foreach ( $macros as $macro ) {
 
@@ -299,7 +279,7 @@ class Upgrade {
 			$wptelegram_p2tg['single_message'] = 'on';
 		}
 
-		$notify_opts = get_option( 'wptelegram_notify', array() );
+		$notify_opts = get_option( 'wptelegram_notify', [] );
 		// if Notify should be active.
 		if ( ! empty( $notify_opts['chat_ids'] ) && ! empty( $notify_opts['watch_emails'] ) ) {
 
@@ -327,7 +307,7 @@ class Upgrade {
 			$wptelegram['modules'][0]['proxy'] = 'on';
 		}
 
-		$proxy_opts = get_option( 'wptelegram_proxy', array() );
+		$proxy_opts = get_option( 'wptelegram_proxy', [] );
 
 		if ( ! empty( $proxy_opts ) ) {
 
@@ -340,13 +320,13 @@ class Upgrade {
 			}
 		}
 
-		$sections = array(
+		$sections = [
 			'telegram',
 			'wordpress',
 			'message',
 			'notify',
 			'proxy',
-		);
+		];
 		foreach ( $sections as $section ) {
 			delete_option( 'wptelegram_' . $section );
 		}
@@ -365,7 +345,7 @@ class Upgrade {
 	 */
 	protected function upgrade_to_2_1_9() {
 
-		$types = array( 'p2tg', 'bot-api' );
+		$types = [ 'p2tg', 'bot-api' ];
 
 		foreach ( $types as $type ) {
 			$filename = WP_CONTENT_DIR . "/wptelegram-{$type}.log";
@@ -385,12 +365,12 @@ class Upgrade {
 	protected function upgrade_to_2_2_0() {
 		$old_meta_key = 'telegram_chat_id';
 
-		$args  = array(
+		$args  = [
 			'fields'       => 'ID',
 			'meta_key'     => $old_meta_key, // phpcs:ignore
 			'meta_compare' => 'EXISTS',
 			'number'       => -1,
-		);
+		];
 		$users = get_users( $args );
 
 		foreach ( $users as $id ) {
@@ -413,7 +393,7 @@ class Upgrade {
 		 * Since this upgrade needs taxonomies registered,
 		 * we will run it on init.
 		 */
-		add_action( 'init', array( $this, 'upgrade_to_3_0_0_on_init' ), 50 );
+		add_action( 'init', [ $this, 'upgrade_to_3_0_0_on_init' ], 50 );
 	}
 
 	/**
@@ -422,21 +402,21 @@ class Upgrade {
 	 * @since    3.0.0
 	 */
 	public function upgrade_to_3_0_0_on_init() {
-		$main_options = get_option( 'wptelegram', array() );
+		$main_options = get_option( 'wptelegram', [] );
 
 		$modules = reset( $main_options['modules'] );
 		unset( $modules['fake'] );
 
 		$active_modules = array_keys( $modules );
 
-		$p2tg_options     = get_option( 'wptelegram_p2tg', array() );
-		$notify_options   = get_option( 'wptelegram_notify', array() );
-		$proxy_options    = get_option( 'wptelegram_proxy', array() );
-		$advanced_options = array();
+		$p2tg_options     = get_option( 'wptelegram_p2tg', [] );
+		$notify_options   = get_option( 'wptelegram_notify', [] );
+		$proxy_options    = get_option( 'wptelegram_proxy', [] );
+		$advanced_options = [];
 
-		$upgraded_options = array();
+		$upgraded_options = [];
 
-		foreach ( array( 'bot_token', 'bot_username' ) as $field ) {
+		foreach ( [ 'bot_token', 'bot_username' ] as $field ) {
 			if ( ! empty( $main_options[ $field ] ) ) {
 				$upgraded_options[ $field ] = $main_options[ $field ];
 			}
@@ -448,7 +428,7 @@ class Upgrade {
 		if ( ! empty( $p2tg_options['channels'] ) ) {
 			$p2tg_options['channels'] = array_map( 'trim', explode( ',', $p2tg_options['channels'] ) );
 		} else {
-			$p2tg_options['channels'] = array();
+			$p2tg_options['channels'] = [];
 		}
 		// message template needs json_decode.
 		if ( ! empty( $p2tg_options['message_template'] ) ) {
@@ -457,7 +437,7 @@ class Upgrade {
 			$p2tg_options['message_template'] = '';
 		}
 		// convert boolean fields.
-		$p2tg_bool_fields = array(
+		$p2tg_bool_fields = [
 			'excerpt_preserve_eol',
 			'send_featured_image',
 			'single_message',
@@ -465,7 +445,7 @@ class Upgrade {
 			'inline_url_button',
 			'post_edit_switch',
 			'plugin_posts',
-		);
+		];
 		foreach ( $p2tg_bool_fields as $field ) {
 			$p2tg_options[ $field ] = ! empty( $p2tg_options[ $field ] );
 		}
@@ -475,15 +455,15 @@ class Upgrade {
 		$p2tg_options['inline_button_url'] = '{full_url}';
 
 		// convert numeric fields.
-		$p2tg_numeric_fields = array(
+		$p2tg_numeric_fields = [
 			'excerpt_length',
 			'delay',
-		);
+		];
 		foreach ( $p2tg_numeric_fields as $field ) {
 			$p2tg_options[ $field ] = (float) $p2tg_options[ $field ];
 		}
 
-		$misc = ! empty( $p2tg_options['misc'] ) ? $p2tg_options['misc'] : array();
+		$misc = ! empty( $p2tg_options['misc'] ) ? $p2tg_options['misc'] : [];
 
 		$p2tg_options['disable_web_page_preview'] = in_array( 'disable_web_page_preview', $misc, true );
 		$p2tg_options['disable_notification']     = in_array( 'disable_notification', $misc, true );
@@ -491,13 +471,13 @@ class Upgrade {
 		if ( ! empty( $p2tg_options['rules'] ) ) {
 			$rules = $p2tg_options['rules'];
 
-			$upgraded_rules = array();
+			$upgraded_rules = [];
 
 			foreach ( $rules as $rule_group ) {
-				$upgraded_rule_group = array();
+				$upgraded_rule_group = [];
 
 				foreach ( $rule_group as $rule ) {
-					$upgraded_rule = array();
+					$upgraded_rule = [];
 
 					if ( ! empty( $rule['values'] ) ) {
 						$param  = $rule['param'];
@@ -533,7 +513,7 @@ class Upgrade {
 		if ( ! empty( $notify_options['chat_ids'] ) ) {
 			$notify_options['chat_ids'] = array_map( 'trim', explode( ',', $notify_options['chat_ids'] ) );
 		} else {
-			$notify_options['chat_ids'] = array();
+			$notify_options['chat_ids'] = [];
 		}
 		// message template needs json_decode.
 		if ( ! empty( $notify_options['message_template'] ) ) {
@@ -566,7 +546,7 @@ class Upgrade {
 
 		update_option( 'wptelegram', wp_json_encode( $upgraded_options ) );
 
-		foreach ( array( 'p2tg', 'notify', 'proxy' ) as $module ) {
+		foreach ( [ 'p2tg', 'notify', 'proxy' ] as $module ) {
 			delete_option( 'wptelegram_' . $module );
 		}
 	}

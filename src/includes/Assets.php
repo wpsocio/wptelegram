@@ -147,7 +147,7 @@ class Assets {
 	public function get_asset_files() {
 		if ( ! $this->asset_files ) {
 			if ( empty( $this->manifest[ self::KEY_FILES ] ) ) {
-				return array();
+				return [];
 			}
 			$this->asset_files = $this->manifest[ self::KEY_FILES ];
 		}
@@ -162,7 +162,7 @@ class Assets {
 	public function get_entry_points() {
 		if ( ! $this->entry_points ) {
 			if ( empty( $this->manifest[ self::KEY_ENTRY_POINTS ] ) ) {
-				return array();
+				return [];
 			}
 			$this->entry_points = array_keys( $this->manifest[ self::KEY_ENTRY_POINTS ] );
 		}
@@ -192,7 +192,7 @@ class Assets {
 	public function get_asset_dependencies( $entry_point, $type = self::ASSET_EXT_JS ) {
 		$asset = $this->get_asset_details( $entry_point );
 		if ( ! isset( $asset[ self::KEY_DEPENDENCIES ] ) ) {
-			return array();
+			return [];
 		}
 
 		$dependencies = $asset[ self::KEY_DEPENDENCIES ];
@@ -212,7 +212,7 @@ class Assets {
 	public function get_asset_details( $entry_point ) {
 		$file_name = $this->get_asset( $entry_point, self::ASSET_EXT_PHP );
 		if ( ! $file_name ) {
-			return array();
+			return [];
 		}
 		$full_path = $this->assets_path . $file_name;
 		if ( ! is_readable( $full_path ) ) {

@@ -110,7 +110,7 @@ class RequestCheck {
 				return defined( 'DOING_CRON' ) && DOING_CRON;
 
 			case self::WP_CLI:
-				return defined( 'WP_IMPORTING' ) && WP_CLI;
+				return defined( 'WP_CLI' ) && WP_CLI;
 
 			case self::REST_REQUEST:
 				return defined( 'REST_REQUEST' ) && REST_REQUEST;

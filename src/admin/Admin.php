@@ -48,7 +48,7 @@ class Admin extends BaseClass {
 			esc_html( $this->plugin->title() ),
 			'manage_options',
 			$this->plugin->name(),
-			array( $this, 'display_plugin_admin_page' ),
+			[ $this, 'display_plugin_admin_page' ],
 			'none',
 			80
 		);
@@ -87,7 +87,7 @@ class Admin extends BaseClass {
 	 */
 	public function initiate_logger() {
 
-		$active_logs = WPTG()->options()->get_path( 'advanced.enable_logs', array() );
+		$active_logs = WPTG()->options()->get_path( 'advanced.enable_logs', [] );
 
 		$logger = new Logger( $active_logs );
 		$logger->hookup();

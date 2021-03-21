@@ -27,7 +27,7 @@ class Modules extends BaseClass {
 	 * @return array
 	 */
 	public static function get_all_modules() {
-		return array( 'p2tg', 'notify', 'proxy' );
+		return [ 'p2tg', 'notify', 'proxy' ];
 	}
 
 	/**

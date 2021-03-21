@@ -64,7 +64,7 @@ class Options implements Iterator, ArrayAccess {
 		$this->store_as_json = $store_as_json;
 
 		// Make sure we have an array to avoid adding values to null.
-		$this->data = array();
+		$this->data = [];
 
 		if ( ! empty( $option_key ) ) {
 			$this->set_option_key( $option_key );
@@ -216,10 +216,10 @@ class Options implements Iterator, ArrayAccess {
 	 * @param array   $options The options array.
 	 * @param boolean $unslash Whether to unslash the data.
 	 */
-	public function set_data( array $options = array(), $unslash = false ) {
+	public function set_data( array $options = [], $unslash = false ) {
 		if ( empty( $options ) && ! empty( $this->option_key ) ) {
 
-			$default = $this->store_as_json ? '' : array();
+			$default = $this->store_as_json ? '' : [];
 
 			$data = get_option( $this->option_key, $default );
 
