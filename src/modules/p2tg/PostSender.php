@@ -117,7 +117,7 @@ class PostSender extends BaseClass {
 	 * @param string  $trigger The trigger source.
 	 */
 	public function init( $post, $trigger ) {
-		self::$processed_posts = array();
+		self::$processed_posts = [];
 
 		self::$post = $post;
 
@@ -137,10 +137,10 @@ class PostSender extends BaseClass {
 	 */
 	public function set_form_data() {
 		// Default data.
-		$this->form_data = array(
+		$this->form_data = [
 			'send2tg'         => null,
 			'override_switch' => false,
-		);
+		];
 
 		// Form data matters only if post edit switch is enabled.
 		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
@@ -186,7 +186,7 @@ class PostSender extends BaseClass {
 
 				// if no destination channel is selected.
 				if ( empty( $_POST[ self::$prefix . 'channels' ] ) ) { // phpcs:ignore
-					$this->form_data['channels'] = array();
+					$this->form_data['channels'] = [];
 				} else {
 					// override the default channels.
 					$this->form_data['channels'] = Utils::sanitize( (array) $_POST[ self::$prefix . 'channels' ] ); // phpcs:ignore
@@ -230,8 +230,8 @@ class PostSender extends BaseClass {
 	 * @since   2.0.0
 	 */
 	public static function get_defaults() {
-		$array    = array();
-		$defaults = array(
+		$array    = [];
+		$defaults = [
 			'cats_as_tags'             => false,
 			'channels'                 => $array,
 			'delay'                    => 0,
@@ -252,7 +252,7 @@ class PostSender extends BaseClass {
 			'send_featured_image'      => true,
 			'send_when'                => $array,
 			'single_message'           => false,
-		);
+		];
 
 		return (array) apply_filters( 'wptelegram_p2tg_defaults', $defaults );
 	}
@@ -264,7 +264,7 @@ class PostSender extends BaseClass {
 	 */
 	public function get_saved_options() {
 
-		$saved_options = array();
+		$saved_options = [];
 
 		foreach ( self::get_defaults() as $key => $default ) {
 
@@ -440,7 +440,7 @@ class PostSender extends BaseClass {
 		if ( RequestCheck::if_is( RequestCheck::REST_REQUEST ) && ! $is_rest_hook && 'product' !== self::$post->post_type ) {
 
 			// come back later.
-			add_action( $rest_tag, array( $this, 'wp_rest_post' ), 10, 1 );
+			add_action( $rest_tag, [ $this, 'wp_rest_post' ], 10, 1 );
 
 			$ok = false;
 		}
@@ -533,17 +533,17 @@ class PostSender extends BaseClass {
 	 * @since 2.1.2
 	 */
 	public function get_valid_post_statuses() {
-		$valid_statuses = array(
-			'live'     => array( // The ones that are live/visible.
+		$valid_statuses = [
+			'live'     => [ // The ones that are live/visible.
 				'publish',
 				'private',
-			),
-			'non_live' => array( // The that are not yet live for the audience.
+			],
+			'non_live' => [ // The that are not yet live for the audience.
 				'future',
 				'draft',
 				'pending',
-			),
-		);
+			],
+		];
 		return (array) apply_filters( 'wptelegram_p2tg_valid_post_statuses', $valid_statuses, self::$post );
 	}
 
@@ -584,7 +584,7 @@ class PostSender extends BaseClass {
 
 		$hook = $hook ? $hook : 'wptelegram_p2tg_delayed_post';
 
-		$args = array( strval( self::$post->ID ) );
+		$args = [ strval( self::$post->ID ) ];
 
 		// clear the previous event, if set.
 		wp_clear_scheduled_hook( $hook, $args );
@@ -601,7 +601,7 @@ class PostSender extends BaseClass {
 
 		$hook  = 'wptelegram_p2tg_delayed_post';
 		$delay = absint( $delay * MINUTE_IN_SECONDS );
-		$args  = array( strval( self::$post->ID ) ); // strval to match the exact event.
+		$args  = [ strval( self::$post->ID ) ]; // strval to match the exact event.
 
 		$this->clear_scheduled_hook();
 
@@ -917,7 +917,7 @@ class PostSender extends BaseClass {
 	 */
 	private function get_responses() {
 
-		$responses = array();
+		$responses = [];
 
 		// For text message.
 		$template = $this->get_message_template();
@@ -1066,7 +1066,7 @@ class PostSender extends BaseClass {
 		$disable_web_page_preview = $this->options->get( 'disable_web_page_preview' );
 		$disable_notification     = $this->options->get( 'disable_notification' );
 
-		$method_params = array(
+		$method_params = [
 			'sendPhoto'   => compact(
 				'parse_mode',
 				'disable_notification'
@@ -1076,7 +1076,7 @@ class PostSender extends BaseClass {
 				'disable_notification',
 				'disable_web_page_preview'
 			),
-		);
+		];
 
 		if ( ! empty( $image_source ) ) {
 
@@ -1128,12 +1128,12 @@ class PostSender extends BaseClass {
 		// passed by reference.
 		$this->add_reply_markup( $method_params );
 
-		$default_responses = array();
+		$default_responses = [];
 
 		foreach ( $method_params as $method => $params ) {
-			$default_responses[] = array(
+			$default_responses[] = [
 				$method => $params,
-			);
+			];
 		}
 
 		return apply_filters( 'wptelegram_p2tg_default_responses', $default_responses, self::$post, $this->options, $text, $image_source );
@@ -1150,7 +1150,7 @@ class PostSender extends BaseClass {
 	 */
 	private function get_file_responses( $files ) {
 
-		$file_responses = array();
+		$file_responses = [];
 
 		$caption = self::$post_data->get_field( 'post_title' );
 
@@ -1160,12 +1160,12 @@ class PostSender extends BaseClass {
 
 			$type = Utils::guess_file_type( $id, $url );
 
-			$file_responses[] = array(
-				'send' . ucfirst( $type ) => array(
+			$file_responses[] = [
+				'send' . ucfirst( $type ) => [
 					$type     => $this->send_files_by_url ? $url : get_attached_file( $id ),
 					'caption' => $caption,
-				),
-			);
+				],
+			];
 		}
 
 		return apply_filters( 'wptelegram_p2tg_file_responses', $file_responses, self::$post, $this->options, $files, $this->send_files_by_url );
@@ -1234,10 +1234,10 @@ class PostSender extends BaseClass {
 			return false;
 		}
 
-		$default_button = array(
+		$default_button = [
 			'text' => $inline_button_text,
 			'url'  => $url,
-		);
+		];
 
 		$default_button = (array) apply_filters( 'wptelegram_p2tg_default_inline_button', $default_button, self::$post, $method_params );
 
@@ -1257,14 +1257,14 @@ class PostSender extends BaseClass {
 	 * @return string
 	 */
 	public static function get_parsed_button_url( $url_template, $post_id ) {
-		$macro_keys = array(
+		$macro_keys = [
 			'full_url',
 			'short_url',
-		);
+		];
 
 		$post_data = new PostData( $post_id );
 
-		$macro_values = array();
+		$macro_values = [];
 
 		foreach ( $macro_keys as $macro_key ) {
 
@@ -1317,7 +1317,7 @@ class PostSender extends BaseClass {
 		$priority = has_filter( 'the_content', 'wpautop' );
 		if ( false !== $priority ) {
 			remove_filter( 'the_content', 'wpautop', $priority );
-			add_filter( 'the_content', array( $this, 'restore_wpautop_hook' ), $priority + 1 );
+			add_filter( 'the_content', [ $this, 'restore_wpautop_hook' ], $priority + 1 );
 		}
 
 		$excerpt_source       = $this->options->get( 'excerpt_source' );
@@ -1327,18 +1327,18 @@ class PostSender extends BaseClass {
 		$parse_mode           = Utils::valid_parse_mode( $this->options->get( 'parse_mode' ) );
 
 		// replace {tags} and {categories} with taxonomy names.
-		$replace = array( '{terms:post_tag}', '{terms:category}' );
+		$replace = [ '{terms:post_tag}', '{terms:category}' ];
 
 		// use tags and categories for WooCommerce.
 		if ( class_exists( 'woocommerce' ) && 'product' === self::$post->post_type ) {
 
-			$replace = array( '{terms:product_tag}', '{terms:product_cat}' );
+			$replace = [ '{terms:product_tag}', '{terms:product_cat}' ];
 		}
 
 		// modify the template.
-		$template = str_replace( array( '{tags}', '{categories}' ), $replace, $template );
+		$template = str_replace( [ '{tags}', '{categories}' ], $replace, $template );
 
-		$macro_keys = array(
+		$macro_keys = [
 			'ID',
 			'post_title',
 			'post_date',
@@ -1348,12 +1348,12 @@ class PostSender extends BaseClass {
 			'post_content',
 			'short_url',
 			'full_url',
-		);
+		];
 
 		// for post excerpt.
 		$params = compact( 'excerpt_source', 'excerpt_length', 'excerpt_preserve_eol', 'cats_as_tags' );
 
-		$macro_values = array();
+		$macro_values = [];
 
 		foreach ( $macro_keys as $macro_key ) {
 
@@ -1380,7 +1380,7 @@ class PostSender extends BaseClass {
 		$macro_values = (array) apply_filters( 'wptelegram_p2tg_macro_values', $macro_values, self::$post, $this->options );
 
 		if ( 'Markdown' === $parse_mode ) {
-			$callback = array( Utils::class, 'esc_markdown' );
+			$callback = [ Utils::class, 'esc_markdown' ];
 		} else {
 			$callback = 'stripslashes'; // to remove unwanted slashes.
 		}
@@ -1459,10 +1459,10 @@ class PostSender extends BaseClass {
 	 * @return string The unmodified content.
 	 */
 	public function restore_wpautop_hook( $content ) {
-		$current_priority = has_filter( 'the_content', array( $this, 'restore_wpautop_hook' ) );
+		$current_priority = has_filter( 'the_content', [ $this, 'restore_wpautop_hook' ] );
 
 		add_filter( 'the_content', 'wpautop', $current_priority - 1 );
-		remove_filter( 'the_content', array( $this, 'restore_wpautop_hook' ), $current_priority );
+		remove_filter( 'the_content', [ $this, 'restore_wpautop_hook' ], $current_priority );
 
 		return $content;
 	}
@@ -1509,17 +1509,17 @@ class PostSender extends BaseClass {
 
 		$this->bot_api = new API( $this->bot_token );
 
-		$api_responses = array();
+		$api_responses = [];
 
 		do_action( 'wptelegram_p2tg_before_send_responses', $this->responses, $api_responses, self::$post, $this->options, $this->bot_api );
 
 		// if modify curl for WP Telegram.
 		if ( ! $this->send_files_by_url ) {
 			// modify curl.
-			add_action( 'http_api_curl', array( $this, 'modify_http_api_curl' ), 10, 3 );
+			add_action( 'http_api_curl', [ $this, 'modify_http_api_curl' ], 10, 3 );
 		}
 
-		$channels = $this->options->get( 'channels', array() );
+		$channels = $this->options->get( 'channels', [] );
 		$channels = (array) apply_filters( 'wptelegram_p2tg_send_to_channels', $channels, $this->responses, self::$post, $this->options, $this->bot_api );
 
 		$message_as_reply = (bool) apply_filters( 'wptelegram_p2tg_send_message_as_reply', true, self::$post, $this->options );
@@ -1556,7 +1556,7 @@ class PostSender extends BaseClass {
 				 */
 				$params = apply_filters( 'wptelegram_p2tg_api_method_params', $params, $method, $this->responses, self::$post, $this->options );
 
-				$res = call_user_func( array( $this->bot_api, $method ), $params );
+				$res = call_user_func( [ $this->bot_api, $method ], $params );
 
 				$api_responses[ $channel ][] = $res;
 
@@ -1569,7 +1569,7 @@ class PostSender extends BaseClass {
 		}
 
 		// remove cURL modification.
-		remove_action( 'http_api_curl', array( $this, 'modify_http_api_curl' ), 10, 3 );
+		remove_action( 'http_api_curl', [ $this, 'modify_http_api_curl' ], 10, 3 );
 
 		// update post meta if the message was successful.
 		$this->update_post_meta( $api_responses );
@@ -1633,7 +1633,7 @@ class PostSender extends BaseClass {
 			 */
 			if ( ! $this->send_files_by_url ) {
 
-				$types = array( 'photo', 'audio', 'video', 'document' );
+				$types = [ 'photo', 'audio', 'video', 'document' ];
 
 				foreach ( $types as $type ) {
 
@@ -1666,7 +1666,7 @@ class PostSender extends BaseClass {
 
 		set_transient( $transient, $p2tg_errors, 60 );
 
-		add_filter( 'redirect_post_location', array( $this, 'add_admin_notice_query_var' ), 99 );
+		add_filter( 'redirect_post_location', [ $this, 'add_admin_notice_query_var' ], 99 );
 	}
 
 	/**
@@ -1678,9 +1678,9 @@ class PostSender extends BaseClass {
 	 */
 	public function add_admin_notice_query_var( $location ) {
 
-		remove_filter( 'redirect_post_location', array( $this, __FUNCTION__ ), 99 );
+		remove_filter( 'redirect_post_location', [ $this, __FUNCTION__ ], 99 );
 
-		return add_query_arg( array( self::$prefix . 'error' => true ), $location );
+		return add_query_arg( [ self::$prefix . 'error' => true ], $location );
 	}
 
 	/**

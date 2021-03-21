@@ -16,6 +16,7 @@
 		"url": "https://github.com/manzoorwanijk/wptelegram/issues"
 	},
 	"scripts": {
+		"boot": "composer install; yarn",
 		"build": "gulp build",
 		"dev": "gulp dev",
 		"release": "gulp release --ver",
@@ -24,12 +25,6 @@
 		"release:patch": "gulp release --type patch",
 		"start": "npm run dev"
 	},
-	"browserslist": [
-		">1%",
-		"last 4 versions",
-		"Firefox ESR",
-		"not ie < 9"
-	],
 	"devDependencies": {
 		"@babel/core": "^7.12.17",
 		"@babel/preset-env": "^7.12.17",

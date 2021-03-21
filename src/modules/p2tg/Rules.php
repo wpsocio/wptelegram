@@ -29,37 +29,37 @@ class Rules {
 	 */
 	public static function get_rule_types() {
 
-		$rule_types = array(
-			array(
+		$rule_types = [
+			[
 				'label'   => __( 'Post', 'wptelegram' ),
-				'options' => array(
-					array(
+				'options' => [
+					[
 						'value' => 'post',
 						'label' => __( 'Post', 'wptelegram' ),
-					),
-					array(
+					],
+					[
 						'value' => 'category',
 						'label' => __( 'Post Category', 'wptelegram' ),
-					),
-					array(
+					],
+					[
 						'value' => 'post_tag',
 						'label' => __( 'Post Tag', 'wptelegram' ),
-					),
-					array(
+					],
+					[
 						'value' => 'post_format',
 						'label' => __( 'Post Format', 'wptelegram' ),
-					),
-					array(
+					],
+					[
 						'value' => 'post_author',
 						'label' => __( 'Post Author', 'wptelegram' ),
-					),
-				),
-			),
-			array(
+					],
+				],
+			],
+			[
 				'label'   => __( 'Custom Taxonomy', 'wptelegram' ),
 				'options' => self::get_taxonomy_rule_types(),
-			),
-		);
+			],
+		];
 
 		// allow custom rule_types.
 		return (array) apply_filters( 'wptelegram_p2tg_rule_types', $rule_types );
@@ -72,16 +72,16 @@ class Rules {
 	 */
 	public static function get_taxonomy_rule_types() {
 
-		$to_skip = array(
+		$to_skip = [
 			'product_shipping_class',
-		);
+		];
 
-		$rule_types = array();
+		$rule_types = [];
 
-		$args = array(
+		$args = [
 			'public'   => true,
 			'_builtin' => false,
-		);
+		];
 
 		$taxonomies = get_taxonomies( $args, 'objects' );
 
@@ -91,11 +91,11 @@ class Rules {
 				continue;
 			}
 
-			$rule_types[] = array(
+			$rule_types[] = [
 				// Use a prefix for identification.
 				'value' => 'tax:' . $taxonomy->name,
 				'label' => "{$taxonomy->labels->singular_name} ({$taxonomy->name})",
-			);
+			];
 		}
 
 		return apply_filters( 'wptelegram_p2tg_taxonomy_rule_types', $rule_types );
@@ -160,7 +160,7 @@ class Rules {
 	 */
 	public function get_post_data( $post ) {
 
-		$post_data = array();
+		$post_data = [];
 
 		// convert to one dimensional array.
 		$rule_types = $this->get_rule_type_keys( $post );
@@ -211,13 +211,13 @@ class Rules {
 		/**
 		 * Extract values from array of ['value'=> '', 'label'=>''].
 		 */
-		$values = ! empty( $rule['values'] ) ? wp_list_pluck( $rule['values'], 'value' ) : array();
+		$values = ! empty( $rule['values'] ) ? wp_list_pluck( $rule['values'], 'value' ) : [];
 		$param  = $rule['param'];
 
 		// if the param doesn't exist in $post_data.
 		if ( ! isset( $post_data[ $param ] ) ) {
 
-			$post_data[ $param ] = array();
+			$post_data[ $param ] = [];
 		}
 
 		$in_array = false;
@@ -254,12 +254,12 @@ class Rules {
 	 */
 	private function get_post_data_for_param( $param, $post ) {
 
-		$data = array();
+		$data = [];
 
 		switch ( $param ) {
 
 			case 'post':
-				$data = array( $post->ID );
+				$data = [ $post->ID ];
 
 				break;
 
@@ -270,12 +270,12 @@ class Rules {
 					$post_format = 'standard';
 				}
 
-				$data = array( $post_format );
+				$data = [ $post_format ];
 
 				break;
 
 			case 'post_author':
-				$data = array( $post->post_author );
+				$data = [ $post->post_author ];
 
 				break;
 

@@ -268,8 +268,8 @@ class Utils {
 	 */
 	public static function esc_markdown( $string ) {
 
-		$markdown_search  = array( '_', '*', '[' );
-		$markdown_replace = array( '\_', '\*', '\[' );
+		$markdown_search  = [ '_', '*', '[' ];
+		$markdown_replace = [ '\_', '\*', '\[' ];
 
 		$esc_string = str_replace( $markdown_search, $markdown_replace, $string );
 
@@ -315,7 +315,7 @@ class Utils {
 
 		if ( 'HTML' === $parse_mode ) {
 
-			$allowable_tags = array( 'em', 'strong', 'b', 'i', 'a', 'pre', 'code' );
+			$allowable_tags = [ 'em', 'strong', 'b', 'i', 'a', 'pre', 'code' ];
 
 			// remove unnecessary tags.
 			$text = strip_tags( $text, '<' . implode( '><', $allowable_tags ) . '>' );
@@ -348,7 +348,7 @@ class Utils {
 				$text = preg_replace_callback(
 					'/\*(.+?)\*/su',
 					function ( $match ) {
-						return str_replace( array( '\\[', '\\_' ), array( '[', '_' ), $match[0] );
+						return str_replace( [ '\\[', '\\_' ], [ '[', '_' ], $match[0] );
 					},
 					$text
 				);
@@ -356,7 +356,6 @@ class Utils {
 		}
 		return apply_filters( 'wptelegram_filter_text_for_parse_mode', $text, $unfiltered_text, $parse_mode );
 	}
-
 
 	/**
 	 * Returns Jed-formatted localization data.
@@ -372,12 +371,12 @@ class Utils {
 	public static function get_jed_locale_data( $domain ) {
 		$translations = get_translations_for_domain( $domain );
 
-		$locale = array(
-			'' => array(
+		$locale = [
+			'' => [
 				'domain' => $domain,
 				'lang'   => is_admin() ? get_user_locale() : get_locale(),
-			),
-		);
+			],
+		];
 
 		if ( ! empty( $translations->headers['Plural-Forms'] ) ) {
 			$locale['']['plural_forms'] = $translations->headers['Plural-Forms'];
@@ -424,7 +423,7 @@ class Utils {
 	 */
 	public static function array_to_select_options( $data ) {
 
-		$options = array();
+		$options = [];
 
 		foreach ( $data as $value => $label ) {
 

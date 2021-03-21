@@ -149,11 +149,11 @@ final class Main {
 		$modules = new Modules( $this );
 
 		// First lets do the upgrades, if needed.
-		add_action( 'plugins_loaded', array( $plugin_upgrade, 'do_upgrade' ), 10 );
+		add_action( 'plugins_loaded', [ $plugin_upgrade, 'do_upgrade' ], 10 );
 
 		// Then lets hook everything up.
-		add_action( 'plugins_loaded', array( $this, 'hookup' ), 20 );
-		add_action( 'plugins_loaded', array( $modules, 'load' ), 20 );
+		add_action( 'plugins_loaded', [ $this, 'hookup' ], 20 );
+		add_action( 'plugins_loaded', [ $modules, 'load' ], 20 );
 	}
 
 	/**
@@ -198,9 +198,6 @@ final class Main {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the WPTelegram_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
@@ -208,7 +205,7 @@ final class Main {
 
 		$plugin_i18n = new I18n();
 
-		add_action( 'plugins_loaded', array( $plugin_i18n, 'load_plugin_textdomain' ) );
+		add_action( 'plugins_loaded', [ $plugin_i18n, 'load_plugin_textdomain' ] );
 	}
 
 	/**
@@ -274,20 +271,20 @@ final class Main {
 
 		$plugin_admin = new Admin( $this );
 
-		add_action( 'admin_menu', array( $plugin_admin, 'add_plugin_admin_menu' ), 8 );
+		add_action( 'admin_menu', [ $plugin_admin, 'add_plugin_admin_menu' ], 8 );
 
-		add_action( 'rest_api_init', array( $plugin_admin, 'register_rest_routes' ) );
+		add_action( 'rest_api_init', [ $plugin_admin, 'register_rest_routes' ] );
 
-		add_filter( 'plugin_action_links_' . WPTELEGRAM_BASENAME, array( $plugin_admin, 'plugin_action_links' ) );
+		add_filter( 'plugin_action_links_' . WPTELEGRAM_BASENAME, [ $plugin_admin, 'plugin_action_links' ] );
 
-		add_action( 'init', array( $plugin_admin, 'initiate_logger' ) );
+		add_action( 'init', [ $plugin_admin, 'initiate_logger' ] );
 
 		$asset_manager = new AssetManager( $this );
 
-		add_action( 'admin_enqueue_scripts', array( $asset_manager, 'enqueue_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $asset_manager, 'enqueue_admin_scripts' ) );
+		add_action( 'admin_enqueue_scripts', [ $asset_manager, 'enqueue_admin_styles' ] );
+		add_action( 'admin_enqueue_scripts', [ $asset_manager, 'enqueue_admin_scripts' ] );
 
-		add_action( 'enqueue_block_editor_assets', array( $asset_manager, 'enqueue_block_editor_assets' ) );
+		add_action( 'enqueue_block_editor_assets', [ $asset_manager, 'enqueue_block_editor_assets' ] );
 	}
 
 	/**

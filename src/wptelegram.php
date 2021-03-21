@@ -42,6 +42,7 @@ if ( ! defined( 'WPTELEGRAM_USER_ID_META_KEY' ) ) {
  * Include autoloader.
  */
 require WPTELEGRAM_DIR . '/autoload.php';
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wptelegram-activator.php

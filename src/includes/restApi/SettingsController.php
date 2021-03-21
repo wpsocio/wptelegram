@@ -31,7 +31,7 @@ class SettingsController extends RESTController {
 	 * Pattern to match Telegram username.
 	 *
 	 * @var string Patern.
-	 * @since x.y.x
+	 * @since 3.0.0
 	 */
 	const TG_USERNAME_PATTERN = '[a-zA-Z][a-zA-Z0-9_]{3,30}[a-zA-Z0-9]';
 
@@ -68,20 +68,20 @@ class SettingsController extends RESTController {
 		register_rest_route(
 			self::NAMESPACE,
 			self::REST_BASE,
-			array(
-				array(
+			[
+				[
 					'methods'             => WP_REST_Server::READABLE,
-					'callback'            => array( $this, 'get_settings' ),
-					'permission_callback' => array( $this, 'settings_permissions' ),
+					'callback'            => [ $this, 'get_settings' ],
+					'permission_callback' => [ $this, 'settings_permissions' ],
 					'args'                => self::get_settings_params( 'view' ),
-				),
-				array(
+				],
+				[
 					'methods'             => WP_REST_Server::CREATABLE,
-					'callback'            => array( $this, 'update_settings' ),
-					'permission_callback' => array( $this, 'settings_permissions' ),
+					'callback'            => [ $this, 'update_settings' ],
+					'permission_callback' => [ $this, 'settings_permissions' ],
 					'args'                => self::get_settings_params( 'edit' ),
-				),
-			)
+				],
+			]
 		);
 	}
 
@@ -102,18 +102,18 @@ class SettingsController extends RESTController {
 	 * @return array
 	 */
 	public static function get_default_values() {
-		return array(
+		return [
 			'bot_token'    => '',
 			'bot_username' => '',
-			'p2tg'         => array(
+			'p2tg'         => [
 				// flag.
 				'active'                   => false,
 				// Destination.
-				'channels'                 => array(),
+				'channels'                 => [],
 				// Rules.
-				'send_when'                => array( 'new' ),
-				'post_types'               => array( 'post' ),
-				'rules'                    => array(),
+				'send_when'                => [ 'new' ],
+				'post_types'               => [ 'post' ],
+				'rules'                    => [],
 				// Message.
 				'message_template'         => '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}',
 				'excerpt_source'           => 'post_content',
@@ -136,26 +136,26 @@ class SettingsController extends RESTController {
 				'post_edit_switch'         => true,
 				'delay'                    => 0.5,
 				'disable_notification'     => false,
-			),
-			'notify'       => array(
+			],
+			'notify'       => [
 				'active'             => false,
 				'watch_emails'       => get_option( 'admin_email' ),
-				'chat_ids'           => array(),
+				'chat_ids'           => [],
 				'user_notifications' => false,
 				'message_template'   => '🔔‌<b>{email_subject}</b>🔔' . PHP_EOL . PHP_EOL . '{email_message}',
 				'parse_mode'         => 'HTML',
-			),
-			'proxy'        => array(
+			],
+			'proxy'        => [
 				'active'       => false,
 				'proxy_method' => 'google_script',
 				'proxy_type'   => 'CURLPROXY_HTTP',
-			),
-			'advanced'     => array(
+			],
+			'advanced'     => [
 				'send_files_by_url' => true,
-				'enable_logs'       => array(),
+				'enable_logs'       => [],
 				'clean_uninstall'   => true,
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -219,222 +219,222 @@ class SettingsController extends RESTController {
 	 */
 	public static function get_settings_params( $context = 'edit' ) {
 
-		return array(
-			'bot_token'    => array(
+		return [
+			'bot_token'    => [
 				'type'              => 'string',
 				'required'          => ( 'edit' === $context ),
 				'pattern'           => Utils::enhance_regex( API::BOT_TOKEN_PATTERN, true ),
 				'sanitize_callback' => 'sanitize_text_field',
-			),
-			'bot_username' => array(
+			],
+			'bot_username' => [
 				'type'              => 'string',
 				'pattern'           => Utils::enhance_regex( self::TG_USERNAME_PATTERN, true ),
 				'sanitize_callback' => 'sanitize_text_field',
-			),
-			'p2tg'         => array(
+			],
+			'p2tg'         => [
 				'type'              => 'object',
-				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
-				'properties'        => array(
-					'active'                   => array(
+				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'properties'        => [
+					'active'                   => [
 						'type' => 'boolean',
-					),
-					'channels'                 => array(
+					],
+					'channels'                 => [
 						'type'  => 'array',
-						'items' => array(
+						'items' => [
 							'type' => 'string',
-						),
-					),
-					'send_when'                => array(
+						],
+					],
+					'send_when'                => [
 						'type'  => 'array',
-						'items' => array(
+						'items' => [
 							'type' => 'string',
-							'enum' => array( 'new', 'existing' ),
-						),
-					),
-					'post_types'               => array(
+							'enum' => [ 'new', 'existing' ],
+						],
+					],
+					'post_types'               => [
 						'type'  => 'array',
-						'items' => array(
+						'items' => [
 							'type' => 'string',
-						),
-					),
-					'rules'                    => array(
+						],
+					],
+					'rules'                    => [
 						'type'  => 'array',
-						'items' => array(
+						'items' => [
 							'type'  => 'array',
-							'items' => array(
+							'items' => [
 								'type'       => 'object',
-								'properties' => array(
-									'param'    => array(
+								'properties' => [
+									'param'    => [
 										'type' => 'string',
-									),
-									'operator' => array(
+									],
+									'operator' => [
 										'type' => 'string',
-										'enum' => array( 'in', 'not_in' ),
-									),
-									'values'   => array(
+										'enum' => [ 'in', 'not_in' ],
+									],
+									'values'   => [
 										'type'  => 'array',
-										'items' => array(
+										'items' => [
 											'type'       => 'object',
-											'properties' => array(
-												'value' => array(
+											'properties' => [
+												'value' => [
 													'type' => 'string',
-												),
-												'label' => array(
+												],
+												'label' => [
 													'type' => 'string',
-												),
-											),
-										),
-									),
-								),
-							),
-						),
-					),
-					'message_template'         => array(
+												],
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+					'message_template'         => [
 						'type' => 'string',
-					),
-					'excerpt_source'           => array(
+					],
+					'excerpt_source'           => [
 						'type' => 'string',
-						'enum' => array( 'post_content', 'before_more', 'post_excerpt' ),
-					),
-					'excerpt_length'           => array(
+						'enum' => [ 'post_content', 'before_more', 'post_excerpt' ],
+					],
+					'excerpt_length'           => [
 						'type'    => 'integer',
 						'minimum' => 1,
 						'maximum' => 300,
-					),
-					'excerpt_preserve_eol'     => array(
+					],
+					'excerpt_preserve_eol'     => [
 						'type' => 'boolean',
-					),
-					'send_featured_image'      => array(
+					],
+					'send_featured_image'      => [
 						'type' => 'boolean',
-					),
-					'image_position'           => array(
+					],
+					'image_position'           => [
 						'type' => 'string',
-						'enum' => array( 'before', 'after' ),
-					),
-					'single_message'           => array(
+						'enum' => [ 'before', 'after' ],
+					],
+					'single_message'           => [
 						'type' => 'boolean',
-					),
-					'cats_as_tags'             => array(
+					],
+					'cats_as_tags'             => [
 						'type' => 'boolean',
-					),
-					'parse_mode'               => array(
+					],
+					'parse_mode'               => [
 						'type' => 'string',
-						'enum' => array( 'none', 'Markdown', 'HTML' ),
-					),
-					'disable_web_page_preview' => array(
+						'enum' => [ 'none', 'Markdown', 'HTML' ],
+					],
+					'disable_web_page_preview' => [
 						'type' => 'boolean',
-					),
-					'inline_url_button'        => array(
+					],
+					'inline_url_button'        => [
 						'type' => 'boolean',
-					),
-					'inline_button_text'       => array(
+					],
+					'inline_button_text'       => [
 						'type' => 'string',
-					),
-					'inline_button_url'        => array(
+					],
+					'inline_button_url'        => [
 						'type' => 'string',
-					),
-					'plugin_posts'             => array(
+					],
+					'plugin_posts'             => [
 						'type' => 'boolean',
-					),
-					'post_edit_switch'         => array(
+					],
+					'post_edit_switch'         => [
 						'type' => 'boolean',
-					),
-					'delay'                    => array(
+					],
+					'delay'                    => [
 						'type'    => 'number',
 						'minimum' => 0,
-					),
-					'disable_notification'     => array(
+					],
+					'disable_notification'     => [
 						'type' => 'boolean',
-					),
-				),
-			),
-			'notify'       => array(
+					],
+				],
+			],
+			'notify'       => [
 				'type'              => 'object',
-				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
-				'properties'        => array(
-					'active'             => array(
+				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'properties'        => [
+					'active'             => [
 						'type' => 'boolean',
-					),
-					'watch_emails'       => array(
+					],
+					'watch_emails'       => [
 						'type' => 'string',
-					),
-					'chat_ids'           => array(
+					],
+					'chat_ids'           => [
 						'type'  => 'array',
-						'items' => array(
+						'items' => [
 							'type' => 'string',
-						),
-					),
-					'user_notifications' => array(
+						],
+					],
+					'user_notifications' => [
 						'type' => 'boolean',
-					),
-					'message_template'   => array(
+					],
+					'message_template'   => [
 						'type' => 'string',
-					),
-					'parse_mode'         => array(
+					],
+					'parse_mode'         => [
 						'type' => 'string',
-						'enum' => array( 'none', 'Markdown', 'HTML' ),
-					),
-				),
-			),
-			'proxy'        => array(
+						'enum' => [ 'none', 'Markdown', 'HTML' ],
+					],
+				],
+			],
+			'proxy'        => [
 				'type'              => 'object',
-				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
-				'properties'        => array(
-					'active'            => array(
+				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'properties'        => [
+					'active'            => [
 						'type' => 'boolean',
-					),
-					'proxy_method'      => array(
+					],
+					'proxy_method'      => [
 						'type' => 'string',
-						'enum' => array( 'google_script', 'php_proxy' ),
-					),
-					'google_script_url' => array(
+						'enum' => [ 'google_script', 'php_proxy' ],
+					],
+					'google_script_url' => [
 						'type'   => 'string',
 						'format' => 'url',
-					),
-					'proxy_host'        => array(
+					],
+					'proxy_host'        => [
 						'type' => 'string',
-					),
-					'proxy_port'        => array(
+					],
+					'proxy_port'        => [
 						'type' => 'string',
-					),
-					'proxy_type'        => array(
+					],
+					'proxy_type'        => [
 						'type' => 'string',
-						'enum' => array(
+						'enum' => [
 							'CURLPROXY_HTTP',
 							'CURLPROXY_SOCKS4',
 							'CURLPROXY_SOCKS4A',
 							'CURLPROXY_SOCKS5',
 							'CURLPROXY_SOCKS5_HOSTNAME',
-						),
-					),
-					'proxy_username'    => array(
+						],
+					],
+					'proxy_username'    => [
 						'type' => 'string',
-					),
-					'proxy_password'    => array(
+					],
+					'proxy_password'    => [
 						'type' => 'string',
-					),
-				),
-			),
-			'advanced'     => array(
+					],
+				],
+			],
+			'advanced'     => [
 				'type'              => 'object',
-				'sanitize_callback' => array( __CLASS__, 'sanitize_param' ),
-				'properties'        => array(
-					'send_files_by_url' => array(
+				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'properties'        => [
+					'send_files_by_url' => [
 						'type' => 'boolean',
-					),
-					'enable_logs'       => array(
+					],
+					'enable_logs'       => [
 						'type'  => 'array',
-						'items' => array(
+						'items' => [
 							'type' => 'string',
-							'enum' => array( 'bot_api', 'p2tg' ),
-						),
-					),
-					'clean_uninstall'   => array(
+							'enum' => [ 'bot_api', 'p2tg' ],
+						],
+					],
+					'clean_uninstall'   => [
 						'type' => 'boolean',
-					),
-				),
-			),
-		);
+					],
+				],
+			],
+		];
 	}
 
 	/**
@@ -450,7 +450,7 @@ class SettingsController extends RESTController {
 		// First lets make the value safer.
 		$safe_value = Utils::sanitize( $value );
 
-		if ( in_array( $param, array( 'p2tg', 'notify' ), true ) ) {
+		if ( in_array( $param, [ 'p2tg', 'notify' ], true ) ) {
 			// Sanitize the template separately.
 			$safe_value['message_template'] = Utils::sanitize_message_template( $value['message_template'] );
 		}

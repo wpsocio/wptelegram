@@ -30,10 +30,10 @@ function uninstall_wptelegram() {
 		return;
 	}
 
-	$uninstall_options = array(
+	$uninstall_options = [
 		'wptelegram',
 		'wptelegram_ver',
-	);
+	];
 
 	$uninstall_options = (array) apply_filters( 'wptelegram_uninstall_options', $uninstall_options );
 

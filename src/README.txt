@@ -142,7 +142,7 @@ Note: You can also contribute in translating this plugin into your local languag
 == Changelog ==
 
 = 3.0.1 =
-
+- Fixed the last messed up update
 
 = 3.0.0 =
 - Switched to PHP namespaces

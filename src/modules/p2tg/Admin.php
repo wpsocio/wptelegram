@@ -68,22 +68,22 @@ class Admin extends BaseClass {
 		if ( 'SETTINGS_PAGE' === $for ) {
 			$data['uiData'] = array_merge(
 				$data['uiData'],
-				array(
+				[
 					'post_types'          => $this->get_post_type_options(),
 					'macros'              => $this->get_macros(),
 					'rule_types'          => Rules::get_rule_types(),
 					'is_wp_cron_disabled' => defined( 'DISABLE_WP_CRON' ) && constant( 'DISABLE_WP_CRON' ),
-				)
+				]
 			);
 		} elseif ( 'BLOCKS' === $for ) {
-			$blocks_fields  = array(
+			$blocks_fields  = [
 				'channels',
 				'disable_notification',
 				'files',
 				'delay',
 				'message_template',
-			);
-			$saved_settings = array( 'send2tg' => self::send2tg_default() === 'yes' );
+			];
+			$saved_settings = [ 'send2tg' => self::send2tg_default() === 'yes' ];
 
 			foreach ( $blocks_fields as $field ) {
 				$saved_settings[ $field ] = $this->get_field_default( $field );
@@ -91,9 +91,9 @@ class Admin extends BaseClass {
 
 			$data['savedSettings'] = $saved_settings;
 
-			$data['uiData'] = array(
+			$data['uiData'] = [
 				'allChannels' => $this->module->options()->get( 'channels' ),
-			);
+			];
 		}
 
 		return $data;
@@ -106,23 +106,23 @@ class Admin extends BaseClass {
 	 * @return array
 	 */
 	public function get_macros() {
-		$to_skip = array(
+		$to_skip = [
 			'product_shipping_class',
-		);
+		];
 
 		$taxonomies = get_taxonomies(
-			array(
+			[
 				'public'   => true,
 				'_builtin' => false,
-			),
+			],
 			'names'
 		);
 
-		$term_macros = array(
+		$term_macros = [
 			'{tags}',
 			'{categories}',
 			'{terms:taxonomy}',
-		);
+		];
 
 		foreach ( $taxonomies as $taxonomy ) {
 			if ( in_array( $taxonomy, $to_skip, true ) ) {
@@ -131,10 +131,10 @@ class Admin extends BaseClass {
 			$term_macros[] = "{terms:{$taxonomy}}";
 		}
 
-		$macro_groups = array(
-			'post'  => array(
+		$macro_groups = [
+			'post'  => [
 				'label'  => __( 'Post Data', 'wptelegram' ),
-				'macros' => array(
+				'macros' => [
 					'{ID}',
 					'{post_title}',
 					'{post_date}',
@@ -144,19 +144,19 @@ class Admin extends BaseClass {
 					'{post_content}',
 					'{short_url}',
 					'{full_url}',
-				),
-			),
-			'terms' => array(
+				],
+			],
+			'terms' => [
 				'label'  => __( 'Taxonomy Terms', 'wptelegram' ),
 				'macros' => $term_macros,
-			),
-			'cf'    => array(
+			],
+			'cf'    => [
 				'label'  => __( 'Custom Fields', 'wptelegram' ),
-				'macros' => array(
+				'macros' => [
 					'{cf:custom_field}',
-				),
-			),
-		);
+				],
+			],
+		];
 		/* translators: 1  taxonomy, 2  {terms:taxonomy} */
 		$macro_groups['terms']['info'] = sprintf( __( 'Replace %1$s in %2$s by the name of the taxonomy to insert its terms attached to the post.', 'wptelegram' ), '<code>taxonomy</code>', '<code>{terms:taxonomy}</code>' ) . ' ' . sprintf( __( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ), '<code>{terms:product_cat}</code>', '<code>{terms:product_tag}</code>' );
 
@@ -179,16 +179,16 @@ class Admin extends BaseClass {
 	 */
 	public function get_post_type_options() {
 
-		$options = array();
+		$options = [];
 
-		$post_types = get_post_types( array( 'public' => true ), 'objects' );
+		$post_types = get_post_types( [ 'public' => true ], 'objects' );
 
 		foreach ( $post_types  as $post_type ) {
 			if ( 'attachment' !== $post_type->name ) {
-				$options[] = array(
+				$options[] = [
 					'value' => $post_type->name,
 					'label' => "{$post_type->labels->singular_name} ({$post_type->name})",
-				);
+				];
 			}
 		}
 
@@ -314,7 +314,7 @@ class Admin extends BaseClass {
 		/**
 		 * Initiate the metabox
 		 */
-		$box = array(
+		$box = [
 			'id'           => self::OVERRIDE_METABOX_ID,
 			'title'        => sprintf( '%s (%s)', __( 'Post to Telegram', 'wptelegram' ), WPTG()->title() ),
 			'object_types' => $screens,
@@ -322,83 +322,83 @@ class Admin extends BaseClass {
 			'priority'     => 'high',
 			'save_fields'  => false,
 			'classes'      => 'wptelegram-box',
-		);
+		];
 
 		$cmb2 = new_cmb2_box( $box );
 
 		$cmb2->add_field(
-			array(
+			[
 				'name' => __( 'Override settings', 'wptelegram' ),
 				'id'   => self::$prefix . 'override_switch',
 				'type' => 'checkbox',
-			)
+			]
 		);
 
-		$channels = $this->module->options()->get( 'channels', array() );
+		$channels = $this->module->options()->get( 'channels', [] );
 
 		$cmb2->add_field(
-			array(
+			[
 				'name'              => __( 'Send to', 'wptelegram' ),
 				'id'                => self::$prefix . 'channels',
 				'type'              => 'multicheck',
 				'select_all_button' => false,
-				'default_cb'        => array( $this, 'override_opt_default_cb' ),
+				'default_cb'        => [ $this, 'override_opt_default_cb' ],
 				'options'           => array_combine( $channels, $channels ),
 				'classes'           => 'hidden depends-upon-override_switch',
-			)
+			]
 		);
 
 		$cmb2->add_field(
-			array(
+			[
 				'name'       => __( 'Disable Notifications', 'wptelegram' ),
 				'id'         => self::$prefix . 'disable_notification',
 				'type'       => 'checkbox',
-				'default_cb' => array( $this, 'override_opt_default_cb' ),
+				'default_cb' => [ $this, 'override_opt_default_cb' ],
 				'classes'    => 'hidden depends-upon-override_switch',
-			)
+			]
 		);
 
 		$cmb2->add_field(
-			array(
+			[
 				'name'       => __( 'Files', 'wptelegram' ),
 				'desc'       => __( 'Files to be sent after the message.', 'wptelegram' ),
 				'id'         => self::$prefix . 'files',
 				'type'       => 'file_list',
-				'default_cb' => array( $this, 'override_opt_default_cb' ),
+				'default_cb' => [ $this, 'override_opt_default_cb' ],
 				'classes'    => 'hidden depends-upon-override_switch',
-			)
+			]
 		);
 
 		$cmb2->add_field(
-			array(
+			[
 				'name'       => __( 'Delay in Posting', 'wptelegram' ),
 				'desc'       => __( 'Minute(s)', 'wptelegram' ),
-				'default_cb' => array( $this, 'override_opt_default_cb' ),
+				'default_cb' => [ $this, 'override_opt_default_cb' ],
 				'id'         => self::$prefix . 'delay',
 				'type'       => 'text_small',
 				'classes'    => 'hidden depends-upon-override_switch',
-				'attributes' => array(
+				'attributes' => [
 					'type'        => 'number',
 					'min'         => '0',
 					'placeholder' => '0.0',
 					'step'        => '0.5',
-				),
-			)
+				],
+			]
 		);
 
 		$cmb2->add_field(
-			array(
+			[
 				'name'       => __( 'Message Template', 'wptelegram' ),
 				'desc'       => __( 'Structure of the message to be sent.', 'wptelegram' ),
 				'id'         => self::$prefix . 'message_template',
 				'type'       => 'textarea',
-				'default_cb' => array( $this, 'override_opt_default_cb' ),
-				'escape_cb'  => array( __CLASS__, 'escape_message_template' ),
+				'default_cb' => [ $this, 'override_opt_default_cb' ],
+				'escape_cb'  => [ __CLASS__, 'escape_message_template' ],
 				'classes'    => 'hidden depends-upon-override_switch',
-				'attributes' => array(
+				'attributes' => [
 					'data-emoji-container' => 'p2tg-template-container',
-				),
-			)
+				],
+			]
 		);
 	}
 
@@ -448,9 +448,9 @@ class Admin extends BaseClass {
 		switch ( $field ) {
 			case 'channels':
 			case 'files':
-				return $saved_options->get( $field, array() );
+				return $saved_options->get( $field, [] );
 			case 'disable_notification':
-				return in_array( $field, $saved_options->get( 'misc', array() ), true );
+				return in_array( $field, $saved_options->get( 'misc', [] ), true );
 			case 'delay':
 			case 'message_template':
 				return $saved_options->get( $field );
@@ -492,7 +492,7 @@ class Admin extends BaseClass {
 	 */
 	public static function send2tg_default() {
 
-		$send_when = WPTG()->options()->get_path( 'p2tg.send_when', array() );
+		$send_when = WPTG()->options()->get_path( 'p2tg.send_when', [] );
 
 		$default = 'yes';
 
@@ -533,7 +533,7 @@ class Admin extends BaseClass {
 	 */
 	public function get_override_meta_box_screens() {
 
-		$screens = $this->module->options()->get( 'post_types', array() );
+		$screens = $this->module->options()->get( 'post_types', [] );
 
 		return (array) apply_filters( 'wptelegram_p2tg_override_meta_box_screens', $screens );
 	}

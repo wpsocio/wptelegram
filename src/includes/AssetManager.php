@@ -39,7 +39,7 @@ class AssetManager extends BaseClass {
 		wp_enqueue_style(
 			$this->plugin->name() . '-menu',
 			$this->plugin->assets()->url( sprintf( '/css/admin-menu%s.css', wp_scripts_get_suffix() ) ),
-			array(),
+			[],
 			$this->plugin->version(),
 			'all'
 		);
@@ -51,7 +51,7 @@ class AssetManager extends BaseClass {
 			wp_enqueue_style(
 				$entrypoint,
 				$this->plugin->assets()->get_asset_url( $entrypoint, Assets::ASSET_EXT_CSS ),
-				array(),
+				[],
 				$this->plugin->assets()->get_asset_version( $entrypoint, Assets::ASSET_EXT_CSS ),
 				'all'
 			);
@@ -140,34 +140,34 @@ class AssetManager extends BaseClass {
 	 * @return array
 	 */
 	private function get_dom_data( $for = 'SETTINGS_PAGE' ) {
-		$data = array(
-			'pluginInfo' => array(
+		$data = [
+			'pluginInfo' => [
 				'title'       => $this->plugin->title(),
 				'name'        => $this->plugin->name(),
 				'version'     => $this->plugin->version(),
 				'description' => __( 'With this plugin, you can send posts to Telegram and receive notifications and do lot more :)', 'wptelegram' ),
-			),
-			'api'        => array(
+			],
+			'api'        => [
 				'admin_url'      => admin_url(),
 				'nonce'          => wp_create_nonce( 'wptelegram' ),
 				'use'            => 'SERVER', // or may be 'BROWSER'?
 				'rest_namespace' => RESTController::NAMESPACE,
 				'wp_rest_url'    => esc_url_raw( rest_url() ),
-			),
-			'uiData'     => array(
+			],
+			'uiData'     => [
 				'debug_info' => $this->get_debug_info(),
-			),
+			],
 			'i18n'       => Utils::get_jed_locale_data( 'wptelegram' ),
-		);
+		];
 
 		if ( 'SETTINGS_PAGE' === $for ) {
-			$data['assets'] = array(
+			$data['assets'] = [
 				'logoUrl'        => $this->plugin->assets()->url( '/icons/icon-128x128.png' ),
 				'tgIconUrl'      => $this->plugin->assets()->url( '/icons/tg-icon.svg' ),
 				'editProfileUrl' => get_edit_profile_url( get_current_user_id() ),
 				'p2tgLogUrl'     => content_url( Logger::get_log_file_name( 'p2tg' ) ),
 				'botApiLogUrl'   => content_url( Logger::get_log_file_name( 'bot-api' ) ),
-			);
+			];
 		}
 
 		// Not to expose bot token to non-admins.

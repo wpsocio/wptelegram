@@ -49,7 +49,7 @@ class Logger {
 	 *
 	 * @param array $active_logs The logs that are activated.
 	 */
-	public function __construct( $active_logs = array() ) {
+	public function __construct( $active_logs = [] ) {
 
 		$this->set_active_logs( $active_logs );
 	}
@@ -93,7 +93,7 @@ class Logger {
 
 		foreach ( $this->get_active_logs() as $log_type ) {
 
-			$method = array( $this, "hookup_for_{$log_type}" );
+			$method = [ $this, "hookup_for_{$log_type}" ];
 
 			if ( is_callable( $method ) ) {
 				call_user_func( $method );
@@ -106,7 +106,7 @@ class Logger {
 	 */
 	protected function hookup_for_bot_api() {
 
-		add_action( 'wptelegram_bot_api_debug', array( $this, 'add_bot_api_debug' ), 10, 2 );
+		add_action( 'wptelegram_bot_api_debug', [ $this, 'add_bot_api_debug' ], 10, 2 );
 	}
 
 	/**
@@ -114,17 +114,17 @@ class Logger {
 	 */
 	protected function hookup_for_p2tg() {
 
-		add_action( 'wptelegram_p2tg_before_send_post', array( $this, 'before_p2tg_log' ), 10, 3 );
+		add_action( 'wptelegram_p2tg_before_send_post', [ $this, 'before_p2tg_log' ], 10, 3 );
 
-		add_action( 'wptelegram_p2tg_post_sv_check_failed', array( $this, 'add_sv_check' ), 10, 3 );
+		add_action( 'wptelegram_p2tg_post_sv_check_failed', [ $this, 'add_sv_check' ], 10, 3 );
 
-		add_filter( 'wptelegram_p2tg_rules_apply', array( $this, 'add_rules_apply' ), 10, 3 );
+		add_filter( 'wptelegram_p2tg_rules_apply', [ $this, 'add_rules_apply' ], 10, 3 );
 
-		add_filter( 'wptelegram_p2tg_featured_image_source', array( $this, 'add_featured_image_source' ), 10, 4 );
+		add_filter( 'wptelegram_p2tg_featured_image_source', [ $this, 'add_featured_image_source' ], 10, 4 );
 
-		add_action( 'wptelegram_p2tg_post_finish', array( $this, 'add_post_finish' ), 10, 5 );
+		add_action( 'wptelegram_p2tg_post_finish', [ $this, 'add_post_finish' ], 10, 5 );
 
-		add_action( 'wptelegram_p2tg_after_send_post', array( $this, 'after_p2tg_log' ), 10, 3 );
+		add_action( 'wptelegram_p2tg_after_send_post', [ $this, 'after_p2tg_log' ], 10, 3 );
 	}
 
 	/**
@@ -148,10 +148,10 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = array(
+		$this->p2tg_post_info[ $key ][] = [
 			'hook'    => 'before',
 			'trigger' => $trigger,
-		);
+		];
 	}
 
 	/**
@@ -166,10 +166,10 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = array(
+		$this->p2tg_post_info[ $key ][] = [
 			'hook'     => 'sv',
 			'validity' => $validity,
-		);
+		];
 	}
 
 	/**
@@ -184,10 +184,10 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = array(
+		$this->p2tg_post_info[ $key ][] = [
 			'hook'  => 'rules',
 			'apply' => $rules_apply,
-		);
+		];
 
 		return $rules_apply;
 	}
@@ -205,13 +205,13 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = array(
+		$this->p2tg_post_info[ $key ][] = [
 			'hook'        => 'image_source',
 			'send_image'  => $options->get( 'send_featured_image' ),
 			'has_image'   => has_post_thumbnail( $post->ID ),
 			'send_by_url' => $send_files_by_url,
 			'source'      => $source,
-		);
+		];
 
 		return $source;
 	}
@@ -230,11 +230,11 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = array(
+		$this->p2tg_post_info[ $key ][] = [
 			'hook'      => 'finish',
 			'ok'        => $ok,
 			'processed' => $processed_posts,
-		);
+		];
 	}
 
 	/**
@@ -249,10 +249,10 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = array(
+		$this->p2tg_post_info[ $key ][] = [
 			'hook'   => 'after',
 			'result' => $result,
-		);
+		];
 
 		$text = wp_json_encode( $this->p2tg_post_info/*, 128*/ );
 

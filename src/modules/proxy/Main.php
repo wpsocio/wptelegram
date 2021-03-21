@@ -43,8 +43,8 @@ class Main extends BaseModule {
 
 		$handler = new ProxyHandler( $this );
 
-		add_action( 'wptelegram_bot_api_remote_request_init', array( $handler, 'configure_proxy' ) );
+		add_action( 'wptelegram_bot_api_remote_request_init', [ $handler, 'configure_proxy' ] );
 
-		add_action( 'wptelegram_bot_api_remote_request_finish', array( $handler, 'remove_proxy' ) );
+		add_action( 'wptelegram_bot_api_remote_request_finish', [ $handler, 'remove_proxy' ] );
 	}
 }

@@ -44,14 +44,14 @@ class RulesController extends RESTController {
 		register_rest_route(
 			self::NAMESPACE,
 			self::REST_BASE,
-			array(
-				array(
+			[
+				[
 					'methods'             => WP_REST_Server::READABLE,
-					'callback'            => array( $this, 'rest_get_rule_values' ),
-					'permission_callback' => array( $this, 'rules_permissions' ),
+					'callback'            => [ $this, 'rest_get_rule_values' ],
+					'permission_callback' => [ $this, 'rules_permissions' ],
 					'args'                => self::get_rule_value_params(),
-				),
-			)
+				],
+			]
 		);
 	}
 
@@ -75,7 +75,7 @@ class RulesController extends RESTController {
 	 */
 	public function rest_get_rule_values( WP_REST_Request $request ) {
 
-		$options = array();
+		$options = [];
 
 		$param  = $request->get_param( 'param' );
 		$search = $request->get_param( 'search' );
@@ -96,44 +96,44 @@ class RulesController extends RESTController {
 	 *
 	 * @return array
 	 */
-	public static function get_rule_values( $param, $search = '', $include = array() ) {
+	public static function get_rule_values( $param, $search = '', $include = [] ) {
 
-		$options = array();
+		$options = [];
 
 		switch ( $param ) {
 
 			case 'post':
-				$post_types = get_post_types( array( 'public' => true ), 'objects' );
+				$post_types = get_post_types( [ 'public' => true ], 'objects' );
 				unset( $post_types['attachment'] );
 
 				foreach ( $post_types as $post_type ) {
 
 					$posts = get_posts(
-						array(
+						[
 							'numberposts' => 100,
 							'post_type'   => $post_type->name,
 							'post_status' => 'publish',
 							's'           => $search,
 							'include'     => $include,
-						)
+						]
 					);
 
 					if ( $posts ) {
 
-						$post_options = array();
+						$post_options = [];
 
 						foreach ( $posts as $post ) {
 
-							$post_options[] = array(
+							$post_options[] = [
 								'value' => "{$post->ID}",
 								'label' => html_entity_decode( get_the_title( $post ) ),
-							);
+							];
 						}
 
-						$options[] = array(
+						$options[] = [
 							'label'   => html_entity_decode( "{$post_type->labels->singular_name} ({$post_type->name})" ),
 							'options' => $post_options,
-						);
+						];
 					}
 				}
 				break;
@@ -183,25 +183,25 @@ class RulesController extends RESTController {
 	 * @param array  $include Limit the result to given IDs.
 	 * @return array
 	 */
-	public static function get_author_list( $search, $include = array() ) {
+	public static function get_author_list( $search, $include = [] ) {
 
-		$author_list = array();
+		$author_list = [];
 
-		$args = array(
+		$args = [
 			'orderby' => 'name',
 			'who'     => 'authors',
 			'search'  => $search,
 			'include' => $include,
-		);
+		];
 
 		$authors = get_users( $args );
 
 		foreach ( $authors as $author ) {
 
-			$author_list[] = array(
+			$author_list[] = [
 				'value' => "{$author->ID}",
 				'label' => html_entity_decode( get_the_author_meta( 'display_name', $author->ID ) ),
-			);
+			];
 		}
 
 		return apply_filters( 'wptelegram_p2tg_rules_author_list', $author_list );
@@ -217,18 +217,18 @@ class RulesController extends RESTController {
 	 * @param array  $include Limit the result to given IDs.
 	 * @return array
 	 */
-	public static function get_term_list( $taxonomy, $search, $include = array() ) {
+	public static function get_term_list( $taxonomy, $search, $include = [] ) {
 
-		$term_list = array();
+		$term_list = [];
 
 		$terms = get_terms(
 			$taxonomy,
-			array(
+			[
 				'hide_empty' => 0,
 				'orderby'    => 'term_group',
 				'search'     => $search,
 				'include'    => $include,
-			)
+			]
 		);
 
 		if ( is_wp_error( $terms ) ) {
@@ -274,10 +274,10 @@ class RulesController extends RESTController {
 					}
 				}
 			}
-			$term_list[] = array(
+			$term_list[] = [
 				'value' => "{$term->term_id}",
 				'label' => html_entity_decode( $term_name ),
-			);
+			];
 		}
 
 		return apply_filters( 'wptelegram_p2tg_rules_term_list', $term_list, $taxonomy );
@@ -291,18 +291,18 @@ class RulesController extends RESTController {
 	 * @return array Query parameters for the endpoint.
 	 */
 	public static function get_rule_value_params() {
-		return array(
-			'param'  => array(
+		return [
+			'param'  => [
 				'type'              => 'string',
 				'required'          => true,
 				'sanitize_callback' => 'sanitize_text_field',
 				'validate_callback' => 'rest_validate_request_arg',
-			),
-			'search' => array(
+			],
+			'search' => [
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
 				'validate_callback' => 'rest_validate_request_arg',
-			),
-		);
+			],
+		];
 	}
 }

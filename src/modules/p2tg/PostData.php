@@ -47,7 +47,7 @@ class PostData {
 	 */
 	public function __construct( $post ) {
 
-		$this->data = array();
+		$this->data = [];
 
 		$this->set_post( $post );
 	}
@@ -75,7 +75,7 @@ class PostData {
 	 *
 	 * @return mixed Field value.
 	 */
-	public function get_field( $field, $params = array() ) {
+	public function get_field( $field, $params = [] ) {
 
 		// if the data already exists for the field.
 		if ( ! array_key_exists( $field, $this->data ) ) {
@@ -98,7 +98,7 @@ class PostData {
 	 *
 	 * @return mixed Field value.
 	 */
-	public function get_field_value( $field, $params = array() ) {
+	public function get_field_value( $field, $params = [] ) {
 
 		$value = '';
 
@@ -218,7 +218,7 @@ class PostData {
 
 								$terms = get_the_terms( $this->post->ID, $taxonomy );
 
-								$names = ( is_wp_error( $terms ) || empty( $terms ) ) ? array() : wp_list_pluck( $terms, 'name' );
+								$names = ( is_wp_error( $terms ) || empty( $terms ) ) ? [] : wp_list_pluck( $terms, 'name' );
 
 								if ( ! empty( $names ) ) {
 
@@ -254,7 +254,7 @@ class PostData {
 	 * @since 3.0.0
 	 */
 	public static function remove_autoembed_filter() {
-		remove_filter( 'the_content', array( $GLOBALS['wp_embed'], 'autoembed' ), 8 );
+		remove_filter( 'the_content', [ $GLOBALS['wp_embed'], 'autoembed' ], 8 );
 	}
 
 	/**
@@ -263,6 +263,6 @@ class PostData {
 	 * @since 3.0.0
 	 */
 	public static function restore_autoembed_filter() {
-		add_filter( 'the_content', array( $GLOBALS['wp_embed'], 'autoembed' ), 8 );
+		add_filter( 'the_content', [ $GLOBALS['wp_embed'], 'autoembed' ], 8 );
 	}
 }
