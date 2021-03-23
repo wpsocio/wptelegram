@@ -82,7 +82,7 @@ class PostSender extends BaseClass {
 	 *
 	 * @var PostData   $post_data  Post data.
 	 */
-	protected static $post_data;
+	protected $post_data;
 
 	/**
 	 * The form data that was submitted.
@@ -110,15 +110,15 @@ class PostSender extends BaseClass {
 	public function init( $post, $trigger ) {
 		self::$processed_posts = [];
 
-		self::$post = $post;
+		$this->post = $post;
 
-		self::$post_data = new PostData( self::$post );
+		$this->post_data = new PostData( $this->post );
 
 		$this->bot_token = WPTG()->options()->get( 'bot_token' );
 
 		$this->set_form_data();
 
-		do_action( 'wptelegram_p2tg_post_init', self::$post, $trigger );
+		do_action( 'wptelegram_p2tg_post_init', $this->post, $trigger );
 	}
 
 	/**
@@ -424,11 +424,11 @@ class PostSender extends BaseClass {
 
 		$ok = true;
 
-		$rest_tag     = 'rest_after_insert_' . self::$post->post_type;
+		$rest_tag     = 'rest_after_insert_' . $this->post->post_type;
 		$is_rest_hook = current_filter() === $rest_tag;
 
 		// if not doing "rest_after_insert_{$post_type}" action.
-		if ( RequestCheck::if_is( RequestCheck::REST_REQUEST ) && ! $is_rest_hook && 'product' !== self::$post->post_type ) {
+		if ( RequestCheck::if_is( RequestCheck::REST_REQUEST ) && ! $is_rest_hook && 'product' !== $this->post->post_type ) {
 
 			// come back later.
 			add_action( $rest_tag, [ $this, 'wp_rest_post' ], 10, 1 );
@@ -454,7 +454,7 @@ class PostSender extends BaseClass {
 			 * @param WP_Post  $post     The current post
 			 * @param int|bool $validity The validity status
 			 */
-			do_action( 'wptelegram_p2tg_post_sv_check_failed', $validity, self::$post, $trigger );
+			do_action( 'wptelegram_p2tg_post_sv_check_failed', $validity, $this->post, $trigger );
 		}
 
 		if ( $ok ) {
@@ -483,7 +483,7 @@ class PostSender extends BaseClass {
 
 		$rules_apply = $ok && $this->rules_apply();
 
-		$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, self::$post );
+		$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, $this->post );
 
 		if ( $this->is_status_of_type( 'non_live' ) || ( $ok && ( $delay = $this->delay_in_posting( $trigger ) ) ) ) { //phpcs:ignore
 
@@ -501,7 +501,7 @@ class PostSender extends BaseClass {
 
 		} elseif ( $this->is_status_of_type( 'live' ) && ! RequestCheck::if_is( RequestCheck::IS_GB_METABOX ) ) {
 
-			self::clean_up();
+			$this->clean_up();
 		}
 
 		if ( $ok && $rules_apply ) {
@@ -513,7 +513,7 @@ class PostSender extends BaseClass {
 			self::$processed_posts[] = $post->ID;
 		}
 
-		do_action( 'wptelegram_p2tg_post_finish', self::$post, $trigger, $ok, $this->options, self::$processed_posts );
+		do_action( 'wptelegram_p2tg_post_finish', $this->post, $trigger, $ok, $this->options, self::$processed_posts );
 
 		return $result;
 	}
@@ -535,7 +535,7 @@ class PostSender extends BaseClass {
 				'pending',
 			],
 		];
-		return (array) apply_filters( 'wptelegram_p2tg_valid_post_statuses', $valid_statuses, self::$post );
+		return (array) apply_filters( 'wptelegram_p2tg_valid_post_statuses', $valid_statuses, $this->post );
 	}
 
 	/**
@@ -547,7 +547,7 @@ class PostSender extends BaseClass {
 
 		$valid_statuses = call_user_func_array( 'array_merge', array_values( $this->get_valid_post_statuses() ) );
 
-		return in_array( self::$post->post_status, $valid_statuses, true );
+		return in_array( $this->post->post_status, $valid_statuses, true );
 	}
 
 	/**
@@ -561,7 +561,7 @@ class PostSender extends BaseClass {
 
 		$valid_statuses = $this->get_valid_post_statuses();
 
-		return in_array( self::$post->post_status, $valid_statuses[ $type ], true );
+		return in_array( $this->post->post_status, $valid_statuses[ $type ], true );
 	}
 
 	/**
@@ -575,7 +575,7 @@ class PostSender extends BaseClass {
 
 		$hook = $hook ? $hook : 'wptelegram_p2tg_delayed_post';
 
-		$args = [ strval( self::$post->ID ) ];
+		$args = [ strval( $this->post->ID ) ];
 
 		// clear the previous event, if set.
 		wp_clear_scheduled_hook( $hook, $args );
@@ -592,7 +592,7 @@ class PostSender extends BaseClass {
 
 		$hook  = 'wptelegram_p2tg_delayed_post';
 		$delay = absint( $delay * MINUTE_IN_SECONDS );
-		$args  = [ strval( self::$post->ID ) ]; // strval to match the exact event.
+		$args  = [ strval( $this->post->ID ) ]; // strval to match the exact event.
 
 		$this->clear_scheduled_hook();
 
@@ -616,7 +616,7 @@ class PostSender extends BaseClass {
 
 		$delay = $this->options->get( 'delay' ); // minutes.
 
-		$delay = apply_filters( 'wptelegram_p2tg_delay_in_posting', $delay, self::$post, $trigger, $this->options );
+		$delay = apply_filters( 'wptelegram_p2tg_delay_in_posting', $delay, $this->post, $trigger, $this->options );
 
 		return abs( (float) $delay );
 	}
@@ -635,9 +635,9 @@ class PostSender extends BaseClass {
 
 		// if it's a future or draft post and override switch is used.
 		if ( $this->form_data['send2tg'] ) {
-			if ( ! add_post_meta( self::$post->ID, Main::PREFIX . 'send2tg', $this->form_data['send2tg'], true ) ) {
+			if ( ! add_post_meta( $this->post->ID, Main::PREFIX . 'send2tg', $this->form_data['send2tg'], true ) ) {
 
-				update_post_meta( self::$post->ID, Main::PREFIX . 'send2tg', $this->form_data['send2tg'] );
+				update_post_meta( $this->post->ID, Main::PREFIX . 'send2tg', $this->form_data['send2tg'] );
 			}
 		}
 	}
@@ -655,8 +655,8 @@ class PostSender extends BaseClass {
 		// add slashes to avoid stripping of backslashes.
 		$options = addslashes( wp_json_encode( $options ) );
 
-		if ( ! add_post_meta( self::$post->ID, Main::PREFIX . 'options', $options, true ) ) {
-			update_post_meta( self::$post->ID, Main::PREFIX . 'options', $options );
+		if ( ! add_post_meta( $this->post->ID, Main::PREFIX . 'options', $options, true ) ) {
+			update_post_meta( $this->post->ID, Main::PREFIX . 'options', $options );
 		}
 	}
 
@@ -699,21 +699,21 @@ class PostSender extends BaseClass {
 			return __LINE__;
 		}
 
-		$send_if_importing = (bool) apply_filters( 'wptelegram_p2tg_send_if_importing', false, self::$post );
+		$send_if_importing = (bool) apply_filters( 'wptelegram_p2tg_send_if_importing', false, $this->post );
 
 		// if importing.
 		if ( RequestCheck::if_is( RequestCheck::WP_IMPORTING ) && ! $send_if_importing ) {
 			return __LINE__;
 		}
 
-		$send_if_bulk_edit = (bool) apply_filters( 'wptelegram_p2tg_send_if_bulk_edit', false, self::$post );
+		$send_if_bulk_edit = (bool) apply_filters( 'wptelegram_p2tg_send_if_bulk_edit', false, $this->post );
 
 		// if bulk edit.
 		if ( RequestCheck::if_is( RequestCheck::BULK_EDIT ) && ! $send_if_bulk_edit ) {
 			return __LINE__;
 		}
 
-		$send_if_quick_edit = (bool) apply_filters( 'wptelegram_p2tg_send_if_quick_edit', false, self::$post );
+		$send_if_quick_edit = (bool) apply_filters( 'wptelegram_p2tg_send_if_quick_edit', false, $this->post );
 
 		// if quick edit.
 		if ( RequestCheck::if_is( RequestCheck::QUICK_EDIT ) && ! $send_if_quick_edit ) {
@@ -744,7 +744,7 @@ class PostSender extends BaseClass {
 		}
 
 		// if it's a post revision.
-		if ( RequestCheck::if_is( RequestCheck::POST_REVISION, self::$post ) ) {
+		if ( RequestCheck::if_is( RequestCheck::POST_REVISION, $this->post ) ) {
 			return __LINE__;
 		}
 
@@ -767,13 +767,13 @@ class PostSender extends BaseClass {
 			$user_has_permission = false;
 			// Allow custom code to control authentication.
 			// Especially for front-end submissions.
-			$user_has_permission = (bool) apply_filters( 'wptelegram_p2tg_current_user_has_permission', $user_has_permission, self::$post );
+			$user_has_permission = (bool) apply_filters( 'wptelegram_p2tg_current_user_has_permission', $user_has_permission, $this->post );
 
 			if ( ! $user_has_permission ) {
 
-				if ( 'page' === self::$post->post_type && ! current_user_can( 'edit_page', self::$post->ID ) ) { // if user has not permissions to edit pages.
+				if ( 'page' === $this->post->post_type && ! current_user_can( 'edit_page', $this->post->ID ) ) { // if user has not permissions to edit pages.
 					return __LINE__;
-				} elseif ( ! current_user_can( 'edit_post', self::$post->ID ) ) { // if user has not permissions to edit posts.
+				} elseif ( ! current_user_can( 'edit_post', $this->post->ID ) ) { // if user has not permissions to edit posts.
 					return __LINE__;
 				}
 			}
@@ -781,7 +781,7 @@ class PostSender extends BaseClass {
 
 		// final control in your hands.
 		// pass a false value to avoid posting.
-		if ( ! apply_filters( 'wptelegram_p2tg_filter_post', self::$post ) ) {
+		if ( ! apply_filters( 'wptelegram_p2tg_filter_post', $this->post ) ) {
 			return __LINE__;
 		}
 
@@ -804,10 +804,10 @@ class PostSender extends BaseClass {
 	 *
 	 * @since 2.0.0
 	 */
-	public static function clean_up() {
+	public function clean_up() {
 
-		delete_post_meta( self::$post->ID, Main::PREFIX . 'options' );
-		delete_post_meta( self::$post->ID, Main::PREFIX . 'send2tg' );
+		delete_post_meta( $this->post->ID, Main::PREFIX . 'options' );
+		delete_post_meta( $this->post->ID, Main::PREFIX . 'send2tg' );
 	}
 
 	/**
@@ -820,7 +820,7 @@ class PostSender extends BaseClass {
 		$options = $this->get_options();
 
 		if ( ! $this->form_data['send2tg'] ) {
-			$send2tg = get_post_meta( self::$post->ID, Main::PREFIX . 'send2tg', true );
+			$send2tg = get_post_meta( $this->post->ID, Main::PREFIX . 'send2tg', true );
 			if ( $send2tg ) {
 				$this->form_data['send2tg'] = $send2tg;
 			}
@@ -840,7 +840,7 @@ class PostSender extends BaseClass {
 	public function get_options() {
 
 		// try to get the options from meta.
-		$saved_options = (string) get_post_meta( self::$post->ID, Main::PREFIX . 'options', true );
+		$saved_options = (string) get_post_meta( $this->post->ID, Main::PREFIX . 'options', true );
 
 		// if there is nothing.
 		if ( empty( $saved_options ) ) {
@@ -878,7 +878,7 @@ class PostSender extends BaseClass {
 			$options['disable_notification'] = ! empty( $this->form_data['disable_notification'] );
 		}
 
-		return (array) apply_filters( 'wptelegram_p2tg_options', $options, $saved_options, self::$post );
+		return (array) apply_filters( 'wptelegram_p2tg_options', $options, $saved_options, $this->post );
 	}
 
 	/**
@@ -888,13 +888,13 @@ class PostSender extends BaseClass {
 	 */
 	private function process() {
 
-		do_action( 'wptelegram_p2tg_before_process', self::$post, $this->options );
+		do_action( 'wptelegram_p2tg_before_process', $this->post, $this->options );
 
 		$this->responses = $this->get_responses();
 
 		$responses = $this->send_responses();
 
-		do_action( 'wptelegram_p2tg_after_process', self::$post, $this->options, $this->responses );
+		do_action( 'wptelegram_p2tg_after_process', $this->post, $this->options, $this->responses );
 
 		return $responses;
 	}
@@ -925,7 +925,7 @@ class PostSender extends BaseClass {
 		 * Pass false to upload the file
 		 * instead of sending as URL
 		 */
-		$this->send_files_by_url = (bool) apply_filters( 'wptelegram_p2tg_send_files_by_url', $this->send_files_by_url, self::$post, $this->options );
+		$this->send_files_by_url = (bool) apply_filters( 'wptelegram_p2tg_send_files_by_url', $this->send_files_by_url, $this->post, $this->options );
 
 		// For Photo.
 		$image_source = $this->get_featured_image_source();
@@ -941,7 +941,7 @@ class PostSender extends BaseClass {
 			$responses = array_merge( $responses, $file_responses );
 		}
 
-		return (array) apply_filters( 'wptelegram_p2tg_responses', $responses, self::$post, $this->options );
+		return (array) apply_filters( 'wptelegram_p2tg_responses', $responses, $this->post, $this->options );
 	}
 
 	/**
@@ -956,7 +956,7 @@ class PostSender extends BaseClass {
 		// check if the rules apply to the post.
 		$rules_apply = $this->check_for_rules();
 
-		return (bool) apply_filters( 'wptelegram_p2tg_rules_apply', $rules_apply, $this->options, self::$post );
+		return (bool) apply_filters( 'wptelegram_p2tg_rules_apply', $rules_apply, $this->options, $this->post );
 	}
 
 	/**
@@ -976,24 +976,24 @@ class PostSender extends BaseClass {
 			$bypass_date_rules = true;
 		}
 
-		$bypass_date_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_post_date_rules', $bypass_date_rules, self::$post, $this->options );
+		$bypass_date_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_post_date_rules', $bypass_date_rules, $this->post, $this->options );
 
 		if ( ! $bypass_date_rules ) {
 
 			$send_when = $this->options->get( 'send_when' );
 
 			// if the post has been published more than one day ago.
-			$is_more_than_a_day_old = ( ( time() - get_post_time( 'U', true, self::$post, false ) ) / DAY_IN_SECONDS ) > 1;
+			$is_more_than_a_day_old = ( ( time() - get_post_time( 'U', true, $this->post, false ) ) / DAY_IN_SECONDS ) > 1;
 
 			// whether the post has already been sent to Telegram.
-			$sent2tg = get_post_meta( self::$post->ID, Main::PREFIX . 'sent2tg', true );
+			$sent2tg = get_post_meta( $this->post->ID, Main::PREFIX . 'sent2tg', true );
 			// if the meta value is empty - it's new.
 			$is_new = empty( $sent2tg ) && ! $is_more_than_a_day_old;
 
-			$is_new = (bool) apply_filters( 'wptelegram_p2tg_rules_is_new_post', $is_new, self::$post, $this->options );
+			$is_new = (bool) apply_filters( 'wptelegram_p2tg_rules_is_new_post', $is_new, $this->post, $this->options );
 
 			$send_new = in_array( 'new', $send_when, true );
-			$send_new = (bool) apply_filters( 'wptelegram_p2tg_rules_send_new_post', $send_new, self::$post, $this->options );
+			$send_new = (bool) apply_filters( 'wptelegram_p2tg_rules_send_new_post', $send_new, $this->post, $this->options );
 
 			// if sending new posts is disabled and is new post.
 			if ( $is_new && ! $send_new ) {
@@ -1001,7 +1001,7 @@ class PostSender extends BaseClass {
 			}
 
 			$send_existing = in_array( 'existing', $send_when, true );
-			$send_existing = (bool) apply_filters( 'wptelegram_p2tg_rules_send_existing_post', $send_existing, self::$post, $this->options );
+			$send_existing = (bool) apply_filters( 'wptelegram_p2tg_rules_send_existing_post', $send_existing, $this->post, $this->options );
 
 			// if sending existing posts is disabled and is existing post.
 			if ( ! $is_new && ! $send_existing ) {
@@ -1010,16 +1010,16 @@ class PostSender extends BaseClass {
 			}
 		}
 
-		$bypass_post_type_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_post_type_rules', $bypass_post_type_rules, self::$post, $this->options );
+		$bypass_post_type_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_post_type_rules', $bypass_post_type_rules, $this->post, $this->options );
 
 		if ( ! $bypass_post_type_rules ) {
 			// Check for Post type.
 			$post_types = $this->options->get( 'post_types' );
 
-			$send_post_type = in_array( self::$post->post_type, $post_types, true );
-			$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_post_type', $send_post_type, self::$post, $this->options );
+			$send_post_type = in_array( $this->post->post_type, $post_types, true );
+			$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_post_type', $send_post_type, $this->post, $this->options );
 			// post type specific filter.
-			$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_' . self::$post->post_type, $send_post_type, self::$post, $this->options );
+			$send_post_type = (bool) apply_filters( 'wptelegram_p2tg_rules_send_' . $this->post->post_type, $send_post_type, $this->post, $this->options );
 
 			if ( ! $send_post_type ) {
 
@@ -1028,7 +1028,7 @@ class PostSender extends BaseClass {
 		}
 
 		// finally check for custom rules.
-		$bypass_custom_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_custom_rules', false, self::$post, $this->options );
+		$bypass_custom_rules = (bool) apply_filters( 'wptelegram_p2tg_bypass_custom_rules', false, $this->post, $this->options );
 
 		if ( $bypass_custom_rules ) {
 
@@ -1037,7 +1037,7 @@ class PostSender extends BaseClass {
 
 		$rules = new Rules();
 
-		return $rules->rules_apply( $this->options->get( 'rules' ), self::$post );
+		return $rules->rules_apply( $this->options->get( 'rules' ), $this->post );
 	}
 
 	/**
@@ -1100,7 +1100,7 @@ class PostSender extends BaseClass {
 
 			if ( isset( $method_params['sendPhoto'] ) ) {
 
-				$caption = apply_filters( 'wptelegram_p2tg_post_image_caption', $caption, self::$post, $this->options, $text, $image_source );
+				$caption = apply_filters( 'wptelegram_p2tg_post_image_caption', $caption, $this->post, $this->options, $text, $image_source );
 
 				$method_params['sendPhoto']['photo']   = $image_source;
 				$method_params['sendPhoto']['caption'] = $caption;
@@ -1114,7 +1114,7 @@ class PostSender extends BaseClass {
 			$method_params['sendMessage']['text'] = $text;
 		}
 
-		$method_params = (array) apply_filters( 'wptelegram_p2tg_method_params', $method_params, self::$post, $this->options, $text, $image_source );
+		$method_params = (array) apply_filters( 'wptelegram_p2tg_method_params', $method_params, $this->post, $this->options, $text, $image_source );
 
 		// passed by reference.
 		$this->add_reply_markup( $method_params );
@@ -1127,7 +1127,7 @@ class PostSender extends BaseClass {
 			];
 		}
 
-		return apply_filters( 'wptelegram_p2tg_default_responses', $default_responses, self::$post, $this->options, $text, $image_source );
+		return apply_filters( 'wptelegram_p2tg_default_responses', $default_responses, $this->post, $this->options, $text, $image_source );
 	}
 
 	/**
@@ -1143,11 +1143,11 @@ class PostSender extends BaseClass {
 
 		$file_responses = [];
 
-		$caption = self::$post_data->get_field( 'post_title' );
+		$caption = $this->post_data->get_field( 'post_title' );
 
 		foreach ( $files as $id => $url ) {
 
-			$caption = apply_filters( 'wptelegram_p2tg_file_caption', $caption, self::$post, $id, $url, $this->options );
+			$caption = apply_filters( 'wptelegram_p2tg_file_caption', $caption, $this->post, $id, $url, $this->options );
 
 			$type = Utils::guess_file_type( $id, $url );
 
@@ -1159,7 +1159,7 @@ class PostSender extends BaseClass {
 			];
 		}
 
-		return apply_filters( 'wptelegram_p2tg_file_responses', $file_responses, self::$post, $this->options, $files, $this->send_files_by_url );
+		return apply_filters( 'wptelegram_p2tg_file_responses', $file_responses, $this->post, $this->options, $files, $this->send_files_by_url );
 	}
 
 	/**
@@ -1173,7 +1173,7 @@ class PostSender extends BaseClass {
 
 		$template = $this->options->get( 'message_template' );
 
-		return apply_filters( 'wptelegram_p2tg_message_template', $template, self::$post, $this->options );
+		return apply_filters( 'wptelegram_p2tg_message_template', $template, $this->post, $this->options );
 	}
 
 	/**
@@ -1219,7 +1219,7 @@ class PostSender extends BaseClass {
 			return false;
 		}
 
-		$url = self::get_parsed_button_url( $inline_button_url, self::$post->ID );
+		$url = self::get_parsed_button_url( $inline_button_url, $this->post->ID );
 
 		if ( ! $url ) {
 			return false;
@@ -1230,11 +1230,11 @@ class PostSender extends BaseClass {
 			'url'  => $url,
 		];
 
-		$default_button = (array) apply_filters( 'wptelegram_p2tg_default_inline_button', $default_button, self::$post, $method_params );
+		$default_button = (array) apply_filters( 'wptelegram_p2tg_default_inline_button', $default_button, $this->post, $method_params );
 
 		$inline_keyboard[][] = $default_button;
 
-		return (array) apply_filters( 'wptelegram_p2tg_inline_keyboard', $inline_keyboard, self::$post, $method_params );
+		return (array) apply_filters( 'wptelegram_p2tg_inline_keyboard', $inline_keyboard, $this->post, $method_params );
 	}
 
 	/**
@@ -1321,7 +1321,7 @@ class PostSender extends BaseClass {
 		$replace = [ '{terms:post_tag}', '{terms:category}' ];
 
 		// use tags and categories for WooCommerce.
-		if ( class_exists( 'woocommerce' ) && 'product' === self::$post->post_type ) {
+		if ( class_exists( 'woocommerce' ) && 'product' === $this->post->post_type ) {
 
 			$replace = [ '{terms:product_tag}', '{terms:product_cat}' ];
 		}
@@ -1351,7 +1351,7 @@ class PostSender extends BaseClass {
 			// get the value only if it's in the template.
 			if ( false !== strpos( $template, '{' . $macro_key . '}' ) ) {
 
-				$macro_values[ '{' . $macro_key . '}' ] = self::$post_data->get_field( $macro_key, $params );
+				$macro_values[ '{' . $macro_key . '}' ] = $this->post_data->get_field( $macro_key, $params );
 			}
 		}
 
@@ -1360,7 +1360,7 @@ class PostSender extends BaseClass {
 
 			foreach ( $matches[0] as $field ) {
 
-				$macro_values[ '{' . $field . '}' ] = self::$post_data->get_field( $field, $params );
+				$macro_values[ '{' . $field . '}' ] = $this->post_data->get_field( $field, $params );
 			}
 		}
 
@@ -1368,7 +1368,7 @@ class PostSender extends BaseClass {
 		 * Use this filter to replace your own macros
 		 * with the corresponding values
 		 */
-		$macro_values = (array) apply_filters( 'wptelegram_p2tg_macro_values', $macro_values, self::$post, $this->options );
+		$macro_values = (array) apply_filters( 'wptelegram_p2tg_macro_values', $macro_values, $this->post, $this->options );
 
 		if ( 'Markdown' === $parse_mode ) {
 			$callback = [ Utils::class, 'esc_markdown' ];
@@ -1391,7 +1391,7 @@ class PostSender extends BaseClass {
 		// fix the malformed text.
 		$text = Utils::filter_text_for_parse_mode( $text, $parse_mode );
 
-		return apply_filters( 'wptelegram_p2tg_response_text', $text, $template, self::$post, $this->options );
+		return apply_filters( 'wptelegram_p2tg_response_text', $text, $template, $this->post, $this->options );
 	}
 
 	/**
@@ -1436,7 +1436,7 @@ class PostSender extends BaseClass {
 		// remove the ugly empty lines.
 		$template = preg_replace( '/(?:\A|[\n\r]).*?\{remove_line\}.*/u', '', $template );
 
-		return apply_filters( 'wptelegram_p2tg_process_template_logic', $template, $macro_values, $raw_template, self::$post, $this->options );
+		return apply_filters( 'wptelegram_p2tg_process_template_logic', $template, $macro_values, $raw_template, $this->post, $this->options );
 	}
 
 	/**
@@ -1471,21 +1471,21 @@ class PostSender extends BaseClass {
 
 		$source = '';
 
-		if ( $send_image && has_post_thumbnail( self::$post->ID ) ) {
+		if ( $send_image && has_post_thumbnail( $this->post->ID ) ) {
 
 			if ( $this->send_files_by_url ) {
 
 				// featured image URL.
-				$source = self::$post_data->get_field( 'featured_image_url' );
+				$source = $this->post_data->get_field( 'featured_image_url' );
 
 			} else {
 
 				// featured image path.
-				$source = self::$post_data->get_field( 'featured_image_path' );
+				$source = $this->post_data->get_field( 'featured_image_path' );
 			}
 		}
 
-		return apply_filters( 'wptelegram_p2tg_featured_image_source', $source, self::$post, $this->options, $this->send_files_by_url );
+		return apply_filters( 'wptelegram_p2tg_featured_image_source', $source, $this->post, $this->options, $this->send_files_by_url );
 	}
 
 	/**
@@ -1502,7 +1502,7 @@ class PostSender extends BaseClass {
 
 		$api_responses = [];
 
-		do_action( 'wptelegram_p2tg_before_send_responses', $this->responses, $api_responses, self::$post, $this->options, $this->bot_api );
+		do_action( 'wptelegram_p2tg_before_send_responses', $this->responses, $api_responses, $this->post, $this->options, $this->bot_api );
 
 		// if modify curl for WP Telegram.
 		if ( ! $this->send_files_by_url ) {
@@ -1511,9 +1511,9 @@ class PostSender extends BaseClass {
 		}
 
 		$channels = $this->options->get( 'channels', [] );
-		$channels = (array) apply_filters( 'wptelegram_p2tg_send_to_channels', $channels, $this->responses, self::$post, $this->options, $this->bot_api );
+		$channels = (array) apply_filters( 'wptelegram_p2tg_send_to_channels', $channels, $this->responses, $this->post, $this->options, $this->bot_api );
 
-		$message_as_reply = (bool) apply_filters( 'wptelegram_p2tg_send_message_as_reply', true, self::$post, $this->options );
+		$message_as_reply = (bool) apply_filters( 'wptelegram_p2tg_send_message_as_reply', true, $this->post, $this->options );
 
 		// loop through destination channels.
 		foreach ( $channels as $channel ) {
@@ -1545,13 +1545,13 @@ class PostSender extends BaseClass {
 				 *
 				 * @since   1.0.0
 				 */
-				$params = apply_filters( 'wptelegram_p2tg_api_method_params', $params, $method, $this->responses, self::$post, $this->options );
+				$params = apply_filters( 'wptelegram_p2tg_api_method_params', $params, $method, $this->responses, $this->post, $this->options );
 
 				$res = call_user_func( [ $this->bot_api, $method ], $params );
 
 				$api_responses[ $channel ][] = $res;
 
-				do_action( 'wptelegram_p2tg_api_response', $res, $this->responses, self::$post, $this->options, $this->bot_api );
+				do_action( 'wptelegram_p2tg_api_response', $res, $this->responses, $this->post, $this->options, $this->bot_api );
 
 				if ( is_wp_error( $res ) ) {
 					$this->handle_wp_error( $res, $channel );
@@ -1565,7 +1565,7 @@ class PostSender extends BaseClass {
 		// update post meta if the message was successful.
 		$this->update_post_meta( $api_responses );
 
-		do_action( 'wptelegram_p2tg_after_send_responses', $this->responses, $api_responses, self::$post, $this->options, $this->bot_api );
+		do_action( 'wptelegram_p2tg_after_send_responses', $this->responses, $api_responses, $this->post, $this->options, $this->bot_api );
 
 		return $api_responses;
 	}
@@ -1587,9 +1587,9 @@ class PostSender extends BaseClass {
 
 					$current_time = current_time( 'mysql' );
 
-					if ( ! add_post_meta( self::$post->ID, Main::PREFIX . 'sent2tg', $current_time, true ) ) {
+					if ( ! add_post_meta( $this->post->ID, Main::PREFIX . 'sent2tg', $current_time, true ) ) {
 
-						update_post_meta( self::$post->ID, Main::PREFIX . 'sent2tg', $current_time );
+						update_post_meta( $this->post->ID, Main::PREFIX . 'sent2tg', $current_time );
 
 						return;
 					}
