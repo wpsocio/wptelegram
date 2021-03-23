@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'WPTELEGRAM_VER', '3.0.2' );
 
-define( 'WPTELEGRAM_BASENAME', plugin_basename( __FILE__ ) );
+defined( 'WPTELEGRAM_BASENAME' ) || define( 'WPTELEGRAM_BASENAME', plugin_basename( __FILE__ ) );
 
 define( 'WPTELEGRAM_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 

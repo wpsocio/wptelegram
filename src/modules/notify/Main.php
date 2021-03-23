@@ -16,7 +16,7 @@ namespace WPTelegram\Core\modules\notify;
 use WPTelegram\Core\modules\BaseModule;
 
 /**
- * The module core class.
+ * The main module class.
  *
  * @since      1.0.0
  * @package    WPTelegram

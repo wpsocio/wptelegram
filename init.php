@@ -28,6 +28,8 @@ if ( ! defined( 'WPTELEGRAM_DEV' ) ) {
 	define( 'WPTELEGRAM_DEV', true );
 }
 
+define( 'WPTELEGRAM_BASENAME', plugin_basename( __FILE__ ) );
+
 require plugin_dir_path( __FILE__ ) . 'src/wptelegram.php';
 
 register_activation_hook( __FILE__, 'activate_wptelegram' );
