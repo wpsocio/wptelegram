@@ -176,7 +176,7 @@ msgstr ""
 msgid "channel"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:18
+#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:16
 msgid ""
 "Integrate your WordPress website perfectly with Telegram. Send posts "
 "automatically to Telegram when published or updated, whether to a Telegram "
@@ -184,7 +184,7 @@ msgid ""
 "notifications on Telegram."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:21
+#: domains/wptelegram/core/main/src/ui/Sidebar.tsx:19
 msgid "Get LIVE support on Telegram"
 msgstr ""
 
@@ -759,6 +759,10 @@ msgstr ""
 
 #: packages/components/src/PluginInfo/PluginInfoCard.tsx:44
 msgid "Do you like %s?"
+msgstr ""
+
+#: packages/components/src/PluginInfo/PluginInfoCard.tsx:54
+msgid "Write a review"
 msgstr ""
 
 #: packages/components/src/PluginInfo/PluginInfoCard.tsx:64
