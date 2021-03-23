@@ -449,10 +449,35 @@ class Utils {
 	 *
 	 * @since  3.0.0
 	 * @param string $name The name suffix.
+	 *
 	 * @return string unique nonce string.
 	 */
 	public static function nonce( $name = '_wptelegram' ) {
 
 		return 'nonce_' . $name;
+	}
+
+	/**
+	 * Whether the current screen is a post edit page.
+	 *
+	 * @since x.y.z
+	 *
+	 * @param string|string[] $post_type The post type to check.
+	 *
+	 * @return bool
+	 */
+	public static function is_post_edit_page( $post_type = null ) {
+
+		global $pagenow, $typenow;
+
+		$is_edit_page = 'post-new.php' === $pagenow || 'post.php' === $pagenow;
+
+		if ( $is_edit_page ) {
+			if ( $post_type ) {
+				return in_array( $typenow, (array) $post_type, true );
+			}
+			return true;
+		}
+		return false;
 	}
 }

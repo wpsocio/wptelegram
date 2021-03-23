@@ -16,7 +16,7 @@ namespace WPTelegram\Core\modules\p2tg;
 use WPTelegram\Core\modules\BaseModule;
 
 /**
- * The module core class.
+ * The main module class.
  *
  * @since      1.0.0
  * @package    WPTelegram
@@ -24,6 +24,8 @@ use WPTelegram\Core\modules\BaseModule;
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class Main extends BaseModule {
+
+	const PREFIX = '_wptg_p2tg_';
 
 	/**
 	 * The single instance of the class.
@@ -55,6 +57,10 @@ class Main extends BaseModule {
 	 */
 	protected function define_on_active_hooks() {
 		$admin = new Admin( $this );
+
+		add_action( 'admin_enqueue_scripts', [ $admin, 'enqueue_admin_scripts' ] );
+
+		add_action( 'enqueue_block_editor_assets', [ $admin, 'enqueue_block_editor_assets' ] );
 
 		add_action( 'post_submitbox_misc_actions', [ $admin, 'add_post_edit_switch' ], 10, 1 );
 

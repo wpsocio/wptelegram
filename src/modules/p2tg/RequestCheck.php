@@ -53,15 +53,6 @@ class RequestCheck {
 	private static $is_post_request = null;
 
 	/**
-	 * The prefix for meta data
-	 *
-	 * @since   1.0.0
-	 * @access  private
-	 * @var     string  The prefix for meta data
-	 */
-	private static $prefix = '_wptg_p2tg_';
-
-	/**
 	 * If the request is a POST request
 	 *
 	 * @since    3.0.0
@@ -86,7 +77,7 @@ class RequestCheck {
 
 		switch ( $type ) {
 			case self::IS_GB_METABOX:
-				return self::is_post_request() && isset( $_POST[ self::$prefix . 'is_gb_metabox' ] ); // phpcs:ignore
+				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'is_gb_metabox' ] ); // phpcs:ignore
 
 			case self::WP_IMPORTING:
 				return defined( 'WP_IMPORTING' ) && WP_IMPORTING;
@@ -98,7 +89,7 @@ class RequestCheck {
 				return defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'inline-save' === $_REQUEST['action']; // phpcs:ignore
 
 			case self::FROM_WEB:
-				return self::is_post_request() && isset( $_POST[ self::$prefix . 'from_web' ] ); // phpcs:ignore
+				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'from_web' ] ); // phpcs:ignore
 
 			case self::DOING_AUTOSAVE:
 				return defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE;

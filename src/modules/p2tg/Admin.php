@@ -14,6 +14,7 @@ namespace WPTelegram\Core\modules\p2tg;
 use WPTelegram\Core\modules\BaseClass;
 use WPTelegram\Core\includes\Utils;
 use WPTelegram\Core\includes\Options;
+use WPTelegram\Core\includes\AssetManager;
 use WPTelegram\Core\modules\p2tg\restApi\RulesController;
 use WP_Post;
 
@@ -29,15 +30,6 @@ class Admin extends BaseClass {
 	const OVERRIDE_METABOX_ID = 'wptelegram_p2tg_override';
 
 	/**
-	 * The prefix for meta data
-	 *
-	 * @since  1.0.0
-	 * @access private
-	 * @var    string  The prefix for meta data
-	 */
-	private static $prefix = '_wptg_p2tg_';
-
-	/**
 	 * Saved Settings/Options e.g. in meta
 	 *
 	 * @since  1.0.0
@@ -45,6 +37,63 @@ class Admin extends BaseClass {
 	 * @var    array   $saved_options Options
 	 */
 	private static $saved_options = null;
+
+	/**
+	 * Register the JavaScript for the admin area.
+	 *
+	 * @since    x.y.z
+	 */
+	public function enqueue_admin_scripts() {
+
+		$screens = $this->get_override_meta_box_screens();
+
+		// Load Post to Telegram js for classic editor if CMB2 is loaded.
+		if ( Utils::is_post_edit_page( $screens ) && did_action( 'cmb2_init' ) && ! did_action( 'enqueue_block_editor_assets' ) ) {
+			$entrypoint = AssetManager::ADMIN_P2TG_CLASSIC_JS_HANDLE;
+
+			$assets = WPTG()->assets();
+
+			wp_enqueue_script(
+				$entrypoint,
+				$assets->get_asset_url( $entrypoint ),
+				$assets->get_asset_dependencies( $entrypoint ),
+				$assets->get_asset_version( $entrypoint ),
+				true
+			);
+		}
+	}
+
+	/**
+	 * Enqueue assets for the Gutenberg block
+	 *
+	 * @since    x.y.z
+	 */
+	public function enqueue_block_editor_assets() {
+
+		$screens = $this->get_override_meta_box_screens();
+
+		if ( Utils::is_post_edit_page( $screens ) ) {
+			$entrypoint = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
+
+			$assets = WPTG()->assets();
+			wp_enqueue_script(
+				$entrypoint,
+				$assets->get_asset_url( $entrypoint ),
+				$assets->get_asset_dependencies( $entrypoint ),
+				$assets->get_asset_version( $entrypoint ),
+				true
+			);
+
+			// Pass data to JS.
+			$data = WPTG()->asset_manager()->get_dom_data( 'BLOCKS' );
+
+			wp_add_inline_script(
+				$entrypoint,
+				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
+				'before'
+			);
+		}
+	}
 
 	/**
 	 * Register WP REST API routes.
@@ -204,7 +253,7 @@ class Admin extends BaseClass {
 	 */
 	public function post_edit_form_hidden_input() {
 		// phpcs:ignore WordPress.Security.EscapeOutput
-		echo '<input type="hidden" id="' . self::$prefix . 'from_web" name="' . self::$prefix . 'from_web" value="yes" />';
+		echo '<input type="hidden" id="' . Main::PREFIX . 'from_web" name="' . Main::PREFIX . 'from_web" value="yes" />';
 	}
 
 	/**
@@ -214,7 +263,7 @@ class Admin extends BaseClass {
 	 */
 	public function block_editor_hidden_fields() {
 		// phpcs:ignore WordPress.Security.EscapeOutput
-		echo '<input type="hidden" id="' . self::$prefix . 'is_gb_metabox" name="' . self::$prefix . 'is_gb_metabox" value="yes" />';
+		echo '<input type="hidden" id="' . Main::PREFIX . 'is_gb_metabox" name="' . Main::PREFIX . 'is_gb_metabox" value="yes" />';
 	}
 
 	/**
@@ -240,7 +289,7 @@ class Admin extends BaseClass {
 		}
 
 		$screens = $this->get_override_meta_box_screens();
-		if ( ! in_array( $post->post_type, $screens, true ) ) {
+		if ( ! Utils::is_post_edit_page( $screens ) ) {
 			return;
 		}
 
@@ -263,9 +312,9 @@ class Admin extends BaseClass {
 	public function render_post_edit_switch( $display_gear = false ) {
 		?>
 			<div class="wptg-p2tg-post-edit-switch">
-				<input type="hidden" name="<?php echo esc_attr( self::$prefix . 'send2tg' ); ?>" value="no" />
-				<input type="checkbox" id="<?php echo esc_attr( self::$prefix . 'send2tg' ); ?>" name="<?php echo esc_attr( self::$prefix . 'send2tg' ); ?>" value="yes" <?php checked( self::send2tg_default(), 'yes' ); ?> />
-				<label for="<?php echo esc_attr( self::$prefix . 'send2tg' ); ?>">
+				<input type="hidden" name="<?php echo esc_attr( Main::PREFIX . 'send2tg' ); ?>" value="no" />
+				<input type="checkbox" id="<?php echo esc_attr( Main::PREFIX . 'send2tg' ); ?>" name="<?php echo esc_attr( Main::PREFIX . 'send2tg' ); ?>" value="yes" <?php checked( self::send2tg_default(), 'yes' ); ?> />
+				<label for="<?php echo esc_attr( Main::PREFIX . 'send2tg' ); ?>">
 					<span style="padding-left:4px;font-weight:600;"><?php esc_html_e( 'Send to Telegram', 'wptelegram' ); ?></span>
 				</label>
 					<?php if ( $display_gear ) : ?>
@@ -329,7 +378,7 @@ class Admin extends BaseClass {
 		$cmb2->add_field(
 			[
 				'name' => __( 'Override settings', 'wptelegram' ),
-				'id'   => self::$prefix . 'override_switch',
+				'id'   => Main::PREFIX . 'override_switch',
 				'type' => 'checkbox',
 			]
 		);
@@ -339,7 +388,7 @@ class Admin extends BaseClass {
 		$cmb2->add_field(
 			[
 				'name'              => __( 'Send to', 'wptelegram' ),
-				'id'                => self::$prefix . 'channels',
+				'id'                => Main::PREFIX . 'channels',
 				'type'              => 'multicheck',
 				'select_all_button' => false,
 				'default_cb'        => [ $this, 'override_opt_default_cb' ],
@@ -351,7 +400,7 @@ class Admin extends BaseClass {
 		$cmb2->add_field(
 			[
 				'name'       => __( 'Disable Notifications', 'wptelegram' ),
-				'id'         => self::$prefix . 'disable_notification',
+				'id'         => Main::PREFIX . 'disable_notification',
 				'type'       => 'checkbox',
 				'default_cb' => [ $this, 'override_opt_default_cb' ],
 				'classes'    => 'hidden depends-upon-override_switch',
@@ -362,7 +411,7 @@ class Admin extends BaseClass {
 			[
 				'name'       => __( 'Files', 'wptelegram' ),
 				'desc'       => __( 'Files to be sent after the message.', 'wptelegram' ),
-				'id'         => self::$prefix . 'files',
+				'id'         => Main::PREFIX . 'files',
 				'type'       => 'file_list',
 				'default_cb' => [ $this, 'override_opt_default_cb' ],
 				'classes'    => 'hidden depends-upon-override_switch',
@@ -374,7 +423,7 @@ class Admin extends BaseClass {
 				'name'       => __( 'Delay in Posting', 'wptelegram' ),
 				'desc'       => __( 'Minute(s)', 'wptelegram' ),
 				'default_cb' => [ $this, 'override_opt_default_cb' ],
-				'id'         => self::$prefix . 'delay',
+				'id'         => Main::PREFIX . 'delay',
 				'type'       => 'text_small',
 				'classes'    => 'hidden depends-upon-override_switch',
 				'attributes' => [
@@ -390,7 +439,7 @@ class Admin extends BaseClass {
 			[
 				'name'       => __( 'Message Template', 'wptelegram' ),
 				'desc'       => __( 'Structure of the message to be sent.', 'wptelegram' ),
-				'id'         => self::$prefix . 'message_template',
+				'id'         => Main::PREFIX . 'message_template',
 				'type'       => 'textarea',
 				'default_cb' => [ $this, 'override_opt_default_cb' ],
 				'escape_cb'  => [ __CLASS__, 'escape_message_template' ],
@@ -405,9 +454,9 @@ class Admin extends BaseClass {
 	/**
 	 * Handles escaping for message template
 	 *
-	 * @param  mixed $value      The unescaped value from the database.
-	 * @param  array $field_args Array of field arguments.
-	 * @param  mixed $field      The field object.
+	 * @param  mixed       $value      The unescaped value from the database.
+	 * @param  array       $field_args Array of field arguments.
+	 * @param  \CMB2_Field $field      The field object.
 	 *
 	 * @return mixed                  Escaped value to be displayed.
 	 */
@@ -429,7 +478,7 @@ class Admin extends BaseClass {
 	public function override_opt_default_cb( $field_args, $field ) {
 
 		// remove prefix.
-		$id = str_replace( self::$prefix, '', $field->args( 'id' ) );
+		$id = str_replace( Main::PREFIX, '', $field->args( 'id' ) );
 
 		return $this->get_field_default( $id );
 	}
@@ -474,7 +523,7 @@ class Admin extends BaseClass {
 			if ( isset( $_GET['post'] ) ) {
 				// try to get the options from meta.
 				// phpcs:ignore
-				$_options = (string) get_post_meta( (int) $_GET['post'], self::$prefix . 'options', true );
+				$_options = (string) get_post_meta( (int) $_GET['post'], Main::PREFIX . 'options', true );
 
 				if ( ! empty( $_options ) ) {
 
@@ -502,7 +551,7 @@ class Admin extends BaseClass {
 
 			// if saved in meta e.g. for future or draft.
 			// phpcs:ignore
-			if ( $send2tg = get_post_meta( $_GET['post'], self::$prefix . 'send2tg', true ) ) {
+			if ( $send2tg = get_post_meta( $_GET['post'], Main::PREFIX . 'send2tg', true ) ) {
 
 				$default = $send2tg;
 
@@ -512,7 +561,7 @@ class Admin extends BaseClass {
 
 				// whether already sent to Telegram.
 				// phpcs:ignore
-				$sent = get_post_meta( $_GET['post'], self::$prefix . 'sent2tg', true );
+				$sent = get_post_meta( $_GET['post'], Main::PREFIX . 'sent2tg', true );
 
 				if ( ! in_array( 'existing', $send_when, true ) || ! empty( $sent ) ) {
 					$default = 'no';

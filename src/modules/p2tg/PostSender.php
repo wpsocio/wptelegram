@@ -37,15 +37,6 @@ class PostSender extends BaseClass {
 	private $bot_token;
 
 	/**
-	 * The prefix for meta data
-	 *
-	 * @since   1.0.0
-	 * @access  private
-	 * @var     string  The prefix for meta data
-	 */
-	private static $prefix = '_wptg_p2tg_';
-
-	/**
 	 * Settings/Options
 	 *
 	 * @since   1.0.0
@@ -77,7 +68,7 @@ class PostSender extends BaseClass {
 	 *
 	 * @var WP_Post $post   Post object.
 	 */
-	protected static $post;
+	protected $post;
 
 	/**
 	 * Whether to send the files (photo etc.) by URL
@@ -155,8 +146,8 @@ class PostSender extends BaseClass {
 			if ( ! empty( $raw_body ) ) {
 				$body = json_decode( $raw_body, true );
 				// It has come from Gutenberg.
-				if ( ! empty( $body[ self::$prefix ] ) ) {
-					$data = $body[ self::$prefix ];
+				if ( ! empty( $body[ Main::PREFIX ] ) ) {
+					$data = $body[ Main::PREFIX ];
 
 					$form_data = Utils::sanitize( $data );
 					// Sanitize the template separately.
@@ -169,14 +160,14 @@ class PostSender extends BaseClass {
 			}
 		} else {
 
-			if ( isset( $_POST[ self::$prefix . 'send2tg' ] ) ) { // phpcs:ignore
+			if ( isset( $_POST[ Main::PREFIX . 'send2tg' ] ) ) { // phpcs:ignore
 				// phpcs:ignore
-				$this->form_data['send2tg'] = sanitize_text_field( wp_unslash( $_POST[ self::$prefix . 'send2tg' ] ) );
+				$this->form_data['send2tg'] = sanitize_text_field( wp_unslash( $_POST[ Main::PREFIX . 'send2tg' ] ) );
 			}
 
-			if ( isset( $_POST[ self::$prefix . 'override_switch' ] ) ) { // phpcs:ignore
+			if ( isset( $_POST[ Main::PREFIX . 'override_switch' ] ) ) { // phpcs:ignore
 				// phpcs:ignore
-				$override_switch = sanitize_text_field( wp_unslash( $_POST[ self::$prefix . 'override_switch' ] ) );
+				$override_switch = sanitize_text_field( wp_unslash( $_POST[ Main::PREFIX . 'override_switch' ] ) );
 
 				$this->form_data['override_switch'] = 'on' === $override_switch;
 			}
@@ -185,25 +176,25 @@ class PostSender extends BaseClass {
 			if ( $this->defaults_overridden() ) {
 
 				// if no destination channel is selected.
-				if ( empty( $_POST[ self::$prefix . 'channels' ] ) ) { // phpcs:ignore
+				if ( empty( $_POST[ Main::PREFIX . 'channels' ] ) ) { // phpcs:ignore
 					$this->form_data['channels'] = [];
 				} else {
 					// override the default channels.
-					$this->form_data['channels'] = Utils::sanitize( (array) $_POST[ self::$prefix . 'channels' ] ); // phpcs:ignore
+					$this->form_data['channels'] = Utils::sanitize( (array) $_POST[ Main::PREFIX . 'channels' ] ); // phpcs:ignore
 				}
 
 				// if the template is set.
-				if ( isset( $_POST[ self::$prefix . 'message_template' ] ) ) { // phpcs:ignore
+				if ( isset( $_POST[ Main::PREFIX . 'message_template' ] ) ) { // phpcs:ignore
 					// sanitize the template.
-					$template = Utils::sanitize_message_template( $_POST[ self::$prefix . 'message_template' ] ); // phpcs:ignore
+					$template = Utils::sanitize_message_template( $_POST[ Main::PREFIX . 'message_template' ] ); // phpcs:ignore
 					// override the default template.
 					$this->form_data['message_template'] = $template;
 				}
 
 				// if files included.
-				if ( ! empty( $_POST[ self::$prefix . 'files' ] ) ) { // phpcs:ignore
+				if ( ! empty( $_POST[ Main::PREFIX . 'files' ] ) ) { // phpcs:ignore
 					// sanitize the values.
-					$files = array_filter( Utils::sanitize( (array) $_POST[ self::$prefix . 'files' ] ) ); // phpcs:ignore
+					$files = array_filter( Utils::sanitize( (array) $_POST[ Main::PREFIX . 'files' ] ) ); // phpcs:ignore
 					if ( ! empty( $files ) ) {
 						// add the files to the options.
 						$this->form_data['files'] = $files;
@@ -211,13 +202,13 @@ class PostSender extends BaseClass {
 				}
 
 				// if delay overridden.
-				if ( isset( $_POST[ self::$prefix . 'delay' ] ) ) { // phpcs:ignore
+				if ( isset( $_POST[ Main::PREFIX . 'delay' ] ) ) { // phpcs:ignore
 					// sanitize the value.
-					$this->form_data['delay'] = Utils::sanitize( $_POST[ self::$prefix . 'delay' ], true ); // phpcs:ignore
+					$this->form_data['delay'] = Utils::sanitize( $_POST[ Main::PREFIX . 'delay' ], true ); // phpcs:ignore
 				}
 
 				// if notifications to be disabled.
-				if ( isset( $_POST[ self::$prefix . 'disable_notification' ] ) ) { // phpcs:ignore
+				if ( isset( $_POST[ Main::PREFIX . 'disable_notification' ] ) ) { // phpcs:ignore
 					$this->form_data['disable_notification'] = true;
 				}
 			}
@@ -436,7 +427,7 @@ class PostSender extends BaseClass {
 		$rest_tag     = 'rest_after_insert_' . self::$post->post_type;
 		$is_rest_hook = current_filter() === $rest_tag;
 
-		// if WP 5+ and not doing "rest_after_insert_{$post_type}" action.
+		// if not doing "rest_after_insert_{$post_type}" action.
 		if ( RequestCheck::if_is( RequestCheck::REST_REQUEST ) && ! $is_rest_hook && 'product' !== self::$post->post_type ) {
 
 			// come back later.
@@ -644,9 +635,9 @@ class PostSender extends BaseClass {
 
 		// if it's a future or draft post and override switch is used.
 		if ( $this->form_data['send2tg'] ) {
-			if ( ! add_post_meta( self::$post->ID, self::$prefix . 'send2tg', $this->form_data['send2tg'], true ) ) {
+			if ( ! add_post_meta( self::$post->ID, Main::PREFIX . 'send2tg', $this->form_data['send2tg'], true ) ) {
 
-				update_post_meta( self::$post->ID, self::$prefix . 'send2tg', $this->form_data['send2tg'] );
+				update_post_meta( self::$post->ID, Main::PREFIX . 'send2tg', $this->form_data['send2tg'] );
 			}
 		}
 	}
@@ -664,8 +655,8 @@ class PostSender extends BaseClass {
 		// add slashes to avoid stripping of backslashes.
 		$options = addslashes( wp_json_encode( $options ) );
 
-		if ( ! add_post_meta( self::$post->ID, self::$prefix . 'options', $options, true ) ) {
-			update_post_meta( self::$post->ID, self::$prefix . 'options', $options );
+		if ( ! add_post_meta( self::$post->ID, Main::PREFIX . 'options', $options, true ) ) {
+			update_post_meta( self::$post->ID, Main::PREFIX . 'options', $options );
 		}
 	}
 
@@ -815,8 +806,8 @@ class PostSender extends BaseClass {
 	 */
 	public static function clean_up() {
 
-		delete_post_meta( self::$post->ID, self::$prefix . 'options' );
-		delete_post_meta( self::$post->ID, self::$prefix . 'send2tg' );
+		delete_post_meta( self::$post->ID, Main::PREFIX . 'options' );
+		delete_post_meta( self::$post->ID, Main::PREFIX . 'send2tg' );
 	}
 
 	/**
@@ -829,7 +820,7 @@ class PostSender extends BaseClass {
 		$options = $this->get_options();
 
 		if ( ! $this->form_data['send2tg'] ) {
-			$send2tg = get_post_meta( self::$post->ID, self::$prefix . 'send2tg', true );
+			$send2tg = get_post_meta( self::$post->ID, Main::PREFIX . 'send2tg', true );
 			if ( $send2tg ) {
 				$this->form_data['send2tg'] = $send2tg;
 			}
@@ -849,7 +840,7 @@ class PostSender extends BaseClass {
 	public function get_options() {
 
 		// try to get the options from meta.
-		$saved_options = (string) get_post_meta( self::$post->ID, self::$prefix . 'options', true );
+		$saved_options = (string) get_post_meta( self::$post->ID, Main::PREFIX . 'options', true );
 
 		// if there is nothing.
 		if ( empty( $saved_options ) ) {
@@ -995,7 +986,7 @@ class PostSender extends BaseClass {
 			$is_more_than_a_day_old = ( ( time() - get_post_time( 'U', true, self::$post, false ) ) / DAY_IN_SECONDS ) > 1;
 
 			// whether the post has already been sent to Telegram.
-			$sent2tg = get_post_meta( self::$post->ID, self::$prefix . 'sent2tg', true );
+			$sent2tg = get_post_meta( self::$post->ID, Main::PREFIX . 'sent2tg', true );
 			// if the meta value is empty - it's new.
 			$is_new = empty( $sent2tg ) && ! $is_more_than_a_day_old;
 
@@ -1503,7 +1494,7 @@ class PostSender extends BaseClass {
 	private function send_responses() {
 
 		// Remove query variable, if present.
-		remove_query_arg( self::$prefix . 'error' );
+		remove_query_arg( Main::PREFIX . 'error' );
 		// Remove error transient.
 		delete_transient( 'wptelegram_p2tg_errors' );
 
@@ -1596,9 +1587,9 @@ class PostSender extends BaseClass {
 
 					$current_time = current_time( 'mysql' );
 
-					if ( ! add_post_meta( self::$post->ID, self::$prefix . 'sent2tg', $current_time, true ) ) {
+					if ( ! add_post_meta( self::$post->ID, Main::PREFIX . 'sent2tg', $current_time, true ) ) {
 
-						update_post_meta( self::$post->ID, self::$prefix . 'sent2tg', $current_time );
+						update_post_meta( self::$post->ID, Main::PREFIX . 'sent2tg', $current_time );
 
 						return;
 					}
@@ -1637,10 +1628,11 @@ class PostSender extends BaseClass {
 
 				foreach ( $types as $type ) {
 
-					if ( isset( $r['body'][ $type ] ) && file_exists( $r['body'][ $type ] ) ) {
+					if ( ! empty( $r['body'][ $type ] ) && file_exists( $r['body'][ $type ] ) ) {
 
 						$r['body'][ $type ] = curl_file_create( $r['body'][ $type ] ); // phpcs:ignore
 						curl_setopt( $handle, CURLOPT_POSTFIELDS, $r['body'] ); // phpcs:ignore
+						break;
 					}
 				}
 			}
@@ -1680,7 +1672,7 @@ class PostSender extends BaseClass {
 
 		remove_filter( 'redirect_post_location', [ $this, __FUNCTION__ ], 99 );
 
-		return add_query_arg( [ self::$prefix . 'error' => true ], $location );
+		return add_query_arg( [ Main::PREFIX . 'error' => true ], $location );
 	}
 
 	/**
