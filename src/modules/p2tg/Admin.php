@@ -523,11 +523,16 @@ class Admin extends BaseClass {
 			if ( isset( $_GET['post'] ) ) {
 				// try to get the options from meta.
 				// phpcs:ignore
-				$_options = (string) get_post_meta( (int) $_GET['post'], Main::PREFIX . 'options', true );
+				$options = get_post_meta( (int) $_GET['post'], Main::PREFIX . 'options', true );
 
-				if ( ! empty( $_options ) ) {
+				// If the meta was saved before upgrade.
+				if ( is_array( $options ) ) {
+					$options = wp_json_encode( $options );
+				}
 
-					self::$saved_options->set_data( json_decode( $_options, true ) );
+				if ( ! empty( $options ) ) {
+
+					self::$saved_options->set_data( json_decode( $options, true ) );
 				}
 			}
 		}

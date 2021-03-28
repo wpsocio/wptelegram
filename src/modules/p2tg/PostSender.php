@@ -457,9 +457,9 @@ class PostSender extends BaseClass {
 			do_action( 'wptelegram_p2tg_post_sv_check_failed', $validity, $this->post, $trigger );
 		}
 
-		if ( $ok ) {
+		$this->set_options();
 
-			$this->set_options();
+		if ( $ok ) {
 
 			if ( ! $this->options->get( 'channels' ) ) {
 				$this->form_data['send2tg'] = 'no';
