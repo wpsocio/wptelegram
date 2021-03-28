@@ -91,7 +91,7 @@ class Utils {
 	 * @param array           $handler  Route handler used for the request.
 	 * @param WP_REST_Request $request  Request used to generate the response.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.3
 	 */
 	public static function fitler_rest_errors( $response, $handler, $request ) {
 
@@ -501,7 +501,7 @@ class Utils {
 	/**
 	 * Whether the current screen is a post edit page.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.3
 	 *
 	 * @param string|string[] $post_type The post type to check.
 	 *

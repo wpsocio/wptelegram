@@ -41,7 +41,7 @@ class Admin extends BaseClass {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.3
 	 */
 	public function enqueue_admin_scripts() {
 
@@ -66,7 +66,7 @@ class Admin extends BaseClass {
 	/**
 	 * Enqueue assets for the Gutenberg block
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.3
 	 */
 	public function enqueue_block_editor_assets() {
 

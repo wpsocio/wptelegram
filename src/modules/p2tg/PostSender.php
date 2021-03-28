@@ -802,7 +802,7 @@ class PostSender extends BaseClass {
 	/**
 	 * Clean up the meta table etc.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.3
 	 */
 	public function may_be_clean_up() {
 		$is_gb_metabox = RequestCheck::if_is( RequestCheck::IS_GB_METABOX );

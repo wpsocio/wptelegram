@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.3 - 2021-03-29](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.3)
+
 ### Enhancements
 
 - Improved logging for better diagnosis

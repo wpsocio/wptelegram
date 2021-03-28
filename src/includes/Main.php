@@ -88,7 +88,7 @@ final class Main {
 	/**
 	 * The asset manager.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.3
 	 * @access   protected
 	 * @var      AssetManager $asset_manager The asset manager.
 	 */
@@ -272,7 +272,7 @@ final class Main {
 	/**
 	 * Set the asset manager.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.3
 	 * @access   private
 	 */
 	private function set_asset_manager() {
@@ -282,7 +282,7 @@ final class Main {
 	/**
 	 * Get the plugin assets manager.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.3
 	 * @access   public
 	 *
 	 * @return AssetManager The asset manager.
