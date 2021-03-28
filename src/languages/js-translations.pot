@@ -838,15 +838,15 @@ msgstr ""
 msgid "Send Test"
 msgstr ""
 
-#: packages/services/src/apiFetch/index.ts:31
+#: packages/services/src/apiFetch/index.ts:34
 msgid "Something went wrong"
 msgstr ""
 
-#: packages/services/src/apiFetch/index.ts:33
+#: packages/services/src/apiFetch/index.ts:36
 msgid "Could not connect"
 msgstr ""
 
-#: packages/services/src/apiFetch/index.ts:36
+#: packages/services/src/apiFetch/index.ts:39
 msgid "Error:"
 msgstr ""
 
