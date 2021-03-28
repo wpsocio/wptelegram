@@ -7,7 +7,8 @@ All notable changes to this project are documented in this file.
 ### Bug fixes
 
 - Fixed the wrong post data when importing posts
-- Fix the issue caused by upgrade for fresh installations
+- Fixed the issue caused by upgrade for fresh installations
+- Fixed the settings not saved issue
 
 ## [3.0.2 - 2021-03-21](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.2)
 

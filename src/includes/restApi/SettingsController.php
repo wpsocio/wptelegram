@@ -225,15 +225,18 @@ class SettingsController extends RESTController {
 				'required'          => ( 'edit' === $context ),
 				'pattern'           => Utils::enhance_regex( API::BOT_TOKEN_PATTERN, true ),
 				'sanitize_callback' => 'sanitize_text_field',
+				'validate_callback' => 'rest_validate_request_arg',
 			],
 			'bot_username' => [
 				'type'              => 'string',
 				'pattern'           => Utils::enhance_regex( self::TG_USERNAME_PATTERN, true ),
 				'sanitize_callback' => 'sanitize_text_field',
+				'validate_callback' => 'rest_validate_request_arg',
 			],
 			'p2tg'         => [
 				'type'              => 'object',
 				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'validate_callback' => 'rest_validate_request_arg',
 				'properties'        => [
 					'active'                   => [
 						'type' => 'boolean',
@@ -351,6 +354,7 @@ class SettingsController extends RESTController {
 			'notify'       => [
 				'type'              => 'object',
 				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'validate_callback' => 'rest_validate_request_arg',
 				'properties'        => [
 					'active'             => [
 						'type' => 'boolean',
@@ -379,6 +383,7 @@ class SettingsController extends RESTController {
 			'proxy'        => [
 				'type'              => 'object',
 				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'validate_callback' => 'rest_validate_request_arg',
 				'properties'        => [
 					'active'            => [
 						'type' => 'boolean',
@@ -418,6 +423,7 @@ class SettingsController extends RESTController {
 			'advanced'     => [
 				'type'              => 'object',
 				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
+				'validate_callback' => 'rest_validate_request_arg',
 				'properties'        => [
 					'send_files_by_url' => [
 						'type' => 'boolean',
