@@ -2,7 +2,7 @@
 /**
  * Do the necessary db upgrade
  *
- * @link       https://t.me/manzoorwanijk
+ * @link       https://manzoorwani.dev
  * @since      2.2.0
  *
  * @package    WPTelegram

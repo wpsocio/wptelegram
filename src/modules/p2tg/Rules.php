@@ -2,7 +2,7 @@
 /**
  * Handle the rules for P2TG
  *
- * @link       https://t.me/manzoorwanijk
+ * @link       https://manzoorwani.dev
  * @since      1.0.0
  *
  * @package    WPTelegram

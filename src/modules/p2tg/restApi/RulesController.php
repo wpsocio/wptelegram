@@ -2,7 +2,7 @@
 /**
  * P2Tg rules endpoint for WordPress REST API.
  *
- * @link       https://t.me/manzoorwanijk
+ * @link       https://manzoorwani.dev
  * @since      3.0.0
  *
  * @package    WPTelegram

@@ -2,7 +2,7 @@
 /**
  * Plugin mainfile.
  *
- * @link              https://t.me/manzoorwanijk
+ * @link              https://manzoorwani.dev
  * @since             1.0.0
  * @package           WPTelegram
  *
@@ -12,7 +12,7 @@
  * Description:       Integrate your WordPress website perfectly with Telegram. Send posts automatically to Telegram when published or updated, whether to a Telegram Channel, Group or private chat, with full control. Get your email notifications on Telegram.
  * Version:           3.0.2
  * Author:            Manzoor Wani
- * Author URI:        https://t.me/manzoorwanijk
+ * Author URI:        https://manzoorwani.dev
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wptelegram

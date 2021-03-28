@@ -2,7 +2,7 @@
 /**
  * The base class of the plugin.
  *
- * @link       https://t.me/manzoorwanijk
+ * @link       https://manzoorwani.dev
  * @since      3.0.0
  *
  * @package    WPTelegram\Core
