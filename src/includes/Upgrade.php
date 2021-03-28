@@ -66,7 +66,7 @@ class Upgrade extends BaseClass {
 
 			if ( version_compare( $current_version, $target_version, '<' ) ) {
 
-				$this->upgrade_to( $target_version );
+				$this->upgrade_to( $target_version, $is_new_install );
 
 				$current_version = $target_version;
 			}
@@ -80,16 +80,18 @@ class Upgrade extends BaseClass {
 	 *
 	 * @since    2.0.0
 	 *
-	 * @param string $version The version to upgrade to.
+	 * @param string  $version        The plugin verion to upgrade to.
+	 * @param boolean $is_new_install Whether it's a fresh install of the plugin.
 	 */
-	private function upgrade_to( $version ) {
+	private function upgrade_to( $version, $is_new_install ) {
 
 		// 2.0.1 becomes 2_0_1
 		$_version = str_replace( '.', '_', $version );
 
 		$method = [ $this, "upgrade_to_{$_version}" ];
 
-		if ( is_callable( $method ) ) {
+		// No upgrades for fresh installations.
+		if ( ! $is_new_install && is_callable( $method ) ) {
 
 			call_user_func( $method );
 		}
