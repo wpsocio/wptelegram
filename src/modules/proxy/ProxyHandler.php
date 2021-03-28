@@ -11,6 +11,8 @@
 
 namespace WPTelegram\Core\modules\proxy;
 
+use WPTelegram\BotAPI\Client;
+use WPTelegram\BotAPI\Request;
 use WPTelegram\Core\modules\BaseClass;
 
 /**
@@ -72,7 +74,7 @@ class ProxyHandler extends BaseClass {
 
 			$this->setup_php_proxy();
 
-		} elseif ( $script_url ) {
+		} elseif ( 'google_script' === $proxy_method && $script_url ) {
 			// setup Google Script args.
 			add_filter( 'wptelegram_bot_api_remote_post_args', [ __CLASS__, 'google_script_request_args' ], 20, 2 );
 			// set URL.
@@ -126,7 +128,7 @@ class ProxyHandler extends BaseClass {
 	 */
 	public static function modify_http_api_curl( &$handle, $r, $url ) {
 
-		$bot_api_url = 'https://api.telegram.org/bot';
+		$bot_api_url = Client::BASE_URL;
 		$user_link   = 'https://t.me/';
 
 		$pattern = '/^(?:' . preg_quote( $bot_api_url, '/' ) . '|' . preg_quote( $user_link, '/' ) . ')/i';
