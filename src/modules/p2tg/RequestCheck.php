@@ -42,6 +42,8 @@ class RequestCheck {
 
 	const REST_REQUEST = 'rest_request';
 
+	const INITIAL_REST_REQUEST = 'initial_rest_request';
+
 	/**
 	 * If the request is a POST request
 	 *
@@ -74,6 +76,7 @@ class RequestCheck {
 	 * @param WP_Post $post The to check against.
 	 */
 	public static function if_is( $type, $post = null ) {
+		$is_rest_request = defined( 'REST_REQUEST' ) && REST_REQUEST;
 
 		switch ( $type ) {
 			case self::IS_GB_METABOX:
@@ -104,7 +107,11 @@ class RequestCheck {
 				return defined( 'WP_CLI' ) && WP_CLI;
 
 			case self::REST_REQUEST:
-				return defined( 'REST_REQUEST' ) && REST_REQUEST;
+				return $is_rest_request;
+
+			case self::INITIAL_REST_REQUEST:
+				// if not doing "rest_after_insert_{$post_type}" action.
+				return $is_rest_request && current_filter() !== 'rest_after_insert_' . $post->post_type;
 
 			default:
 				return false;

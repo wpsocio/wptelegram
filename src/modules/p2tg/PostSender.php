@@ -156,6 +156,8 @@ class PostSender extends BaseClass {
 					$form_data['send2tg'] = $form_data['send2tg'] ? 'yes' : 'no';
 
 					$this->form_data = $form_data;
+					// For logging.
+					$this->form_data['is_from_gb'] = true;
 				}
 			}
 		} else {
@@ -213,6 +215,8 @@ class PostSender extends BaseClass {
 				}
 			}
 		}
+
+		do_action( 'wptelegram_p2tg_set_form_data', $this->form_data, $this->post );
 	}
 
 	/**
@@ -319,7 +323,7 @@ class PostSender extends BaseClass {
 	 *
 	 * @param WP_Post $post The post being processed.
 	 */
-	public function wp_rest_post( $post ) {
+	public function rest_after_insert( $post ) {
 
 		$this->send_post( $post, __FUNCTION__ );
 	}
@@ -424,14 +428,11 @@ class PostSender extends BaseClass {
 
 		$ok = true;
 
-		$rest_tag     = 'rest_after_insert_' . $this->post->post_type;
-		$is_rest_hook = current_filter() === $rest_tag;
-
 		// if not doing "rest_after_insert_{$post_type}" action.
-		if ( RequestCheck::if_is( RequestCheck::REST_REQUEST ) && ! $is_rest_hook && 'product' !== $this->post->post_type ) {
+		if ( RequestCheck::if_is( RequestCheck::INITIAL_REST_REQUEST, $this->post ) && 'product' !== $this->post->post_type ) {
 
 			// come back later.
-			add_action( $rest_tag, [ $this, 'wp_rest_post' ], 10, 1 );
+			add_action( 'rest_after_insert_' . $this->post->post_type, [ $this, 'rest_after_insert' ], 10, 1 );
 
 			$ok = false;
 		}
@@ -483,11 +484,11 @@ class PostSender extends BaseClass {
 
 		$rules_apply = $ok && $this->rules_apply();
 
-		$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, $this->post );
-
 		if ( $this->is_status_of_type( 'non_live' ) || ( $ok && ( $delay = $this->delay_in_posting( $trigger ) ) ) ) { //phpcs:ignore
 
 			$this->may_be_save_options();
+
+			$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, $this->post );
 
 			if ( ! empty( $delay ) && ( ! $apply_rules_before_delay || $rules_apply ) ) {
 
@@ -499,9 +500,8 @@ class PostSender extends BaseClass {
 
 			$ok = false;
 
-		} elseif ( $this->is_status_of_type( 'live' ) && ! RequestCheck::if_is( RequestCheck::IS_GB_METABOX ) ) {
-
-			$this->clean_up();
+		} else {
+			$this->may_be_clean_up();
 		}
 
 		if ( $ok && $rules_apply ) {
@@ -802,12 +802,17 @@ class PostSender extends BaseClass {
 	/**
 	 * Clean up the meta table etc.
 	 *
-	 * @since 2.0.0
+	 * @since x.y.z
 	 */
-	public function clean_up() {
+	public function may_be_clean_up() {
+		$is_gb_metabox = RequestCheck::if_is( RequestCheck::IS_GB_METABOX );
 
-		delete_post_meta( $this->post->ID, Main::PREFIX . 'options' );
-		delete_post_meta( $this->post->ID, Main::PREFIX . 'send2tg' );
+		$is_initial_rest_request = RequestCheck::if_is( RequestCheck::INITIAL_REST_REQUEST, $this->post );
+
+		if ( $this->is_status_of_type( 'live' ) && ! $is_gb_metabox && ! $is_initial_rest_request ) {
+			delete_post_meta( $this->post->ID, Main::PREFIX . 'options' );
+			delete_post_meta( $this->post->ID, Main::PREFIX . 'send2tg' );
+		}
 	}
 
 	/**

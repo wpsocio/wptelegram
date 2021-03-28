@@ -550,23 +550,21 @@ class Admin extends BaseClass {
 
 		$default = 'yes';
 
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+
 		// if we are on edit page.
-		// phpcs:ignore WordPress.Security.NonceVerification
-		if ( isset( $_GET['post'] ) ) {
+		if ( ! empty( $post_id ) ) {
 
 			// if saved in meta e.g. for future or draft.
-			// phpcs:ignore
-			if ( $send2tg = get_post_meta( $_GET['post'], Main::PREFIX . 'send2tg', true ) ) {
+			$send2tg = get_post_meta( $post_id, Main::PREFIX . 'send2tg', true );
+			$post    = get_post( $post_id );
+			if ( $send2tg ) {
 
 				$default = $send2tg;
-
-				// if it's a published post.
-				// phpcs:ignore
-			} elseif ( ( $post = get_post( $_GET['post'] ) ) && $post instanceof WP_Post && 'publish' === $post->post_status ) {
+			} elseif ( $post instanceof WP_Post ) {
 
 				// whether already sent to Telegram.
-				// phpcs:ignore
-				$sent = get_post_meta( $_GET['post'], Main::PREFIX . 'sent2tg', true );
+				$sent = get_post_meta( $post_id, Main::PREFIX . 'sent2tg', true );
 
 				if ( ! in_array( 'existing', $send_when, true ) || ! empty( $sent ) ) {
 					$default = 'no';
