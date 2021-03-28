@@ -5,7 +5,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://t.me/manzoorwanijk
+ * @link       https://manzoorwani.dev
  * @since      1.0.0
  *
  * @package    WPTelegram
@@ -72,7 +72,7 @@ final class Main {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Options    $options    The plugin options
+	 * @var      Options $options The plugin options
 	 */
 	protected $options;
 
@@ -81,9 +81,18 @@ final class Main {
 	 *
 	 * @since    3.0.0
 	 * @access   protected
-	 * @var      string    $assets    The assets handler.
+	 * @var      Assets $assets The assets handler.
 	 */
 	protected $assets;
+
+	/**
+	 * The asset manager.
+	 *
+	 * @since    3.0.3
+	 * @access   protected
+	 * @var      AssetManager $asset_manager The asset manager.
+	 */
+	protected $asset_manager;
 
 	/**
 	 * Main class Instance.
@@ -220,6 +229,21 @@ final class Main {
 	}
 
 	/**
+	 * Get the plugin options
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 *
+	 * @return Options
+	 */
+	public function options() {
+		if ( ! $this->options ) {
+			$this->set_options();
+		}
+		return $this->options;
+	}
+
+	/**
 	 * Set the assets handler.
 	 *
 	 * @since    3.0.0
@@ -246,18 +270,29 @@ final class Main {
 	}
 
 	/**
-	 * Get the plugin options
+	 * Set the asset manager.
 	 *
-	 * @since    1.0.0
+	 * @since    3.0.3
+	 * @access   private
+	 */
+	private function set_asset_manager() {
+		$this->asset_manager = new AssetManager( $this );
+	}
+
+	/**
+	 * Get the plugin assets manager.
+	 *
+	 * @since    3.0.3
 	 * @access   public
 	 *
-	 * @return Options
+	 * @return AssetManager The asset manager.
 	 */
-	public function options() {
-		if ( ! $this->options ) {
-			$this->set_options();
+	public function asset_manager() {
+		if ( ! $this->asset_manager ) {
+			$this->set_asset_manager();
 		}
-		return $this->options;
+
+		return $this->asset_manager;
 	}
 
 	/**
@@ -275,16 +310,14 @@ final class Main {
 
 		add_action( 'rest_api_init', [ $plugin_admin, 'register_rest_routes' ] );
 
+		add_filter( 'rest_request_before_callbacks', [ Utils::class, 'fitler_rest_errors' ], 10, 3 );
+
 		add_filter( 'plugin_action_links_' . WPTELEGRAM_BASENAME, [ $plugin_admin, 'plugin_action_links' ] );
 
 		add_action( 'init', [ $plugin_admin, 'initiate_logger' ] );
 
-		$asset_manager = new AssetManager( $this );
-
-		add_action( 'admin_enqueue_scripts', [ $asset_manager, 'enqueue_admin_styles' ] );
-		add_action( 'admin_enqueue_scripts', [ $asset_manager, 'enqueue_admin_scripts' ] );
-
-		add_action( 'enqueue_block_editor_assets', [ $asset_manager, 'enqueue_block_editor_assets' ] );
+		add_action( 'admin_enqueue_scripts', [ $this->asset_manager(), 'enqueue_admin_styles' ] );
+		add_action( 'admin_enqueue_scripts', [ $this->asset_manager(), 'enqueue_admin_scripts' ] );
 	}
 
 	/**

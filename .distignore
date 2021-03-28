@@ -3,6 +3,7 @@
 .distignore
 
 /languages/js-translations.pot
+/includes/wptelegram-bot-api/.git
 /includes/wptelegram-bot-api/.gitignore
 /includes/wptelegram-bot-api/composer.json
 /includes/wptelegram-bot-api/composer.lock

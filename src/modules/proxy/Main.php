@@ -4,7 +4,7 @@
  *
  * A class definition that includes attributes and functions used across the module
  *
- * @link       https://t.me/manzoorwanijk
+ * @link       https://manzoorwani.dev
  * @since      1.0.0
  *
  * @package    WPTelegram
@@ -16,7 +16,7 @@ namespace WPTelegram\Core\modules\proxy;
 use WPTelegram\Core\modules\BaseModule;
 
 /**
- * The module core class.
+ * The main module class.
  *
  * @since      1.0.0
  * @package    WPTelegram

@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.3 - 2021-03-29](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.3)
+
+### Enhancements
+
+- Improved logging for better diagnosis
+
+### Bug fixes
+
+- Fixed the wrong post data when importing posts
+- Fixed the issue caused by upgrade for fresh installations
+- Fixed the settings not saved issue
+- Fixed the Update failed issue in block editor for drafts
+- Fixed the fatal error for old block editor posts
+
 ## [3.0.2 - 2021-03-21](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.2)
 
 ### Bug fixes

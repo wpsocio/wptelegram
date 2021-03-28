@@ -2,7 +2,7 @@
 /**
  * Check the current request details.
  *
- * @link       https://t.me/manzoorwanijk
+ * @link       https://manzoorwani.dev
  * @since      3.0.0
  *
  * @package    WPTelegram
@@ -42,6 +42,8 @@ class RequestCheck {
 
 	const REST_REQUEST = 'rest_request';
 
+	const INITIAL_REST_REQUEST = 'initial_rest_request';
+
 	/**
 	 * If the request is a POST request
 	 *
@@ -51,15 +53,6 @@ class RequestCheck {
 	 * @var     boolean  If the request is a POST request.
 	 */
 	private static $is_post_request = null;
-
-	/**
-	 * The prefix for meta data
-	 *
-	 * @since   1.0.0
-	 * @access  private
-	 * @var     string  The prefix for meta data
-	 */
-	private static $prefix = '_wptg_p2tg_';
 
 	/**
 	 * If the request is a POST request
@@ -83,10 +76,11 @@ class RequestCheck {
 	 * @param WP_Post $post The to check against.
 	 */
 	public static function if_is( $type, $post = null ) {
+		$is_rest_request = defined( 'REST_REQUEST' ) && REST_REQUEST;
 
 		switch ( $type ) {
 			case self::IS_GB_METABOX:
-				return self::is_post_request() && isset( $_POST[ self::$prefix . 'is_gb_metabox' ] ); // phpcs:ignore
+				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'is_gb_metabox' ] ); // phpcs:ignore
 
 			case self::WP_IMPORTING:
 				return defined( 'WP_IMPORTING' ) && WP_IMPORTING;
@@ -98,7 +92,7 @@ class RequestCheck {
 				return defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'inline-save' === $_REQUEST['action']; // phpcs:ignore
 
 			case self::FROM_WEB:
-				return self::is_post_request() && isset( $_POST[ self::$prefix . 'from_web' ] ); // phpcs:ignore
+				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'from_web' ] ); // phpcs:ignore
 
 			case self::DOING_AUTOSAVE:
 				return defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE;
@@ -113,7 +107,11 @@ class RequestCheck {
 				return defined( 'WP_CLI' ) && WP_CLI;
 
 			case self::REST_REQUEST:
-				return defined( 'REST_REQUEST' ) && REST_REQUEST;
+				return $is_rest_request;
+
+			case self::INITIAL_REST_REQUEST:
+				// if not doing "rest_after_insert_{$post_type}" action.
+				return $is_rest_request && current_filter() !== 'rest_after_insert_' . $post->post_type;
 
 			default:
 				return false;

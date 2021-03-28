@@ -9,7 +9,7 @@
  * @wordpress-plugin
  * Plugin Name:       WP Telegram Dev
  * Plugin URI:        https://t.me/WPTelegram
- * Description:       Development Environment for WP Telegram. Versioned high to avoid auto update.
+ * Description:       ❌ DO NOT DELETE ❌ Development Environment for WP Telegram. Versioned high to avoid auto update.
  * Version:           999.999.999
  * Author:            Manzoor Wani
  * Author URI:        https://t.me/manzoorwanijk
@@ -27,6 +27,8 @@ if ( ! defined( 'WPINC' ) ) {
 if ( ! defined( 'WPTELEGRAM_DEV' ) ) {
 	define( 'WPTELEGRAM_DEV', true );
 }
+
+define( 'WPTELEGRAM_BASENAME', plugin_basename( __FILE__ ) );
 
 require plugin_dir_path( __FILE__ ) . 'src/wptelegram.php';
 
