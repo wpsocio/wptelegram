@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Enhancements
+
+- Improved logging for better diagnosis
+
 ### Bug fixes
 
 - Fixed the wrong post data when importing posts
