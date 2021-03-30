@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.4 - 2021-03-30](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.4)
+
+### Bug fixes
+
+- Fixed wrong template when using CMB2 override settings.
+
 ## [3.0.3 - 2021-03-29](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.3)
 
 ### Enhancements
