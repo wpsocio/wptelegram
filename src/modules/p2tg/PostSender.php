@@ -188,7 +188,7 @@ class PostSender extends BaseClass {
 				// if the template is set.
 				if ( isset( $_POST[ Main::PREFIX . 'message_template' ] ) ) { // phpcs:ignore
 					// sanitize the template.
-					$template = Utils::sanitize_message_template( $_POST[ Main::PREFIX . 'message_template' ] ); // phpcs:ignore
+					$template = Utils::sanitize_message_template( wp_unslash( $_POST[ Main::PREFIX . 'message_template' ] ) ); // phpcs:ignore
 					// override the default template.
 					$this->form_data['message_template'] = $template;
 				}
