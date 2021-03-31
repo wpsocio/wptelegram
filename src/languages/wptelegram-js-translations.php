@@ -1,51 +1,39 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:118
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:115
 	__( '%s must be a number.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:23
-	__( 'Bot Token', 'wptelegram' ),
-
 	// Reference: domains/wptelegram/core/main/src/services/fields.ts:24
-	__( 'Bot Username', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:25
-	__( 'Channel(s)', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:26
-	__( 'Chat ID', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:27
 	__( 'Inline button text', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:28
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:25
 	__( 'Inline button URL', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:29
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:26
 	__( 'Add Inline URL Button', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:30
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:27
 	__( 'Other settings', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:31
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:27
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:28
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:32
 	__( 'Post type', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:32
-	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:34
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:29
+	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:33
 	__( 'Proxy Method', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:33
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:30
 	__( 'Send when', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:34
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:31
 	__( 'If Email goes to', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:72
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:69
 	__( 'At least one %s is required.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/services/fields.ts:72
+	// Reference: domains/wptelegram/core/main/src/services/fields.ts:69
 	__( 'channel', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/Sidebar.tsx:16
@@ -85,7 +73,7 @@ $generated_i18n_strings = array(
 	__( 'Use %s above to set automatically.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Basics.tsx:26
-	// Reference: packages/components/src/useBotTokenTest.tsx:88
+	// Reference: packages/components/src/useBotTokenTest.tsx:95
 	__( 'Test Token', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:18
@@ -123,10 +111,10 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:66
 	__( 'Introduction', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/notify/Notify.tsx:22
+	// Reference: domains/wptelegram/core/main/src/ui/notify/Notify.tsx:21
 	__( 'The module will watch the Email Notifications sent from this site and deliver them to you on Telegram.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/notify/Notify.tsx:32
+	// Reference: domains/wptelegram/core/main/src/ui/notify/Notify.tsx:31
 	__( 'Notification Settings', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/notify/WatchEmails.tsx:22
@@ -135,105 +123,62 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/core/main/src/ui/notify/WatchEmails.tsx:35
 	__( 'Telegram User or Group Chat ID.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:19
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:18
 	__( 'Destination', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:24
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Destination.tsx:23
 	__( 'Channel Username or Chat ID.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:14
+	__( 'Inline Keyboard', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:18
+	__( 'Add an inline clickable button for the post URL just below the message.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:32
+	__( 'View Post', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:40
+	/* translators: template tag/macro */
+	__( 'You can specify any custom field like %s.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:43
+	__( 'Source of the button URL.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/MessageSettings.tsx:21
+	__( 'Message Settings', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:15
 	__( 'Miscellaneous', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/P2TG.tsx:20
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/P2TG.tsx:19
 	__( 'With this module, you can configure how the posts are sent to Telegram.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:13
-	__( 'Inline Keyboard', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:17
-	__( 'Add an inline clickable button for the post URL just below the message.', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:31
-	__( 'View Post', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:39
-	/* translators: template tag/macro */
-	__( 'You can specify any custom field like %s.', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageKeyboard/MessageKeyboard.tsx:42
-	__( 'Source of the button URL.', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/MessageSettings.tsx:17
-	__( 'Message Settings', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:19
-	// Reference: domains/wptelegram/shared/core-pro/src/components/NotifyMessageTemplate.tsx:14
-	__( 'You can use any text, emojis or these macros in any order.', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:24
-	__( 'You can also use conditional logic in the template.', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/messageSettings/TemplateInfo.tsx:27
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:48
-	__( 'Learn more', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/AddRuleGroup.tsx:28
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/RuleSet.tsx:67
-	// Reference: packages/form/src/render/RenderRepeatable.tsx:103
-	__( 'Add', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/And.tsx:8
-	__( 'AND', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/CustomRules.tsx:33
-	__( 'You can also define custom rules to send the posts.', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/Or.tsx:8
-	__( 'OR', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/RuleSet.tsx:16
-	__( 'is in', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/RuleSet.tsx:20
-	__( 'is not in', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/RuleSet.tsx:76
-	__( 'Remove', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/RuleSetValues.tsx:16
-	__( 'Loading...', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/RuleSetValues.tsx:17
-	__( 'No options available', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/RuleSetValues.tsx:95
-	__( 'Select...', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:15
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Rules.tsx:15
 	__( 'A new post is published', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:19
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Rules.tsx:19
 	__( 'An existing post is updated', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:26
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Rules.tsx:30
 	__( 'Rules', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:33
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Rules.tsx:37
 	__( 'When the post should be sent to Telegram.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/p2tg/rules/Rules.tsx:43
+	// Reference: domains/wptelegram/core/main/src/ui/p2tg/Rules.tsx:47
 	__( 'Which post types should be sent.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:16
+	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:15
 	__( 'Google Script', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:20
+	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:19
 	__( 'PHP Proxy', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:28
+	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:27
 	__( 'The module will help you bypass the ban on Telegram by making use of proxy.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:39
+	// Reference: domains/wptelegram/core/main/src/ui/proxy/Proxy.tsx:38
 	__( 'Google Script is preferred.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/proxy/ProxySettings.tsx:15
@@ -285,15 +230,15 @@ $generated_i18n_strings = array(
 	__( 'Override settings', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:82
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:15
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:20
 	__( 'Disable Notifications', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:89
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:14
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:19
 	__( 'Delay in Posting', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:99
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:23
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:28
 	__( 'Message Template', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:11
@@ -305,7 +250,7 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:43
 	__( 'Files', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/p2tg-gb/src/index.tsx:16
+	// Reference: domains/wptelegram/core/p2tg-gb/src/index.tsx:23
 	__( 'Send to Telegram', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/AdvancedSettings.tsx:25
@@ -391,12 +336,16 @@ $generated_i18n_strings = array(
 	__( 'Enter the Chat ID in %s field below.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/NotifyInstructions.tsx:69
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:11
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:16
 	__( 'Send it to', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/NotifyInstructions.tsx:77
 	/* translators: 1 bot username */
 	__( 'Add your own bot %s to the group.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/NotifyMessageTemplate.tsx:14
+	// Reference: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:29
+	__( 'You can use any text, emojis or these macros in any order.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:19
 	__( 'Create a Telegram channel or group.', 'wptelegram' ),
@@ -461,6 +410,10 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:27
 	__( 'HTML style', 'wptelegram' ),
 
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:48
+	// Reference: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:37
+	__( 'Learn more', 'wptelegram' ),
+
 	// Reference: domains/wptelegram/shared/core-pro/src/components/ProxyDisclaimer.tsx:11
 	__( 'Use the proxy at your own risk!', 'wptelegram' ),
 
@@ -482,6 +435,9 @@ $generated_i18n_strings = array(
 	/* translators: 1 - field name */
 	__( '%s should not be enabled.', 'wptelegram' ),
 
+	// Reference: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:34
+	__( 'You can also use conditional logic in the template.', 'wptelegram' ),
+
 	// Reference: domains/wptelegram/shared/core-pro/src/components/UserNotifications.tsx:17
 	__( 'Allow users receive their email notifications on Telegram.', 'wptelegram' ),
 
@@ -496,70 +452,117 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/UserNotifications.tsx:41
 	__( 'profile', 'wptelegram' ),
 
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/AddRuleGroup.tsx:28
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:64
+	// Reference: packages/form/src/render/RenderRepeatable.tsx:103
+	__( 'Add', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/And.tsx:8
+	__( 'AND', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/Or.tsx:8
+	__( 'OR', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/P2TGCustomRules.tsx:44
+	__( 'You can also define custom rules to send the posts.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:15
+	__( 'is in', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:19
+	__( 'is not in', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:73
+	__( 'Remove', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:16
+	__( 'Loading...', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:17
+	__( 'No options available', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:99
+	__( 'Select...', 'wptelegram' ),
+
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:10
-	__( 'Categories as hashtags', 'wptelegram' ),
+	__( 'Bot', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:11
+	__( 'Bot Token', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:12
-	__( 'Remove settings on uninstall', 'wptelegram' ),
+	__( 'Bot Username', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:13
-	__( 'Debug Info', 'wptelegram' ),
+	__( 'Categories as hashtags', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:16
-	__( 'Disable Web Page Preview', 'wptelegram' ),
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:14
+	__( 'Channel(s)', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:15
+	__( 'Chat ID', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:17
-	__( 'Enable logs for', 'wptelegram' ),
+	__( 'Remove settings on uninstall', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:18
-	__( 'Excerpt Length', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:19
-	__( 'Excerpt Newlines', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:20
-	__( 'Excerpt Source', 'wptelegram' ),
+	__( 'Debug Info', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:21
-	__( 'Google Script URL', 'wptelegram' ),
+	__( 'Disable Web Page Preview', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:22
-	__( 'Image Position', 'wptelegram' ),
+	__( 'Enable logs for', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:23
+	__( 'Excerpt Length', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:24
-	__( 'Formatting', 'wptelegram' ),
+	__( 'Excerpt Newlines', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:25
-	__( 'Plugin generated posts', 'wptelegram' ),
+	__( 'Excerpt Source', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:26
-	__( 'Post edit switch', 'wptelegram' ),
+	__( 'Google Script URL', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:28
-	__( 'Proxy Host', 'wptelegram' ),
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:27
+	__( 'Image Position', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:29
-	__( 'Password', 'wptelegram' ),
+	__( 'Formatting', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:30
-	__( 'Proxy Port', 'wptelegram' ),
+	__( 'Plugin generated posts', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:31
-	__( 'Proxy Type', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:32
-	__( 'Username', 'wptelegram' ),
+	__( 'Post edit switch', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:33
-	__( 'Featured Image', 'wptelegram' ),
+	__( 'Proxy Host', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:34
-	__( 'Send files by URL', 'wptelegram' ),
+	__( 'Password', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:35
-	__( 'Single message', 'wptelegram' ),
+	__( 'Proxy Port', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:36
+	__( 'Proxy Type', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:37
+	__( 'Username', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:38
+	__( 'Featured Image', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:39
+	__( 'Send files by URL', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:40
+	__( 'Single message', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:41
 	__( 'Notifications to Users', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:9
@@ -568,11 +571,11 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/BotTokenField.tsx:38
 	__( 'Please read the instructions above.', 'wptelegram' ),
 
-	// Reference: packages/components/src/Instructions/Instructions.tsx:15
-	__( 'INSTRUCTIONS!', 'wptelegram' ),
-
 	// Reference: packages/components/src/InstructionsLink.tsx:12
 	__( 'Click here for instructions.', 'wptelegram' ),
+
+	// Reference: packages/components/src/Instructions/Instructions.tsx:15
+	__( 'INSTRUCTIONS!', 'wptelegram' ),
 
 	// Reference: packages/components/src/PluginInfo/PluginInfoCard.tsx:44
 	__( 'Do you like %s?', 'wptelegram' ),
@@ -621,7 +624,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/WidgetInfo/WidgetInfoCard.tsx:14
 	__( 'Widget Info', 'wptelegram' ),
 
-	// Reference: packages/components/src/useBotTokenTest.tsx:88
+	// Reference: packages/components/src/useBotTokenTest.tsx:95
 	// Reference: packages/components/src/useChatWithTest.tsx:94
 	__( 'Please wait…', 'wptelegram' ),
 

@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.5 - 2021-04-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.5)
+
 ### Bug fixes
 
 - Fixed the issue of posts being sent from block editor regardless of the rules.

@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 3.0.4
+Stable tag: 3.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,12 @@ Note: You can also contribute in translating this plugin into your local languag
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.5 =
+- Fixed the issue of posts being sent from block editor regardless of the rules.
+- Fixed the issue of disabled Test Token button.
+- Fixed the issue of delayed posts not sent.
+- Fixed the empty rules being saved, preventing posts from being sent to Telegram.
 
 = 3.0.4 =
 - Fixed wrong template when using CMB2 override settings.
