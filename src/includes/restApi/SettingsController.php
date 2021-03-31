@@ -102,6 +102,8 @@ class SettingsController extends RESTController {
 	 * @return array
 	 */
 	public static function get_default_values() {
+		$is_wp_cron_disabled = defined( 'DISABLE_WP_CRON' ) && constant( 'DISABLE_WP_CRON' );
+
 		return [
 			'bot_token'    => '',
 			'bot_username' => '',
@@ -134,7 +136,7 @@ class SettingsController extends RESTController {
 				// Misc.
 				'plugin_posts'             => false,
 				'post_edit_switch'         => true,
-				'delay'                    => 0.5,
+				'delay'                    => $is_wp_cron_disabled ? 0 : 0.5,
 				'disable_notification'     => false,
 			],
 			'notify'       => [
@@ -459,6 +461,37 @@ class SettingsController extends RESTController {
 		if ( in_array( $param, [ 'p2tg', 'notify' ], true ) ) {
 			// Sanitize the template separately.
 			$safe_value['message_template'] = Utils::sanitize_message_template( $value['message_template'] );
+		}
+
+		// Remove useless rules.
+		if ( 'p2tg' === $param && ! empty( $safe_value['rules'] ) ) {
+			$rules = [];
+			foreach ( (array) $safe_value['rules'] as  $rule_group ) {
+				$group = [];
+
+				if ( is_array( $rule_group ) ) {
+					foreach ( $rule_group as $rule ) {
+						// remove empty values.
+						$rule = array_filter( (array) $rule );
+						if ( empty( $rule['param'] ) || empty( $rule['operator'] ) || empty( $rule['values'] ) ) {
+							continue;
+						}
+						$group[] = $rule;
+					}
+				}
+				if ( ! empty( $group ) ) {
+					$rules[] = $group;
+				}
+			}
+			$safe_value['rules'] = $rules;
+		}
+
+		// Remove useless chat_ids.
+		if ( 'p2tg' === $param && ! empty( $safe_value['channels'] ) ) {
+			$safe_value['channels'] = array_filter( $safe_value['channels'] );
+		}
+		if ( 'notify' === $param && ! empty( $safe_value['chat_ids'] ) ) {
+			$safe_value['chat_ids'] = array_filter( $safe_value['chat_ids'] );
 		}
 
 		return $safe_value;
