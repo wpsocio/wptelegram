@@ -10,7 +10,7 @@
  * Plugin Name:       WP Telegram
  * Plugin URI:        https://t.me/WPTelegram
  * Description:       Integrate your WordPress website perfectly with Telegram. Send posts automatically to Telegram when published or updated, whether to a Telegram Channel, Group or private chat, with full control. Get your email notifications on Telegram.
- * Version:           3.0.4
+ * Version:           3.0.5
  * Author:            Manzoor Wani
  * Author URI:        https://manzoorwani.dev
  * License:           GPL-2.0+
@@ -24,7 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'WPTELEGRAM_VER', '3.0.4' );
+define( 'WPTELEGRAM_VER', '3.0.5' );
 
 defined( 'WPTELEGRAM_BASENAME' ) || define( 'WPTELEGRAM_BASENAME', plugin_basename( __FILE__ ) );
 

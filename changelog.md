@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.5 - 2021-04-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.5)
+
+### Bug fixes
+
+- Fixed the issue of posts being sent from block editor regardless of the rules.
+- Fixed the issue of disabled Test Token button.
+- Fixed the issue of delayed posts not sent.
+- Fixed the empty rules being saved, preventing posts from being sent to Telegram.
+
 ## [3.0.4 - 2021-03-30](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.4)
 
 ### Bug fixes
