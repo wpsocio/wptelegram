@@ -605,7 +605,7 @@ msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/rules/AddRuleGroup.tsx:28
 #: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:64
-#: packages/form/src/render/RenderRepeatable.tsx:103
+#: packages/form/src/render/RenderRepeatable.tsx:102
 msgid "Add"
 msgstr ""
 
@@ -761,12 +761,12 @@ msgstr ""
 msgid "Please read the instructions above."
 msgstr ""
 
-#: packages/components/src/InstructionsLink.tsx:12
-msgid "Click here for instructions."
-msgstr ""
-
 #: packages/components/src/Instructions/Instructions.tsx:15
 msgid "INSTRUCTIONS!"
+msgstr ""
+
+#: packages/components/src/InstructionsLink.tsx:12
+msgid "Click here for instructions."
 msgstr ""
 
 #: packages/components/src/PluginInfo/PluginInfoCard.tsx:44
