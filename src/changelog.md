@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.6 - 2021-04-7](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.6)
+
+### Bug fixes
+
+- Fixed "Send to Telegram" flag not saved for block editor drafts.
+
 ## [3.0.5 - 2021-04-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.5)
 
 ### Bug fixes

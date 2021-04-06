@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 3.0.5
+Stable tag: 3.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,9 @@ Note: You can also contribute in translating this plugin into your local languag
 
 == Changelog ==
 
+= 3.0.6 =
+- Fixed "Send to Telegram" flag not saved for block editor drafts.
+
 = 3.0.5 =
 - Fixed the issue of posts being sent from block editor regardless of the rules.
 - Fixed the issue of disabled Test Token button.
@@ -173,8 +176,3 @@ Note: You can also contribute in translating this plugin into your local languag
 - Better support for block editor override settings
 - Fixed the YouTube links being stripped out from the content.
 - Minor fixes.
-
-== Upgrade Notice ==
-
-= 1.3.0 =
-* Goto WP Telegram Settings and just save the settings (Recommended)
