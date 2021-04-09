@@ -45,6 +45,10 @@ class Admin extends BaseClass {
 	 */
 	public function enqueue_admin_scripts() {
 
+		if ( ! $this->module->options()->get( 'post_edit_switch', true ) ) {
+			return;
+		}
+
 		$screens = $this->get_override_meta_box_screens();
 
 		// Load Post to Telegram js for classic editor if CMB2 is loaded.
@@ -69,6 +73,10 @@ class Admin extends BaseClass {
 	 * @since    3.0.3
 	 */
 	public function enqueue_block_editor_assets() {
+
+		if ( ! $this->module->options()->get( 'post_edit_switch', true ) ) {
+			return;
+		}
 
 		$screens = $this->get_override_meta_box_screens();
 
