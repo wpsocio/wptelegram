@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.7 - 2021-04-9](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.7)
+
+### Bug fixes
+
+- Fixed the issue of scheduled posts being sent regardless of the overrides.
+- Removed "Post edit switch" from post edit page when disabled.
+- Minor admin UI fixes.
+
 ## [3.0.6 - 2021-04-7](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.6)
 
 ### Bug fixes
