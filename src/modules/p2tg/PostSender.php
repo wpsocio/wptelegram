@@ -427,6 +427,8 @@ class PostSender extends BaseClass {
 		}
 
 		$ok = true;
+		// for logging.
+		$result = __LINE__;
 
 		// if not doing "rest_after_insert_{$post_type}" action.
 		if ( RequestCheck::if_is( RequestCheck::INITIAL_REST_REQUEST, $this->post ) && 'product' !== $this->post->post_type ) {
@@ -435,6 +437,8 @@ class PostSender extends BaseClass {
 			add_action( 'rest_after_insert_' . $this->post->post_type, [ $this, 'rest_after_insert' ], 10, 1 );
 
 			$ok = false;
+
+			$result = __LINE__;
 		}
 
 		/**
@@ -444,6 +448,8 @@ class PostSender extends BaseClass {
 		if ( $ok && true !== ( $validity = $this->security_and_validity_check() ) ) { //phpcs:ignore
 
 			$ok = false;
+
+			$result = __LINE__;
 
 			/**
 			 * Fires after the security check fails
@@ -468,14 +474,16 @@ class PostSender extends BaseClass {
 
 			if ( 'no' === $this->form_data['send2tg'] ) {
 				$ok = false;
+
+				$result = __LINE__;
 			}
 		}
 
 		if ( 'no' === $this->form_data['send2tg'] && $this->is_valid_status() ) {
 			$this->clear_scheduled_hook();
-		}
 
-		$result = __LINE__;
+			$result = __LINE__;
+		}
 
 		// if some rules should be bypassed.
 		if ( $ok && 'non_wp' === $trigger ) {
@@ -490,6 +498,8 @@ class PostSender extends BaseClass {
 
 			$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, $this->post );
 
+			$result = __LINE__;
+
 			if ( ! empty( $delay ) && ( ! $apply_rules_before_delay || $rules_apply ) ) {
 
 				$this->delay_post( $delay );
@@ -501,6 +511,7 @@ class PostSender extends BaseClass {
 			$ok = false;
 
 		} else {
+			$result = __LINE__;
 			$this->may_be_clean_up();
 		}
 
