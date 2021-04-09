@@ -75,9 +75,6 @@ class Main extends BaseModule {
 
 		add_action( 'wp_insert_post', [ $post_sender, 'wp_insert_post' ], 20, 2 );
 
-		// scheduled post handler.
-		add_action( 'future_to_publish', [ $post_sender, 'future_to_publish' ], 20, 1 );
-
 		// delay event handler.
 		add_action( 'wptelegram_p2tg_delayed_post', [ $post_sender, 'delayed_post' ], 10, 1 );
 

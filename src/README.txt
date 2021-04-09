@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 3.0.6
+Stable tag: 3.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,11 @@ Note: You can also contribute in translating this plugin into your local languag
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.7 =
+- Fixed the issue of scheduled posts being sent regardless of the overrides.
+- Removed "Post edit switch" from post edit page when disabled.
+- Minor admin UI fixes.
 
 = 3.0.6 =
 - Fixed "Send to Telegram" flag not saved for block editor drafts.
