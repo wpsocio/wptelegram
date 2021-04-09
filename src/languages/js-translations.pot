@@ -100,7 +100,7 @@ msgid "Use %s above to set automatically."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/basics/Basics.tsx:26
-#: packages/components/src/useBotTokenTest.tsx:95
+#: packages/components/src/useBotTokenTest.tsx:96
 msgid "Test Token"
 msgstr ""
 
@@ -175,24 +175,24 @@ msgstr ""
 msgid "Channel Username or Chat ID."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:14
+#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:16
 msgid "Inline Keyboard"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:18
+#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:20
 msgid "Add an inline clickable button for the post URL just below the message."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:32
+#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:34
 msgid "View Post"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:40
+#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:42
 #. template tag/macro
 msgid "You can specify any custom field like %s."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:43
+#: domains/wptelegram/core/main/src/ui/p2tg/MessageKeyboard.tsx:45
 msgid "Source of the button URL."
 msgstr ""
 
@@ -204,7 +204,7 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/P2TG.tsx:19
+#: domains/wptelegram/core/main/src/ui/p2tg/P2TG.tsx:20
 msgid "With this module, you can configure how the posts are sent to Telegram."
 msgstr ""
 
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Google Script is preferred."
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/proxy/ProxySettings.tsx:15
+#: domains/wptelegram/core/main/src/ui/proxy/ProxySettings.tsx:17
 msgid "Proxy settings"
 msgstr ""
 
@@ -402,7 +402,7 @@ msgid "Before the Text"
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/ImageSettings.tsx:24
-#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:52
+#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:47
 msgid "After the Text"
 msgstr ""
 
@@ -537,7 +537,7 @@ msgid "Leave empty if not required."
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:19
-#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:66
+#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:61
 msgid "None"
 msgstr ""
 
@@ -562,21 +562,21 @@ msgstr ""
 msgid "DISCLAIMER!"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:32
+#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:27
 msgid "Send both text and image in single message."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:46
+#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:41
 #. 1 - field name, 2 - value
 msgid "When %1$s is set to %2$s:"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:62
+#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:57
 #. 1 - field name, 2 - value
 msgid "%1$s should not be %2$s."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:75
+#: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:70
 #. 1 - field name
 msgid "%s should not be enabled."
 msgstr ""
@@ -604,8 +604,8 @@ msgid "profile"
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/rules/AddRuleGroup.tsx:28
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:64
-#: packages/form/src/render/RenderRepeatable.tsx:102
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:66
+#: packages/form/src/render/RenderRepeatable.tsx:101
 msgid "Add"
 msgstr ""
 
@@ -629,8 +629,20 @@ msgstr ""
 msgid "is not in"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:73
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:42
+msgid "Rule type"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:50
+msgid "Rule operator"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:75
 msgid "Remove"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:100
+msgid "Select..."
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:16
@@ -641,8 +653,8 @@ msgstr ""
 msgid "No options available"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:99
-msgid "Select..."
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:89
+msgid "Rule values"
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/services/fields.ts:10
@@ -833,7 +845,7 @@ msgstr ""
 msgid "Widget Info"
 msgstr ""
 
-#: packages/components/src/useBotTokenTest.tsx:95
+#: packages/components/src/useBotTokenTest.tsx:96
 #: packages/components/src/useChatWithTest.tsx:94
 msgid "Please wait…"
 msgstr ""
@@ -842,15 +854,15 @@ msgstr ""
 msgid "Send Test"
 msgstr ""
 
-#: packages/services/src/apiFetch/index.ts:34
+#: packages/services/src/apiFetch/index.ts:35
 msgid "Something went wrong"
 msgstr ""
 
-#: packages/services/src/apiFetch/index.ts:36
+#: packages/services/src/apiFetch/index.ts:37
 msgid "Could not connect"
 msgstr ""
 
-#: packages/services/src/apiFetch/index.ts:39
+#: packages/services/src/apiFetch/index.ts:40
 msgid "Error:"
 msgstr ""
 
