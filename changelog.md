@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed saving empty channels crashing the settings page
+
 ## [3.0.7 - 2021-04-9](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.7)
 
 ### Bug fixes
