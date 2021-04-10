@@ -61,13 +61,6 @@ msgstr ""
 msgid "Get LIVE support on Telegram"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/SubmitInfo.tsx:11
-#: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
-#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:107
-#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
-msgid "Save Changes"
-msgstr ""
-
 #: domains/wptelegram/core/main/src/ui/TabbedSections.tsx:18
 msgid "Basics"
 msgstr ""
@@ -144,6 +137,13 @@ msgstr ""
 msgid "Hit %s below."
 msgstr ""
 
+#: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
+#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:107
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
+#: packages/components/src/Submit/SubmitButton.tsx:15
+msgid "Save Changes"
+msgstr ""
+
 #: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:75
 #: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:66
 msgid "Introduction"
@@ -204,7 +204,7 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/P2TG.tsx:20
+#: domains/wptelegram/core/main/src/ui/p2tg/P2TG.tsx:21
 msgid "With this module, you can configure how the posts are sent to Telegram."
 msgstr ""
 
@@ -791,6 +791,10 @@ msgstr ""
 
 #: packages/components/src/PluginInfo/PluginInfoCard.tsx:64
 msgid "Need help?"
+msgstr ""
+
+#: packages/components/src/Submit/ResetButton.tsx:7
+msgid "Reset"
 msgstr ""
 
 #: packages/components/src/TestResult/MemberCountResult.tsx:15
