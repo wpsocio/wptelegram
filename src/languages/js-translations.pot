@@ -773,6 +773,14 @@ msgstr ""
 msgid "Please read the instructions above."
 msgstr ""
 
+#: packages/components/src/ConfirmDialog.tsx:53
+msgid "No"
+msgstr ""
+
+#: packages/components/src/ConfirmDialog.tsx:56
+msgid "Yes"
+msgstr ""
+
 #: packages/components/src/Instructions/Instructions.tsx:15
 msgid "INSTRUCTIONS!"
 msgstr ""
@@ -793,15 +801,14 @@ msgstr ""
 msgid "Need help?"
 msgstr ""
 
-#: packages/components/src/Submit/ResetButton.tsx:7
-msgid "Reset"
-msgstr ""
-
 #: packages/components/src/TestResult/MemberCountResult.tsx:15
 msgid "Members Count:"
 msgstr ""
 
-#: packages/components/src/TestResult/TestMessageResult.tsx:15
+#: packages/components/src/TestResult/MessageResult.tsx:15
+msgid "Result:"
+msgstr ""
+
 #: packages/components/src/TestResult/TestResult.tsx:14
 msgid "Test Result:"
 msgstr ""
@@ -884,7 +891,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: packages/services/src/useDisplayFeedback.ts:64
+#: packages/services/src/useDisplayFeedback.ts:62
 msgid "Lets fix these errors first."
 msgstr ""
 
