@@ -261,7 +261,7 @@ class Admin extends BaseClass {
 	 */
 	public function post_edit_form_hidden_input() {
 		// phpcs:ignore WordPress.Security.EscapeOutput
-		echo '<input type="hidden" id="' . Main::PREFIX . 'from_web" name="' . Main::PREFIX . 'from_web" value="yes" />';
+		echo '<input type="hidden" id="' . esc_attr( Main::PREFIX . 'from_web' ) . '" name="' . esc_attr( Main::PREFIX . 'from_web' ) . '" value="yes" />';
 	}
 
 	/**
@@ -279,10 +279,8 @@ class Admin extends BaseClass {
 	 * when using classic editor.
 	 *
 	 * @since 1.0.0
-	 *
-	 * @param WP_Post $post Current post.
 	 */
-	public function add_post_edit_switch( $post ) {
+	public function add_post_edit_switch() {
 
 		$bot_token = WPTG()->options()->get( 'bot_token' );
 
@@ -326,7 +324,7 @@ class Admin extends BaseClass {
 					<span style="padding-left:4px;font-weight:600;"><?php esc_html_e( 'Send to Telegram', 'wptelegram' ); ?></span>
 				</label>
 					<?php if ( $display_gear ) : ?>
-				&nbsp;<a style="text-decoration: none;" href="#wptelegram_p2tg_override"><span class="dashicons dashicons-admin-generic"></span></a>
+				&nbsp;<a style="text-decoration: none;" href="#<?php echo esc_attr( self::OVERRIDE_METABOX_ID ); ?>"><span class="dashicons dashicons-admin-generic"></span></a>
 					<?php endif; ?>
 			</div>
 		<?php

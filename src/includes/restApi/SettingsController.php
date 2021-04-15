@@ -488,10 +488,10 @@ class SettingsController extends RESTController {
 
 		// Remove useless chat_ids.
 		if ( 'p2tg' === $param && ! empty( $safe_value['channels'] ) ) {
-			$safe_value['channels'] = array_filter( $safe_value['channels'] );
+			$safe_value['channels'] = array_values( array_filter( $safe_value['channels'] ) );
 		}
 		if ( 'notify' === $param && ! empty( $safe_value['chat_ids'] ) ) {
-			$safe_value['chat_ids'] = array_filter( $safe_value['chat_ids'] );
+			$safe_value['chat_ids'] = array_values( array_filter( $safe_value['chat_ids'] ) );
 		}
 
 		return $safe_value;

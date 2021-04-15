@@ -1,0 +1,8 @@
+{
+	"phpcbf.standard": "${workspaceRoot}/phpcs.xml",
+	"phpcs.standard": "${workspaceRoot}/phpcs.xml",
+	"[php]": {
+		"editor.formatOnSave": false,
+		"editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+	}
+}

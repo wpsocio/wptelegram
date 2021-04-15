@@ -456,19 +456,22 @@ class Upgrade extends BaseClass {
 		}
 		$p2tg_options['inline_button_url'] = '{full_url}';
 
+		$is_wp_cron_disabled = defined( 'DISABLE_WP_CRON' ) && constant( 'DISABLE_WP_CRON' );
+
 		// convert numeric fields.
 		$p2tg_numeric_fields = [
-			'excerpt_length',
-			'delay',
+			'excerpt_length' => 55,
+			'delay'          => $is_wp_cron_disabled ? 0 : 0.5,
 		];
-		foreach ( $p2tg_numeric_fields as $field ) {
-			$p2tg_options[ $field ] = (float) $p2tg_options[ $field ];
+		foreach ( $p2tg_numeric_fields as $field => $default ) {
+			$p2tg_options[ $field ] = ! empty( $p2tg_options[ $field ] ) ? (float) $p2tg_options[ $field ] : $default;
 		}
 
 		$misc = ! empty( $p2tg_options['misc'] ) ? $p2tg_options['misc'] : [];
 
 		$p2tg_options['disable_web_page_preview'] = in_array( 'disable_web_page_preview', $misc, true );
 		$p2tg_options['disable_notification']     = in_array( 'disable_notification', $misc, true );
+		unset( $p2tg_options['misc'] );
 
 		if ( ! empty( $p2tg_options['rules'] ) ) {
 			$rules = $p2tg_options['rules'];
@@ -538,7 +541,7 @@ class Upgrade extends BaseClass {
 		/************************* ADVANCED */
 		$advanced_options['send_files_by_url'] = ! empty( $main_options['send_files_by_url'] );
 		$advanced_options['clean_uninstall']   = ! empty( $main_options['clean_uninstall'] );
-		$advanced_options['enable_logs']       = $main_options['enable_logs'];
+		$advanced_options['enable_logs']       = [];
 		/************************* ADVANCED */
 
 		$upgraded_options['p2tg']     = $p2tg_options;
@@ -551,5 +554,32 @@ class Upgrade extends BaseClass {
 		foreach ( [ 'p2tg', 'notify', 'proxy' ] as $module ) {
 			delete_option( 'wptelegram_' . $module );
 		}
+	}
+
+	/**
+	 * Upgrade to 3.0.8
+	 *
+	 * In the past upgrades, enable_logs was erroneously set to null.
+	 *
+	 * @since    3.0.8
+	 */
+	protected function upgrade_to_3_0_8() {
+		/**
+		 * Since this upgrade follows 3.0.0.
+		 * It needs to be done on init.
+		 */
+		add_action(
+			'init',
+			function () {
+				$advanced = WPTG()->options()->get( 'advanced' );
+
+				if ( empty( $advanced['enable_logs'] ) ) {
+					$advanced['enable_logs'] = [];
+
+					WPTG()->options()->set( 'advanced', $advanced );
+				}
+			},
+			60
+		);
 	}
 }

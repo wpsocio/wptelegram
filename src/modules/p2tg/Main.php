@@ -62,13 +62,11 @@ class Main extends BaseModule {
 
 		add_action( 'enqueue_block_editor_assets', [ $admin, 'enqueue_block_editor_assets' ] );
 
-		add_action( 'post_submitbox_misc_actions', [ $admin, 'add_post_edit_switch' ], 10, 1 );
+		add_action( 'post_submitbox_misc_actions', [ $admin, 'add_post_edit_switch' ] );
 
 		add_action( 'edit_form_top', [ $admin, 'post_edit_form_hidden_input' ] );
 		add_action( 'block_editor_meta_box_hidden_fields', [ $admin, 'block_editor_hidden_fields' ] );
-
 		add_action( 'cmb2_admin_init', [ $admin, 'create_cmb2_override_metabox' ] );
-
 		add_action( 'add_meta_boxes', [ $admin, 'may_be_remove_override_metabox' ], 100 );
 
 		$post_sender = new PostSender( $this );
