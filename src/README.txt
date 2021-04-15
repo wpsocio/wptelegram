@@ -3,9 +3,9 @@ Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
-Tested up to: 5.7
+Tested up to: 5.7.1
 Requires PHP: 7.0
-Stable tag: 3.0.7
+Stable tag: 3.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,10 @@ Note: You can also contribute in translating this plugin into your local languag
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.8 =
+- Fixed saving empty channels crashing the settings page
+- Fixed "Changes could not be saved" error for old upgrades
 
 = 3.0.7 =
 - Fixed the issue of scheduled posts being sent regardless of the overrides.

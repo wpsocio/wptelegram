@@ -249,7 +249,7 @@ class Options implements Iterator, ArrayAccess {
 		if ( ! empty( $this->option_key ) ) {
 			$data = $this->get_data();
 			if ( $this->store_as_json ) {
-				$data = json_encode( wp_unslash( $data ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+				$data = wp_json_encode( wp_unslash( $data ) );
 			}
 
 			return update_option( $this->option_key, $data );
@@ -326,7 +326,7 @@ class Options implements Iterator, ArrayAccess {
 	 * @return string json encoded.
 	 */
 	public function __toString() {
-		return json_encode( $this->get_data() ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+		return wp_json_encode( $this->get_data() );
 	}
 
 	/**
