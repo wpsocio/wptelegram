@@ -1300,7 +1300,7 @@ class PostSender extends BaseClass {
 		// decode all HTML entities & URL encode non-URL values.
 		foreach ( $macro_values as &$value ) {
 			// decode all HTML entities.
-			$value = html_entity_decode( $value, ENT_QUOTES, 'UTF-8' );
+			$value = Utils::decode_html( $value );
 		}
 
 		$url = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $url_template );
@@ -1402,7 +1402,7 @@ class PostSender extends BaseClass {
 		$text = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $template );
 
 		// decode all HTML entities.
-		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
+		$text = Utils::decode_html( $text );
 
 		// fix the malformed text.
 		$text = Utils::filter_text_for_parse_mode( $text, $parse_mode );

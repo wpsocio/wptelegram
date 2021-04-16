@@ -126,12 +126,12 @@ class RulesController extends RESTController {
 
 							$post_options[] = [
 								'value' => "{$post->ID}",
-								'label' => html_entity_decode( get_the_title( $post ) ),
+								'label' => Utils::decode_html( get_the_title( $post ) ),
 							];
 						}
 
 						$options[] = [
-							'label'   => html_entity_decode( "{$post_type->labels->singular_name} ({$post_type->name})" ),
+							'label'   => Utils::decode_html( "{$post_type->labels->singular_name} ({$post_type->name})" ),
 							'options' => $post_options,
 						];
 					}
@@ -200,7 +200,7 @@ class RulesController extends RESTController {
 
 			$author_list[] = [
 				'value' => "{$author->ID}",
-				'label' => html_entity_decode( get_the_author_meta( 'display_name', $author->ID ) ),
+				'label' => Utils::decode_html( get_the_author_meta( 'display_name', $author->ID ) ),
 			];
 		}
 
@@ -276,7 +276,7 @@ class RulesController extends RESTController {
 			}
 			$term_list[] = [
 				'value' => "{$term->term_id}",
-				'label' => html_entity_decode( $term_name ),
+				'label' => Utils::decode_html( $term_name ),
 			];
 		}
 
