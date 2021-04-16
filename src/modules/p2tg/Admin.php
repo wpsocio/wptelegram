@@ -149,6 +149,7 @@ class Admin extends BaseClass {
 			$data['savedSettings'] = $saved_settings;
 
 			$data['uiData'] = [
+				// savedSettings may not contain all the channels, so add them here.
 				'allChannels' => $this->module->options()->get( 'channels' ),
 			];
 		}
@@ -505,7 +506,6 @@ class Admin extends BaseClass {
 			case 'files':
 				return $saved_options->get( $field, [] );
 			case 'disable_notification':
-				return in_array( $field, $saved_options->get( 'misc', [] ), true );
 			case 'delay':
 			case 'message_template':
 				return $saved_options->get( $field );
@@ -525,11 +525,11 @@ class Admin extends BaseClass {
 			self::$saved_options = new Options();
 			self::$saved_options->set_data( WPTG()->options()->get( 'p2tg' ) );
 
-			// phpcs:ignore WordPress.Security.NonceVerification
-			if ( isset( $_GET['post'] ) ) {
+			$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+
+			if ( ! empty( $post_id ) ) {
 				// try to get the options from meta.
-				// phpcs:ignore
-				$options = get_post_meta( (int) $_GET['post'], Main::PREFIX . 'options', true );
+				$options = get_post_meta( $post_id, Main::PREFIX . 'options', true );
 
 				// If the meta was saved before upgrade.
 				if ( is_array( $options ) ) {
