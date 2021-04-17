@@ -97,7 +97,7 @@ class PostSender extends BaseClass {
 	 *
 	 * @var array   $processed_posts
 	 */
-	protected static $processed_posts;
+	protected static $processed_posts = [];
 
 	/**
 	 * Set up the basics
@@ -108,8 +108,6 @@ class PostSender extends BaseClass {
 	 * @param string  $trigger The trigger source.
 	 */
 	public function init( $post, $trigger ) {
-		self::$processed_posts = [];
-
 		$this->post = $post;
 
 		$this->post_data = new PostData( $this->post );

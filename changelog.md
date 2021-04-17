@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 ### Bug fixes
 
 - Fixed the upgrade for Post to Telegram rules
+- Fixed duplicate posts when using bulk import
 - Fixed i18n for block editor override settings
 - Fixed the Disable Notification settings not being reflected on post edit page
 
