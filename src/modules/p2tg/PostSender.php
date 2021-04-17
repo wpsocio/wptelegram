@@ -383,11 +383,15 @@ class PostSender extends BaseClass {
 	 * @param string  $trigger The name of the source trigger hook.
 	 * @param bool    $force   Whether to bypass the custom rules.
 	 */
-	public function send_post( WP_Post $post, $trigger = 'non_wp', $force = false ) {
+	public function send_post( $post, $trigger = 'non_wp', $force = false ) {
+
+		if ( empty( $post ) ) {
+			return __LINE__;
+		}
 
 		$previous_post = $this->may_be_setup_postdata( $post, $trigger );
 
-		$result = null;
+		$result = __LINE__;
 
 		do_action( 'wptelegram_p2tg_before_send_post', $result, $post, $trigger, $force );
 
@@ -396,6 +400,8 @@ class PostSender extends BaseClass {
 		do_action( 'wptelegram_p2tg_after_send_post', $result, $post, $trigger, $force );
 
 		$this->may_be_reset_postdata( $previous_post, $trigger );
+
+		return $result;
 	}
 
 	/**
@@ -411,7 +417,7 @@ class PostSender extends BaseClass {
 	 * @param string  $trigger The name of the source trigger hook.
 	 * @param bool    $force   Whether to bypass the custom rules.
 	 */
-	public function send_the_post( WP_Post $post, $trigger, $force ) {
+	public function send_the_post( $post, $trigger, $force ) {
 
 		$this->init( $post, $trigger );
 
