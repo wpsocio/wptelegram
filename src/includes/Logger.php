@@ -13,6 +13,7 @@ use WPTelegram\BotAPI\Response;
 use WPTelegram\BotAPI\API;
 use WP_Post;
 use WPTelegram\Core\modules\p2tg\RequestCheck;
+use WPTelegram\Core\modules\p2tg\Main as P2TGMain;
 
 /**
  * WPTelegram_Logger class.
@@ -141,25 +142,6 @@ class Logger {
 	}
 
 	/**
-	 * Handle the debug action
-	 *
-	 * @param mixed   $result  The action result.
-	 * @param WP_Post $post    The post being handled.
-	 * @param string  $trigger The source trigger.
-	 */
-	public function before_p2tg_log( $result, $post, $trigger ) {
-
-		// create a an entry from post ID and its status.
-		$key = $this->get_key( $post );
-
-		$this->p2tg_post_info[ $key ][] = [
-			'hook'         => 'before',
-			'trigger'      => $trigger,
-			'request_type' => $this->get_request_type( $post ),
-		];
-	}
-
-	/**
 	 * Get the current request type.
 	 *
 	 * @param WP_Post $post    The post being handled.
@@ -178,6 +160,24 @@ class Logger {
 	}
 
 	/**
+	 * Handle p2tg before post send action.
+	 *
+	 * @param mixed   $result  The action result.
+	 * @param WP_Post $post    The post being handled.
+	 * @param string  $trigger The source trigger.
+	 */
+	public function before_p2tg_log( $result, $post, $trigger ) {
+
+		// create a an entry from post ID and its status.
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ]['before'] = [
+			'trigger'      => $trigger,
+			'request_type' => $this->get_request_type( $post ),
+		];
+	}
+
+	/**
 	 * Add form data to the log.
 	 *
 	 * @param mixed   $form_data The action result.
@@ -191,10 +191,7 @@ class Logger {
 		// Remove message template to make the logs clean.
 		unset( $form_data['message_template'] );
 
-		$this->p2tg_post_info[ $key ][] = [
-			'hook'      => 'form_data',
-			'form_data' => $form_data,
-		];
+		$this->p2tg_post_info[ $key ]['form_data'] = $form_data;
 	}
 
 	/**
@@ -209,10 +206,7 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = [
-			'hook'     => 'sv',
-			'validity' => $validity,
-		];
+		$this->p2tg_post_info[ $key ]['sv'] = $validity;
 	}
 
 	/**
@@ -227,9 +221,9 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = [
-			'hook'  => 'rules',
-			'apply' => $rules_apply,
+		$this->p2tg_post_info[ $key ]['rules'] = [
+			'apply'   => $rules_apply,
+			'sent2tg' => get_post_meta( $post->ID, P2TGMain::PREFIX . 'sent2tg', true ),
 		];
 
 		return $rules_apply;
@@ -248,8 +242,7 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = [
-			'hook'        => 'image_source',
+		$this->p2tg_post_info[ $key ]['image_source'] = [
 			'send_image'  => $options->get( 'send_featured_image' ),
 			'has_image'   => has_post_thumbnail( $post->ID ),
 			'send_by_url' => $send_files_by_url,
@@ -260,7 +253,7 @@ class Logger {
 	}
 
 	/**
-	 * Add rules_apply info.
+	 * Add post send finish info.
 	 *
 	 * @param WP_Post $post            The post being handled.
 	 * @param string  $trigger         The source trigger.
@@ -273,15 +266,14 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = [
-			'hook'      => 'finish',
+		$this->p2tg_post_info[ $key ]['finish'] = [
 			'ok'        => $ok,
 			'processed' => $processed_posts,
 		];
 	}
 
 	/**
-	 * Handle the debug action.
+	 * Add after send post info.
 	 *
 	 * @param mixed   $result  The action result.
 	 * @param WP_Post $post    The post being handled.
@@ -292,14 +284,15 @@ class Logger {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ][] = [
-			'hook'   => 'after',
+		$this->p2tg_post_info[ $key ]['after'] = [
 			'result' => $result,
 		];
 
-		$text = wp_json_encode( $this->p2tg_post_info/*, 128*/ );
+		$text = wp_json_encode( [ $key => $this->p2tg_post_info[ $key ] ] /*, 128*/ );
 
 		$this->write_log( 'p2tg', $text );
+
+		unset( $this->p2tg_post_info[ $key ] );
 	}
 
 	/**
