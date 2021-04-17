@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2021-04-15 20:22:25+00:00\n"
+"POT-Creation-Date: 2021-04-17 19:22:33+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:02+0530\n"
 "Last-Translator: \n"
 "Language-Team: Taktaweb Group <info@taktaweb.ir>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: includes/AssetManager.php:105
+#: includes/AssetManager.php:131
 msgid ""
 "With this plugin, you can send posts to Telegram and receive notifications "
 "and do lot more :)"
@@ -31,7 +31,7 @@ msgstr ""
 "با این افزونه، شما می توانید نوشته‌ها را به تلگرام بفرستید و اعلان دریافت "
 "کنید و کلی کارهای دیگه انجام بدید :)"
 
-#: includes/Main.php:333
+#: includes/Main.php:335
 msgid "WP Telegram"
 msgstr ""
 
@@ -100,7 +100,7 @@ msgstr "پشتیبانی زنده در تلگرام"
 msgid "Basics"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:374
+#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:364
 msgid "Post to Telegram"
 msgstr "ارسال مطلب به تلگرام"
 
@@ -329,39 +329,39 @@ msgstr ""
 msgid "Upgrade NOW"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:396
+#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:386
 msgid "Send to"
 msgstr "ارسال به"
 
-#: languages/wptelegram-js-translations.php:230 modules/p2tg/Admin.php:386
-msgid "Override settings"
-msgstr "تغییر تنظیمات"
-
-#: languages/wptelegram-js-translations.php:234 modules/p2tg/Admin.php:408
-msgid "Disable Notifications"
-msgstr "غیرفعال کردن اعلان‌ها"
-
-#: languages/wptelegram-js-translations.php:238 modules/p2tg/Admin.php:429
-msgid "Delay in Posting"
-msgstr "تاخیر در ارسال مطلب"
-
-#: languages/wptelegram-js-translations.php:242 modules/p2tg/Admin.php:446
-msgid "Message Template"
-msgstr "شکل محتوای پیام"
-
-#: languages/wptelegram-js-translations.php:245
+#: languages/wptelegram-js-translations.php:230
 msgid "Add or Upload Files"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:248 modules/p2tg/Admin.php:419
+#: languages/wptelegram-js-translations.php:233 modules/p2tg/Admin.php:409
 msgid "Files to be sent after the message."
 msgstr "فایل‌های ارسالی بعد از پست."
 
-#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:418
+#: languages/wptelegram-js-translations.php:236 modules/p2tg/Admin.php:408
 msgid "Files"
 msgstr "فایل‌ها"
 
-#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:324
+#: languages/wptelegram-js-translations.php:240 modules/p2tg/Admin.php:436
+msgid "Message Template"
+msgstr "شکل محتوای پیام"
+
+#: languages/wptelegram-js-translations.php:243 modules/p2tg/Admin.php:376
+msgid "Override settings"
+msgstr "تغییر تنظیمات"
+
+#: languages/wptelegram-js-translations.php:247 modules/p2tg/Admin.php:398
+msgid "Disable Notifications"
+msgstr "غیرفعال کردن اعلان‌ها"
+
+#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:419
+msgid "Delay in Posting"
+msgstr "تاخیر در ارسال مطلب"
+
+#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:314
 msgid "Send to Telegram"
 msgstr "ارسال به تلگرام"
 
@@ -384,7 +384,7 @@ msgstr "غیرفعال کردن بارگذاری فایل‌ها/ تصاویر �
 msgid "The delay starts after the post gets published."
 msgstr "تاخیر بعد از منتشر شدن پست، شروع می شود."
 
-#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:430
+#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:420
 msgid "Minute(s)"
 msgstr "دقیقه"
 
@@ -436,7 +436,7 @@ msgstr "بعد از متن"
 msgid "Send Featured Image (if exists)."
 msgstr "ارسال تصویر شاخص  (اگر وجود دارد)۔"
 
-#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:447
+#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:437
 msgid "Structure of the message to be sent."
 msgstr "ساختار پیامی که قرار است فرستاده شود۔"
 
@@ -941,32 +941,32 @@ msgstr ""
 msgid "Changes could not be saved."
 msgstr ""
 
-#: modules/p2tg/Admin.php:193
+#: modules/p2tg/Admin.php:183
 msgid "Post Data"
 msgstr "داده های مطلب"
 
-#: modules/p2tg/Admin.php:207
+#: modules/p2tg/Admin.php:197
 msgid "Taxonomy Terms"
 msgstr "شرایط طبقه بندی"
 
-#: modules/p2tg/Admin.php:211
+#: modules/p2tg/Admin.php:201
 msgid "Custom Fields"
 msgstr "ورودی‌های دلخواه"
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:218
+#: modules/p2tg/Admin.php:208
 msgid ""
 "Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
 "attached to the post."
 msgstr ""
 "%1$s را توسط نام دسته بندی به %2$s تغییر دهید تا شرایط را به پست ضمیمه کنید."
 
-#: modules/p2tg/Admin.php:218 modules/p2tg/Admin.php:221
+#: modules/p2tg/Admin.php:208 modules/p2tg/Admin.php:211
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr "به عنوان مثال %1$s و %2$s در ووکامرس"
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:221
+#: modules/p2tg/Admin.php:211
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr "%1$s را به %2$s توسط ورودی دلخواه تغییر دهید."
 

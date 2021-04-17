@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7.1
 Requires PHP: 7.0
-Stable tag: 3.0.8
+Stable tag: 3.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,13 @@ Note: You can also contribute in translating this plugin into your local languag
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.9 =
+- Fixed the upgrade for Post to Telegram rules
+- Fixed invalid argument error for failed post updates
+- Fixed duplicate posts when using bulk import
+- Fixed i18n for block editor override settings
+- Fixed the Disable Notification settings not being reflected on post edit page
 
 = 3.0.8 =
 - Fixed saving empty channels crashing the settings page

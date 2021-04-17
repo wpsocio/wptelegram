@@ -525,7 +525,7 @@ class Utils {
 	/**
 	 * Decode HTML entities.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.9
 	 *
 	 * @param string $text The text to decode HTML entities in.
 	 *

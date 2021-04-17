@@ -32,7 +32,7 @@ class AssetManager extends BaseClass {
 	/**
 	 * Register the assets.
 	 *
-	 * @since    x.y.z
+	 * @since    3.0.9
 	 */
 	public function register_assets() {
 

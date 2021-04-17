@@ -47,7 +47,7 @@ $generated_i18n_strings = array(
 
 	// Reference: domains/wptelegram/core/main/src/ui/TabbedSections.tsx:23
 	// Reference: domains/wptelegram/core/main/src/ui/advanced/Advanced.tsx:22
-	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:63
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:66
 	__( 'Post to Telegram', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/TabbedSections.tsx:28
@@ -102,7 +102,7 @@ $generated_i18n_strings = array(
 	__( 'Hit %s below.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
-	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:107
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:110
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
 	// Reference: packages/components/src/Submit/SubmitButton.tsx:15
 	__( 'Save Changes', 'wptelegram' ),
@@ -223,34 +223,34 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/core/main/src/ui/shared/Upsell.tsx:86
 	__( 'Upgrade NOW', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/p2tg-gb/src/Channels.tsx:23
+	// Reference: domains/wptelegram/core/p2tg-gb/src/Channels.tsx:25
 	__( 'Send to', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:70
-	__( 'Override settings', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:82
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:20
-	__( 'Disable Notifications', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:89
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:19
-	__( 'Delay in Posting', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:99
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:28
-	__( 'Message Template', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:11
 	__( 'Add or Upload Files', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:40
+	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:43
 	__( 'Files to be sent after the message.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:43
+	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:46
 	__( 'Files', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/p2tg-gb/src/index.tsx:23
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:102
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:28
+	__( 'Message Template', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:73
+	__( 'Override settings', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:85
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:20
+	__( 'Disable Notifications', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:92
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:19
+	__( 'Delay in Posting', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/p2tg-gb/src/SendToTelegram.tsx:24
 	__( 'Send to Telegram', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/AdvancedSettings.tsx:25
