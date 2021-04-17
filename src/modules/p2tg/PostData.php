@@ -173,7 +173,7 @@ class PostData {
 				$content = apply_filters( 'the_content', $content );
 				self::restore_autoembed_filter();
 
-				$content = trim( strip_tags( html_entity_decode( $content ), '<b><strong><em><i><a><pre><code>' ) );
+				$content = trim( strip_tags( Utils::decode_html( $content ), '<b><strong><em><i><a><pre><code>' ) );
 				$value   = trim( strip_shortcodes( $content ) );
 				break;
 

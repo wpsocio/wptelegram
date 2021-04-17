@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.9 - 2021-04-18](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.9)
+
+### Bug fixes
+
+- Fixed the upgrade for Post to Telegram rules
+- Fixed invalid argument error for failed post updates
+- Fixed duplicate posts when using bulk import
+- Fixed i18n for block editor override settings
+- Fixed the Disable Notification settings not being reflected on post edit page
+
 ## [3.0.8 - 2021-04-16](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.8)
 
 ### Bug fixes

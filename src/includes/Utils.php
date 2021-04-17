@@ -203,7 +203,7 @@ class Utils {
 	public static function strip_non_word_chars( $text ) {
 		$raw_text = $text;
 		// decode all HTML entities.
-		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
+		$text = self::decode_html( $text );
 
 		// remove trailing non-word characters.
 		$text = preg_replace( '/(?:^\W+|\W+$)/u', '', $text );
@@ -520,5 +520,18 @@ class Utils {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * Decode HTML entities.
+	 *
+	 * @since 3.0.9
+	 *
+	 * @param string $text The text to decode HTML entities in.
+	 *
+	 * @return string The text with HTML entities decoded.
+	 */
+	public static function decode_html( $text ) {
+		return html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
 	}
 }

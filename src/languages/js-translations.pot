@@ -67,7 +67,7 @@ msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/TabbedSections.tsx:23
 #: domains/wptelegram/core/main/src/ui/advanced/Advanced.tsx:22
-#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:63
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:66
 msgid "Post to Telegram"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgid "Hit %s below."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
-#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:107
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:110
 #: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
 #: packages/components/src/Submit/SubmitButton.tsx:15
 msgid "Save Changes"
@@ -300,42 +300,42 @@ msgstr ""
 msgid "Upgrade NOW"
 msgstr ""
 
-#: domains/wptelegram/core/p2tg-gb/src/Channels.tsx:23
+#: domains/wptelegram/core/p2tg-gb/src/Channels.tsx:25
 msgid "Send to"
-msgstr ""
-
-#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:70
-msgid "Override settings"
-msgstr ""
-
-#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:82
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:20
-msgid "Disable Notifications"
-msgstr ""
-
-#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:89
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:19
-msgid "Delay in Posting"
-msgstr ""
-
-#: domains/wptelegram/core/p2tg-gb/src/EditModal.tsx:99
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:28
-msgid "Message Template"
 msgstr ""
 
 #: domains/wptelegram/core/p2tg-gb/src/Files.tsx:11
 msgid "Add or Upload Files"
 msgstr ""
 
-#: domains/wptelegram/core/p2tg-gb/src/Files.tsx:40
+#: domains/wptelegram/core/p2tg-gb/src/Files.tsx:43
 msgid "Files to be sent after the message."
 msgstr ""
 
-#: domains/wptelegram/core/p2tg-gb/src/Files.tsx:43
+#: domains/wptelegram/core/p2tg-gb/src/Files.tsx:46
 msgid "Files"
 msgstr ""
 
-#: domains/wptelegram/core/p2tg-gb/src/index.tsx:23
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:102
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:28
+msgid "Message Template"
+msgstr ""
+
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:73
+msgid "Override settings"
+msgstr ""
+
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:85
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:20
+msgid "Disable Notifications"
+msgstr ""
+
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:92
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:19
+msgid "Delay in Posting"
+msgstr ""
+
+#: domains/wptelegram/core/p2tg-gb/src/SendToTelegram.tsx:24
 msgid "Send to Telegram"
 msgstr ""
 

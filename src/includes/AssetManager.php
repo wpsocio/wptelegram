@@ -11,6 +11,7 @@
 
 namespace WPTelegram\Core\includes;
 
+use ReflectionClass;
 use WPTelegram\Core\includes\restApi\RESTController;
 
 /**
@@ -29,6 +30,49 @@ class AssetManager extends BaseClass {
 	const ADMIN_P2TG_CLASSIC_JS_HANDLE = 'wptelegram--p2tg-classic';
 
 	/**
+	 * Register the assets.
+	 *
+	 * @since    3.0.9
+	 */
+	public function register_assets() {
+
+		$request_check = new ReflectionClass( self::class );
+
+		$constants = $request_check->getConstants();
+
+		$assets = $this->plugin()->assets();
+
+		foreach ( $constants as $handle ) {
+			wp_register_script(
+				$handle,
+				$assets->get_asset_url( $handle ),
+				$assets->get_asset_dependencies( $handle ),
+				$assets->get_asset_version( $handle ),
+				true
+			);
+
+			// Register styles only if they exist.
+			if ( $assets->has_asset( $handle, Assets::ASSET_EXT_CSS ) ) {
+				wp_register_style(
+					$handle,
+					$assets->get_asset_url( $handle, Assets::ASSET_EXT_CSS ),
+					[],
+					$assets->get_asset_version( $handle, Assets::ASSET_EXT_CSS ),
+					'all'
+				);
+			}
+		}
+
+		wp_register_style(
+			$this->plugin()->name() . '-menu',
+			$assets->url( sprintf( '/css/admin-menu%s.css', wp_scripts_get_suffix() ) ),
+			[],
+			$this->plugin()->version(),
+			'all'
+		);
+	}
+
+	/**
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    3.0.0
@@ -36,25 +80,13 @@ class AssetManager extends BaseClass {
 	 */
 	public function enqueue_admin_styles( $hook_suffix ) {
 
-		wp_enqueue_style(
-			$this->plugin()->name() . '-menu',
-			$this->plugin()->assets()->url( sprintf( '/css/admin-menu%s.css', wp_scripts_get_suffix() ) ),
-			[],
-			$this->plugin()->version(),
-			'all'
-		);
+		wp_enqueue_style( $this->plugin()->name() . '-menu' );
 
-		$entrypoint = self::ADMIN_MAIN_JS_HANDLE;
+		$handle = self::ADMIN_MAIN_JS_HANDLE;
 
 		// Load only on settings page.
-		if ( $this->is_settings_page( $hook_suffix ) && $this->plugin()->assets()->has_asset( $entrypoint, Assets::ASSET_EXT_CSS ) ) {
-			wp_enqueue_style(
-				$entrypoint,
-				$this->plugin()->assets()->get_asset_url( $entrypoint, Assets::ASSET_EXT_CSS ),
-				[],
-				$this->plugin()->assets()->get_asset_version( $entrypoint, Assets::ASSET_EXT_CSS ),
-				'all'
-			);
+		if ( $this->is_settings_page( $hook_suffix ) && wp_style_is( $handle, 'registered' ) ) {
+			wp_enqueue_style( $handle );
 		}
 	}
 
@@ -67,21 +99,15 @@ class AssetManager extends BaseClass {
 	public function enqueue_admin_scripts( $hook_suffix ) {
 		// Load only on settings page.
 		if ( $this->is_settings_page( $hook_suffix ) ) {
-			$entrypoint = self::ADMIN_MAIN_JS_HANDLE;
+			$handle = self::ADMIN_MAIN_JS_HANDLE;
 
-			wp_enqueue_script(
-				$entrypoint,
-				$this->plugin()->assets()->get_asset_url( $entrypoint ),
-				$this->plugin()->assets()->get_asset_dependencies( $entrypoint ),
-				$this->plugin()->assets()->get_asset_version( $entrypoint ),
-				true
-			);
+			wp_enqueue_script( $handle );
 
 			// Pass data to JS.
 			$data = $this->get_dom_data();
 
 			wp_add_inline_script(
-				$entrypoint,
+				$handle,
 				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
 				'before'
 			);

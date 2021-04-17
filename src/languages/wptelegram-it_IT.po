@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2021-04-15 20:22:25+00:00\n"
+"POT-Creation-Date: 2021-04-17 19:22:33+00:00\n"
 "PO-Revision-Date: 2021-03-21 12:14+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: includes/AssetManager.php:105
+#: includes/AssetManager.php:131
 msgid ""
 "With this plugin, you can send posts to Telegram and receive notifications "
 "and do lot more :)"
@@ -30,7 +30,7 @@ msgstr ""
 "Con questo plugin puoi spedire i tuoi articoli a Telegram, ricevere "
 "notifiche e molto altro :)"
 
-#: includes/Main.php:333
+#: includes/Main.php:335
 msgid "WP Telegram"
 msgstr "WP Telegram"
 
@@ -103,7 +103,7 @@ msgstr "Ottieni supporto dal vivo su Telegram"
 msgid "Basics"
 msgstr "Base"
 
-#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:374
+#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:364
 msgid "Post to Telegram"
 msgstr "Invia a Telegram"
 
@@ -335,39 +335,39 @@ msgstr ""
 msgid "Upgrade NOW"
 msgstr "Aggiorna ADESSO"
 
-#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:396
+#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:386
 msgid "Send to"
 msgstr "Invia a"
 
-#: languages/wptelegram-js-translations.php:230 modules/p2tg/Admin.php:386
-msgid "Override settings"
-msgstr "Sovrascrivi le impostazioni"
-
-#: languages/wptelegram-js-translations.php:234 modules/p2tg/Admin.php:408
-msgid "Disable Notifications"
-msgstr "Disabilita Notifiche"
-
-#: languages/wptelegram-js-translations.php:238 modules/p2tg/Admin.php:429
-msgid "Delay in Posting"
-msgstr "Ritarda l'invio di"
-
-#: languages/wptelegram-js-translations.php:242 modules/p2tg/Admin.php:446
-msgid "Message Template"
-msgstr "Modello Messaggio"
-
-#: languages/wptelegram-js-translations.php:245
+#: languages/wptelegram-js-translations.php:230
 msgid "Add or Upload Files"
 msgstr "Aggiungi o carica files"
 
-#: languages/wptelegram-js-translations.php:248 modules/p2tg/Admin.php:419
+#: languages/wptelegram-js-translations.php:233 modules/p2tg/Admin.php:409
 msgid "Files to be sent after the message."
 msgstr "Files da inviare dopo il messaggio."
 
-#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:418
+#: languages/wptelegram-js-translations.php:236 modules/p2tg/Admin.php:408
 msgid "Files"
 msgstr "Files"
 
-#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:324
+#: languages/wptelegram-js-translations.php:240 modules/p2tg/Admin.php:436
+msgid "Message Template"
+msgstr "Modello Messaggio"
+
+#: languages/wptelegram-js-translations.php:243 modules/p2tg/Admin.php:376
+msgid "Override settings"
+msgstr "Sovrascrivi le impostazioni"
+
+#: languages/wptelegram-js-translations.php:247 modules/p2tg/Admin.php:398
+msgid "Disable Notifications"
+msgstr "Disabilita Notifiche"
+
+#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:419
+msgid "Delay in Posting"
+msgstr "Ritarda l'invio di"
+
+#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:314
 msgid "Send to Telegram"
 msgstr "Invia a Telegram"
 
@@ -391,7 +391,7 @@ msgstr "Disattiva per caricare files/immagini invece che inviare l'URL."
 msgid "The delay starts after the post gets published."
 msgstr "Il ritardo  inizia dopo che l'articolo è stato pubblicato."
 
-#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:430
+#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:420
 msgid "Minute(s)"
 msgstr "Minuto(i)"
 
@@ -443,7 +443,7 @@ msgstr "Dopo il testo"
 msgid "Send Featured Image (if exists)."
 msgstr "Invia immagine in primo piano (se esiste)."
 
-#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:447
+#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:437
 msgid "Structure of the message to be sent."
 msgstr "Struttura del messaggio da inviare."
 
@@ -951,20 +951,20 @@ msgstr "%s richiesto."
 msgid "Changes could not be saved."
 msgstr "Le modifiche non saranno salvate."
 
-#: modules/p2tg/Admin.php:193
+#: modules/p2tg/Admin.php:183
 msgid "Post Data"
 msgstr "Data dell'articolo"
 
-#: modules/p2tg/Admin.php:207
+#: modules/p2tg/Admin.php:197
 msgid "Taxonomy Terms"
 msgstr "Termini della tassonomia"
 
-#: modules/p2tg/Admin.php:211
+#: modules/p2tg/Admin.php:201
 msgid "Custom Fields"
 msgstr "Campo personalizzato"
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:218
+#: modules/p2tg/Admin.php:208
 msgid ""
 "Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
 "attached to the post."
@@ -972,12 +972,12 @@ msgstr ""
 "Sostituisci %1$s in %2$s con il nome della tassonomia per inserire i suoi "
 "termini allegati al post."
 
-#: modules/p2tg/Admin.php:218 modules/p2tg/Admin.php:221
+#: modules/p2tg/Admin.php:208 modules/p2tg/Admin.php:211
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr "Per esempio %1$s e %2$s in WooCommerce"
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:221
+#: modules/p2tg/Admin.php:211
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr "Sostituisci %1$s in %2$s con il nome del campo personalizzato."
 

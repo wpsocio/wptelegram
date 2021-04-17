@@ -391,19 +391,6 @@ class Upgrade extends BaseClass {
 	 * @since    3.0.0
 	 */
 	protected function upgrade_to_3_0_0() {
-		/**
-		 * Since this upgrade needs taxonomies registered,
-		 * we will run it on init.
-		 */
-		add_action( 'init', [ $this, 'upgrade_to_3_0_0_on_init' ], 50 );
-	}
-
-	/**
-	 * Upgrade to 3.0.0
-	 *
-	 * @since    3.0.0
-	 */
-	public function upgrade_to_3_0_0_on_init() {
 		$main_options = get_option( 'wptelegram', [] );
 
 		$modules = reset( $main_options['modules'] );
@@ -473,43 +460,64 @@ class Upgrade extends BaseClass {
 		$p2tg_options['disable_notification']     = in_array( 'disable_notification', $misc, true );
 		unset( $p2tg_options['misc'] );
 
-		if ( ! empty( $p2tg_options['rules'] ) ) {
-			$rules = $p2tg_options['rules'];
+		/**
+		 * Since rules upgrade needs taxonomies registered,
+		 * we will run it on init.
+		 */
+		add_action(
+			'init',
+			function () {
+				$p2tg = WPTG()->options()->get( 'p2tg' );
+				if ( ! empty( $p2tg['rules'] ) ) {
+					$rules = $p2tg['rules'];
 
-			$upgraded_rules = [];
+					$upgraded_rules = [];
 
-			foreach ( $rules as $rule_group ) {
-				$upgraded_rule_group = [];
+					foreach ( $rules as $rule_group ) {
+						$upgraded_rule_group = [];
 
-				foreach ( $rule_group as $rule ) {
-					$upgraded_rule = [];
+						foreach ( $rule_group as $rule ) {
+							$upgraded_rule = [];
 
-					if ( ! empty( $rule['values'] ) ) {
-						$param  = $rule['param'];
-						$values = $rule['values'];
+							if ( ! empty( $rule['values'] ) ) {
+								$param  = $rule['param'];
+								$values = $rule['values'];
 
-						$new_values = RulesController::get_rule_values( $param, '', $values );
-						if ( ! empty( $new_values ) ) {
-							$rule['values'] = $new_values;
+								$new_values = RulesController::get_rule_values( $param, '', $values );
+								if ( ! empty( $new_values ) ) {
+									// if it's a Post based rule, it can have option groups.
+									if ( 'post' === $param ) {
+										$new_values = wp_list_pluck( $new_values, 'options' );
+										if ( ! empty( $new_values ) ) {
+											$new_values = call_user_func_array( 'array_merge', $new_values );
+										}
+									}
+									$rule['values'] = $new_values;
 
-							$upgraded_rule = $rule;
+									$upgraded_rule = $rule;
+								}
+							}
+
+							// Add the rule to the group.
+							if ( ! empty( $upgraded_rule ) ) {
+								$upgraded_rule_group[] = $upgraded_rule;
+							}
+						}
+
+						// Add the rule group to the rules.
+						if ( ! empty( $upgraded_rule_group ) ) {
+							$upgraded_rules[] = $upgraded_rule_group;
 						}
 					}
 
-					// Add the rule to the group.
-					if ( ! empty( $upgraded_rule ) ) {
-						$upgraded_rule_group[] = $upgraded_rule;
-					}
-				}
+					$p2tg['rules'] = $upgraded_rules;
 
-				// Add the rule group to the rules.
-				if ( ! empty( $upgraded_rule_group ) ) {
-					$upgraded_rules[] = $upgraded_rule_group;
+					WPTG()->options()->set( 'p2tg', $p2tg );
 				}
-			}
+			},
+			50
+		);
 
-			$p2tg_options['rules'] = $upgraded_rules;
-		}
 		/************************ POST TO TELEGRAM */
 
 		/************************* NOTIFICATIONS */
@@ -564,22 +572,12 @@ class Upgrade extends BaseClass {
 	 * @since    3.0.8
 	 */
 	protected function upgrade_to_3_0_8() {
-		/**
-		 * Since this upgrade follows 3.0.0.
-		 * It needs to be done on init.
-		 */
-		add_action(
-			'init',
-			function () {
-				$advanced = WPTG()->options()->get( 'advanced' );
+		$advanced = WPTG()->options()->get( 'advanced' );
 
-				if ( empty( $advanced['enable_logs'] ) ) {
-					$advanced['enable_logs'] = [];
+		if ( empty( $advanced['enable_logs'] ) ) {
+			$advanced['enable_logs'] = [];
 
-					WPTG()->options()->set( 'advanced', $advanced );
-				}
-			},
-			60
-		);
+			WPTG()->options()->set( 'advanced', $advanced );
+		}
 	}
 }

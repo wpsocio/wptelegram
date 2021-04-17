@@ -316,6 +316,8 @@ final class Main {
 
 		add_action( 'init', [ $plugin_admin, 'initiate_logger' ] );
 
+		add_action( 'admin_init', [ $this->asset_manager(), 'register_assets' ] );
+
 		add_action( 'admin_enqueue_scripts', [ $this->asset_manager(), 'enqueue_admin_styles' ] );
 		add_action( 'admin_enqueue_scripts', [ $this->asset_manager(), 'enqueue_admin_scripts' ] );
 	}

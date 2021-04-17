@@ -52,18 +52,14 @@ class Admin extends BaseClass {
 		$screens = $this->get_override_meta_box_screens();
 
 		// Load Post to Telegram js for classic editor if CMB2 is loaded.
-		if ( Utils::is_post_edit_page( $screens ) && did_action( 'cmb2_init' ) && ! did_action( 'enqueue_block_editor_assets' ) ) {
-			$entrypoint = AssetManager::ADMIN_P2TG_CLASSIC_JS_HANDLE;
+		if (
+			Utils::is_post_edit_page( $screens )
+			&& did_action( 'cmb2_init' )
+			&& ! did_action( 'enqueue_block_editor_assets' )
+		) {
+			$handle = AssetManager::ADMIN_P2TG_CLASSIC_JS_HANDLE;
 
-			$assets = WPTG()->assets();
-
-			wp_enqueue_script(
-				$entrypoint,
-				$assets->get_asset_url( $entrypoint ),
-				$assets->get_asset_dependencies( $entrypoint ),
-				$assets->get_asset_version( $entrypoint ),
-				true
-			);
+			wp_enqueue_script( $handle );
 		}
 	}
 
@@ -81,22 +77,15 @@ class Admin extends BaseClass {
 		$screens = $this->get_override_meta_box_screens();
 
 		if ( Utils::is_post_edit_page( $screens ) ) {
-			$entrypoint = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
+			$handle = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
 
-			$assets = WPTG()->assets();
-			wp_enqueue_script(
-				$entrypoint,
-				$assets->get_asset_url( $entrypoint ),
-				$assets->get_asset_dependencies( $entrypoint ),
-				$assets->get_asset_version( $entrypoint ),
-				true
-			);
+			wp_enqueue_script( $handle );
 
 			// Pass data to JS.
 			$data = WPTG()->asset_manager()->get_dom_data( 'BLOCKS' );
 
 			wp_add_inline_script(
-				$entrypoint,
+				$handle,
 				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
 				'before'
 			);
@@ -149,6 +138,7 @@ class Admin extends BaseClass {
 			$data['savedSettings'] = $saved_settings;
 
 			$data['uiData'] = [
+				// savedSettings may not contain all the channels, so add them here.
 				'allChannels' => $this->module->options()->get( 'channels' ),
 			];
 		}
@@ -505,7 +495,6 @@ class Admin extends BaseClass {
 			case 'files':
 				return $saved_options->get( $field, [] );
 			case 'disable_notification':
-				return in_array( $field, $saved_options->get( 'misc', [] ), true );
 			case 'delay':
 			case 'message_template':
 				return $saved_options->get( $field );
@@ -525,11 +514,11 @@ class Admin extends BaseClass {
 			self::$saved_options = new Options();
 			self::$saved_options->set_data( WPTG()->options()->get( 'p2tg' ) );
 
-			// phpcs:ignore WordPress.Security.NonceVerification
-			if ( isset( $_GET['post'] ) ) {
+			$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+
+			if ( ! empty( $post_id ) ) {
 				// try to get the options from meta.
-				// phpcs:ignore
-				$options = get_post_meta( (int) $_GET['post'], Main::PREFIX . 'options', true );
+				$options = get_post_meta( $post_id, Main::PREFIX . 'options', true );
 
 				// If the meta was saved before upgrade.
 				if ( is_array( $options ) ) {
