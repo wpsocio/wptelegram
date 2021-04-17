@@ -52,18 +52,14 @@ class Admin extends BaseClass {
 		$screens = $this->get_override_meta_box_screens();
 
 		// Load Post to Telegram js for classic editor if CMB2 is loaded.
-		if ( Utils::is_post_edit_page( $screens ) && did_action( 'cmb2_init' ) && ! did_action( 'enqueue_block_editor_assets' ) ) {
+		if (
+			Utils::is_post_edit_page( $screens )
+			&& did_action( 'cmb2_init' )
+			&& ! did_action( 'enqueue_block_editor_assets' )
+		) {
 			$entrypoint = AssetManager::ADMIN_P2TG_CLASSIC_JS_HANDLE;
 
-			$assets = WPTG()->assets();
-
-			wp_enqueue_script(
-				$entrypoint,
-				$assets->get_asset_url( $entrypoint ),
-				$assets->get_asset_dependencies( $entrypoint ),
-				$assets->get_asset_version( $entrypoint ),
-				true
-			);
+			wp_enqueue_script( $entrypoint );
 		}
 	}
 
@@ -83,14 +79,7 @@ class Admin extends BaseClass {
 		if ( Utils::is_post_edit_page( $screens ) ) {
 			$entrypoint = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
 
-			$assets = WPTG()->assets();
-			wp_enqueue_script(
-				$entrypoint,
-				$assets->get_asset_url( $entrypoint ),
-				$assets->get_asset_dependencies( $entrypoint ),
-				$assets->get_asset_version( $entrypoint ),
-				true
-			);
+			wp_enqueue_script( $entrypoint );
 
 			// Pass data to JS.
 			$data = WPTG()->asset_manager()->get_dom_data( 'BLOCKS' );
