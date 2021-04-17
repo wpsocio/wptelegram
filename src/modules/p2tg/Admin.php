@@ -57,9 +57,9 @@ class Admin extends BaseClass {
 			&& did_action( 'cmb2_init' )
 			&& ! did_action( 'enqueue_block_editor_assets' )
 		) {
-			$entrypoint = AssetManager::ADMIN_P2TG_CLASSIC_JS_HANDLE;
+			$handle = AssetManager::ADMIN_P2TG_CLASSIC_JS_HANDLE;
 
-			wp_enqueue_script( $entrypoint );
+			wp_enqueue_script( $handle );
 		}
 	}
 
@@ -77,15 +77,15 @@ class Admin extends BaseClass {
 		$screens = $this->get_override_meta_box_screens();
 
 		if ( Utils::is_post_edit_page( $screens ) ) {
-			$entrypoint = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
+			$handle = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
 
-			wp_enqueue_script( $entrypoint );
+			wp_enqueue_script( $handle );
 
 			// Pass data to JS.
 			$data = WPTG()->asset_manager()->get_dom_data( 'BLOCKS' );
 
 			wp_add_inline_script(
-				$entrypoint,
+				$handle,
 				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
 				'before'
 			);

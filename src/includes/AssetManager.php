@@ -82,11 +82,11 @@ class AssetManager extends BaseClass {
 
 		wp_enqueue_style( $this->plugin()->name() . '-menu' );
 
-		$entrypoint = self::ADMIN_MAIN_JS_HANDLE;
+		$handle = self::ADMIN_MAIN_JS_HANDLE;
 
 		// Load only on settings page.
-		if ( $this->is_settings_page( $hook_suffix ) && wp_style_is( $entrypoint, 'registered' ) ) {
-			wp_enqueue_style( $entrypoint );
+		if ( $this->is_settings_page( $hook_suffix ) && wp_style_is( $handle, 'registered' ) ) {
+			wp_enqueue_style( $handle );
 		}
 	}
 
@@ -99,15 +99,15 @@ class AssetManager extends BaseClass {
 	public function enqueue_admin_scripts( $hook_suffix ) {
 		// Load only on settings page.
 		if ( $this->is_settings_page( $hook_suffix ) ) {
-			$entrypoint = self::ADMIN_MAIN_JS_HANDLE;
+			$handle = self::ADMIN_MAIN_JS_HANDLE;
 
-			wp_enqueue_script( $entrypoint );
+			wp_enqueue_script( $handle );
 
 			// Pass data to JS.
 			$data = $this->get_dom_data();
 
 			wp_add_inline_script(
-				$entrypoint,
+				$handle,
 				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
 				'before'
 			);
