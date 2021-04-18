@@ -132,9 +132,7 @@ class PostSender extends BaseClass {
 		];
 
 		// Form data matters only if post edit switch is enabled.
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
-		if ( ! $post_edit_switch ) {
+		if ( ! Admin::show_post_edit_switch() ) {
 			return;
 		}
 
@@ -735,10 +733,8 @@ class PostSender extends BaseClass {
 			return __LINE__;
 		}
 
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
 		// Is the post created via wp-admin.
-		if ( RequestCheck::if_is( RequestCheck::FROM_WEB ) && $post_edit_switch ) {
+		if ( RequestCheck::if_is( RequestCheck::FROM_WEB ) && Admin::show_post_edit_switch() ) {
 
 			$nonce = Utils::nonce();
 

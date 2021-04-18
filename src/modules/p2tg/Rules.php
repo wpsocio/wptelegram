@@ -292,7 +292,7 @@ class Rules {
 
 						$data = wp_list_pluck( array_filter( $terms ), 'term_id' );
 
-						$include_child = (bool) apply_filters( 'wptelegram_p2tg_rules_include_child_terms', true, $param, $data );
+						$include_child = (bool) apply_filters( 'wptelegram_p2tg_rules_include_child_terms', true, $param, $data, $post );
 
 						if ( ! empty( $data ) && $include_child && is_taxonomy_hierarchical( $taxonomy ) ) {
 

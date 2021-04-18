@@ -45,7 +45,7 @@ class Admin extends BaseClass {
 	 */
 	public function enqueue_admin_scripts() {
 
-		if ( ! $this->module->options()->get( 'post_edit_switch', true ) ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 
@@ -70,7 +70,7 @@ class Admin extends BaseClass {
 	 */
 	public function enqueue_block_editor_assets() {
 
-		if ( ! $this->module->options()->get( 'post_edit_switch', true ) ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 
@@ -219,6 +219,25 @@ class Admin extends BaseClass {
 	}
 
 	/**
+	 * Whether to show th epost edit switch or not.
+	 *
+	 * @since  x.y.z
+	 * @return boolean
+	 */
+	public static function show_post_edit_switch() {
+
+		$bot_token = WPTG()->options()->get( 'bot_token' );
+
+		$show_post_edit_switch = ! empty( $bot_token );
+
+		if ( $show_post_edit_switch ) {
+			$show_post_edit_switch = WPTG()->options()->get_path( 'p2tg.post_edit_switch', true );
+		}
+
+		return (bool) apply_filters( 'wptelegram_p2tg_show_post_edit_switch', $show_post_edit_switch );
+	}
+
+	/**
 	 * Get the registered post types.
 	 *
 	 * @since  3.0.0
@@ -272,15 +291,7 @@ class Admin extends BaseClass {
 	 */
 	public function add_post_edit_switch() {
 
-		$bot_token = WPTG()->options()->get( 'bot_token' );
-
-		if ( ! $bot_token ) {
-			return;
-		}
-
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
-		if ( ! $post_edit_switch ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 
@@ -342,15 +353,7 @@ class Admin extends BaseClass {
 	 */
 	public function create_cmb2_override_metabox() {
 
-		$bot_token = WPTG()->options()->get( 'bot_token' );
-
-		if ( ! $bot_token ) {
-			return;
-		}
-
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
-		if ( ! $post_edit_switch ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 

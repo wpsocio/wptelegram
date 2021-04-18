@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Enhancements
+
+- Added explicit filter for post edit switch
+
 ## [3.0.9 - 2021-04-18](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.9)
 
 ### Bug fixes
