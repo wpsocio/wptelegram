@@ -6,13 +6,13 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/module
+ * @subpackage WPTelegram\Core\modules\p2tg
  */
 
 namespace WPTelegram\Core\modules\p2tg;
 
 use WPTelegram\Core\modules\BaseClass;
-use WPTelegram\Core\includes\Utils;
+use WPTelegram\Core\includes\Utils as MainUtils;
 use WPTelegram\Core\includes\Options;
 use WPTelegram\Core\includes\AssetManager;
 use WPTelegram\Core\modules\p2tg\restApi\RulesController;
@@ -22,7 +22,7 @@ use WP_Post;
  * The admin-specific functionality of the module.
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/module
+ * @subpackage WPTelegram\Core\modules\p2tg
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class Admin extends BaseClass {
@@ -53,7 +53,7 @@ class Admin extends BaseClass {
 
 		// Load Post to Telegram js for classic editor if CMB2 is loaded.
 		if (
-			Utils::is_post_edit_page( $screens )
+			MainUtils::is_post_edit_page( $screens )
 			&& did_action( 'cmb2_init' )
 			&& ! did_action( 'enqueue_block_editor_assets' )
 		) {
@@ -76,7 +76,7 @@ class Admin extends BaseClass {
 
 		$screens = $this->get_override_meta_box_screens();
 
-		if ( Utils::is_post_edit_page( $screens ) ) {
+		if ( MainUtils::is_post_edit_page( $screens ) ) {
 			$handle = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
 
 			wp_enqueue_script( $handle );
@@ -84,11 +84,7 @@ class Admin extends BaseClass {
 			// Pass data to JS.
 			$data = WPTG()->asset_manager()->get_dom_data( 'BLOCKS' );
 
-			wp_add_inline_script(
-				$handle,
-				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
-				'before'
-			);
+			AssetManager::add_dom_data( $handle, $data );
 		}
 	}
 
@@ -296,7 +292,7 @@ class Admin extends BaseClass {
 		}
 
 		$screens = $this->get_override_meta_box_screens();
-		if ( ! Utils::is_post_edit_page( $screens ) ) {
+		if ( ! MainUtils::is_post_edit_page( $screens ) ) {
 			return;
 		}
 
@@ -329,7 +325,7 @@ class Admin extends BaseClass {
 					<?php endif; ?>
 			</div>
 		<?php
-			Utils::nonce_field();
+			MainUtils::nonce_field();
 	}
 
 	/**

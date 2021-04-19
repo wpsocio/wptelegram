@@ -6,7 +6,7 @@
  * @since     1.0.0
  *
  * @package WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\includes
  */
 
 namespace WPTelegram\Core\includes;
@@ -22,7 +22,7 @@ use WP_Error;
  * @since     1.0.0
  *
  * @package WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\includes
  */
 class Utils {
 

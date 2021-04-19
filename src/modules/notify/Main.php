@@ -8,7 +8,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\notify
  */
 
 namespace WPTelegram\Core\modules\notify;
@@ -20,7 +20,7 @@ use WPTelegram\Core\modules\BaseModule;
  *
  * @since      1.0.0
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\notify
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class Main extends BaseModule {

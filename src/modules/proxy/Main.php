@@ -8,7 +8,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\proxy
  */
 
 namespace WPTelegram\Core\modules\proxy;
@@ -20,7 +20,7 @@ use WPTelegram\Core\modules\BaseModule;
  *
  * @since      1.0.0
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\proxy
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class Main extends BaseModule {

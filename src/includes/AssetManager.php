@@ -106,12 +106,25 @@ class AssetManager extends BaseClass {
 			// Pass data to JS.
 			$data = $this->get_dom_data();
 
-			wp_add_inline_script(
-				$handle,
-				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
-				'before'
-			);
+			self::add_dom_data( $handle, $data );
 		}
+	}
+
+	/**
+	 * Add the data to DOM.
+	 *
+	 * @param string $handle The script handle to attach the data to.
+	 * @param mixed  $data   The data to add.
+	 * @param string $var    The JavaScript variable name to use.
+	 *
+	 * @return void
+	 */
+	public static function add_dom_data( $handle, $data, $var = 'wptelegram' ) {
+		wp_add_inline_script(
+			$handle,
+			sprintf( 'var %s = %s;', $var, wp_json_encode( $data ) ),
+			'before'
+		);
 	}
 
 	/**

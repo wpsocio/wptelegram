@@ -6,7 +6,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\p2tg
  */
 
 namespace WPTelegram\Core\modules\p2tg;
@@ -17,7 +17,7 @@ use WP_Post;
  * Class responsible for handling the rules for P2TG
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\p2tg
  * @author     Manzoor Wani
  */
 class Rules {

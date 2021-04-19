@@ -6,7 +6,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\modules\notify
  */
 
 namespace WPTelegram\Core\modules\notify;
@@ -20,7 +20,7 @@ use WP_User;
  * The Notification Sending functionality of the plugin.
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\modules\notify
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class NotifySender extends BaseClass {

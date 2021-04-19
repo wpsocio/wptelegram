@@ -2,8 +2,8 @@
 /**
  * Provides logging capabilities for debugging purposes.
  *
- * @class          WPTelegram_Logger
- * @package        WPTelegram/includes
+ * @package    WPTelegram
+ * @subpackage WPTelegram\Core\includes
  */
 
 namespace WPTelegram\Core\includes;

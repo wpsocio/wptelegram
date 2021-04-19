@@ -8,7 +8,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\p2tg
  */
 
 namespace WPTelegram\Core\modules\p2tg;
@@ -20,7 +20,7 @@ use WPTelegram\Core\modules\BaseModule;
  *
  * @since      1.0.0
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\p2tg
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class Main extends BaseModule {
