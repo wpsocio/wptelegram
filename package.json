@@ -23,6 +23,7 @@
 		"release:minor": "gulp release --type minor",
 		"release:patch": "gulp release --type patch",
 		"setup": "composer install && yarn",
+		"reset:dev": "git checkout master && git pull && git checkout develop && git reset --hard master && git push -f",
 		"start": "npm run dev"
 	},
 	"devDependencies": {
