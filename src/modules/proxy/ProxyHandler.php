@@ -6,7 +6,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\modules\proxy
  */
 
 namespace WPTelegram\Core\modules\proxy;
@@ -19,7 +19,7 @@ use WPTelegram\Core\modules\BaseClass;
  * The Proxy Handling functionality of the plugin.
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\modules\proxy
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class ProxyHandler extends BaseClass {

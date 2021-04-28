@@ -8,7 +8,7 @@
  * @since      3.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules;
  */
 
 namespace WPTelegram\Core\modules;
@@ -20,7 +20,7 @@ use WPTelegram\Core\includes\Options;
  *
  * @since      1.0.0
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules;
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 abstract class BaseModule {

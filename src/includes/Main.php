@@ -27,7 +27,7 @@ use WPTelegram\Core\admin\Admin;
  *
  * @since      1.0.0
  * @package    WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\includes
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 final class Main {
@@ -148,7 +148,7 @@ final class Main {
 	/**
 	 * Registers the initial hooks.
 	 *
-	 * @since    1.0.0
+	 * @since    3.0.0
 	 * @access   private
 	 */
 	private function init() {

@@ -6,14 +6,14 @@
  * @since       1.0.0
  *
  * @package     WPTelegram
- * @subpackage  WPTelegram/includes
+ * @subpackage  WPTelegram\Core\modules\p2tg
  */
 
 namespace WPTelegram\Core\modules\p2tg;
 
 use WPTelegram\Core\modules\BaseClass;
 use WPTelegram\Core\includes\Options;
-use WPTelegram\Core\includes\Utils;
+use WPTelegram\Core\includes\Utils as MainUtils;
 use WPTelegram\BotAPI\API;
 use WPTelegram\BotAPI\Response;
 use WP_Post;
@@ -22,7 +22,7 @@ use WP_Post;
  * The Post Handling functionality of the plugin.
  *
  * @package     WPTelegram
- * @subpackage  WPTelegram/includes
+ * @subpackage  WPTelegram\Core\modules\p2tg
  * @author      Manzoor Wani <@manzoorwanijk>
  */
 class PostSender extends BaseClass {
@@ -132,9 +132,7 @@ class PostSender extends BaseClass {
 		];
 
 		// Form data matters only if post edit switch is enabled.
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
-		if ( ! $post_edit_switch ) {
+		if ( ! Admin::show_post_edit_switch() ) {
 			return;
 		}
 
@@ -147,9 +145,9 @@ class PostSender extends BaseClass {
 				if ( ! empty( $body[ Main::PREFIX ] ) ) {
 					$data = $body[ Main::PREFIX ];
 
-					$form_data = Utils::sanitize( $data );
+					$form_data = MainUtils::sanitize( $data );
 					// Sanitize the template separately.
-					$form_data['message_template'] = Utils::sanitize_message_template( $data['message_template'] );
+					$form_data['message_template'] = MainUtils::sanitize_message_template( $data['message_template'] );
 
 					$form_data['send2tg'] = $form_data['send2tg'] ? 'yes' : 'no';
 
@@ -180,13 +178,13 @@ class PostSender extends BaseClass {
 					$this->form_data['channels'] = [];
 				} else {
 					// override the default channels.
-					$this->form_data['channels'] = Utils::sanitize( (array) $_POST[ Main::PREFIX . 'channels' ] ); // phpcs:ignore
+					$this->form_data['channels'] = MainUtils::sanitize( (array) $_POST[ Main::PREFIX . 'channels' ] ); // phpcs:ignore
 				}
 
 				// if the template is set.
 				if ( isset( $_POST[ Main::PREFIX . 'message_template' ] ) ) { // phpcs:ignore
 					// sanitize the template.
-					$template = Utils::sanitize_message_template( wp_unslash( $_POST[ Main::PREFIX . 'message_template' ] ) ); // phpcs:ignore
+					$template = MainUtils::sanitize_message_template( wp_unslash( $_POST[ Main::PREFIX . 'message_template' ] ) ); // phpcs:ignore
 					// override the default template.
 					$this->form_data['message_template'] = $template;
 				}
@@ -194,7 +192,7 @@ class PostSender extends BaseClass {
 				// if files included.
 				if ( ! empty( $_POST[ Main::PREFIX . 'files' ] ) ) { // phpcs:ignore
 					// sanitize the values.
-					$files = array_filter( Utils::sanitize( (array) $_POST[ Main::PREFIX . 'files' ] ) ); // phpcs:ignore
+					$files = array_filter( MainUtils::sanitize( (array) $_POST[ Main::PREFIX . 'files' ] ) ); // phpcs:ignore
 					if ( ! empty( $files ) ) {
 						// add the files to the options.
 						$this->form_data['files'] = $files;
@@ -204,7 +202,7 @@ class PostSender extends BaseClass {
 				// if delay overridden.
 				if ( isset( $_POST[ Main::PREFIX . 'delay' ] ) ) { // phpcs:ignore
 					// sanitize the value.
-					$this->form_data['delay'] = Utils::sanitize( $_POST[ Main::PREFIX . 'delay' ], true ); // phpcs:ignore
+					$this->form_data['delay'] = MainUtils::sanitize( $_POST[ Main::PREFIX . 'delay' ], true ); // phpcs:ignore
 				}
 
 				// if notifications to be disabled.
@@ -442,7 +440,7 @@ class PostSender extends BaseClass {
 
 			$ok = false;
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 		}
 
 		/**
@@ -453,7 +451,7 @@ class PostSender extends BaseClass {
 
 			$ok = false;
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 
 			/**
 			 * Fires after the security check fails
@@ -479,14 +477,14 @@ class PostSender extends BaseClass {
 			if ( 'no' === $this->form_data['send2tg'] ) {
 				$ok = false;
 
-				$result = __LINE__;
+				$result .= ':' . __LINE__;
 			}
 		}
 
 		if ( 'no' === $this->form_data['send2tg'] && $this->is_valid_status() ) {
 			$this->clear_scheduled_hook();
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 		}
 
 		// if some rules should be bypassed.
@@ -502,7 +500,7 @@ class PostSender extends BaseClass {
 
 			$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, $this->post );
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 
 			if ( ! empty( $delay ) && ( ! $apply_rules_before_delay || $rules_apply ) ) {
 
@@ -515,7 +513,7 @@ class PostSender extends BaseClass {
 			$ok = false;
 
 		} else {
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 			$this->may_be_clean_up();
 		}
 
@@ -735,12 +733,10 @@ class PostSender extends BaseClass {
 			return __LINE__;
 		}
 
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
 		// Is the post created via wp-admin.
-		if ( RequestCheck::if_is( RequestCheck::FROM_WEB ) && $post_edit_switch ) {
+		if ( RequestCheck::if_is( RequestCheck::FROM_WEB ) && Admin::show_post_edit_switch() ) {
 
-			$nonce = Utils::nonce();
+			$nonce = MainUtils::nonce();
 
 			// Check for nonce.
 			if ( ! isset( $_POST[ $nonce ] ) ) {
@@ -1002,14 +998,7 @@ class PostSender extends BaseClass {
 
 			$send_when = $this->options->get( 'send_when' );
 
-			// if the post has been published more than one day ago.
-			$is_more_than_a_day_old = ( ( time() - get_post_time( 'U', true, $this->post, false ) ) / DAY_IN_SECONDS ) > 1;
-
-			// whether the post has already been sent to Telegram.
-			$sent2tg = get_post_meta( $this->post->ID, Main::PREFIX . 'sent2tg', true );
-			// if the meta value is empty - it's new.
-			$is_new = empty( $sent2tg ) && ! $is_more_than_a_day_old;
-
+			$is_new = Utils::is_post_new( $this->post );
 			$is_new = (bool) apply_filters( 'wptelegram_p2tg_rules_is_new_post', $is_new, $this->post, $this->options );
 
 			$send_new = in_array( 'new', $send_when, true );
@@ -1072,7 +1061,7 @@ class PostSender extends BaseClass {
 	 */
 	private function get_default_responses( $text, $image_source ) {
 
-		$parse_mode = Utils::valid_parse_mode( $this->options->get( 'parse_mode' ) );
+		$parse_mode = MainUtils::valid_parse_mode( $this->options->get( 'parse_mode' ) );
 
 		$disable_web_page_preview = $this->options->get( 'disable_web_page_preview' );
 		$disable_notification     = $this->options->get( 'disable_notification' );
@@ -1169,7 +1158,7 @@ class PostSender extends BaseClass {
 
 			$caption = apply_filters( 'wptelegram_p2tg_file_caption', $caption, $this->post, $id, $url, $this->options );
 
-			$type = Utils::guess_file_type( $id, $url );
+			$type = MainUtils::guess_file_type( $id, $url );
 
 			$file_responses[] = [
 				'send' . ucfirst( $type ) => [
@@ -1304,7 +1293,7 @@ class PostSender extends BaseClass {
 		// decode all HTML entities & URL encode non-URL values.
 		foreach ( $macro_values as &$value ) {
 			// decode all HTML entities.
-			$value = Utils::decode_html( $value );
+			$value = MainUtils::decode_html( $value );
 		}
 
 		$url = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $url_template );
@@ -1335,7 +1324,7 @@ class PostSender extends BaseClass {
 		$excerpt_length       = (int) $this->options->get( 'excerpt_length' );
 		$excerpt_preserve_eol = $this->options->get( 'excerpt_preserve_eol' );
 		$cats_as_tags         = $this->options->get( 'cats_as_tags' );
-		$parse_mode           = Utils::valid_parse_mode( $this->options->get( 'parse_mode' ) );
+		$parse_mode           = MainUtils::valid_parse_mode( $this->options->get( 'parse_mode' ) );
 
 		// replace {tags} and {categories} with taxonomy names.
 		$replace = [ '{terms:post_tag}', '{terms:category}' ];
@@ -1391,7 +1380,7 @@ class PostSender extends BaseClass {
 		$macro_values = (array) apply_filters( 'wptelegram_p2tg_macro_values', $macro_values, $this->post, $this->options );
 
 		if ( 'Markdown' === $parse_mode ) {
-			$callback = [ Utils::class, 'esc_markdown' ];
+			$callback = [ MainUtils::class, 'esc_markdown' ];
 		} else {
 			$callback = 'stripslashes'; // to remove unwanted slashes.
 		}
@@ -1406,10 +1395,10 @@ class PostSender extends BaseClass {
 		$text = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $template );
 
 		// decode all HTML entities.
-		$text = Utils::decode_html( $text );
+		$text = MainUtils::decode_html( $text );
 
 		// fix the malformed text.
-		$text = Utils::filter_text_for_parse_mode( $text, $parse_mode );
+		$text = MainUtils::filter_text_for_parse_mode( $text, $parse_mode );
 
 		return apply_filters( 'wptelegram_p2tg_response_text', $text, $template, $this->post, $this->options );
 	}
@@ -1644,7 +1633,7 @@ class PostSender extends BaseClass {
 			 */
 			if ( ! $this->send_files_by_url ) {
 
-				$types = [ 'photo', 'audio', 'video', 'document' ];
+				$types = [ 'animation', 'photo', 'audio', 'video', 'document' ];
 
 				foreach ( $types as $type ) {
 

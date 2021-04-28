@@ -13,6 +13,7 @@ namespace WPTelegram\Core\includes;
 
 use ReflectionClass;
 use WPTelegram\Core\includes\restApi\RESTController;
+use WPTelegram\Core\includes\restApi\SettingsController;
 
 /**
  * The assets manager of the plugin.
@@ -73,6 +74,25 @@ class AssetManager extends BaseClass {
 	}
 
 	/**
+	 * Add the data to DOM.
+	 *
+	 * @since 3.0.10
+	 *
+	 * @param string $handle The script handle to attach the data to.
+	 * @param mixed  $data   The data to add.
+	 * @param string $var    The JavaScript variable name to use.
+	 *
+	 * @return void
+	 */
+	public static function add_dom_data( $handle, $data, $var = 'wptelegram' ) {
+		wp_add_inline_script(
+			$handle,
+			sprintf( 'var %s = %s;', $var, wp_json_encode( $data ) ),
+			'before'
+		);
+	}
+
+	/**
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    3.0.0
@@ -106,11 +126,7 @@ class AssetManager extends BaseClass {
 			// Pass data to JS.
 			$data = $this->get_dom_data();
 
-			wp_add_inline_script(
-				$handle,
-				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
-				'before'
-			);
+			self::add_dom_data( $handle, $data );
 		}
 	}
 
@@ -155,7 +171,7 @@ class AssetManager extends BaseClass {
 
 		// Not to expose bot token to non-admins.
 		if ( 'SETTINGS_PAGE' === $for && current_user_can( 'manage_options' ) ) {
-			$data['savedSettings'] = \WPTelegram\Core\includes\restApi\SettingsController::get_default_settings();
+			$data['savedSettings'] = SettingsController::get_default_settings();
 		}
 
 		return apply_filters( 'wptelegram_assets_dom_data', $data, $for, $this->plugin() );

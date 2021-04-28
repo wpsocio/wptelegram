@@ -9,7 +9,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\includes
  */
 
 namespace WPTelegram\Core\includes;
@@ -22,7 +22,7 @@ namespace WPTelegram\Core\includes;
  *
  * @since      1.0.0
  * @package    WPTelegram
- * @subpackage WPTelegram/includes
+ * @subpackage WPTelegram\Core\includes
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class I18n {

@@ -603,8 +603,8 @@ msgstr ""
 msgid "profile"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/AddRuleGroup.tsx:28
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:66
+#: domains/wptelegram/shared/core-pro/src/components/rules/AddRuleGroup.tsx:19
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetButtons.tsx:28
 #: packages/form/src/render/RenderRepeatable.tsx:101
 msgid "Add"
 msgstr ""
@@ -617,43 +617,43 @@ msgstr ""
 msgid "OR"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/P2TGCustomRules.tsx:44
+#: domains/wptelegram/shared/core-pro/src/components/rules/P2TGCustomRules.tsx:49
 msgid "You can also define custom rules to send the posts."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:15
-msgid "is in"
-msgstr ""
-
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:19
-msgid "is not in"
-msgstr ""
-
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:42
-msgid "Rule type"
-msgstr ""
-
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:50
-msgid "Rule operator"
-msgstr ""
-
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:75
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetButtons.tsx:37
 msgid "Remove"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:100
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:11
+msgid "is in"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:15
+msgid "is not in"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:27
+msgid "Rule type"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:35
+msgid "Rule operator"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:101
 msgid "Select..."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:16
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:17
 msgid "Loading..."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:17
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:18
 msgid "No options available"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:89
+#: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:90
 msgid "Rule values"
 msgstr ""
 
@@ -895,7 +895,7 @@ msgstr ""
 msgid "Lets fix these errors first."
 msgstr ""
 
-#: packages/services/src/useSubmitForm.ts:50
+#: packages/services/src/useSubmitForm.ts:54
 msgid "Changes saved successfully."
 msgstr ""
 

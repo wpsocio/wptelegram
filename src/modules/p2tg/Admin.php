@@ -6,13 +6,13 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/module
+ * @subpackage WPTelegram\Core\modules\p2tg
  */
 
 namespace WPTelegram\Core\modules\p2tg;
 
 use WPTelegram\Core\modules\BaseClass;
-use WPTelegram\Core\includes\Utils;
+use WPTelegram\Core\includes\Utils as MainUtils;
 use WPTelegram\Core\includes\Options;
 use WPTelegram\Core\includes\AssetManager;
 use WPTelegram\Core\modules\p2tg\restApi\RulesController;
@@ -22,7 +22,7 @@ use WP_Post;
  * The admin-specific functionality of the module.
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/module
+ * @subpackage WPTelegram\Core\modules\p2tg
  * @author     Manzoor Wani <@manzoorwanijk>
  */
 class Admin extends BaseClass {
@@ -45,7 +45,7 @@ class Admin extends BaseClass {
 	 */
 	public function enqueue_admin_scripts() {
 
-		if ( ! $this->module->options()->get( 'post_edit_switch', true ) ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 
@@ -53,7 +53,7 @@ class Admin extends BaseClass {
 
 		// Load Post to Telegram js for classic editor if CMB2 is loaded.
 		if (
-			Utils::is_post_edit_page( $screens )
+			MainUtils::is_post_edit_page( $screens )
 			&& did_action( 'cmb2_init' )
 			&& ! did_action( 'enqueue_block_editor_assets' )
 		) {
@@ -70,13 +70,13 @@ class Admin extends BaseClass {
 	 */
 	public function enqueue_block_editor_assets() {
 
-		if ( ! $this->module->options()->get( 'post_edit_switch', true ) ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 
 		$screens = $this->get_override_meta_box_screens();
 
-		if ( Utils::is_post_edit_page( $screens ) ) {
+		if ( MainUtils::is_post_edit_page( $screens ) ) {
 			$handle = AssetManager::ADMIN_P2TG_GB_JS_HANDLE;
 
 			wp_enqueue_script( $handle );
@@ -84,11 +84,7 @@ class Admin extends BaseClass {
 			// Pass data to JS.
 			$data = WPTG()->asset_manager()->get_dom_data( 'BLOCKS' );
 
-			wp_add_inline_script(
-				$handle,
-				sprintf( 'var wptelegram = %s;', wp_json_encode( $data ) ),
-				'before'
-			);
+			AssetManager::add_dom_data( $handle, $data );
 		}
 	}
 
@@ -219,6 +215,25 @@ class Admin extends BaseClass {
 	}
 
 	/**
+	 * Whether to show th epost edit switch or not.
+	 *
+	 * @since  3.0.10
+	 * @return boolean
+	 */
+	public static function show_post_edit_switch() {
+
+		$bot_token = WPTG()->options()->get( 'bot_token' );
+
+		$show_post_edit_switch = ! empty( $bot_token );
+
+		if ( $show_post_edit_switch ) {
+			$show_post_edit_switch = WPTG()->options()->get_path( 'p2tg.post_edit_switch', true );
+		}
+
+		return (bool) apply_filters( 'wptelegram_p2tg_show_post_edit_switch', $show_post_edit_switch );
+	}
+
+	/**
 	 * Get the registered post types.
 	 *
 	 * @since  3.0.0
@@ -272,20 +287,12 @@ class Admin extends BaseClass {
 	 */
 	public function add_post_edit_switch() {
 
-		$bot_token = WPTG()->options()->get( 'bot_token' );
-
-		if ( ! $bot_token ) {
-			return;
-		}
-
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
-		if ( ! $post_edit_switch ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 
 		$screens = $this->get_override_meta_box_screens();
-		if ( ! Utils::is_post_edit_page( $screens ) ) {
+		if ( ! MainUtils::is_post_edit_page( $screens ) ) {
 			return;
 		}
 
@@ -318,7 +325,7 @@ class Admin extends BaseClass {
 					<?php endif; ?>
 			</div>
 		<?php
-			Utils::nonce_field();
+			MainUtils::nonce_field();
 	}
 
 	/**
@@ -342,15 +349,7 @@ class Admin extends BaseClass {
 	 */
 	public function create_cmb2_override_metabox() {
 
-		$bot_token = WPTG()->options()->get( 'bot_token' );
-
-		if ( ! $bot_token ) {
-			return;
-		}
-
-		$post_edit_switch = $this->module->options()->get( 'post_edit_switch', true );
-
-		if ( ! $post_edit_switch ) {
+		if ( ! self::show_post_edit_switch() ) {
 			return;
 		}
 

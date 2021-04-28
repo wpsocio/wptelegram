@@ -1,4 +1,13 @@
 <?php
+/**
+ * Autoloader
+ *
+ * @link      https://manzoorwani.dev
+ * @since     3.0.0
+ *
+ * @package WPTelegram
+ */
+
 spl_autoload_register( 'wptelegram_autoloader' );
 
 /**

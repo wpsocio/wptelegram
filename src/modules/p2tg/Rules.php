@@ -6,7 +6,7 @@
  * @since      1.0.0
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\p2tg
  */
 
 namespace WPTelegram\Core\modules\p2tg;
@@ -17,7 +17,7 @@ use WP_Post;
  * Class responsible for handling the rules for P2TG
  *
  * @package    WPTelegram
- * @subpackage WPTelegram/modules
+ * @subpackage WPTelegram\Core\modules\p2tg
  * @author     Manzoor Wani
  */
 class Rules {
@@ -220,15 +220,8 @@ class Rules {
 			$post_data[ $param ] = [];
 		}
 
-		$in_array = false;
-
-		foreach ( (array) $post_data[ $param ] as $value ) {
-			// if any of the post data values exists in saved values.
-			$in_array = in_array( $value, $values, true );
-			if ( $in_array ) {
-				break;
-			}
-		}
+		// if any of the post data values exists in saved values.
+		$in_array = (bool) array_intersect( (array) $post_data[ $param ], $values );
 
 		// the default false.
 		$rule_matches = false;
@@ -292,7 +285,7 @@ class Rules {
 
 						$data = wp_list_pluck( array_filter( $terms ), 'term_id' );
 
-						$include_child = (bool) apply_filters( 'wptelegram_p2tg_rules_include_child_terms', true, $param, $data );
+						$include_child = (bool) apply_filters( 'wptelegram_p2tg_rules_include_child_terms', true, $param, $data, $post );
 
 						if ( ! empty( $data ) && $include_child && is_taxonomy_hierarchical( $taxonomy ) ) {
 

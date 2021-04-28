@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7.1
 Requires PHP: 7.0
-Stable tag: 3.0.9
+Stable tag: 3.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -118,9 +118,68 @@ Note: You can also contribute in translating this plugin into your local languag
 
 == Frequently Asked Questions ==
 
-= How to create a Telegram Bot =
+= How to create a Telegram Bot? =
 
-[How do I create a bot?](https://core.telegram.org/bots/faq#how-do-i-create-a-bot).
+To create a bot, you need to send `/newbot` command to [@BotFather](https://t.me/BotFather). After completing the steps `@BotFather` will provide you the Bot Token, which you can use in plugin settings.
+
+= Can I send posts to a private channel/group? =
+
+Yes, you need to get the chat ID of the channel or group. For that, you need to message [@MyChatInfoBot](https://t.me/MyChatInfoBot) and follow its instructions to obtain the ID for a channel or group.
+
+= What is "Bad request: Chat ID not found" error? =
+
+It means either you have entered a wrong chat ID in the settings or you forgot to add your own bot to the group or channel. Some users also enter the bot username instead of the channel username.
+
+= What is "Bad Request: wrong file identifier/HTTP URL specified" error? =
+
+If you see that error in Bot API log file, it means that there is some problem with your images/files that you are trying to send to Telegram. You can try to disable **Send files by URL** option in **Advanced Settings** to see if it fixes the issue. More details [here](https://t.me/WPTelegram/187).
+
+= Why do I see a CURL (Connection refused) error for Test Token? =
+
+If your host is in Russia or Iran or it's a free hosting, your host most likely blocks Telegram. You can activate and set up the Proxy module of the plugin to bypass the ban.
+
+= Why posts are not sent to Telegram? =
+
+There can be many reasons for that. To better understand the reason, you can enable both the logs in **Advanced Settings** and then try to send the post again, then share the logs with our support on Telegram - [@WPTelegramSupport](https://t.me/WPTelegramSupport).
+
+= Why posts are duplicated on Telegram? =
+
+It can happen because of multiple submit/publish/update requests, for example in block editor. An easy solution would be to set 1 minute delay in posting in **Post to Telegram** settings.
+
+= Posts/Classifieds/Jobs/Products created via front-end submission are not sent to Telegram, why? =
+
+The users submitting those posts may not have enough permissions to publish/edit those posts. You can enable **Plugin generated posts** option in **Post to Telegram** settings to fix the issue.
+
+= Posts created via import plugins are not sent to Telegram, why? =
+
+Sending of posts when bulk importing is diabled by default to prevent unintended flooding of Telegram channels. If you want to enable it, you can add this one line to `functions.php` of your child theme.
+~~~
+add_filter( 'wptelegram_p2tg_send_if_bulk_edit', '__return_true' );
+~~~
+
+= How can I make the post title bold? =
+
+You can use `*{post_title}*` in the template and set **Formatting** option to **Markdown**. More details [here](https://core.telegram.org/bots/api#formatting-options).
+
+= Can I send posts from different categories to different channels/groups? =
+
+That is possible only in [Pro version](https://wptelegram.pro/).
+
+= How do Private Notifications work? =
+
+**Private Notifications** module watches every email that is sent from your WordPress Website. If the address of that email matches the one added in plugin settings, then that email is sent to Telegram on the given chat/group as added in the settings.
+
+= How do User Notifications work? =
+
+**Private Notifications** module watches every email that is sent from your WordPress Website. When you enable **User Notifications**, you need to connect your users' accounts to their Telegram accounts. Once you do that, then whenever an email is sent to a user, the plugin finds its connected Telegram account and forwards the email to that Telegram account. So, it works for any plugin/system that sends email notifications.
+
+= Can I receive WooCommerce order notifications on Telegram? =
+
+Yes, all you need to do is to setup **Private Notifications** module and use the same email there as set in **WooCommerce** order email settings.
+
+= Can I receive Contact Form 7 submissions on Telegram? =
+
+Yes, all you need to do is to setup **Private Notifications** module and use the same email there as set in "To" field of Mail settings section of the Contact Form.
 
 
 == Screenshots ==
@@ -140,6 +199,12 @@ Note: You can also contribute in translating this plugin into your local languag
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.10 =
+- Added explicit filter for post edit switch
+- Further improved logging for better troubleshooting
+- Updated FAQ section
+- Fixed the issue of settings not saved due to trailing slash redirects
 
 = 3.0.9 =
 - Fixed the upgrade for Post to Telegram rules
