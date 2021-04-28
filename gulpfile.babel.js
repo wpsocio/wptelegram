@@ -14,9 +14,11 @@ import through2 from 'through2';
 import gulpIgnore from 'gulp-ignore';
 import minifycss from 'gulp-uglifycss';
 import semverInc from 'semver/functions/inc';
+import zip from 'gulp-zip';
+
 import config from './gulp.config';
 
-const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+import pkg from './package.json';
 
 const RELEASES = ['major', 'minor', 'patch'];
 
@@ -73,7 +75,7 @@ const calculateVersion = () => {
 
 	const newVersion = semverInc(currentVersion, release);
 	return newVersion;
-}
+};
 
 /**
  * Converts JS POT file to PHP using @wordpress/i18n
@@ -354,11 +356,30 @@ export const watchPhp = () => {
 	});
 };
 
+export const bundle = () => {
+	const version = calculateVersion();
+	return gulp
+		.src([config.srcDir + '/**'], { ignore: config.distignore, base: './' })
+		.pipe(
+			rename(function (path) {
+				// rename "src" to plugin name
+				if (path.dirname === '.' && path.basename === 'src') {
+					path.basename = pkg.name;
+				}
+				// replace "src" in all paths wit plugin name
+				path.dirname = path.dirname.replace(/^src/, pkg.name);
+			})
+		)
+		.pipe(zip(`${pkg.name}-${version}.zip`))
+		.pipe(gulp.dest(config.bundlesDir))
+		.pipe(notify({ message: '\n\n✅  ===> BUNDLE — completed!\n', onLast: true }));
+};
+
 export const build = gulp.series(i18n, styles);
 
 export const prerelease = gulp.parallel(build, copyChangelog);
 
-export const release = gulp.series(updateVersion, updateChangelog, prerelease);
+export const release = gulp.series(updateVersion, updateChangelog, prerelease, bundle);
 
 export const dev = gulp.parallel(watchPhp);
 
