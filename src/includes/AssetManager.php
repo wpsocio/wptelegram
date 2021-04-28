@@ -76,7 +76,7 @@ class AssetManager extends BaseClass {
 	/**
 	 * Add the data to DOM.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.10
 	 *
 	 * @param string $handle The script handle to attach the data to.
 	 * @param mixed  $data   The data to add.

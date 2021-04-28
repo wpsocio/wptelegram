@@ -452,8 +452,8 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/UserNotifications.tsx:41
 	__( 'profile', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/AddRuleGroup.tsx:28
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:66
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/AddRuleGroup.tsx:19
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetButtons.tsx:28
 	// Reference: packages/form/src/render/RenderRepeatable.tsx:101
 	__( 'Add', 'wptelegram' ),
 
@@ -463,34 +463,34 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/Or.tsx:8
 	__( 'OR', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/P2TGCustomRules.tsx:44
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/P2TGCustomRules.tsx:49
 	__( 'You can also define custom rules to send the posts.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:15
-	__( 'is in', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:19
-	__( 'is not in', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:42
-	__( 'Rule type', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:50
-	__( 'Rule operator', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSet.tsx:75
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetButtons.tsx:37
 	__( 'Remove', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:100
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:11
+	__( 'is in', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:15
+	__( 'is not in', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:27
+	__( 'Rule type', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetFields.tsx:35
+	__( 'Rule operator', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:101
 	__( 'Select...', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:16
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:17
 	__( 'Loading...', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:17
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:18
 	__( 'No options available', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:89
+	// Reference: domains/wptelegram/shared/core-pro/src/components/rules/RuleSetValues.tsx:90
 	__( 'Rule values', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:10
@@ -669,7 +669,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/services/src/useDisplayFeedback.ts:62
 	__( 'Lets fix these errors first.', 'wptelegram' ),
 
-	// Reference: packages/services/src/useSubmitForm.ts:50
+	// Reference: packages/services/src/useSubmitForm.ts:54
 	__( 'Changes saved successfully.', 'wptelegram' ),
 
 	// Reference: packages/utilities/src/fields.ts:29

@@ -3,7 +3,7 @@
  * WP Telegram P2TG Utilities
  *
  * @link       https://manzoorwani.dev
- * @since      x.y.z
+ * @since      3.0.10
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\p2tg
@@ -17,7 +17,7 @@ use WP_Post;
  * WP Telegram P2TG Utilities
  *
  * @link       https://manzoorwani.dev
- * @since      x.y.z
+ * @since      3.0.10
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\p2tg
@@ -27,7 +27,7 @@ class Utils {
 	/**
 	 * Whether the post is new.
 	 *
-	 * @since   x.y.z
+	 * @since   3.0.10
 	 *
 	 * @param   int|WP_Post $post The post to check.
 	 *

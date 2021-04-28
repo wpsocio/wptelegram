@@ -217,7 +217,7 @@ class Admin extends BaseClass {
 	/**
 	 * Whether to show th epost edit switch or not.
 	 *
-	 * @since  x.y.z
+	 * @since  3.0.10
 	 * @return boolean
 	 */
 	public static function show_post_edit_switch() {

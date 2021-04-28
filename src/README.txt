@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7.1
 Requires PHP: 7.0
-Stable tag: 3.0.9
+Stable tag: 3.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -199,6 +199,12 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.10 =
+- Added explicit filter for post edit switch
+- Further improved logging for better troubleshooting
+- Updated FAQ section
+- Fixed the issue of settings not saved due to trailing slash redirects
 
 = 3.0.9 =
 - Fixed the upgrade for Post to Telegram rules

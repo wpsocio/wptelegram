@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wptelegram\n"
-"POT-Creation-Date: 2021-04-17 19:22:33+00:00\n"
+"Report-Msgid-Bugs-To: https://github.com/manzoorwanijk/wptelegram\n"
+"POT-Creation-Date: 2021-04-28 09:03:42+00:00\n"
 "PO-Revision-Date: 2021-03-14 01:59+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: includes/AssetManager.php:131
+#: includes/AssetManager.php:147
 msgid ""
 "With this plugin, you can send posts to Telegram and receive notifications "
 "and do lot more :)"
@@ -99,7 +99,7 @@ msgstr "Dapatkan dukungan LIVE di Telegram"
 msgid "Basics"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:364
+#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:363
 msgid "Post to Telegram"
 msgstr "Posting ke Telegram"
 
@@ -332,7 +332,7 @@ msgstr ""
 msgid "Upgrade NOW"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:386
+#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:385
 msgid "Send to"
 msgstr "Kirimkan ke"
 
@@ -340,31 +340,31 @@ msgstr "Kirimkan ke"
 msgid "Add or Upload Files"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:233 modules/p2tg/Admin.php:409
+#: languages/wptelegram-js-translations.php:233 modules/p2tg/Admin.php:408
 msgid "Files to be sent after the message."
 msgstr "File yang akan dikirim setelah pesan."
 
-#: languages/wptelegram-js-translations.php:236 modules/p2tg/Admin.php:408
+#: languages/wptelegram-js-translations.php:236 modules/p2tg/Admin.php:407
 msgid "Files"
 msgstr "File"
 
-#: languages/wptelegram-js-translations.php:240 modules/p2tg/Admin.php:436
+#: languages/wptelegram-js-translations.php:240 modules/p2tg/Admin.php:435
 msgid "Message Template"
 msgstr "Desain Pesan"
 
-#: languages/wptelegram-js-translations.php:243 modules/p2tg/Admin.php:376
+#: languages/wptelegram-js-translations.php:243 modules/p2tg/Admin.php:375
 msgid "Override settings"
 msgstr "Ganti pengaturan"
 
-#: languages/wptelegram-js-translations.php:247 modules/p2tg/Admin.php:398
+#: languages/wptelegram-js-translations.php:247 modules/p2tg/Admin.php:397
 msgid "Disable Notifications"
 msgstr "Nonaktifkan Notifikasi"
 
-#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:419
+#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:418
 msgid "Delay in Posting"
 msgstr "Keterlambatan Posting"
 
-#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:314
+#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:321
 msgid "Send to Telegram"
 msgstr "Kirim ke Telegram"
 
@@ -388,7 +388,7 @@ msgstr "Matikan untuk mengunggah file / gambar alih-alih meneruskan url."
 msgid "The delay starts after the post gets published."
 msgstr "Penundaan dimulai setelah posting diterbitkan."
 
-#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:420
+#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:419
 msgid "Minute(s)"
 msgstr "Menit"
 
@@ -440,7 +440,7 @@ msgstr "Setelah Pesan"
 msgid "Send Featured Image (if exists)."
 msgstr "Kirimkan Gambar Pilihan (jika ada)."
 
-#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:437
+#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:436
 msgid "Structure of the message to be sent."
 msgstr "Struktur pesan yang akan dikirimkan."
 
@@ -651,23 +651,23 @@ msgid "You can also define custom rules to send the posts."
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:470
+msgid "Remove"
+msgstr ""
+
+#: languages/wptelegram-js-translations.php:473
 msgid "is in"
 msgstr "dalam"
 
-#: languages/wptelegram-js-translations.php:473
+#: languages/wptelegram-js-translations.php:476
 msgid "is not in"
 msgstr "tidak ada"
 
-#: languages/wptelegram-js-translations.php:476
+#: languages/wptelegram-js-translations.php:479
 msgid "Rule type"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:479
-msgid "Rule operator"
-msgstr ""
-
 #: languages/wptelegram-js-translations.php:482
-msgid "Remove"
+msgid "Rule operator"
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:485
@@ -944,20 +944,20 @@ msgstr ""
 msgid "Changes could not be saved."
 msgstr ""
 
-#: modules/p2tg/Admin.php:183
+#: modules/p2tg/Admin.php:179
 msgid "Post Data"
 msgstr "Posting Data"
 
-#: modules/p2tg/Admin.php:197
+#: modules/p2tg/Admin.php:193
 msgid "Taxonomy Terms"
 msgstr "Istilah Taxonomy"
 
-#: modules/p2tg/Admin.php:201
+#: modules/p2tg/Admin.php:197
 msgid "Custom Fields"
 msgstr "Bidang Khusus"
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:208
+#: modules/p2tg/Admin.php:204
 msgid ""
 "Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
 "attached to the post."
@@ -965,12 +965,12 @@ msgstr ""
 "Ganti %1$s dalam %2$s dengan nama taksonomi untuk memasukkan ketentuannya "
 "yang melekat pada pos."
 
-#: modules/p2tg/Admin.php:208 modules/p2tg/Admin.php:211
+#: modules/p2tg/Admin.php:204 modules/p2tg/Admin.php:207
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr "Misalnya %1$s dan %2$s di WooCommerce"
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:211
+#: modules/p2tg/Admin.php:207
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr "Ganti %1$s dalam %2$s dengan nama Bidang Khusus."
 

@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.0.10 - 2021-04-28](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.10)
+
+### Enhancements
+
+- Added explicit filter for post edit switch
+- Further improved logging for better troubleshooting
+- Updated FAQ section
+
+### Bug fixes
+
+- Fixed the issue of settings not saved due to trailing slash redirects
+
 ## [3.0.9 - 2021-04-18](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.9)
 
 ### Bug fixes
