@@ -440,7 +440,7 @@ class PostSender extends BaseClass {
 
 			$ok = false;
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 		}
 
 		/**
@@ -451,7 +451,7 @@ class PostSender extends BaseClass {
 
 			$ok = false;
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 
 			/**
 			 * Fires after the security check fails
@@ -477,14 +477,14 @@ class PostSender extends BaseClass {
 			if ( 'no' === $this->form_data['send2tg'] ) {
 				$ok = false;
 
-				$result = __LINE__;
+				$result .= ':' . __LINE__;
 			}
 		}
 
 		if ( 'no' === $this->form_data['send2tg'] && $this->is_valid_status() ) {
 			$this->clear_scheduled_hook();
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 		}
 
 		// if some rules should be bypassed.
@@ -500,7 +500,7 @@ class PostSender extends BaseClass {
 
 			$apply_rules_before_delay = apply_filters( 'wptelegram_p2tg_apply_rules_before_delay', true, $this->options, $this->post );
 
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 
 			if ( ! empty( $delay ) && ( ! $apply_rules_before_delay || $rules_apply ) ) {
 
@@ -513,7 +513,7 @@ class PostSender extends BaseClass {
 			$ok = false;
 
 		} else {
-			$result = __LINE__;
+			$result .= ':' . __LINE__;
 			$this->may_be_clean_up();
 		}
 
@@ -1633,7 +1633,7 @@ class PostSender extends BaseClass {
 			 */
 			if ( ! $this->send_files_by_url ) {
 
-				$types = [ 'photo', 'audio', 'video', 'document' ];
+				$types = [ 'animation', 'photo', 'audio', 'video', 'document' ];
 
 				foreach ( $types as $type ) {
 
