@@ -220,15 +220,8 @@ class Rules {
 			$post_data[ $param ] = [];
 		}
 
-		$in_array = false;
-
-		foreach ( (array) $post_data[ $param ] as $value ) {
-			// if any of the post data values exists in saved values.
-			$in_array = in_array( $value, $values, true );
-			if ( $in_array ) {
-				break;
-			}
-		}
+		// if any of the post data values exists in saved values.
+		$in_array = (bool) array_intersect( (array) $post_data[ $param ], $values );
 
 		// the default false.
 		$rule_matches = false;

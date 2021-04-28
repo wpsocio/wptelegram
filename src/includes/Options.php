@@ -209,31 +209,29 @@ class Options implements Iterator, ArrayAccess {
 	}
 
 	/**
-	 * Sets all options.
+	 * Sets the options data.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array   $options The options array.
+	 * @param array   $data    The options array.
 	 * @param boolean $unslash Whether to unslash the data.
 	 */
-	public function set_data( array $options = [], $unslash = false ) {
-		if ( empty( $options ) && ! empty( $this->option_key ) ) {
+	public function set_data( array $data = [], $unslash = false ) {
+		if ( empty( $data ) && ! empty( $this->option_key ) ) {
 
 			$default = $this->store_as_json ? '' : [];
 
 			$data = get_option( $this->option_key, $default );
 
 			if ( $this->store_as_json ) {
-				$data = wp_unslash( json_decode( $data, true ) );
+				$data = json_decode( $data, true );
 			}
-
-			$this->data = (array) $data;
-		} else {
-			if ( $unslash ) {
-				$options = wp_unslash( $options );
-			}
-			$this->data = (array) $options;
 		}
+
+		if ( $unslash ) {
+			$data = wp_unslash( $data );
+		}
+		$this->data = (array) $data;
 
 		return $this;
 	}
@@ -242,14 +240,18 @@ class Options implements Iterator, ArrayAccess {
 	 * Updates the options in the database.
 	 *
 	 * @since 1.0.0
+	 * @param boolean $unslash Whether to unslash the data.
 	 */
-	public function update_data() {
+	public function update_data( $unslash = false ) {
 
 		// Make sure we have something to work upon.
 		if ( ! empty( $this->option_key ) ) {
 			$data = $this->get_data();
 			if ( $this->store_as_json ) {
-				$data = wp_json_encode( wp_unslash( $data ) );
+				$data = wp_json_encode( $data );
+			}
+			if ( $unslash ) {
+				$data = wp_unslash( $data );
 			}
 
 			return update_option( $this->option_key, $data );

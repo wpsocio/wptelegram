@@ -148,7 +148,7 @@ final class Main {
 	/**
 	 * Registers the initial hooks.
 	 *
-	 * @since    1.0.0
+	 * @since    3.0.0
 	 * @access   private
 	 */
 	private function init() {

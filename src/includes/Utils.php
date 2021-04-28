@@ -179,7 +179,7 @@ class Utils {
 				case 'audio':
 					break;
 				case 'image':
-					$type = 'photo';
+					$type = next( $filetype ) === 'gif' ? 'animation' : 'photo';
 					break;
 				default:
 					$type = 'document';
