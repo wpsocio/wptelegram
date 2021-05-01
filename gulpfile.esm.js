@@ -4,7 +4,6 @@ import { exec } from 'child_process';
 import path from 'path';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
-import beep from 'beepbeep';
 import rename from 'gulp-rename';
 import lineec from 'gulp-line-ending-corrector';
 import wpi18n from 'node-wp-i18n';
@@ -51,7 +50,6 @@ const getCommandArgs = () => {
 
 const errorHandler = (r) => {
 	notify.onError('\n\n❌  ===> ERROR: <%= error.message %>\n')(r);
-	beep();
 };
 
 const calculateVersion = () => {
@@ -129,13 +127,11 @@ export const generatePotFile = (done) => {
 			for (translation in pot.translations['']) {
 				if (undefined !== pot.translations[''][translation].comments.extracted) {
 					if (0 <= excluded_meta.indexOf(pot.translations[''][translation].comments.extracted)) {
-						// console.log( 'Excluded meta: ' + pot.translations[''][ translation ].comments.extracted );
 						delete pot.translations[''][translation];
 					}
 				}
 			}
 
-			// pot.headers['project-id-version'] = sprintf('%s - %s', pkg.title, calculateVersion());
 			pot.headers['report-msgid-bugs-to'] = config.bugReport;
 			pot.headers['last-translator'] = pkg.title;
 			pot.headers['language-team'] = pkg.title;
@@ -371,8 +367,7 @@ export const bundle = () => {
 			})
 		)
 		.pipe(zip(`${pkg.name}-${version}.zip`))
-		.pipe(gulp.dest(config.bundlesDir))
-		.pipe(notify({ message: '\n\n✅  ===> BUNDLE — completed!\n', onLast: true }));
+		.pipe(gulp.dest(config.bundlesDir));
 };
 
 export const build = gulp.series(i18n, styles);
