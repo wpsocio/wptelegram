@@ -1,8 +1,14 @@
 {
-	"phpcbf.standard": "${workspaceRoot}/phpcs.xml",
-	"phpcs.standard": "${workspaceRoot}/phpcs.xml",
+	"phpcs.standard": "${workspaceFolder}/phpcs.xml",
+	"emeraldwalk.runonsave": {
+		"commands": [
+			{
+				"match": "\\.php$",
+				"cmd": "\"vendor/bin/phpcbf\" --standard=phpcs.xml \"${file}\""
+			}
+		]
+	},
 	"[php]": {
-		"editor.formatOnSave": false,
-		"editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+		"editor.formatOnSave": false
 	}
 }
