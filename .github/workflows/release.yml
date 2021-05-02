@@ -26,6 +26,8 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.MY_ACCESS_TOKEN }}
+          # Ensure to checkout wptelegram-bot-api submodule
+          submodules: recursive
 
       - name: Set up Node
         uses: dcodeIO/setup-node-nvm@master
