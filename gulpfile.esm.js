@@ -266,9 +266,13 @@ export const updateChangelog = () => {
 					if (file.isBuffer()) {
 						const regex = /== Changelog ==([\s\S])/i;
 						const contents = file.contents.toString().replace(regex, (match, p1) => {
-							const changes = fs
+							let changes = fs
 								.readFileSync('./changelog.md', 'utf8') // get contents of changelog file
-								.match(/(?<=##\sUnreleased)[\s\S]+?(?=##\s?\[\d+\.\d+\.\d+)/i)[0] // match the changes in Unreleased section
+								.match(/(?<=##\sUnreleased)[\s\S]+?(?=##\s?\[\d+\.\d+\.\d+)/i)[0]
+								.trim(); // match the changes in Unreleased section
+							// Write the changes to release-notes.txt file
+							fs.writeFileSync('./release-notes.txt', changes, 'utf8');
+							changes = changes
 								.replace(/(^|\n)(##.+)/g, '') // remove headings like Enhancements, Bug fixes
 								.replace(/\n[\s\t]*\n/g, '\n') // replace empty lines
 								.trim(); // cleanup

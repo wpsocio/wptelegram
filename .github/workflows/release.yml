@@ -13,8 +13,8 @@ on:
         description: 'Whether to reset the current branch from master - yes/no'
         default: 'yes'
       commit-message:
-        required: false
-        description: 'The git commit message for merge'
+        required: true
+        description: 'The git commit message for merge. It becomes the PR title.'
 
 jobs:
   release:
@@ -26,7 +26,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.MY_ACCESS_TOKEN }}
-          # Ensure to checkout wptelegram-bot-api submodule
+          # Ensure to checkout submodules
           submodules: recursive
 
       - name: Set up Node
@@ -85,13 +85,20 @@ jobs:
               repo: repository.repo,
             })
 
-      # commit the changes files
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Checkout master
+        uses: actions/checkout@v2
         with:
-          branch: master
-          push_options: --force # required for protected branches
-          tagging_message: v${{ steps.version.outputs.current-version}}
+          fetch-depth: 0
+          ref: master
+          token: ${{ secrets.MY_ACCESS_TOKEN }}
+          path: temp/master
+
+      - name: Create Tag
+        run: |
+          cd temp/master
+          git tag v${{ steps.version.outputs.current-version}}
+          git push origin v${{ steps.version.outputs.current-version}}
+          cd -
 
       - name: Release
         uses: softprops/action-gh-release@v1
