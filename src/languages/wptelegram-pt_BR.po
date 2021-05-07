@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/manzoorwanijk/wptelegram\n"
-"POT-Creation-Date: 2021-04-28 09:03:42+00:00\n"
+"POT-Creation-Date: 2021-05-07 08:25:16+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:11+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Basics"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:363
+#: languages/wptelegram-js-translations.php:51 modules/p2tg/Admin.php:391
 msgid "Post to Telegram"
 msgstr ""
 
@@ -320,7 +320,7 @@ msgstr ""
 msgid "Upgrade NOW"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:385
+#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:413
 msgid "Send to"
 msgstr "Enviar para"
 
@@ -328,31 +328,31 @@ msgstr "Enviar para"
 msgid "Add or Upload Files"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:233 modules/p2tg/Admin.php:408
+#: languages/wptelegram-js-translations.php:233 modules/p2tg/Admin.php:436
 msgid "Files to be sent after the message."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:236 modules/p2tg/Admin.php:407
+#: languages/wptelegram-js-translations.php:236 modules/p2tg/Admin.php:435
 msgid "Files"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:240 modules/p2tg/Admin.php:435
+#: languages/wptelegram-js-translations.php:240 modules/p2tg/Admin.php:463
 msgid "Message Template"
 msgstr "Modelo de mensagem"
 
-#: languages/wptelegram-js-translations.php:243 modules/p2tg/Admin.php:375
+#: languages/wptelegram-js-translations.php:243 modules/p2tg/Admin.php:403
 msgid "Override settings"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:247 modules/p2tg/Admin.php:397
+#: languages/wptelegram-js-translations.php:247 modules/p2tg/Admin.php:425
 msgid "Disable Notifications"
 msgstr "Desativar as notificações"
 
-#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:418
+#: languages/wptelegram-js-translations.php:251 modules/p2tg/Admin.php:446
 msgid "Delay in Posting"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:321
+#: languages/wptelegram-js-translations.php:254 modules/p2tg/Admin.php:349
 msgid "Send to Telegram"
 msgstr ""
 
@@ -374,7 +374,7 @@ msgstr ""
 msgid "The delay starts after the post gets published."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:419
+#: languages/wptelegram-js-translations.php:269 modules/p2tg/Admin.php:447
 msgid "Minute(s)"
 msgstr ""
 
@@ -426,7 +426,7 @@ msgstr "Depois do texto"
 msgid "Send Featured Image (if exists)."
 msgstr "Enviar imagem em destaque (se existir)."
 
-#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:436
+#: languages/wptelegram-js-translations.php:309 modules/p2tg/Admin.php:464
 msgid "Structure of the message to be sent."
 msgstr "Estrutura da mensagem a ser enviada."
 
@@ -926,31 +926,31 @@ msgstr ""
 msgid "Changes could not be saved."
 msgstr ""
 
-#: modules/p2tg/Admin.php:179
+#: modules/p2tg/Admin.php:207
 msgid "Post Data"
 msgstr ""
 
-#: modules/p2tg/Admin.php:193
+#: modules/p2tg/Admin.php:221
 msgid "Taxonomy Terms"
 msgstr ""
 
-#: modules/p2tg/Admin.php:197
+#: modules/p2tg/Admin.php:225
 msgid "Custom Fields"
 msgstr ""
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:204
+#: modules/p2tg/Admin.php:232
 msgid ""
 "Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
 "attached to the post."
 msgstr ""
 
-#: modules/p2tg/Admin.php:204 modules/p2tg/Admin.php:207
+#: modules/p2tg/Admin.php:232 modules/p2tg/Admin.php:235
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr ""
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:207
+#: modules/p2tg/Admin.php:235
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr ""
 

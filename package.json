@@ -1,7 +1,7 @@
 {
 	"name": "wptelegram",
 	"title": "WP Telegram",
-	"version": "3.0.10",
+	"version": "3.0.11",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"repository": {
 		"type": "git",
@@ -23,17 +23,15 @@
 		"release:minor": "gulp release --type minor",
 		"release:patch": "gulp release --type patch",
 		"setup": "composer install && yarn",
+		"reset:dev": "git fetch && git checkout develop && git reset --hard origin/develop",
 		"start": "npm run dev"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.13.16",
-		"@babel/preset-env": "^7.13.15",
-		"@babel/register": "^7.13.16",
 		"@wordpress/i18n": "^3.19.2",
-		"beepbeep": "^1.3.0",
 		"eslint": "^7.25.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^3.4.0",
+		"esm": "^3.2.25",
 		"gulp": "^4.0.2",
 		"gulp-ignore": "^3.0.0",
 		"gulp-line-ending-corrector": "^1.0.3",

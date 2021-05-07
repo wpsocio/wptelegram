@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
 Tested up to: 5.7.1
 Requires PHP: 7.0
-Stable tag: 3.0.10
+Stable tag: 3.0.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,10 @@ If your host is in Russia or Iran or it's a free hosting, your host most likely 
 
 There can be many reasons for that. To better understand the reason, you can enable both the logs in **Advanced Settings** and then try to send the post again, then share the logs with our support on Telegram - [@WPTelegramSupport](https://t.me/WPTelegramSupport).
 
+= Why the posts in block editor are sent to Telegram even when Send to Telegram is OFF? =
+
+It may be because you hit update button without makes any changes to the post.
+
 = Why posts are duplicated on Telegram? =
 
 It can happen because of multiple submit/publish/update requests, for example in block editor. An easy solution would be to set 1 minute delay in posting in **Post to Telegram** settings.
@@ -199,6 +203,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.0.11 =
+- Fixed WooCommerce REST API products not sent to Telegram
 
 = 3.0.10 =
 - Added explicit filter for post edit switch

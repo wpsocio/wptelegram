@@ -4,7 +4,6 @@ import { exec } from 'child_process';
 import path from 'path';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
-import beep from 'beepbeep';
 import rename from 'gulp-rename';
 import lineec from 'gulp-line-ending-corrector';
 import wpi18n from 'node-wp-i18n';
@@ -51,7 +50,6 @@ const getCommandArgs = () => {
 
 const errorHandler = (r) => {
 	notify.onError('\n\n❌  ===> ERROR: <%= error.message %>\n')(r);
-	beep();
 };
 
 const calculateVersion = () => {
@@ -129,13 +127,11 @@ export const generatePotFile = (done) => {
 			for (translation in pot.translations['']) {
 				if (undefined !== pot.translations[''][translation].comments.extracted) {
 					if (0 <= excluded_meta.indexOf(pot.translations[''][translation].comments.extracted)) {
-						// console.log( 'Excluded meta: ' + pot.translations[''][ translation ].comments.extracted );
 						delete pot.translations[''][translation];
 					}
 				}
 			}
 
-			// pot.headers['project-id-version'] = sprintf('%s - %s', pkg.title, calculateVersion());
 			pot.headers['report-msgid-bugs-to'] = config.bugReport;
 			pot.headers['last-translator'] = pkg.title;
 			pot.headers['language-team'] = pkg.title;
@@ -270,9 +266,13 @@ export const updateChangelog = () => {
 					if (file.isBuffer()) {
 						const regex = /== Changelog ==([\s\S])/i;
 						const contents = file.contents.toString().replace(regex, (match, p1) => {
-							const changes = fs
+							let changes = fs
 								.readFileSync('./changelog.md', 'utf8') // get contents of changelog file
-								.match(/(?<=##\sUnreleased)[\s\S]+?(?=##\s?\[\d+\.\d+\.\d+)/i)[0] // match the changes in Unreleased section
+								.match(/(?<=##\sUnreleased)[\s\S]+?(?=##\s?\[\d+\.\d+\.\d+)/i)[0]
+								.trim(); // match the changes in Unreleased section
+							// Write the changes to release-notes.txt file
+							fs.writeFileSync('./release-notes.txt', changes, 'utf8');
+							changes = changes
 								.replace(/(^|\n)(##.+)/g, '') // remove headings like Enhancements, Bug fixes
 								.replace(/\n[\s\t]*\n/g, '\n') // replace empty lines
 								.trim(); // cleanup
@@ -371,8 +371,7 @@ export const bundle = () => {
 			})
 		)
 		.pipe(zip(`${pkg.name}-${version}.zip`))
-		.pipe(gulp.dest(config.bundlesDir))
-		.pipe(notify({ message: '\n\n✅  ===> BUNDLE — completed!\n', onLast: true }));
+		.pipe(gulp.dest(config.bundlesDir));
 };
 
 export const build = gulp.series(i18n, styles);

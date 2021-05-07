@@ -28,7 +28,6 @@ const config = {
 	potFilename: `${name}.pot`,
 	JSPotFilename: 'js-translations.pot',
 	domainPath: srcDir + '/languages',
-	packageName: 'WP Telegram Pro',
 	bugReport: 'https://github.com/manzoorwanijk/' + name,
 	lastTranslator: 'Manzoor Wani <@manzoorwanijk>',
 	team: 'WP Telegram Team',

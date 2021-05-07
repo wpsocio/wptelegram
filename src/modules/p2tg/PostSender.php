@@ -433,7 +433,7 @@ class PostSender extends BaseClass {
 		$result = __LINE__;
 
 		// if not doing "rest_after_insert_{$post_type}" action.
-		if ( RequestCheck::if_is( RequestCheck::INITIAL_REST_REQUEST, $this->post ) && 'product' !== $this->post->post_type ) {
+		if ( RequestCheck::if_is( RequestCheck::REST_PRE_INSERT, $this->post ) ) {
 
 			// come back later.
 			add_action( 'rest_after_insert_' . $this->post->post_type, [ $this, 'rest_after_insert' ], 10, 1 );
@@ -818,7 +818,7 @@ class PostSender extends BaseClass {
 	public function may_be_clean_up() {
 		$is_gb_metabox = RequestCheck::if_is( RequestCheck::IS_GB_METABOX );
 
-		$is_initial_rest_request = RequestCheck::if_is( RequestCheck::INITIAL_REST_REQUEST, $this->post );
+		$is_initial_rest_request = RequestCheck::if_is( RequestCheck::REST_PRE_INSERT, $this->post );
 
 		if ( $this->is_status_of_type( 'live' ) && ! $is_gb_metabox && ! $is_initial_rest_request ) {
 			delete_post_meta( $this->post->ID, Main::PREFIX . 'options' );
@@ -1615,9 +1615,9 @@ class PostSender extends BaseClass {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param resource $handle  The cURL handle (passed by reference).
-	 * @param array    $r       The HTTP request arguments.
-	 * @param string   $url     The request URL.
+	 * @param \CurlHandle $handle  The cURL handle (passed by reference).
+	 * @param array       $r       The HTTP request arguments.
+	 * @param string      $url     The request URL.
 	 *
 	 * @return void
 	 */

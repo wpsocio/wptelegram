@@ -1,0 +1,120 @@
+name: Create a release
+env:
+  GITHUB_TOKEN: ${{ secrets.MY_ACCESS_TOKEN }}
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Release type - major/minor/patch'
+        required: true
+        default: 'patch'
+      reset:
+        required: false
+        description: 'Whether to reset the current branch from master - yes/no'
+        default: 'yes'
+      commit-message:
+        required: true
+        description: 'The git commit message for merge. It becomes the PR title.'
+
+jobs:
+  release:
+    name: New release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the commit
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.MY_ACCESS_TOKEN }}
+          # Ensure to checkout submodules
+          submodules: recursive
+
+      - name: Set up Node
+        uses: dcodeIO/setup-node-nvm@master
+        with:
+          node-version: lts/*
+
+      - name: Cache dependencies
+        id: cache-deps
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        # install deps only if cache hit
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Install required tools
+        run: sudo apt install gettext
+
+      - name: Prepare for release
+        run: gulp release --type ${{ github.event.inputs.type }}
+
+      - name: Get release version
+        id: version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      # commit the changes files
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Prepare for v${{ steps.version.outputs.current-version}}
+          push_options: --force # required for protected branches
+
+      - name: Create Pull Request
+        id: create-pr
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: 'master'
+          pr_title: ${{ github.event.inputs.commit-message }}
+          github_token: ${{ secrets.MY_ACCESS_TOKEN }}
+
+      - name: 'Merge pull request'
+        uses: 'actions/github-script@v4'
+        with:
+          github-token: ${{ secrets.MY_ACCESS_TOKEN }}
+          script: |
+            const repository = context.repo
+
+            await github.pulls.merge({
+              merge_method: "squash",
+              owner: repository.owner,
+              pull_number: ${{ steps.create-pr.outputs.pr_number }},
+              repo: repository.repo,
+            })
+
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: master
+          token: ${{ secrets.MY_ACCESS_TOKEN }}
+          path: temp/master
+
+      - name: Create Tag
+        run: |
+          cd temp/master
+          git tag v${{ steps.version.outputs.current-version}}
+          git push origin v${{ steps.version.outputs.current-version}}
+          cd -
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: release-notes.txt
+          tag_name: v${{ steps.version.outputs.current-version}}
+          files: bundles/${{ github.event.repository.name }}-${{ steps.version.outputs.current-version}}.zip
+
+      - name: Exrtact branch name
+        id: branch
+        run: echo ::set-output name=branch-name::${GITHUB_REF#refs/*/}
+
+      - name: Reset branch
+        if: ${{ github.event.inputs.reset == 'yes' }}
+        run: |
+          git fetch origin
+          git checkout ${{ steps.branch.outputs.branch-name }}
+          git reset --hard origin/master
+          git push -f
