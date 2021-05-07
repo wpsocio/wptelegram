@@ -89,6 +89,34 @@ class Admin extends BaseClass {
 	}
 
 	/**
+	 * Hooks into "rest_pre_insert_{$post->post_type}"
+	 * to create a hack for did_action for filters.
+	 *
+	 * @since x.y.z
+	 */
+	public function hook_into_rest_pre_insert() {
+		$post_types = $this->module()->options()->get( 'post_types', [] );
+
+		foreach ( $post_types as $post_type ) {
+			add_filter( "rest_pre_insert_{$post_type}", [ $this, 'do_rest_pre_insert_action' ], 10, 1 );
+		}
+	}
+
+	/**
+	 * Sets the rest_pre_insert action for post types to use in PostSender.
+	 *
+	 * @since x.y.z
+	 *
+	 * @param \stdClass $post An object representing a single post prepared.
+	 */
+	public function do_rest_pre_insert_action( $post ) {
+
+		do_action( 'wptelegram_rest_pre_insert_' . $post->post_type );
+
+		return $post;
+	}
+
+	/**
 	 * Register WP REST API routes.
 	 *
 	 * @since 3.0.0

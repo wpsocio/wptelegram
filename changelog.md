@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed WooCommerce REST API products not sent to Telegram
+
 ## [3.0.10 - 2021-04-28](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.10)
 
 ### Enhancements

@@ -42,7 +42,7 @@ class RequestCheck {
 
 	const REST_REQUEST = 'rest_request';
 
-	const INITIAL_REST_REQUEST = 'initial_rest_request';
+	const REST_PRE_INSERT = 'rest_pre_insert';
 
 	/**
 	 * If the request is a POST request
@@ -109,9 +109,11 @@ class RequestCheck {
 			case self::REST_REQUEST:
 				return $is_rest_request;
 
-			case self::INITIAL_REST_REQUEST:
-				// if not doing "rest_after_insert_{$post_type}" action.
-				return $is_rest_request && current_filter() !== 'rest_after_insert_' . $post->post_type;
+			case self::REST_PRE_INSERT:
+				return $is_rest_request
+					&& did_action( 'wptelegram_rest_pre_insert_' . $post->post_type )
+					// if not doing "rest_after_insert_{$post_type}" action.
+					&& current_filter() !== 'rest_after_insert_' . $post->post_type;
 
 			default:
 				return false;

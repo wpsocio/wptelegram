@@ -69,6 +69,8 @@ class Main extends BaseModule {
 		add_action( 'cmb2_admin_init', [ $admin, 'create_cmb2_override_metabox' ] );
 		add_action( 'add_meta_boxes', [ $admin, 'may_be_remove_override_metabox' ], 100 );
 
+		add_action( 'rest_api_init', [ $admin, 'hook_into_rest_pre_insert' ] );
+
 		$post_sender = new PostSender( $this );
 
 		add_action( 'wp_insert_post', [ $post_sender, 'wp_insert_post' ], 20, 2 );

@@ -41,4 +41,14 @@ abstract class BaseClass {
 
 		$this->module = $module;
 	}
+
+	/**
+	 * Get the instance of the module.
+	 *
+	 * @since     x.y.z
+	 * @return    BaseModule    The module class instance.
+	 */
+	protected function module() {
+		return $this->module;
+	}
 }
