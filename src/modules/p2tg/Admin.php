@@ -92,7 +92,7 @@ class Admin extends BaseClass {
 	 * Hooks into "rest_pre_insert_{$post->post_type}"
 	 * to create a hack for did_action for filters.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.11
 	 */
 	public function hook_into_rest_pre_insert() {
 		$post_types = $this->module()->options()->get( 'post_types', [] );
@@ -105,7 +105,7 @@ class Admin extends BaseClass {
 	/**
 	 * Sets the rest_pre_insert action for post types to use in PostSender.
 	 *
-	 * @since x.y.z
+	 * @since 3.0.11
 	 *
 	 * @param \stdClass $post An object representing a single post prepared.
 	 */

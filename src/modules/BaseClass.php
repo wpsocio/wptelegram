@@ -45,7 +45,7 @@ abstract class BaseClass {
 	/**
 	 * Get the instance of the module.
 	 *
-	 * @since     x.y.z
+	 * @since     3.0.11
 	 * @return    BaseModule    The module class instance.
 	 */
 	protected function module() {
