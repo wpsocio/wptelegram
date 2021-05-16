@@ -81,7 +81,7 @@ function WPTG() { // phpcs:ignore
 }
 
 // Fire.
-WPTG();
+WPTG()->init();
 
 define( 'WPTELEGRAM_LOADED', true );
 

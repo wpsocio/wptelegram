@@ -18,7 +18,7 @@ use WPTelegram\Core\modules\p2tg\Main as P2TGMain;
 /**
  * WPTelegram_Logger class.
  */
-class Logger {
+class Logger extends BaseClass {
 
 	/**
 	 * Enabled Log types
@@ -48,23 +48,17 @@ class Logger {
 	private $p2tg_post_info;
 
 	/**
-	 * Constructor for the logger.
-	 *
-	 * @param array $active_logs The logs that are activated.
-	 */
-	public function __construct( $active_logs = [] ) {
-
-		$this->set_active_logs( $active_logs );
-	}
-
-	/**
 	 * Set the active logs
 	 *
 	 * @param array $active_logs The logs to create.
+	 *
+	 * @return self
 	 */
 	public function set_active_logs( $active_logs ) {
 
 		self::$active_logs = (array) $active_logs;
+
+		return $this;
 	}
 
 	/**

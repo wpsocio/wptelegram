@@ -26,14 +26,6 @@ use WPTelegram\Core\modules\BaseModule;
 class Main extends BaseModule {
 
 	/**
-	 * The single instance of the class.
-	 *
-	 * @since 3.0.0
-	 * @var   Main $instance The instance.
-	 */
-	protected static $instance = null;
-
-	/**
 	 * Register all of the hooks.
 	 *
 	 * @since    1.0.0
@@ -41,7 +33,7 @@ class Main extends BaseModule {
 	 */
 	protected function define_on_active_hooks() {
 
-		$handler = new ProxyHandler( $this );
+		$handler = ProxyHandler::instance();
 
 		add_action( 'wptelegram_bot_api_remote_request_init', [ $handler, 'configure_proxy' ] );
 

@@ -41,6 +41,14 @@ final class Main {
 	protected static $instance = null;
 
 	/**
+	 * Whether the dependencies have been initiated.
+	 *
+	 * @since x.y.z
+	 * @var   bool $injected Whether the dependencies have been initiated.
+	 */
+	private static $initiated = false;
+
+	/**
 	 * Title of the plugin.
 	 *
 	 * @since    1.0.0
@@ -84,15 +92,6 @@ final class Main {
 	 * @var      Assets $assets The assets handler.
 	 */
 	protected $assets;
-
-	/**
-	 * The asset manager.
-	 *
-	 * @since    3.0.3
-	 * @access   protected
-	 * @var      AssetManager $asset_manager The asset manager.
-	 */
-	protected $asset_manager;
 
 	/**
 	 * Main class Instance.
@@ -141,34 +140,36 @@ final class Main {
 		$this->load_dependencies();
 
 		$this->set_locale();
-
-		$this->init();
 	}
 
 	/**
 	 * Registers the initial hooks.
 	 *
 	 * @since    3.0.0
-	 * @access   private
+	 * @access   public
 	 */
-	private function init() {
+	public function init() {
+		if ( self::$initiated ) {
+			return;
+		}
 
-		$plugin_upgrade = new Upgrade( $this );
-
-		$modules = new Modules( $this );
+		$plugin_upgrade = Upgrade::instance();
 
 		// First lets do the upgrades, if needed.
 		add_action( 'plugins_loaded', [ $plugin_upgrade, 'do_upgrade' ], 10 );
 
+		$modules = Modules::instance();
 		// Then lets hook everything up.
 		add_action( 'plugins_loaded', [ $this, 'hookup' ], 20 );
 		add_action( 'plugins_loaded', [ $modules, 'load' ], 20 );
+
+		self::$initiated = true;
 	}
 
 	/**
 	 * Registers the initial hooks.
 	 *
-	 * @since    1.0.0
+	 * @since    3.0.0
 	 * @access   public
 	 */
 	public function hookup() {
@@ -270,32 +271,6 @@ final class Main {
 	}
 
 	/**
-	 * Set the asset manager.
-	 *
-	 * @since    3.0.3
-	 * @access   private
-	 */
-	private function set_asset_manager() {
-		$this->asset_manager = new AssetManager( $this );
-	}
-
-	/**
-	 * Get the plugin assets manager.
-	 *
-	 * @since    3.0.3
-	 * @access   public
-	 *
-	 * @return AssetManager The asset manager.
-	 */
-	public function asset_manager() {
-		if ( ! $this->asset_manager ) {
-			$this->set_asset_manager();
-		}
-
-		return $this->asset_manager;
-	}
-
-	/**
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
 	 *
@@ -304,7 +279,7 @@ final class Main {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Admin( $this );
+		$plugin_admin = Admin::instance();
 
 		add_action( 'admin_menu', [ $plugin_admin, 'add_plugin_admin_menu' ], 8 );
 
@@ -316,10 +291,12 @@ final class Main {
 
 		add_action( 'init', [ $plugin_admin, 'initiate_logger' ] );
 
-		add_action( 'admin_init', [ $this->asset_manager(), 'register_assets' ] );
+		$asset_manager = AssetManager::instance();
 
-		add_action( 'admin_enqueue_scripts', [ $this->asset_manager(), 'enqueue_admin_styles' ] );
-		add_action( 'admin_enqueue_scripts', [ $this->asset_manager(), 'enqueue_admin_scripts' ] );
+		add_action( 'admin_init', [ $asset_manager, 'register_assets' ] );
+
+		add_action( 'admin_enqueue_scripts', [ $asset_manager, 'enqueue_admin_styles' ] );
+		add_action( 'admin_enqueue_scripts', [ $asset_manager, 'enqueue_admin_scripts' ] );
 	}
 
 	/**

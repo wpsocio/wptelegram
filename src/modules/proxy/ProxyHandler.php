@@ -122,9 +122,9 @@ class ProxyHandler extends BaseClass {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param resource $handle  The cURL handle (passed by reference).
-	 * @param array    $r       The HTTP request arguments.
-	 * @param string   $url     The request URL.
+	 * @param \CurlHandle $handle  The cURL handle (passed by reference).
+	 * @param array       $r       The HTTP request arguments.
+	 * @param string      $url     The request URL.
 	 */
 	public static function modify_http_api_curl( &$handle, $r, $url ) {
 

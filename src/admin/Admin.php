@@ -74,7 +74,12 @@ class Admin extends BaseClass {
 	 * @return array
 	 */
 	public function plugin_action_links( $links ) {
-		$settings_link = '<a href="' . menu_page_url( $this->plugin->name(), false ) . '">' . esc_html( __( 'Settings', 'wptelegram' ) ) . '</a>';
+		$settings_link = sprintf(
+			'<a href="%s">%s</a>',
+			menu_page_url( $this->plugin->name(), false ),
+			esc_html( __( 'Settings', 'wptelegram' ) )
+		);
+
 		array_unshift( $links, $settings_link );
 
 		return $links;
@@ -89,7 +94,6 @@ class Admin extends BaseClass {
 
 		$active_logs = WPTG()->options()->get_path( 'advanced.enable_logs', [] );
 
-		$logger = new Logger( $active_logs );
-		$logger->hookup();
+		Logger::instance()->set_active_logs( $active_logs )->hookup();
 	}
 }
