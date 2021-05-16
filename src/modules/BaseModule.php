@@ -37,7 +37,7 @@ abstract class BaseModule {
 	 * List of modules which have been initiated.
 	 *
 	 * @since x.y.z
-	 * @var   bool $injected List of modules which have been initiated.
+	 * @var   array $initiated List of modules which have been initiated.
 	 */
 	private static $initiated = [];
 

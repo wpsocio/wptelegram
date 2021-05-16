@@ -44,7 +44,7 @@ final class Main {
 	 * Whether the dependencies have been initiated.
 	 *
 	 * @since x.y.z
-	 * @var   bool $injected Whether the dependencies have been initiated.
+	 * @var   bool $initiated Whether the dependencies have been initiated.
 	 */
 	private static $initiated = false;
 
