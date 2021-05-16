@@ -1346,6 +1346,8 @@ class PostSender extends BaseClass {
 			'post_author',
 			'post_excerpt',
 			'post_content',
+			'post_type',
+			'post_type_label',
 			'short_url',
 			'full_url',
 		];
