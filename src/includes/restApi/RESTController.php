@@ -11,6 +11,8 @@
 
 namespace WPTelegram\Core\includes\restApi;
 
+use WP_REST_Controller;
+
 /**
  * Base class for all the endpoints.
  *
@@ -20,7 +22,7 @@ namespace WPTelegram\Core\includes\restApi;
  * @subpackage WPTelegram\Core\includes
  * @author     Manzoor Wani <@manzoorwanijk>
  */
-abstract class RESTController extends \WP_REST_Controller {
+abstract class RESTController extends WP_REST_Controller {
 
 	/**
 	 * The namespace of this controller's route.
@@ -28,7 +30,7 @@ abstract class RESTController extends \WP_REST_Controller {
 	 * @var string
 	 * @since 3.0.0
 	 */
-	const NAMESPACE = 'wptelegram/v1';
+	const REST_NAMESPACE = 'wptelegram/v1';
 
 	/**
 	 * The base of this controller's route.

@@ -24,6 +24,7 @@
 		"release:patch": "gulp release --type patch",
 		"setup": "composer install && yarn",
 		"reset:dev": "git fetch && git checkout develop && git reset --hard origin/develop",
+		"zip": "gulp bundle --ver current",
 		"start": "npm run dev"
 	},
 	"devDependencies": {

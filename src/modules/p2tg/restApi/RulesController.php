@@ -42,7 +42,7 @@ class RulesController extends RESTController {
 	public function register_routes() {
 
 		register_rest_route(
-			self::NAMESPACE,
+			self::REST_NAMESPACE,
 			self::REST_BASE,
 			[
 				[

@@ -150,7 +150,7 @@ class AssetManager extends BaseClass {
 				'admin_url'      => admin_url(),
 				'nonce'          => wp_create_nonce( 'wptelegram' ),
 				'use'            => 'SERVER', // or may be 'BROWSER'?
-				'rest_namespace' => RESTController::NAMESPACE,
+				'rest_namespace' => RESTController::REST_NAMESPACE,
 				'wp_rest_url'    => esc_url_raw( rest_url() ),
 			],
 			'uiData'     => [
