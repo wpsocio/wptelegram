@@ -493,9 +493,7 @@ msgid "Show an ON/OFF switch on the post edit screen."
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:14
-msgid ""
-"You can use this switch to override the instance settings for a particular "
-"post."
+msgid "You can use this switch to override the settings for a particular post."
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:21
@@ -857,11 +855,11 @@ msgid "Widget Info"
 msgstr ""
 
 #: packages/components/src/useBotTokenTest.tsx:96
-#: packages/components/src/useChatWithTest.tsx:94
+#: packages/components/src/useChatWithTest.tsx:95
 msgid "Please wait…"
 msgstr ""
 
-#: packages/components/src/useChatWithTest.tsx:94
+#: packages/components/src/useChatWithTest.tsx:95
 msgid "Send Test"
 msgstr ""
 
@@ -899,14 +897,14 @@ msgstr ""
 msgid "Changes saved successfully."
 msgstr ""
 
-#: packages/utilities/src/fields.ts:29
+#: packages/utilities/src/fields.ts:31
 msgid "Invalid %s"
 msgstr ""
 
-#: packages/utilities/src/fields.ts:32
+#: packages/utilities/src/fields.ts:34
 msgid "%s required."
 msgstr ""
 
-#: packages/utilities/src/fields.ts:35
+#: packages/utilities/src/fields.ts:37
 msgid "Changes could not be saved."
 msgstr ""
