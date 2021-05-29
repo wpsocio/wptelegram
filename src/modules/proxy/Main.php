@@ -2,8 +2,6 @@
 /**
  * The file that defines the module
  *
- * A class definition that includes attributes and functions used across the module
- *
  * @link       https://manzoorwani.dev
  * @since      1.0.0
  *

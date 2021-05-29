@@ -149,7 +149,7 @@ class SettingsController extends RESTController {
 			],
 			'proxy'        => [
 				'active'       => false,
-				'proxy_method' => 'google_script',
+				'proxy_method' => 'cf_worker',
 				'proxy_type'   => 'CURLPROXY_HTTP',
 			],
 			'advanced'     => [
@@ -388,7 +388,11 @@ class SettingsController extends RESTController {
 					],
 					'proxy_method'      => [
 						'type' => 'string',
-						'enum' => [ 'google_script', 'php_proxy' ],
+						'enum' => [ 'cf_worker', 'google_script', 'php_proxy' ],
+					],
+					'cf_worker_url'     => [
+						'type'   => 'string',
+						'format' => 'url',
 					],
 					'google_script_url' => [
 						'type'   => 'string',

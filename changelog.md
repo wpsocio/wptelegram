@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 ### Enhancements
 
+- Added CloudFlare Proxy support 🚀
 - Added `{post_type}` and `{post_type_label}` macros
 
 ## [3.0.11 - 2021-05-7](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.11)

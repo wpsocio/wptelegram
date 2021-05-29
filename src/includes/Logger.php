@@ -303,7 +303,13 @@ class Logger extends BaseClass {
 
 		// add the response.
 		if ( is_wp_error( $res ) ) {
-			$text .= 'WP_Error: ' . $res->get_error_code() . ' ' . $res->get_error_message();
+			$text .= 'WP_Error: ' . $res->get_error_code() . ' ' . $res->get_error_message() . PHP_EOL;
+
+			$base_url = $tg_api->get_client()->get_base_url();
+			// redact the worker name if present.
+			$base_url = preg_replace( '/(?<=https:\/\/)[^\.]+?(?=\.)/', '***', $base_url );
+
+			$text .= 'URL: ' . $base_url;
 		} else {
 			$text .= 'Response: ' . $res->get_body();
 		}
