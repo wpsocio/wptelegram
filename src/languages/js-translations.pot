@@ -29,7 +29,7 @@ msgid "Post type"
 msgstr ""
 
 #: domains/wptelegram/core/main/src/services/fields.ts:29
-#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:37
+#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:46
 #: domains/wptelegram/shared/core-pro/src/services/fields.ts:35
 msgid "Proxy Method"
 msgstr ""
@@ -78,6 +78,7 @@ msgid "Private Notifications"
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/TabbedSections.tsx:33
+#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:39
 msgid "Proxy"
 msgstr ""
 
@@ -575,23 +576,23 @@ msgstr ""
 msgid "Leave empty if not required."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:15
+#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:16
 msgid "Cloudflare worker"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:19
+#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:20
 msgid "Google Script"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:23
+#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:24
 msgid "PHP Proxy"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:31
+#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:34
 msgid "The module will help you bypass the ban on Telegram by making use of proxy."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:42
+#: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:51
 msgid "Cloudflare worker is preferred."
 msgstr ""
 
