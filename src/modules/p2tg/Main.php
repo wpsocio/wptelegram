@@ -28,21 +28,13 @@ class Main extends BaseModule {
 	const PREFIX = '_wptg_p2tg_';
 
 	/**
-	 * The single instance of the class.
-	 *
-	 * @since 3.0.0
-	 * @var   Main $instance The instance.
-	 */
-	protected static $instance = null;
-
-	/**
 	 * Register all of the hooks.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
 	protected function define_necessary_hooks() {
-		$admin = new Admin( $this );
+		$admin = Admin::instance();
 
 		add_filter( 'wptelegram_assets_dom_data', [ $admin, 'update_dom_data' ], 10, 2 );
 
@@ -56,7 +48,7 @@ class Main extends BaseModule {
 	 * @access   private
 	 */
 	protected function define_on_active_hooks() {
-		$admin = new Admin( $this );
+		$admin = Admin::instance();
 
 		add_action( 'admin_enqueue_scripts', [ $admin, 'enqueue_admin_scripts' ] );
 
@@ -71,7 +63,7 @@ class Main extends BaseModule {
 
 		add_action( 'rest_api_init', [ $admin, 'hook_into_rest_pre_insert' ] );
 
-		$post_sender = new PostSender( $this );
+		$post_sender = PostSender::instance();
 
 		add_action( 'wp_insert_post', [ $post_sender, 'wp_insert_post' ], 20, 2 );
 

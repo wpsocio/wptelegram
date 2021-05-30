@@ -3,9 +3,9 @@ Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.3
-Tested up to: 5.7.1
+Tested up to: 5.7.2
 Requires PHP: 7.0
-Stable tag: 3.0.11
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,7 @@ WP Telegram Pro comes with more powerful features to give you more control. [Upg
 
 * 🚫 If your host blocks Telegram, you can use this module
 * ✅ Bypass the ban on Telegram by making use of proxy
+* 🚀 Supports **Cloudflare worker as proxy** which supports file upload
 * 😍 Option to use custom **Google Script as proxy**
 * ❇️ Supports all proxies supported by PHP
 * 🔛 You can select Proxy type - HTTP, SOCKS4, SOCKS4A, SOCKS5, SOCKS5_HOSTNAME
@@ -203,6 +204,10 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.1.0 =
+- Added CloudFlare Proxy support 🚀
+- Added `{post_type}` and `{post_type_label}` macros
 
 = 3.0.11 =
 - Fixed WooCommerce REST API products not sent to Telegram

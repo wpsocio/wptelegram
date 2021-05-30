@@ -131,6 +131,18 @@ class PostData {
 				$value = get_the_author_meta( 'display_name', $this->post->post_author );
 				break;
 
+			/* The post type label (singular), like Post or Page. */
+			case 'post_type_label':
+				$post_type = get_post_type_object( $this->post->post_type );
+				// Return singular name or the slug.
+				$value = ! empty( $post_type->labels->singular_name ) ? $post_type->labels->singular_name : $this->post->post_type;
+				break;
+
+				/* The post type slug, like post or page. */
+			case 'post_type':
+				$value = $this->post->post_type;
+				break;
+
 			/* Post Excerpt */
 			case 'excerpt':
 			case 'post_excerpt':

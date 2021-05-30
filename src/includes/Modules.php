@@ -48,7 +48,7 @@ class Modules extends BaseClass {
 
 			$main = "{$namespace}\\{$module}\Main";
 
-			$main::instance( $module );
+			$main::instance()->init();
 
 			define( 'WPTELEGRAM_' . strtoupper( $module ) . '_LOADED', true );
 		}

@@ -29,9 +29,17 @@ abstract class BaseModule {
 	 * The single instance of the class.
 	 *
 	 * @since 3.0.0
-	 * @var   Main $instance The instance.
+	 * @var   static $instances The instance.
 	 */
-	protected static $instance = null;
+	protected static $instances = [];
+
+	/**
+	 * List of modules which have been initiated.
+	 *
+	 * @since 3.1.0
+	 * @var   array $initiated List of modules which have been initiated.
+	 */
+	private static $initiated = [];
 
 	/**
 	 * The module options
@@ -47,7 +55,7 @@ abstract class BaseModule {
 	 *
 	 * @since    3.0.0
 	 * @access   protected
-	 * @var      Options    $options    The module name.
+	 * @var      string    $module_name    The module name.
 	 */
 	protected $module_name;
 
@@ -58,15 +66,20 @@ abstract class BaseModule {
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param string $module_name The module name.
-	 *
-	 * @return Main instance.
+	 * @return static instance.
 	 */
-	public static function instance( $module_name ) {
-		if ( is_null( static::$instance ) ) {
-			static::$instance = new static( $module_name );
+	public static function instance() {
+		// static::class can be something like "WPTelegram\Core\modules\p2tg\Main".
+		// $relative_path becomes "p2tg\Main".
+		$relative_path = ltrim( str_replace( __NAMESPACE__, '', static::class ), '\\' );
+
+		// extract module name from ["p2tg", "Main"].
+		list( $module_name ) = explode( '\\', $relative_path );
+
+		if ( ! isset( self::$instances[ $module_name ] ) ) {
+			self::$instances[ $module_name ] = new static( $module_name );
 		}
-		return static::$instance;
+		return self::$instances[ $module_name ];
 	}
 
 	/**
@@ -79,12 +92,26 @@ abstract class BaseModule {
 	protected function __construct( $module_name ) {
 
 		$this->module_name = $module_name;
+	}
+
+	/**
+	 * Registers the initial hooks.
+	 *
+	 * @since    3.1.0
+	 * @access   public
+	 */
+	public function init() {
+		if ( ! empty( self::$initiated[ $this->module_name ] ) ) {
+			return;
+		}
 
 		$this->define_necessary_hooks();
 
 		if ( $this->options()->get( 'active' ) ) {
 			$this->define_on_active_hooks();
 		}
+
+		self::$initiated[ $this->module_name ] = true;
 	}
 
 	/**
@@ -100,7 +127,6 @@ abstract class BaseModule {
 
 		$this->options->set_data( (array) $data );
 	}
-
 
 	/**
 	 * Get the plugin options

@@ -18,7 +18,7 @@ use WPTelegram\Core\modules\p2tg\Main as P2TGMain;
 /**
  * WPTelegram_Logger class.
  */
-class Logger {
+class Logger extends BaseClass {
 
 	/**
 	 * Enabled Log types
@@ -48,23 +48,17 @@ class Logger {
 	private $p2tg_post_info;
 
 	/**
-	 * Constructor for the logger.
-	 *
-	 * @param array $active_logs The logs that are activated.
-	 */
-	public function __construct( $active_logs = [] ) {
-
-		$this->set_active_logs( $active_logs );
-	}
-
-	/**
 	 * Set the active logs
 	 *
 	 * @param array $active_logs The logs to create.
+	 *
+	 * @return self
 	 */
 	public function set_active_logs( $active_logs ) {
 
 		self::$active_logs = (array) $active_logs;
+
+		return $this;
 	}
 
 	/**
@@ -309,7 +303,13 @@ class Logger {
 
 		// add the response.
 		if ( is_wp_error( $res ) ) {
-			$text .= 'WP_Error: ' . $res->get_error_code() . ' ' . $res->get_error_message();
+			$text .= 'WP_Error: ' . $res->get_error_code() . ' ' . $res->get_error_message() . PHP_EOL;
+
+			$base_url = $tg_api->get_client()->get_base_url();
+			// redact the worker name if present.
+			$base_url = preg_replace( '/(?<=https:\/\/)[^\.]+?(?=\.)/', '***', $base_url );
+
+			$text .= 'URL: ' . $base_url;
 		} else {
 			$text .= 'Response: ' . $res->get_body();
 		}

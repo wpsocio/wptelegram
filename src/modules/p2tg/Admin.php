@@ -82,7 +82,7 @@ class Admin extends BaseClass {
 			wp_enqueue_script( $handle );
 
 			// Pass data to JS.
-			$data = WPTG()->asset_manager()->get_dom_data( 'BLOCKS' );
+			$data = AssetManager::instance()->get_dom_data( 'BLOCKS' );
 
 			AssetManager::add_dom_data( $handle, $data );
 		}
@@ -213,6 +213,8 @@ class Admin extends BaseClass {
 					'{post_author}',
 					'{post_excerpt}',
 					'{post_content}',
+					'{post_type}',
+					'{post_type_label}',
 					'{short_url}',
 					'{full_url}',
 				],
