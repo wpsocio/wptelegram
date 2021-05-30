@@ -36,7 +36,7 @@ abstract class BaseModule {
 	/**
 	 * List of modules which have been initiated.
 	 *
-	 * @since x.y.z
+	 * @since 3.1.0
 	 * @var   array $initiated List of modules which have been initiated.
 	 */
 	private static $initiated = [];
@@ -97,7 +97,7 @@ abstract class BaseModule {
 	/**
 	 * Registers the initial hooks.
 	 *
-	 * @since    x.y.z
+	 * @since    3.1.0
 	 * @access   public
 	 */
 	public function init() {

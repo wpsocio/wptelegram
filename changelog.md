@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.0 - 2021-05-30](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.0)
+
 ### Enhancements
 
 - Added CloudFlare Proxy support 🚀

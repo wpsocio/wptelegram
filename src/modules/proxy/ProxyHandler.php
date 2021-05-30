@@ -211,7 +211,7 @@ class ProxyHandler extends BaseClass {
 	/**
 	 * Set Cloudflare worker URL.
 	 *
-	 * @since  x.y.z
+	 * @since  3.1.0
 	 *
 	 * @return string
 	 */

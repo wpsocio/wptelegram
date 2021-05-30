@@ -25,7 +25,7 @@ abstract class BaseClass {
 	/**
 	 * Instances of the class.
 	 *
-	 * @since  x.y.z
+	 * @since  3.1.0
 	 * @access protected
 	 * @var    self $instances The instances.
 	 */
@@ -45,7 +45,7 @@ abstract class BaseClass {
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since x.y.z
+	 * @since 3.1.0
 	 *
 	 * @return static instance.
 	 */
