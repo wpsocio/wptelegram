@@ -28,8 +28,8 @@
 		"start": "npm run dev"
 	},
 	"devDependencies": {
-		"@wordpress/i18n": "^3.19.2",
-		"eslint": "^7.25.0",
+		"@wordpress/i18n": "^4.1.0",
+		"eslint": "^7.27.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^3.4.0",
 		"esm": "^3.2.25",
@@ -43,7 +43,7 @@
 		"gulp-uglifycss": "^1.1.0",
 		"gulp-zip": "^5.1.0",
 		"node-wp-i18n": "^1.2.5",
-		"prettier": "^2.2.1",
+		"prettier": "^2.3.0",
 		"semver": "7.3.5"
 	}
 }
