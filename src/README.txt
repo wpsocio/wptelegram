@@ -62,6 +62,7 @@ WP Telegram Pro comes with more powerful features to give you more control. [Upg
 
 * 🚫 If your host blocks Telegram, you can use this module
 * ✅ Bypass the ban on Telegram by making use of proxy
+* 🚀 Supports **Cloudflare worker as proxy** which supports file upload
 * 😍 Option to use custom **Google Script as proxy**
 * ❇️ Supports all proxies supported by PHP
 * 🔛 You can select Proxy type - HTTP, SOCKS4, SOCKS4A, SOCKS5, SOCKS5_HOSTNAME
