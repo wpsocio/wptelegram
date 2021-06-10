@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.1 - 2021-06-10](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.1)
+
+### Bug fixes
+
+- Fixed file upload for CloudFlare proxy
+
 ## [3.1.0 - 2021-05-30](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.0)
 
 ### Enhancements
