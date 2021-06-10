@@ -17,6 +17,7 @@ use WPTelegram\Core\includes\Utils as MainUtils;
 use WPTelegram\BotAPI\API;
 use WPTelegram\BotAPI\Response;
 use WP_Post;
+use WPTelegram\BotAPI\Client;
 
 /**
  * The Post Handling functionality of the plugin.
@@ -1625,7 +1626,11 @@ class PostSender extends BaseClass {
 	 */
 	public function modify_http_api_curl( &$handle, $r, $url ) {
 
-		$to_telegram   = ( 0 === strpos( $url, 'https://api.telegram.org/bot' ) );
+		$telegram_api_client = new Client();
+
+		// If it's a request to Telegram API base URL.
+		$to_telegram = 0 === strpos( $url, $telegram_api_client->get_base_url() );
+
 		$by_wptelegram = ! empty( $r['headers']['wptelegram_bot'] );
 		// if the request is sent to Telegram by WP Telegram.
 		if ( $to_telegram && $by_wptelegram ) {
