@@ -86,6 +86,33 @@ class Admin extends BaseClass {
 	}
 
 	/**
+	 * Fires up plugin version upgrade by sending a non-blocking request to home page
+	 * immediately after the plugin is upgraded to a new version.
+	 *
+	 * @since  x.y.z
+	 *
+	 * @param mixed $upgrader WP Upgrader instance.
+	 * @param array $args     Array of bulk item update data.
+	 */
+	public function fire_plugin_version_upgrade( $upgrader, $args ) {
+		if ( 'update' === $args['action'] && 'plugin' === $args['type'] ) {
+			foreach ( $args['plugins'] as $basename ) {
+				if ( WPTELEGRAM_BASENAME === $basename ) {
+					wp_remote_get(
+						site_url(),
+						[
+							'timeout'   => 0.01,
+							'blocking'  => false,
+							'sslverify' => false,
+						]
+					);
+					break;
+				}
+			}
+		}
+	}
+
+	/**
 	 * Initiate logger
 	 *
 	 * @since    1.0.0

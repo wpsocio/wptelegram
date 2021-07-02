@@ -138,7 +138,7 @@ class PostData {
 				$value = ! empty( $post_type->labels->singular_name ) ? $post_type->labels->singular_name : $this->post->post_type;
 				break;
 
-				/* The post type slug, like post or page. */
+				/* The post type slug, like 'post' or 'page'. */
 			case 'post_type':
 				$value = $this->post->post_type;
 				break;
