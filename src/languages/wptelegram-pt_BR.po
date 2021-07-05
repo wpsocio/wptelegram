@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/manzoorwanijk/wptelegram\n"
-"POT-Creation-Date: 2021-05-30 06:08:38+00:00\n"
+"POT-Creation-Date: 2021-07-05 06:49:43+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:11+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -28,7 +28,7 @@ msgid ""
 "and do lot more :)"
 msgstr ""
 
-#: includes/Main.php:312
+#: includes/Main.php:314
 msgid "WP Telegram"
 msgstr ""
 

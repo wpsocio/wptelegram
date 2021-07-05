@@ -89,7 +89,7 @@ class Admin extends BaseClass {
 	 * Fires up plugin version upgrade by sending a non-blocking request to home page
 	 * immediately after the plugin is upgraded to a new version.
 	 *
-	 * @since  x.y.z
+	 * @since  3.1.2
 	 *
 	 * @param mixed $upgrader WP Upgrader instance.
 	 * @param array $args     Array of bulk item update data.
