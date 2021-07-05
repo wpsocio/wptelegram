@@ -208,6 +208,7 @@ class Admin extends BaseClass {
 				'macros' => [
 					'{ID}',
 					'{post_title}',
+					'{post_slug}',
 					'{post_date}',
 					'{post_date_gmt}',
 					'{post_author}',
