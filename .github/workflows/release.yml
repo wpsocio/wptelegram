@@ -30,7 +30,7 @@ jobs:
           submodules: recursive
 
       - name: Set up Node
-        uses: dcodeIO/setup-node-nvm@master
+        uses: actions/setup-node@v2
         with:
           node-version: lts/*
 

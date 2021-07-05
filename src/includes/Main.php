@@ -289,6 +289,8 @@ final class Main {
 
 		add_filter( 'plugin_action_links_' . WPTELEGRAM_BASENAME, [ $plugin_admin, 'plugin_action_links' ] );
 
+		add_filter( 'upgrader_process_complete', [ $plugin_admin, 'fire_plugin_version_upgrade' ], 10, 2 );
+
 		add_action( 'init', [ $plugin_admin, 'initiate_logger' ] );
 
 		$asset_manager = AssetManager::instance();

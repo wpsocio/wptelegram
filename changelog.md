@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.2 - 2021-07-5](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.2)
+
+### Bug fixes
+
+- Fixed admin page not shown just after upgrade
+- Fixed multiple empty lines in post content and excerpt
+
 ## [3.1.1 - 2021-06-10](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.1)
 
 ### Bug fixes

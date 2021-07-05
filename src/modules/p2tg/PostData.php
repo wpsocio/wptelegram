@@ -138,7 +138,7 @@ class PostData {
 				$value = ! empty( $post_type->labels->singular_name ) ? $post_type->labels->singular_name : $this->post->post_type;
 				break;
 
-				/* The post type slug, like post or page. */
+				/* The post type slug, like 'post' or 'page'. */
 			case 'post_type':
 				$value = $this->post->post_type;
 				break;
@@ -256,6 +256,13 @@ class PostData {
 		}
 
 		$value = apply_filters( 'wptelegram_p2tg_post_data_field_value', $value, $field, $this->post, $params );
+
+		$remove_multi_eol = apply_filters( 'wptelegram_p2tg_post_data_remove_multi_eol', true, $this->post );
+
+		if ( $remove_multi_eol ) {
+			// remove multiple newlines.
+			$value = preg_replace( '/\n[\n\r\s]*\n[\n\r\s]*\n/u', "\n\n", $value );
+		}
 
 		return (string) apply_filters( "wptelegram_p2tg_post_data_{$field}_value", $value, $this->post, $params );
 	}
