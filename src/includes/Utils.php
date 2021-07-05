@@ -245,9 +245,6 @@ class Utils {
 			$text    = preg_replace( $pattern, '${1}', $text ) . $more;
 		}
 
-		// remove multiple newlines.
-		$text = preg_replace( '/\n[\n\r\s]*\n[\n\r\s]*\n/u', "\n\n", $text );
-
 		return apply_filters( 'wptelegram_utils_trim_words', $text, $num_words, $more, $original_text );
 	}
 
