@@ -2,8 +2,8 @@
 Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, notifications, posts, channel, group
-Requires at least: 5.3
-Tested up to: 5.7.2
+Requires at least: 5.4
+Tested up to: 5.8
 Requires PHP: 7.0
 Stable tag: 3.1.2
 License: GPLv2 or later
@@ -13,6 +13,9 @@ Integrate your WordPress site perfectly with Telegram with full control.
 
 == Description ==
 Integrate your WordPress site perfectly with Telegram with full control.
+
+Try it out without installing on your own website
+https://tastewp.com/new?pre-installed-plugin-slug=wptelegram&redirect=wp-admin/admin.php?page=wptelegram&ni=true
 
 == Excellent LIVE Support on Telegram ==
 
