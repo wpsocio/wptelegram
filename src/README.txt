@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.4
 Tested up to: 5.8.1
 Requires PHP: 7.0
-Stable tag: 3.1.2
+Stable tag: 3.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -207,6 +207,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.1.3 =
+- Added `{post_slug}` macro
 
 = 3.1.2 =
 - Fixed admin page not shown just after upgrade

@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.3 - 2021-09-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.3)
+
+### Enhancements
+
+- Added `{post_slug}` macro
+
 ## [3.1.2 - 2021-07-5](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.2)
 
 ### Bug fixes
