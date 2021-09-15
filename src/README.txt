@@ -15,7 +15,7 @@ Integrate your WordPress site perfectly with Telegram with full control.
 Integrate your WordPress site perfectly with Telegram with full control.
 
 Try it out without installing on your own website
-https://tastewp.com/new?pre-installed-plugin-slug=wptelegram&redirect=wp-admin/admin.php?page=wptelegram&ni=true
+[https://tastewp.com/new?pre-installed-plugin-slug=wptelegram](https://tastewp.com/new?pre-installed-plugin-slug=wptelegram&redirect=wp-admin/admin.php?page=wptelegram&ni=true)
 
 == Excellent LIVE Support on Telegram ==
 
