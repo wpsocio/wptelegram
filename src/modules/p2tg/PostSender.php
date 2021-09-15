@@ -1342,6 +1342,7 @@ class PostSender extends BaseClass {
 		$macro_keys = [
 			'ID',
 			'post_title',
+			'post_slug',
 			'post_date',
 			'post_date_gmt',
 			'post_author',

@@ -115,6 +115,13 @@ class PostData {
 				$value = get_the_title( $this->post );
 				break;
 
+			/* Post slug */
+			case 'slug':
+			case 'post_slug':
+			case 'post_name':
+				$value = $this->post->post_name;
+				break;
+
 			/* The post's local publication time */
 			case 'post_date':
 				$value = get_the_date( '', $this->post->ID );

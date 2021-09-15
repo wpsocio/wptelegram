@@ -78,7 +78,7 @@ class Utils {
 
 		} elseif ( is_string( $input ) && preg_match( '/^(?:true|false)$/i', $input ) ) {
 
-			return ( 'true' === strtolower( $input ) ) ? true : false;
+			return 'true' === strtolower( $input );
 		}
 
 		return $input;

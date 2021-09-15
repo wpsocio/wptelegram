@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/manzoorwanijk/wptelegram\n"
-"POT-Creation-Date: 2021-07-05 06:49:43+00:00\n"
+"POT-Creation-Date: 2021-09-15 04:41:07+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:09+0530\n"
 "Last-Translator: \n"
 "Language-Team: Polski\n"
@@ -103,7 +103,7 @@ msgstr "Uzyskaj pomoc na Telegramie"
 msgid "Basics"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:52 modules/p2tg/Admin.php:393
+#: languages/wptelegram-js-translations.php:52 modules/p2tg/Admin.php:394
 msgid "Post to Telegram"
 msgstr "Wyślij do Telegrama"
 
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Upgrade NOW"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:214 modules/p2tg/Admin.php:415
+#: languages/wptelegram-js-translations.php:214 modules/p2tg/Admin.php:416
 msgid "Send to"
 msgstr "Wyślij do"
 
@@ -320,31 +320,31 @@ msgstr "Wyślij do"
 msgid "Add or Upload Files"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:220 modules/p2tg/Admin.php:438
+#: languages/wptelegram-js-translations.php:220 modules/p2tg/Admin.php:439
 msgid "Files to be sent after the message."
 msgstr "Pliki do wysłania po wiadomości."
 
-#: languages/wptelegram-js-translations.php:223 modules/p2tg/Admin.php:437
+#: languages/wptelegram-js-translations.php:223 modules/p2tg/Admin.php:438
 msgid "Files"
 msgstr "Pliki"
 
-#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:465
+#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:466
 msgid "Message Template"
 msgstr "Szablon wiadomości"
 
-#: languages/wptelegram-js-translations.php:230 modules/p2tg/Admin.php:405
+#: languages/wptelegram-js-translations.php:230 modules/p2tg/Admin.php:406
 msgid "Override settings"
 msgstr "Zastąp ustawienia"
 
-#: languages/wptelegram-js-translations.php:234 modules/p2tg/Admin.php:427
+#: languages/wptelegram-js-translations.php:234 modules/p2tg/Admin.php:428
 msgid "Disable Notifications"
 msgstr "Wyłącz powiadomienia"
 
-#: languages/wptelegram-js-translations.php:238 modules/p2tg/Admin.php:448
+#: languages/wptelegram-js-translations.php:238 modules/p2tg/Admin.php:449
 msgid "Delay in Posting"
 msgstr "Opóźnienie w publikowaniu"
 
-#: languages/wptelegram-js-translations.php:241 modules/p2tg/Admin.php:351
+#: languages/wptelegram-js-translations.php:241 modules/p2tg/Admin.php:352
 msgid "Send to Telegram"
 msgstr "Wyślij do Telegrama"
 
@@ -368,7 +368,7 @@ msgstr "Wyłącz, aby przesłać pliki/obrazy, zamiast przekazywać adres URL."
 msgid "The delay starts after the post gets published."
 msgstr "Opóźnienie rozpoczyna się po opublikowaniu posta."
 
-#: languages/wptelegram-js-translations.php:256 modules/p2tg/Admin.php:449
+#: languages/wptelegram-js-translations.php:256 modules/p2tg/Admin.php:450
 msgid "Minute(s)"
 msgstr "Min."
 
@@ -416,7 +416,7 @@ msgstr "Po tekście"
 msgid "Send Featured Image (if exists)."
 msgstr "Wyślij wyróżniony obraz (jeśli istnieje)."
 
-#: languages/wptelegram-js-translations.php:293 modules/p2tg/Admin.php:466
+#: languages/wptelegram-js-translations.php:293 modules/p2tg/Admin.php:467
 msgid "Structure of the message to be sent."
 msgstr "Struktura wysyłanych wiadomości."
 
@@ -959,16 +959,16 @@ msgstr ""
 msgid "Post Data"
 msgstr "Dane postu"
 
-#: modules/p2tg/Admin.php:223
+#: modules/p2tg/Admin.php:224
 msgid "Taxonomy Terms"
 msgstr "Warunki taksonomii"
 
-#: modules/p2tg/Admin.php:227
+#: modules/p2tg/Admin.php:228
 msgid "Custom Fields"
 msgstr "Pola niestandardowe"
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:234
+#: modules/p2tg/Admin.php:235
 msgid ""
 "Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
 "attached to the post."
@@ -976,12 +976,12 @@ msgstr ""
 "Zamień %1$s na %2$s jako nazwę taksonomii, aby wstawić warunki dołączone do "
 "postu."
 
-#: modules/p2tg/Admin.php:234 modules/p2tg/Admin.php:237
+#: modules/p2tg/Admin.php:235 modules/p2tg/Admin.php:238
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr "Na przykład %1$s i %2$s w WooCommerce"
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:237
+#: modules/p2tg/Admin.php:238
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr "Zamień %1$s na %2$s jako nazwa Pola niestandardowego."
 
