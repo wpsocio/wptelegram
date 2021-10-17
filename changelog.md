@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.4 - 2021-10-17](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.4)
+
 ### Bug fixes
 
 - Fixed posts not sent when Formatting is None
