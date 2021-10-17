@@ -321,7 +321,7 @@ class Utils {
 	 *
 	 * @param string $parse_mode Parse mode.
 	 *
-	 * @return string|NULL
+	 * @return string
 	 */
 	public static function valid_parse_mode( $parse_mode ) {
 
@@ -331,7 +331,7 @@ class Utils {
 			case 'HTML':
 				break;
 			default:
-				$parse_mode = null;
+				$parse_mode = '';
 				break;
 		}
 		return $parse_mode;
