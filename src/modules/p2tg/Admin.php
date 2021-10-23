@@ -152,6 +152,7 @@ class Admin extends BaseClass {
 				'files',
 				'delay',
 				'message_template',
+				'send_featured_image',
 			];
 			$saved_settings = [ 'send2tg' => self::send2tg_default() === 'yes' ];
 
@@ -311,7 +312,7 @@ class Admin extends BaseClass {
 	}
 
 	/**
-	 * Add send to Telegram swicth to post edit page
+	 * Add send to Telegram switch to post edit page
 	 * when using classic editor.
 	 *
 	 * @since 1.0.0
@@ -340,7 +341,7 @@ class Admin extends BaseClass {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @param boolean $display_gear Whehter to display link to override metabox.
+	 * @param boolean $display_gear Whether to display link to override metabox.
 	 * @return void
 	 */
 	public function render_post_edit_switch( $display_gear = false ) {
@@ -453,11 +454,23 @@ class Admin extends BaseClass {
 				'type'       => 'text_small',
 				'classes'    => 'hidden depends-upon-override_switch',
 				'attributes' => [
-					'type'        => 'number',
-					'min'         => '0',
+					'min'         => 0,
 					'placeholder' => '0.0',
-					'step'        => '0.5',
+					'step'        => 'any',
+					'type'        => 'number',
 				],
+			]
+		);
+
+		$cmb2->add_field(
+			[
+				'name'       => __( 'Featured Image', 'wptelegram' ),
+				'desc'       => __( 'Send Featured Image (if exists).', 'wptelegram' ),
+				'id'         => Main::PREFIX . 'send_featured_image',
+				'type'       => 'checkbox',
+				'default_cb' => [ $this, 'override_opt_default_cb' ],
+				'classes'    => 'hidden depends-upon-override_switch',
+				'before'     => '<input type="hidden" name="' . Main::PREFIX . 'send_featured_image" value="off" />',
 			]
 		);
 
@@ -470,9 +483,6 @@ class Admin extends BaseClass {
 				'default_cb' => [ $this, 'override_opt_default_cb' ],
 				'escape_cb'  => [ __CLASS__, 'escape_message_template' ],
 				'classes'    => 'hidden depends-upon-override_switch',
-				'attributes' => [
-					'data-emoji-container' => 'p2tg-template-container',
-				],
 			]
 		);
 	}
@@ -527,6 +537,7 @@ class Admin extends BaseClass {
 			case 'disable_notification':
 			case 'delay':
 			case 'message_template':
+			case 'send_featured_image':
 				return $saved_options->get( $field );
 		}
 	}

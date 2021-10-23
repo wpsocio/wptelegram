@@ -2,7 +2,7 @@
 
 **Contributors:** [manzoorwanijk](https://github.com/manzoorwanijk)  
 **Tags:** telegram, notifications, posts, channel, group  
-**Requires at least:** 5.4  
+**Requires at least:** 5.7  
 **Requires PHP:** 7.0  
 **Tested up to:** 5.8.1  
 **Stable tag:** 3.1.4  
