@@ -104,7 +104,7 @@ $generated_i18n_strings = array(
 	__( 'Hit %s below.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
-	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:110
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:119
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
 	// Reference: packages/components/src/Submit/SubmitButton.tsx:15
 	__( 'Save Changes', 'wptelegram' ),
@@ -222,7 +222,15 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/core/p2tg-gb/src/Files.tsx:46
 	__( 'Files', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:102
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:103
+	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:40
+	__( 'Featured Image', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:106
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ImageSettings.tsx:35
+	__( 'Send Featured Image (if exists).', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:111
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:29
 	__( 'Message Template', 'wptelegram' ),
 
@@ -285,9 +293,6 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/ImageSettings.tsx:24
 	// Reference: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:47
 	__( 'After the Text', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ImageSettings.tsx:35
-	__( 'Send Featured Image (if exists).', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/MessageTemplate.tsx:16
 	__( 'Structure of the message to be sent.', 'wptelegram' ),
@@ -570,9 +575,6 @@ $generated_i18n_strings = array(
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:39
 	__( 'Username', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:40
-	__( 'Featured Image', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:41
 	__( 'Send files by URL', 'wptelegram' ),
