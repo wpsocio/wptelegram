@@ -140,7 +140,7 @@ msgid "Hit %s below."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
-#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:110
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:119
 #: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
 #: packages/components/src/Submit/SubmitButton.tsx:15
 msgid "Save Changes"
@@ -298,7 +298,17 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:102
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:103
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:40
+msgid "Featured Image"
+msgstr ""
+
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:106
+#: domains/wptelegram/shared/core-pro/src/components/ImageSettings.tsx:35
+msgid "Send Featured Image (if exists)."
+msgstr ""
+
+#: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:111
 #: domains/wptelegram/shared/core-pro/src/services/fields.ts:29
 msgid "Message Template"
 msgstr ""
@@ -382,10 +392,6 @@ msgstr ""
 #: domains/wptelegram/shared/core-pro/src/components/ImageSettings.tsx:24
 #: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:47
 msgid "After the Text"
-msgstr ""
-
-#: domains/wptelegram/shared/core-pro/src/components/ImageSettings.tsx:35
-msgid "Send Featured Image (if exists)."
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/MessageTemplate.tsx:16
@@ -756,10 +762,6 @@ msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/services/fields.ts:39
 msgid "Username"
-msgstr ""
-
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:40
-msgid "Featured Image"
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/services/fields.ts:41
