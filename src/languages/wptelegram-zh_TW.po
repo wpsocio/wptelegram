@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/manzoorwanijk/wptelegram\n"
-"POT-Creation-Date: 2021-09-15 04:41:07+00:00\n"
+"POT-Creation-Date: 2021-10-23 10:39:43+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:27+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Basics"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:52 modules/p2tg/Admin.php:394
+#: languages/wptelegram-js-translations.php:52 modules/p2tg/Admin.php:395
 msgid "Post to Telegram"
 msgstr "文章通知"
 
@@ -300,7 +300,7 @@ msgstr ""
 msgid "Upgrade NOW"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:214 modules/p2tg/Admin.php:416
+#: languages/wptelegram-js-translations.php:214 modules/p2tg/Admin.php:417
 msgid "Send to"
 msgstr "傳送給"
 
@@ -308,655 +308,655 @@ msgstr "傳送給"
 msgid "Add or Upload Files"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:220 modules/p2tg/Admin.php:439
+#: languages/wptelegram-js-translations.php:220 modules/p2tg/Admin.php:440
 msgid "Files to be sent after the message."
 msgstr "檔案在訊息之後傳送."
 
-#: languages/wptelegram-js-translations.php:223 modules/p2tg/Admin.php:438
+#: languages/wptelegram-js-translations.php:223 modules/p2tg/Admin.php:439
 msgid "Files"
 msgstr "檔案"
 
-#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:466
+#: languages/wptelegram-js-translations.php:227 modules/p2tg/Admin.php:467
+msgid "Featured Image"
+msgstr "精選圖片"
+
+#: languages/wptelegram-js-translations.php:231 modules/p2tg/Admin.php:468
+msgid "Send Featured Image (if exists)."
+msgstr "傳送精選圖片 (如果有)"
+
+#: languages/wptelegram-js-translations.php:235 modules/p2tg/Admin.php:479
 msgid "Message Template"
 msgstr "訊息範本"
 
-#: languages/wptelegram-js-translations.php:230 modules/p2tg/Admin.php:406
+#: languages/wptelegram-js-translations.php:238 modules/p2tg/Admin.php:407
 msgid "Override settings"
 msgstr "覆寫設定"
 
-#: languages/wptelegram-js-translations.php:234 modules/p2tg/Admin.php:428
+#: languages/wptelegram-js-translations.php:242 modules/p2tg/Admin.php:429
 msgid "Disable Notifications"
 msgstr "關閉通知"
 
-#: languages/wptelegram-js-translations.php:238 modules/p2tg/Admin.php:449
+#: languages/wptelegram-js-translations.php:246 modules/p2tg/Admin.php:450
 msgid "Delay in Posting"
 msgstr "延遲發送文章通知"
 
-#: languages/wptelegram-js-translations.php:241 modules/p2tg/Admin.php:352
+#: languages/wptelegram-js-translations.php:249 modules/p2tg/Admin.php:353
 msgid "Send to Telegram"
 msgstr "傳送至 Telegram"
 
-#: languages/wptelegram-js-translations.php:244
+#: languages/wptelegram-js-translations.php:252
 msgid "View log"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:247
+#: languages/wptelegram-js-translations.php:255
 msgid ""
 "Settings in this section should not be changed unless recommended by WP "
 "Telegram Support."
 msgstr "除非 WP Telegram Support 的建議，否則不該修改此區塊的設定。"
 
-#: languages/wptelegram-js-translations.php:250
+#: languages/wptelegram-js-translations.php:258
 msgid "Turn off to upload the files/images instead of passing the url."
 msgstr "關閉以上傳檔案/圖片，而不是傳遞網址。"
 
-#: languages/wptelegram-js-translations.php:253
+#: languages/wptelegram-js-translations.php:261
 msgid "The delay starts after the post gets published."
 msgstr "延遲將從文章發表後開始計算。"
 
-#: languages/wptelegram-js-translations.php:256 modules/p2tg/Admin.php:450
+#: languages/wptelegram-js-translations.php:264 modules/p2tg/Admin.php:451
 msgid "Minute(s)"
 msgstr "分鐘"
 
-#: languages/wptelegram-js-translations.php:259
+#: languages/wptelegram-js-translations.php:267
 msgid "WordPress cron should not be disabled!"
 msgstr "WordPress cron 不該被停用!"
 
-#: languages/wptelegram-js-translations.php:262
+#: languages/wptelegram-js-translations.php:270
 msgid "Send the messages silently."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:265
+#: languages/wptelegram-js-translations.php:273
 msgid "Users will receive a notification with no sound."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:268
+#: languages/wptelegram-js-translations.php:276
 msgid "Post Content"
 msgstr "貼文內容"
 
-#: languages/wptelegram-js-translations.php:271
+#: languages/wptelegram-js-translations.php:279
 msgid "Before \"Read More\""
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:274
+#: languages/wptelegram-js-translations.php:282
 msgid "Post Excerpt"
 msgstr "貼文摘要"
 
-#: languages/wptelegram-js-translations.php:277
+#: languages/wptelegram-js-translations.php:285
 msgid "Number of words for the excerpt."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:280
+#: languages/wptelegram-js-translations.php:288
 msgid "Preserve newlines in Post Excerpt."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:283
+#: languages/wptelegram-js-translations.php:291
 msgid "Before the Text"
 msgstr "文字前面"
 
-#: languages/wptelegram-js-translations.php:287
+#: languages/wptelegram-js-translations.php:295
 msgid "After the Text"
 msgstr "文字後面"
 
-#: languages/wptelegram-js-translations.php:290
-msgid "Send Featured Image (if exists)."
-msgstr "傳送精選圖片 (如果有)"
-
-#: languages/wptelegram-js-translations.php:293 modules/p2tg/Admin.php:467
+#: languages/wptelegram-js-translations.php:298 modules/p2tg/Admin.php:480
 msgid "Structure of the message to be sent."
 msgstr "訊息送出的結構"
 
-#: languages/wptelegram-js-translations.php:296
+#: languages/wptelegram-js-translations.php:301
 msgid "Send categories as hashtags."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:299
+#: languages/wptelegram-js-translations.php:304
 msgid "Disables previews for links in the messages."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:302
+#: languages/wptelegram-js-translations.php:307
 msgid "To receive notifications privately:"
 msgstr "私下接收通知："
 
 #. translators: 1 bot username
-#: languages/wptelegram-js-translations.php:306
+#: languages/wptelegram-js-translations.php:311
 msgid "Get your Chat ID from %s and enter it below."
 msgstr "從 %s 取得你的 Chat ID 並且在下方輸入。"
 
 #. translators: 1 bot username
-#: languages/wptelegram-js-translations.php:310
+#: languages/wptelegram-js-translations.php:315
 msgid "Send your own bot %s a message to start the conversation."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:313
+#: languages/wptelegram-js-translations.php:318
 msgid "To receive notifications into a group:"
 msgstr "在群組中接收通知:"
 
 #. translators: 1 bot username
-#: languages/wptelegram-js-translations.php:317
+#: languages/wptelegram-js-translations.php:322
 msgid "Add %s to the group to get its Chat ID."
 msgstr "將 %s 新增到群組以取得其 Chat ID。"
 
-#: languages/wptelegram-js-translations.php:320
+#: languages/wptelegram-js-translations.php:325
 msgid "Enter the Chat ID in %s field below."
 msgstr "在下方 %s 中輸入 chat_id。"
 
-#: languages/wptelegram-js-translations.php:324
+#: languages/wptelegram-js-translations.php:329
 msgid "Send it to"
 msgstr "傳送給"
 
 #. translators: 1 bot username
-#: languages/wptelegram-js-translations.php:328
+#: languages/wptelegram-js-translations.php:333
 msgid "Add your own bot %s to the group."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:332
+#: languages/wptelegram-js-translations.php:337
 msgid "You can use any text, emojis or these macros in any order."
 msgstr "你可以使用任何文字、emoji 或是這些表情符號"
 
-#: languages/wptelegram-js-translations.php:335
+#: languages/wptelegram-js-translations.php:340
 msgid "Create a Telegram channel or group."
 msgstr "建立 Channel/group."
 
-#: languages/wptelegram-js-translations.php:338
+#: languages/wptelegram-js-translations.php:343
 msgid "Add your bot %s as Administrator to your Channel/Group."
 msgstr "將你的 Bot %s 設定為該 Channel/Group 的管理員."
 
-#: languages/wptelegram-js-translations.php:341
+#: languages/wptelegram-js-translations.php:346
 msgid "Enter the Channel Username in the field below."
 msgstr "在下方欄位輸入 Channel Username."
 
-#: languages/wptelegram-js-translations.php:344
+#: languages/wptelegram-js-translations.php:349
 msgid "Username must start with %s"
 msgstr "Username 必須以 %s 為開頭"
 
-#: languages/wptelegram-js-translations.php:347
+#: languages/wptelegram-js-translations.php:352
 msgid "You can also use the Chat ID of a group or private chat."
 msgstr "你也可以使用私人對話或群組的 Chat ID。"
 
-#: languages/wptelegram-js-translations.php:350
+#: languages/wptelegram-js-translations.php:355
 msgid "Get it from %s."
 msgstr "從這裡取得 %s."
 
-#: languages/wptelegram-js-translations.php:353
+#: languages/wptelegram-js-translations.php:358
 msgid "Show an ON/OFF switch on the post edit screen."
 msgstr "在編輯貼文視窗顯示 ON/OFF 開關"
 
-#: languages/wptelegram-js-translations.php:356
+#: languages/wptelegram-js-translations.php:361
 #, fuzzy
 msgid "You can use this switch to override the settings for a particular post."
 msgstr "針對特定貼文，你可以用這個開關去覆寫上面的設定"
 
-#: languages/wptelegram-js-translations.php:359
+#: languages/wptelegram-js-translations.php:364
 msgid "Enable this option if you use a plugin to generate posts."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:363
+#: languages/wptelegram-js-translations.php:368
 msgid "None"
 msgstr "無"
 
-#: languages/wptelegram-js-translations.php:366
+#: languages/wptelegram-js-translations.php:371
 msgid "Markdown style"
 msgstr "Markdown 樣式"
 
-#: languages/wptelegram-js-translations.php:369
+#: languages/wptelegram-js-translations.php:374
 msgid "HTML style"
 msgstr "HTML 樣式"
 
-#: languages/wptelegram-js-translations.php:373
+#: languages/wptelegram-js-translations.php:378
 msgid "Learn more"
 msgstr "了解更多"
 
-#: languages/wptelegram-js-translations.php:376
+#: languages/wptelegram-js-translations.php:381
 msgid "Send both text and image in single message."
 msgstr "文字和圖片在單一訊息中傳送"
 
 #. translators: 1 - field name, 2 - value
-#: languages/wptelegram-js-translations.php:380
+#: languages/wptelegram-js-translations.php:385
 msgid "When %1$s is set to %2$s:"
 msgstr ""
 
 #. translators: 1 - field name, 2 - value
-#: languages/wptelegram-js-translations.php:384
+#: languages/wptelegram-js-translations.php:389
 msgid "%1$s should not be %2$s."
 msgstr "%1$s 不該為 %2$s."
 
 #. translators: 1 - field name
-#: languages/wptelegram-js-translations.php:388
+#: languages/wptelegram-js-translations.php:393
 msgid "%s should not be enabled."
 msgstr "%s 不該被檢查."
 
-#: languages/wptelegram-js-translations.php:391
+#: languages/wptelegram-js-translations.php:396
 msgid "You can also use conditional logic in the template."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:394
+#: languages/wptelegram-js-translations.php:399
 msgid "Allow users receive their email notifications on Telegram."
 msgstr "允許使用者在 Telegram 上接收他們的 email 通知."
 
 #. translators: 1 Plugin name
-#: languages/wptelegram-js-translations.php:398
+#: languages/wptelegram-js-translations.php:403
 msgid "Use %s to let them connect their Telegram account."
 msgstr "使用 %s 讓他們連接他們的 Telegram 帳戶。"
 
 #. translators: 1 profile page
-#: languages/wptelegram-js-translations.php:402
+#: languages/wptelegram-js-translations.php:407
 msgid "They can also enter their Telegram Chat ID manually on %s page."
 msgstr "他們也可以在 %s 頁面手動輸入他們的 Telegram Chat ID"
 
-#: languages/wptelegram-js-translations.php:405
+#: languages/wptelegram-js-translations.php:410
 msgid "profile"
 msgstr "設定檔"
 
-#: languages/wptelegram-js-translations.php:409
+#: languages/wptelegram-js-translations.php:414
 msgid "The requests to Telegram will be sent via this URL."
 msgstr "將會透過你的 Google Script 發送要求到 Telegram。"
 
-#: languages/wptelegram-js-translations.php:412
+#: languages/wptelegram-js-translations.php:417
 msgid "HTTP"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:415
+#: languages/wptelegram-js-translations.php:420
 msgid "SOCKS4"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:418
+#: languages/wptelegram-js-translations.php:423
 msgid "SOCKS4A"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:421
+#: languages/wptelegram-js-translations.php:426
 msgid "SOCKS5"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:424
+#: languages/wptelegram-js-translations.php:429
 msgid "SOCKS5_HOSTNAME"
 msgstr ""
 
 #. translators: IP address
-#: languages/wptelegram-js-translations.php:428
+#: languages/wptelegram-js-translations.php:433
 msgid "Host IP or domain name like %s."
 msgstr ""
 
 #. translators: proxy port
-#: languages/wptelegram-js-translations.php:432
+#: languages/wptelegram-js-translations.php:437
 msgid "Target Port like %s."
 msgstr "目標 Port 像是 %s"
 
-#: languages/wptelegram-js-translations.php:435
+#: languages/wptelegram-js-translations.php:440
 msgid "Leave empty if not required."
 msgstr "如果不需要可以留空"
 
-#: languages/wptelegram-js-translations.php:438
+#: languages/wptelegram-js-translations.php:443
 msgid "Cloudflare worker"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:441
+#: languages/wptelegram-js-translations.php:446
 msgid "Google Script"
 msgstr "Google Script"
 
-#: languages/wptelegram-js-translations.php:444
+#: languages/wptelegram-js-translations.php:449
 msgid "PHP Proxy"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:447
+#: languages/wptelegram-js-translations.php:452
 msgid ""
 "The module will help you bypass the ban on Telegram by making use of proxy."
 msgstr "此模組將協助你利用 proxy 來繞過 Telegram 的阻擋。"
 
-#: languages/wptelegram-js-translations.php:450
+#: languages/wptelegram-js-translations.php:455
 #, fuzzy
 msgid "Cloudflare worker is preferred."
 msgstr "首選為 Google Script."
 
-#: languages/wptelegram-js-translations.php:453
+#: languages/wptelegram-js-translations.php:458
 msgid "Use the proxy at your own risk!"
 msgstr "你需自行承擔使用 proxy 代理伺服器的風險!"
 
-#: languages/wptelegram-js-translations.php:456
+#: languages/wptelegram-js-translations.php:461
 msgid "DISCLAIMER!"
 msgstr "免責聲明!"
 
-#: languages/wptelegram-js-translations.php:459
+#: languages/wptelegram-js-translations.php:464
 msgid "Proxy settings"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:464
+#: languages/wptelegram-js-translations.php:469
 msgid "Add"
 msgstr "新增"
 
-#: languages/wptelegram-js-translations.php:467
+#: languages/wptelegram-js-translations.php:472
 msgid "AND"
 msgstr "並且"
 
-#: languages/wptelegram-js-translations.php:470
+#: languages/wptelegram-js-translations.php:475
 msgid "OR"
 msgstr "或是"
 
-#: languages/wptelegram-js-translations.php:473
+#: languages/wptelegram-js-translations.php:478
 msgid "You can also define custom rules to send the posts."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:476
+#: languages/wptelegram-js-translations.php:481
 msgid "Remove"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:479
+#: languages/wptelegram-js-translations.php:484
 msgid "is in"
 msgstr "包含"
 
-#: languages/wptelegram-js-translations.php:482
+#: languages/wptelegram-js-translations.php:487
 msgid "is not in"
 msgstr "不包含"
 
-#: languages/wptelegram-js-translations.php:485
+#: languages/wptelegram-js-translations.php:490
 msgid "Rule type"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:488
+#: languages/wptelegram-js-translations.php:493
 msgid "Rule operator"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:491
+#: languages/wptelegram-js-translations.php:496
 msgid "Select..."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:494
+#: languages/wptelegram-js-translations.php:499
 msgid "Loading..."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:497
+#: languages/wptelegram-js-translations.php:502
 msgid "No options available"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:500
+#: languages/wptelegram-js-translations.php:505
 #, fuzzy
 msgid "Rule values"
 msgstr "規則"
 
-#: languages/wptelegram-js-translations.php:503
+#: languages/wptelegram-js-translations.php:508
 msgid "Bot"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:506
+#: languages/wptelegram-js-translations.php:511
 msgid "Bot Token"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:509
+#: languages/wptelegram-js-translations.php:514
 msgid "Bot Username"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:512
+#: languages/wptelegram-js-translations.php:517
 msgid "Categories as hashtags"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:515
+#: languages/wptelegram-js-translations.php:520
 msgid "Cloudflare worker URL"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:518
+#: languages/wptelegram-js-translations.php:523
 msgid "Channel(s)"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:521
+#: languages/wptelegram-js-translations.php:526
 msgid "Chat ID"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:524
+#: languages/wptelegram-js-translations.php:529
 msgid "Remove settings on uninstall"
 msgstr "在移除時刪除設定"
 
-#: languages/wptelegram-js-translations.php:527
+#: languages/wptelegram-js-translations.php:532
 msgid "Debug Info"
 msgstr "偵錯資訊"
 
-#: languages/wptelegram-js-translations.php:530
+#: languages/wptelegram-js-translations.php:535
 msgid "Disable Web Page Preview"
 msgstr "禁用網頁預覽"
 
-#: languages/wptelegram-js-translations.php:533
+#: languages/wptelegram-js-translations.php:538
 msgid "Enable logs for"
 msgstr "啟用記錄以"
 
-#: languages/wptelegram-js-translations.php:536
+#: languages/wptelegram-js-translations.php:541
 msgid "Excerpt Length"
 msgstr "摘要長度"
 
-#: languages/wptelegram-js-translations.php:539
+#: languages/wptelegram-js-translations.php:544
 msgid "Excerpt Newlines"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:542
+#: languages/wptelegram-js-translations.php:547
 msgid "Excerpt Source"
 msgstr "摘要來源"
 
-#: languages/wptelegram-js-translations.php:545
+#: languages/wptelegram-js-translations.php:550
 msgid "Google Script URL"
 msgstr "Google Script URL"
 
-#: languages/wptelegram-js-translations.php:548
+#: languages/wptelegram-js-translations.php:553
 msgid "Image Position"
 msgstr "圖片位置"
 
-#: languages/wptelegram-js-translations.php:551
+#: languages/wptelegram-js-translations.php:556
 msgid "Formatting"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:554
+#: languages/wptelegram-js-translations.php:559
 msgid "Plugin generated posts"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:557
+#: languages/wptelegram-js-translations.php:562
 msgid "Post edit switch"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:560
+#: languages/wptelegram-js-translations.php:565
 msgid "Proxy Host"
 msgstr "Proxy 代理伺服器主機"
 
-#: languages/wptelegram-js-translations.php:563
+#: languages/wptelegram-js-translations.php:568
 msgid "Password"
 msgstr "密碼"
 
-#: languages/wptelegram-js-translations.php:566
+#: languages/wptelegram-js-translations.php:571
 msgid "Proxy Port"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:569
+#: languages/wptelegram-js-translations.php:574
 msgid "Proxy Type"
 msgstr "Proxy 類型"
 
-#: languages/wptelegram-js-translations.php:572
+#: languages/wptelegram-js-translations.php:577
 msgid "Username"
 msgstr "使用者名稱"
 
-#: languages/wptelegram-js-translations.php:575
-msgid "Featured Image"
-msgstr "精選圖片"
-
-#: languages/wptelegram-js-translations.php:578
+#: languages/wptelegram-js-translations.php:580
 msgid "Send files by URL"
 msgstr "使用超連結傳送檔案"
 
-#: languages/wptelegram-js-translations.php:581
+#: languages/wptelegram-js-translations.php:583
 msgid "Single message"
 msgstr "單一訊息"
 
-#: languages/wptelegram-js-translations.php:584
+#: languages/wptelegram-js-translations.php:586
 msgid "Notifications to Users"
 msgstr "使用者通知"
 
-#: languages/wptelegram-js-translations.php:587
+#: languages/wptelegram-js-translations.php:589
 msgid "Active"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:590
+#: languages/wptelegram-js-translations.php:592
 msgid "Please read the instructions above."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:593
+#: languages/wptelegram-js-translations.php:595
 #, fuzzy
 msgid "No"
 msgstr "無"
 
-#: languages/wptelegram-js-translations.php:596
+#: languages/wptelegram-js-translations.php:598
 msgid "Yes"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:599
+#: languages/wptelegram-js-translations.php:601
 msgid "INSTRUCTIONS!"
 msgstr "操作說明"
 
-#: languages/wptelegram-js-translations.php:602
+#: languages/wptelegram-js-translations.php:604
 msgid "Click here for instructions."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:605
+#: languages/wptelegram-js-translations.php:607
 msgid "Do you like %s?"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:608
+#: languages/wptelegram-js-translations.php:610
 msgid "Write a review"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:611
+#: languages/wptelegram-js-translations.php:613
 msgid "Need help?"
 msgstr "需要協助嗎？"
 
-#: languages/wptelegram-js-translations.php:614
+#: languages/wptelegram-js-translations.php:616
 msgid "Members Count:"
 msgstr "成員數量:"
 
-#: languages/wptelegram-js-translations.php:617
+#: languages/wptelegram-js-translations.php:619
 #, fuzzy
 msgid "Result:"
 msgstr "測試結果:"
 
-#: languages/wptelegram-js-translations.php:620
+#: languages/wptelegram-js-translations.php:622
 msgid "Test Result:"
 msgstr "測試結果:"
 
-#: languages/wptelegram-js-translations.php:623
+#: languages/wptelegram-js-translations.php:625
 msgid "Follow %s"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:626
+#: languages/wptelegram-js-translations.php:628
 msgid "Join %s"
 msgstr ""
 
 #. translators: 1, 2 Menu names
-#: languages/wptelegram-js-translations.php:630
+#: languages/wptelegram-js-translations.php:632
 msgid "Goto %1$s and click/drag %2$s and place it where you want it to be."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:633
+#: languages/wptelegram-js-translations.php:635
 msgid "Appearance"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:636
+#: languages/wptelegram-js-translations.php:638
 msgid "Widgets"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:639
+#: languages/wptelegram-js-translations.php:641
 msgid ""
 "Alternately, you can use the below shortcode or the block available in block "
 "editor."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:642
+#: languages/wptelegram-js-translations.php:644
 msgid "Inside page or post content:"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:645
+#: languages/wptelegram-js-translations.php:647
 msgid "Inside the theme templates"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:648
+#: languages/wptelegram-js-translations.php:650
 msgid "or"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:651
+#: languages/wptelegram-js-translations.php:653
 msgid "Widget Info"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:655
+#: languages/wptelegram-js-translations.php:657
 msgid "Please wait…"
 msgstr "請稍候..."
 
-#: languages/wptelegram-js-translations.php:658
+#: languages/wptelegram-js-translations.php:660
 msgid "Send Test"
 msgstr "測試傳送"
 
-#: languages/wptelegram-js-translations.php:661
+#: languages/wptelegram-js-translations.php:663
 msgid "Something went wrong"
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:664
+#: languages/wptelegram-js-translations.php:666
 msgid "Could not connect"
 msgstr "無法連線"
 
-#: languages/wptelegram-js-translations.php:667
+#: languages/wptelegram-js-translations.php:669
 msgid "Error:"
 msgstr "錯誤:"
 
-#: languages/wptelegram-js-translations.php:670
+#: languages/wptelegram-js-translations.php:672
 msgid ""
 "A message will be sent to the Channel/Group/Chat. You can modify the text "
 "below"
 msgstr "將會傳送一則訊息到此 Channel/Chat。你可以在下方修改訊息."
 
-#: languages/wptelegram-js-translations.php:673
+#: languages/wptelegram-js-translations.php:675
 msgid "This is a test message"
 msgstr "這是一則測試訊息"
 
-#: languages/wptelegram-js-translations.php:676
+#: languages/wptelegram-js-translations.php:678
 msgid "Success"
 msgstr "成功"
 
-#: languages/wptelegram-js-translations.php:679
+#: languages/wptelegram-js-translations.php:681
 msgid "Lets fix these errors first."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:682
+#: languages/wptelegram-js-translations.php:684
 msgid "Changes saved successfully."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:685
+#: languages/wptelegram-js-translations.php:687
 msgid "Invalid %s"
 msgstr "無效的 %s"
 
-#: languages/wptelegram-js-translations.php:688
+#: languages/wptelegram-js-translations.php:690
 msgid "%s required."
 msgstr ""
 
-#: languages/wptelegram-js-translations.php:691
+#: languages/wptelegram-js-translations.php:693
 msgid "Changes could not be saved."
 msgstr ""
 
-#: modules/p2tg/Admin.php:207
+#: modules/p2tg/Admin.php:208
 msgid "Post Data"
 msgstr "文章資料"
 
-#: modules/p2tg/Admin.php:224
+#: modules/p2tg/Admin.php:225
 msgid "Taxonomy Terms"
 msgstr "分類詞彙"
 
-#: modules/p2tg/Admin.php:228
+#: modules/p2tg/Admin.php:229
 msgid "Custom Fields"
 msgstr "自訂欄位"
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:235
+#: modules/p2tg/Admin.php:236
 msgid ""
 "Replace %1$s in %2$s by the name of the taxonomy to insert its terms "
 "attached to the post."
 msgstr "將文章中附加的分類名稱以 %2$s 形式來取代 %1$s。"
 
-#: modules/p2tg/Admin.php:235 modules/p2tg/Admin.php:238
+#: modules/p2tg/Admin.php:236 modules/p2tg/Admin.php:239
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr "舉例來說，%1$s and %2$s 在 WooCommerce"
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:238
+#: modules/p2tg/Admin.php:239
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr "在自訂欄位名稱中，以 %2$s 來取代 %1$s。"
 
