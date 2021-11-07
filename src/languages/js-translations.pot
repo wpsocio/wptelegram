@@ -394,6 +394,18 @@ msgstr ""
 msgid "After the Text"
 msgstr ""
 
+#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:71
+msgid "Edit button"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:78
+msgid "Copy button"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:85
+msgid "Delete button"
+msgstr ""
+
 #: domains/wptelegram/shared/core-pro/src/components/MessageTemplate.tsx:16
 msgid "Structure of the message to be sent."
 msgstr ""
