@@ -394,15 +394,15 @@ msgstr ""
 msgid "After the Text"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:71
+#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:67
 msgid "Edit button"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:78
+#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:74
 msgid "Copy button"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:85
+#: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:81
 msgid "Delete button"
 msgstr ""
 
