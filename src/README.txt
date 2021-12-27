@@ -1,6 +1,6 @@
 === WP Telegram (Auto Post and Notifications) ===
-Contributors: manzoorwanijk
-Donate link: https://paypal.me/manzoorwanijk
+Contributors: wpsocio, irshadahmad21
+Donate link: https://wpsocio.com
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.7
 Tested up to: 5.8.1
@@ -91,7 +91,7 @@ https://www.youtube.com/watch?v=gVJCtwkorMA
 *	Twitter [@WPTelegram](https://twitter.com/WPTelegram)
 
 **Contribution**
-Development occurs on [Github](https://github.com/manzoorwanijk/wptelegram), and all contributions welcome.
+Development occurs on [Github](https://github.com/wpsocio/wptelegram), and all contributions welcome.
 
 **Translations**
 

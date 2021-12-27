@@ -4,7 +4,7 @@
  *
  * A class definition that includes attributes and functions used across the module
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      1.0.0
  *
  * @package    WPTelegram
@@ -21,7 +21,7 @@ use WPTelegram\Core\modules\BaseModule;
  * @since      1.0.0
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\notify
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class Main extends BaseModule {
 

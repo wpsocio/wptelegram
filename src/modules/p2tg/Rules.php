@@ -2,7 +2,7 @@
 /**
  * Handle the rules for P2TG
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      1.0.0
  *
  * @package    WPTelegram
@@ -18,7 +18,7 @@ use WP_Post;
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\p2tg
- * @author     Manzoor Wani
+ * @author     WP Socio
  */
 class Rules {
 

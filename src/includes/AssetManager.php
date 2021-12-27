@@ -2,7 +2,7 @@
 /**
  * The assets manager of the plugin.
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      3.0.0
  *
  * @package    WPTelegram\Core
@@ -22,7 +22,7 @@ use WPTelegram\Core\includes\restApi\SettingsController;
  *
  * @package    WPTelegram\Core
  * @subpackage WPTelegram\Core\includes
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class AssetManager extends BaseClass {
 

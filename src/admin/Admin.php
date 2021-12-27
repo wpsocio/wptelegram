@@ -2,7 +2,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      1.0.0
  *
  * @package    WPTelegram
@@ -23,7 +23,7 @@ use WPTelegram\Core\includes\Logger;
  *
  * @package    WPTelegram\Core
  * @subpackage WPTelegram\Core\admin
- * @author     Manzoor Wani
+ * @author     WP Socio
  */
 class Admin extends BaseClass {
 

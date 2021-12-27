@@ -4,51 +4,51 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
-## [3.1.5 - 2021-10-23](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.5)
+## [3.1.5 - 2021-10-23](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.5)
 
 ### Enhancements
 
 - Added override option for Send Featured Image.
 
-## [3.1.4 - 2021-10-17](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.4)
+## [3.1.4 - 2021-10-17](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.4)
 
 ### Bug fixes
 
 - Fixed posts not sent when Formatting is None
 
-## [3.1.3 - 2021-09-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.3)
+## [3.1.3 - 2021-09-15](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.3)
 
 ### Enhancements
 
 - Added `{post_slug}` macro
 
-## [3.1.2 - 2021-07-5](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.2)
+## [3.1.2 - 2021-07-5](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.2)
 
 ### Bug fixes
 
 - Fixed admin page not shown just after upgrade
 - Fixed multiple empty lines in post content and excerpt
 
-## [3.1.1 - 2021-06-10](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.1)
+## [3.1.1 - 2021-06-10](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.1)
 
 ### Bug fixes
 
 - Fixed file upload for CloudFlare proxy
 
-## [3.1.0 - 2021-05-30](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.1.0)
+## [3.1.0 - 2021-05-30](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.0)
 
 ### Enhancements
 
 - Added CloudFlare Proxy support 🚀
 - Added `{post_type}` and `{post_type_label}` macros
 
-## [3.0.11 - 2021-05-7](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.11)
+## [3.0.11 - 2021-05-7](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.11)
 
 ### Bug fixes
 
 - Fixed WooCommerce REST API products not sent to Telegram
 
-## [3.0.10 - 2021-04-28](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.10)
+## [3.0.10 - 2021-04-28](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.10)
 
 ### Enhancements
 
@@ -60,7 +60,7 @@ All notable changes to this project are documented in this file.
 
 - Fixed the issue of settings not saved due to trailing slash redirects
 
-## [3.0.9 - 2021-04-18](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.9)
+## [3.0.9 - 2021-04-18](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.9)
 
 ### Bug fixes
 
@@ -70,14 +70,14 @@ All notable changes to this project are documented in this file.
 - Fixed i18n for block editor override settings
 - Fixed the Disable Notification settings not being reflected on post edit page
 
-## [3.0.8 - 2021-04-16](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.8)
+## [3.0.8 - 2021-04-16](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.8)
 
 ### Bug fixes
 
 - Fixed saving empty channels crashing the settings page
 - Fixed "Changes could not be saved" error for old upgrades
 
-## [3.0.7 - 2021-04-9](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.7)
+## [3.0.7 - 2021-04-9](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.7)
 
 ### Bug fixes
 
@@ -85,13 +85,13 @@ All notable changes to this project are documented in this file.
 - Removed "Post edit switch" from post edit page when disabled.
 - Minor admin UI fixes.
 
-## [3.0.6 - 2021-04-7](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.6)
+## [3.0.6 - 2021-04-7](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.6)
 
 ### Bug fixes
 
 - Fixed "Send to Telegram" flag not saved for block editor drafts.
 
-## [3.0.5 - 2021-04-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.5)
+## [3.0.5 - 2021-04-1](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.5)
 
 ### Bug fixes
 
@@ -100,13 +100,13 @@ All notable changes to this project are documented in this file.
 - Fixed the issue of delayed posts not sent.
 - Fixed the empty rules being saved, preventing posts from being sent to Telegram.
 
-## [3.0.4 - 2021-03-30](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.4)
+## [3.0.4 - 2021-03-30](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.4)
 
 ### Bug fixes
 
 - Fixed wrong template when using CMB2 override settings.
 
-## [3.0.3 - 2021-03-29](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.3)
+## [3.0.3 - 2021-03-29](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.3)
 
 ### Enhancements
 
@@ -120,19 +120,19 @@ All notable changes to this project are documented in this file.
 - Fixed the Update failed issue in block editor for drafts
 - Fixed the fatal error for old block editor posts
 
-## [3.0.2 - 2021-03-21](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.2)
+## [3.0.2 - 2021-03-21](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.2)
 
 ### Bug fixes
 
 - Fixed the issue of posts not sent when using WP CLI
 
-## [3.0.1 - 2021-03-20](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.1)
+## [3.0.1 - 2021-03-20](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.1)
 
 ### Bug fixes
 
 - Fixed the last messed up update
 
-## [3.0.0 - 2021-03-20](https://github.com/manzoorwanijk/wptelegram/releases/tag/v3.0.0)
+## [3.0.0 - 2021-03-20](https://github.com/wpsocio/wptelegram/releases/tag/v3.0.0)
 
 ### Enhancements
 
@@ -148,7 +148,7 @@ All notable changes to this project are documented in this file.
 - Fixed the YouTube links being stripped out from the content.
 - Minor fixes.
 
-## [2.2.5 - 2021-01-23](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.5)
+## [2.2.5 - 2021-01-23](https://github.com/wpsocio/wptelegram/releases/tag/v2.2.5)
 
 ### Enhancements
 
@@ -159,7 +159,7 @@ All notable changes to this project are documented in this file.
 
 - Fixed errors for PHP 8
 
-## [2.2.4 - 2021-01-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.4)
+## [2.2.4 - 2021-01-3](https://github.com/wpsocio/wptelegram/releases/tag/v2.2.4)
 
 ### Enhancements
 
@@ -169,7 +169,7 @@ All notable changes to this project are documented in this file.
 
 - Fixed the bug in notifications when email has multiple recepients.
 
-## [2.2.3 - 2020-10-3](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.3)
+## [2.2.3 - 2020-10-3](https://github.com/wpsocio/wptelegram/releases/tag/v2.2.3)
 
 ### Bug fixes
 
@@ -179,50 +179,50 @@ All notable changes to this project are documented in this file.
 
 - Moved Telegram user ID field to WP Telegram Login
 
-## [2.2.2 - 2020-08-16](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.2)
+## [2.2.2 - 2020-08-16](https://github.com/wpsocio/wptelegram/releases/tag/v2.2.2)
 
 ### Bug fixes
 
 - Fixed HTML characters in categories as hashtags.
 - Fixed admin menu icon
 
-## [2.2.1 - 2020-08-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.1)
+## [2.2.1 - 2020-08-1](https://github.com/wpsocio/wptelegram/releases/tag/v2.2.1)
 
 ### Enhancements
 
 - Update for WP Telegram Pro
 
-## [2.2.0 - 2020-06-14](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.2.0)
+## [2.2.0 - 2020-06-14](https://github.com/wpsocio/wptelegram/releases/tag/v2.2.0)
 
 ### Enhancements
 
 - Unified Telegram user ID for all plugins
 
-## [2.1.15 - 2020-04-5](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.15)
+## [2.1.15 - 2020-04-5](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.15)
 
 ### Enhancements
 
 - Added all the registered taxonomies to macros for Message Template
 
-## [2.1.13 - 2020-03-8](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.13)
+## [2.1.13 - 2020-03-8](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.13)
 
 ### Enhancements
 
 - Added "Plugin generated posts" option to allow posts not created by humans.
 
-## [2.1.12 - 2019-12-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.12)
+## [2.1.12 - 2019-12-15](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.12)
 
 ### Bug fixes
 
 - Fixed double posting by block editor.
 
-## [2.1.11 - 2019-11-15](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.11)
+## [2.1.11 - 2019-11-15](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.11)
 
 ### Bug fixes
 
 - Fixed the text input styles.
 
-## [2.1.10 - 2019-10-23](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.10)
+## [2.1.10 - 2019-10-23](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.10)
 
 ### Enhancements
 
@@ -232,7 +232,7 @@ All notable changes to this project are documented in this file.
 
 - Fixed the warning for old log files not found.
 
-## [2.1.9 - 2019-09-10](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.9)
+## [2.1.9 - 2019-09-10](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.9)
 
 ### Enhancements
 
@@ -243,32 +243,32 @@ All notable changes to this project are documented in this file.
 
 - Prevent the notification links being previewed
 
-## [2.1.8 - 2019-09-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.8)
+## [2.1.8 - 2019-09-1](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.8)
 
 ### Bug fixes
 
 - Fixed the issue with posts not being sent when published via WP REST API
 
-## [2.1.7 - 2019-08-19](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.7)
+## [2.1.7 - 2019-08-19](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.7)
 
 ### Bug fixes
 
 - Fix the issue of products not being sent when published via WC REST API
 - Fix CMB2 field conflict with Rank Math plugin
 
-## [2.1.6 - 2019-07-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.6)
+## [2.1.6 - 2019-07-1](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.6)
 
 ### Bug fixes
 
 - Fix the fatal error caused on post edit page.
 
-## [2.1.5 - 2019-07-1](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.5)
+## [2.1.5 - 2019-07-1](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.5)
 
 ### Bug fixes
 
 - Fixed the issue of unintended posts being scheduled for delay
 
-## [2.1.4 - 2019-06-21](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.4)
+## [2.1.4 - 2019-06-21](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.4)
 
 ### Bug fixes
 
@@ -276,13 +276,13 @@ All notable changes to this project are documented in this file.
 - Fixed the Notification Chat IDs sanitization issue
 - Minor fixes
 
-## [2.1.3 - 2019-04-13](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.3)
+## [2.1.3 - 2019-04-13](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.3)
 
 ### Bug fixes
 
 - Fixed the new lines removed by classic editor
 
-## [2.1.2 - 2019-04-4](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.2)
+## [2.1.2 - 2019-04-4](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.2)
 
 ### Enhancements
 
@@ -293,13 +293,13 @@ All notable changes to this project are documented in this file.
 - Fixed the fatal error with helper function
 - Fixed the issue with delayed posts
 
-## [2.1.1 - 2019-03-27](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.1)
+## [2.1.1 - 2019-03-27](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.1)
 
 ### Bug fixes
 
 - Fixed the step in delay on post edit page
 
-## [2.1.0 - 2019-03-26](https://github.com/manzoorwanijk/wptelegram/releases/tag/v2.1.0)
+## [2.1.0 - 2019-03-26](https://github.com/wpsocio/wptelegram/releases/tag/v2.1.0)
 
 ### Enhancements
 

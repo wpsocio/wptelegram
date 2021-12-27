@@ -24,7 +24,7 @@ use WPTelegram\BotAPI\Client;
  *
  * @package     WPTelegram
  * @subpackage  WPTelegram\Core\modules\p2tg
- * @author      Manzoor Wani <@manzoorwanijk>
+ * @author      WP Socio
  */
 class PostSender extends BaseClass {
 

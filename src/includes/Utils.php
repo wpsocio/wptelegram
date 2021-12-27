@@ -2,7 +2,7 @@
 /**
  * WPTelegram Utilities
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since     1.0.0
  *
  * @package WPTelegram
@@ -18,7 +18,7 @@ use WP_Error;
 /**
  * WPTelegram Utilities
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since     1.0.0
  *
  * @package WPTelegram

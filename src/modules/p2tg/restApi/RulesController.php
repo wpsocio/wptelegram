@@ -2,7 +2,7 @@
 /**
  * P2Tg rules endpoint for WordPress REST API.
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      3.0.0
  *
  * @package    WPTelegram
@@ -23,7 +23,7 @@ use WP_REST_Request;
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\p2tg\restApi
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class RulesController extends RESTController {
 

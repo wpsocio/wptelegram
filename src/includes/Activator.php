@@ -2,7 +2,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      1.0.0
  *
  * @package    WPTelegram
@@ -19,7 +19,7 @@ namespace WPTelegram\Core\includes;
  * @since      1.0.0
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\includes
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class Activator {
 
