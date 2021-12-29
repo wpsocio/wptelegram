@@ -1,11 +1,11 @@
 # WP Telegram
 
-**Contributors:** [manzoorwanijk](https://github.com/manzoorwanijk)  
+**Contributors:** [wpsocio](https://github.com/wpsocio), [irshadahmad21](https://github.com/irshadahmad21)  
 **Tags:** telegram, notifications, posts, channel, group  
 **Requires at least:** 5.7  
 **Requires PHP:** 7.0  
-**Tested up to:** 5.8.1  
-**Stable tag:** 3.1.5  
+**Tested up to:** 5.8.2  
+**Stable tag:** 3.1.6  
 **License:** GPLv2 or later  
 **License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
 
@@ -13,7 +13,7 @@
 [![Wordpress](https://img.shields.io/wordpress/plugin/dt/wptelegram.svg)](https://wordpress.org/plugins/wptelegram/)
 [![Wordpress rating](https://img.shields.io/wordpress/plugin/r/wptelegram.svg)](https://wordpress.org/plugins/wptelegram/)
 
-Complete contributors list found here: [github.com/manzoorwanijk/wptelegram/graphs/contributors](https://github.com/manzoorwanijk/wptelegram/graphs/contributors)
+Complete contributors list found here: [github.com/wpsocio/wptelegram/graphs/contributors](https://github.com/wpsocio/wptelegram/graphs/contributors)
 
 **[Download plugin on wordpress.org](https://wordpress.org/plugins/wptelegram/)**
 

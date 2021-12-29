@@ -2,7 +2,7 @@
 /**
  * WP Telegram P2TG Utilities
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      3.0.10
  *
  * @package    WPTelegram
@@ -16,7 +16,7 @@ use WP_Post;
 /**
  * WP Telegram P2TG Utilities
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      3.0.10
  *
  * @package    WPTelegram

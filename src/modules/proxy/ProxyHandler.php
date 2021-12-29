@@ -20,7 +20,7 @@ use WPTelegram\Core\modules\BaseClass;
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\proxy
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class ProxyHandler extends BaseClass {
 

@@ -18,7 +18,7 @@ use WPTelegram\Core\includes\Utils;
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\p2tg
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class PostData {
 

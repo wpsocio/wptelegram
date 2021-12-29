@@ -2,7 +2,7 @@
 /**
  * Do the necessary db upgrade
  *
- * @link       https://manzoorwani.dev
+ * @link       https://wpsocio.com
  * @since      2.2.0
  *
  * @package    WPTelegram
@@ -20,7 +20,7 @@ use WPTelegram\Core\modules\p2tg\restApi\RulesController;
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\includes
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class Upgrade extends BaseClass {
 

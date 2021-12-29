@@ -299,7 +299,7 @@ export const updateChangelog = () => {
 						const contents = file.contents.toString().replace(regex, (match, p1) => {
 							const today = new Date();
 							const url = sprintf(
-								'https://github.com/manzoorwanijk/%1$s/releases/tag/v%2$s',
+								'https://github.com/wpsocio/%1$s/releases/tag/v%2$s',
 								pkg.name,
 								version
 							);

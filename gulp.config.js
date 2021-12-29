@@ -28,8 +28,8 @@ const config = {
 	potFilename: `${name}.pot`,
 	JSPotFilename: 'js-translations.pot',
 	domainPath: srcDir + '/languages',
-	bugReport: 'https://github.com/manzoorwanijk/' + name,
-	lastTranslator: 'Manzoor Wani <@manzoorwanijk>',
+	bugReport: 'https://github.com/wpsocio/' + name,
+	lastTranslator: 'WP Socio',
 	team: 'WP Telegram Team',
 };
 

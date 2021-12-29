@@ -2,7 +2,7 @@
 /**
  * The main plugin file.
  *
- * @link              https://t.me/manzoorwanijk
+ * @link              https://wpsocio.com
  * @since             1.0.0
  * @package           WPTelegram
  *
@@ -11,8 +11,8 @@
  * Plugin URI:        https://t.me/WPTelegram
  * Description:       ❌ DO NOT DELETE ❌ Development Environment for WP Telegram. Versioned high to avoid auto update.
  * Version:           999.999.999
- * Author:            Manzoor Wani
- * Author URI:        https://t.me/manzoorwanijk
+ * Author:            WP Socio
+ * Author URI:        https://t.me/WPTelegram
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wptelegram

@@ -21,7 +21,7 @@ use WP_User;
  *
  * @package    WPTelegram
  * @subpackage WPTelegram\Core\modules\notify
- * @author     Manzoor Wani <@manzoorwanijk>
+ * @author     WP Socio
  */
 class NotifySender extends BaseClass {
 

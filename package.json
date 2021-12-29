@@ -1,19 +1,19 @@
 {
 	"name": "wptelegram",
 	"title": "WP Telegram",
-	"version": "3.1.5",
+	"version": "3.1.6",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/manzoorwanijk/wptelegram"
+		"url": "https://github.com/wpsocio/wptelegram"
 	},
 	"author": {
-		"name": "Manzoor Wani",
-		"url": "https://t.me/manzoorwanijk"
+		"name": "WP Socio",
+		"url": "https://wpsocio.com"
 	},
 	"license": "GPLv2",
 	"bugs": {
-		"url": "https://github.com/manzoorwanijk/wptelegram/issues"
+		"url": "https://github.com/wpsocio/wptelegram/issues"
 	},
 	"scripts": {
 		"build": "gulp build",

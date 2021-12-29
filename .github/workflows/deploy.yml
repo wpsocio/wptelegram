@@ -33,7 +33,7 @@ jobs:
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_IR }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ${{github.workspace}}/${{ github.event.repository.name }}.zip
