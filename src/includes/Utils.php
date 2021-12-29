@@ -93,7 +93,7 @@ class Utils {
 	 *
 	 * @since    3.0.3
 	 */
-	public static function fitler_rest_errors( $response, $handler, $request ) {
+	public static function filter_rest_errors( $response, $handler, $request ) {
 
 		$matches_route    = 0 === strpos( ltrim( $request->get_route(), '/' ), RESTController::REST_NAMESPACE );
 		$is_invalid_param = is_wp_error( $response ) && 'rest_invalid_param' === $response->get_error_code();
