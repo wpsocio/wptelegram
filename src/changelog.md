@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.6 - 2021-12-29](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.6)
+
+### Bug fixes
+
+- Misc bug fixes
+- Fixed some typos
+
 ## [3.1.5 - 2021-10-23](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.5)
 
 ### Enhancements

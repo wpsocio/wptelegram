@@ -294,6 +294,15 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:47
 	__( 'After the Text', 'wptelegram' ),
 
+	// Reference: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:67
+	__( 'Edit button', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:74
+	__( 'Copy button', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/KeyboardButton.tsx:81
+	__( 'Delete button', 'wptelegram' ),
+
 	// Reference: domains/wptelegram/shared/core-pro/src/components/MessageTemplate.tsx:16
 	__( 'Structure of the message to be sent.', 'wptelegram' ),
 
