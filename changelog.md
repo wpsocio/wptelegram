@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.7 - 2021-12-31](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.7)
+
 ### Enhancements
 
 - Added "Protect content" option to Post to Telegram.
