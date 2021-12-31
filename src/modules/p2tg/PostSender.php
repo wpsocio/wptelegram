@@ -246,6 +246,7 @@ class PostSender extends BaseClass {
 			'parse_mode'               => '',
 			'plugin_posts'             => false,
 			'post_types'               => $array,
+			'protect_content'          => false,
 			'rules'                    => $array,
 			'send_featured_image'      => true,
 			'send_when'                => $array,
@@ -1077,15 +1078,18 @@ class PostSender extends BaseClass {
 
 		$disable_web_page_preview = $this->options->get( 'disable_web_page_preview' );
 		$disable_notification     = $this->options->get( 'disable_notification' );
+		$protect_content          = $this->options->get( 'protect_content' );
 
 		$method_params = [
 			'sendPhoto'   => compact(
 				'parse_mode',
-				'disable_notification'
+				'disable_notification',
+				'protect_content'
 			),
 			'sendMessage' => compact(
 				'parse_mode',
 				'disable_notification',
+				'protect_content',
 				'disable_web_page_preview'
 			),
 		];

@@ -434,6 +434,7 @@ class Upgrade extends BaseClass {
 			'inline_url_button',
 			'post_edit_switch',
 			'plugin_posts',
+			'protect_content',
 		];
 		foreach ( $p2tg_bool_fields as $field ) {
 			$p2tg_options[ $field ] = ! empty( $p2tg_options[ $field ] );
