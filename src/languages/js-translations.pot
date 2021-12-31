@@ -30,7 +30,7 @@ msgstr ""
 
 #: domains/wptelegram/core/main/src/services/fields.ts:29
 #: domains/wptelegram/shared/core-pro/src/components/proxy/Proxy.tsx:46
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:35
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:36
 msgid "Proxy Method"
 msgstr ""
 
@@ -202,7 +202,7 @@ msgstr ""
 msgid "Message Settings"
 msgstr ""
 
-#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:15
+#: domains/wptelegram/core/main/src/ui/p2tg/Miscellaneous.tsx:20
 msgid "Miscellaneous"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgid "Files"
 msgstr ""
 
 #: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:103
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:40
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:41
 msgid "Featured Image"
 msgstr ""
 
@@ -510,8 +510,13 @@ msgid "HTML style"
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:48
+#: domains/wptelegram/shared/core-pro/src/components/ProtectContent.tsx:19
 #: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:37
 msgid "Learn more"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/ProtectContent.tsx:22
+msgid "Protects the contents of sent messages from forwarding and saving."
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:27
@@ -757,34 +762,38 @@ msgid "Post edit switch"
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/services/fields.ts:34
+msgid "Protect content"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:35
 msgid "Proxy Host"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:36
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:37
 msgid "Password"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:37
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:38
 msgid "Proxy Port"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:38
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:39
 msgid "Proxy Type"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:39
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:40
 msgid "Username"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:41
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:42
 msgid "Send files by URL"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:42
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:43
 msgid "Single message"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/services/fields.ts:43
+#: domains/wptelegram/shared/core-pro/src/services/fields.ts:44
 msgid "Notifications to Users"
 msgstr ""
 
