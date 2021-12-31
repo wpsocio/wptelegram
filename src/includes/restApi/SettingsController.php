@@ -138,6 +138,7 @@ class SettingsController extends RESTController {
 				'post_edit_switch'         => true,
 				'delay'                    => $is_wp_cron_disabled ? 0 : 0.5,
 				'disable_notification'     => false,
+				'protect_content'          => false,
 			],
 			'notify'       => [
 				'active'             => false,
@@ -345,6 +346,9 @@ class SettingsController extends RESTController {
 						'minimum' => 0,
 					],
 					'disable_notification'     => [
+						'type' => 'boolean',
+					],
+					'protect_content'          => [
 						'type' => 'boolean',
 					],
 				],
