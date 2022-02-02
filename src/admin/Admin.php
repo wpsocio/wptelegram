@@ -95,7 +95,7 @@ class Admin extends BaseClass {
 	 * @param array $args     Array of bulk item update data.
 	 */
 	public function fire_plugin_version_upgrade( $upgrader, $args ) {
-		if ( 'update' === $args['action'] && 'plugin' === $args['type'] ) {
+		if ( 'update' === $args['action'] && 'plugin' === $args['type'] && ! empty( $args['plugins'] ) ) {
 			foreach ( $args['plugins'] as $basename ) {
 				if ( WPTELEGRAM_BASENAME === $basename ) {
 					wp_remote_get(
