@@ -3,9 +3,9 @@ Contributors: wpsocio, irshadahmad21
 Donate link: https://wpsocio.com
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.7
-Tested up to: 5.8.2
+Tested up to: 5.9.2
 Requires PHP: 7.0
-Stable tag: 3.1.7
+Stable tag: 3.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,10 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.1.8 =
+- Fixed PHP error on plugin update
+- Fixed Post to Telegram rule search bug
 
 = 3.1.7 =
 - Added "Protect content" option to Post to Telegram.

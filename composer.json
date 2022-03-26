@@ -1,6 +1,6 @@
 {
 	"name": "wptelegram/core",
-	"version": "3.1.7",
+	"version": "3.1.8",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "*",
