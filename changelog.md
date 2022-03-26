@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 ### Bug fixes
 
 - Fixed PHP error on plugin update
+- Fixed Post to Telegram rule search bug
 
 ## [3.1.7 - 2021-12-31](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.7)
 
