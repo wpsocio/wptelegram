@@ -47,7 +47,7 @@ $generated_i18n_strings = array(
 	__( 'Basics', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/TabbedSections.tsx:23
-	// Reference: domains/wptelegram/core/main/src/ui/advanced/Advanced.tsx:22
+	// Reference: domains/wptelegram/core/main/src/ui/advanced/Advanced.tsx:32
 	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:66
 	__( 'Post to Telegram', 'wptelegram' ),
 
@@ -62,7 +62,7 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/core/main/src/ui/TabbedSections.tsx:38
 	__( 'Advanced settings', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/main/src/ui/advanced/Advanced.tsx:17
+	// Reference: domains/wptelegram/core/main/src/ui/advanced/Advanced.tsx:26
 	__( 'Bot API', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Basics.tsx:26
