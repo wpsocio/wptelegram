@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the commit
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.ACCESS_TOKEN_IR }}
@@ -30,13 +30,13 @@ jobs:
           submodules: recursive
 
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: lts/*
 
       - name: Cache dependencies
         id: cache-deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-deps-${{ hashFiles('**/yarn.lock') }}
@@ -61,6 +61,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Prepare for v${{ steps.version.outputs.current-version}}
+          commit_user_email: ${{ secrets.GIT_USER_EMAIL_IR }}
           push_options: --force # required for protected branches
 
       - name: Create Pull Request
@@ -72,7 +73,7 @@ jobs:
           github_token: ${{ secrets.ACCESS_TOKEN_IR }}
 
       - name: 'Merge pull request'
-        uses: 'actions/github-script@v4'
+        uses: 'actions/github-script@v6'
         with:
           github-token: ${{ secrets.ACCESS_TOKEN_IR }}
           script: |
@@ -86,7 +87,7 @@ jobs:
             })
 
       - name: Checkout master
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           ref: master
