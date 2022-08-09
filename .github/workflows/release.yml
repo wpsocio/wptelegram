@@ -79,7 +79,7 @@ jobs:
           script: |
             const repository = context.repo
 
-            await github.pulls.merge({
+            await github.rest.pulls.merge({
               merge_method: "squash",
               owner: repository.owner,
               pull_number: ${{ steps.create-pr.outputs.pr_number }},
