@@ -164,8 +164,8 @@ class AssetManager extends BaseClass {
 				'logoUrl'        => $this->plugin()->assets()->url( '/icons/icon-128x128.png' ),
 				'tgIconUrl'      => $this->plugin()->assets()->url( '/icons/tg-icon.svg' ),
 				'editProfileUrl' => get_edit_profile_url( get_current_user_id() ),
-				'p2tgLogUrl'     => content_url( Logger::get_log_file_name( 'p2tg' ) ),
-				'botApiLogUrl'   => content_url( Logger::get_log_file_name( 'bot-api' ) ),
+				'p2tgLogUrl'     => Logger::get_log_url( 'p2tg' ),
+				'botApiLogUrl'   => Logger::get_log_url( 'bot-api' ),
 			];
 		}
 

@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Improvements
+
+- Improved logging for better understanding of errors
+
 ## [3.1.9 - 2022-06-12](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.9)
 
 ### Enhancements
