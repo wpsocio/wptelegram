@@ -74,6 +74,8 @@ class Logger extends BaseClass {
 	 */
 	public function hookup() {
 
+		add_action( 'init', [ $this, 'view_log' ] );
+
 		// avoid hooking in multiple times.
 		if ( ! self::$hooked_up && ! empty( self::$active_logs ) ) {
 
@@ -94,6 +96,54 @@ class Logger extends BaseClass {
 
 			if ( is_callable( $method ) ) {
 				call_user_func( $method );
+			}
+		}
+	}
+
+	/**
+	 * Get the URL for a log type.
+	 *
+	 * @param string $type Log type.
+	 * @return string
+	 */
+	public static function get_log_url( $type ) {
+
+		$url = add_query_arg(
+			[
+				'action' => 'wptelegram_view_log',
+				'type'   => $type,
+				'hash'   => wp_hash( 'log' ),
+			],
+			site_url()
+		);
+
+		return apply_filters( 'wptelegram_logger_log_url', $url, $type );
+	}
+
+	/**
+	 * View logs
+	 */
+	public function view_log() {
+
+		// phpcs:ignore
+		if ( isset( $_GET['action'], $_GET['hash'], $_GET['type'] ) && 'wptelegram_view_log' === $_GET['action'] && isset( $_GET['hash'] ) ) {
+			$hash = sanitize_text_field( wp_unslash( $_GET['hash'] ) ); // phpcs:ignore
+			$type = sanitize_text_field( wp_unslash( $_GET['type'] ) ); // phpcs:ignore
+
+			if ( ! empty( $hash ) && ! empty( $type ) ) {
+				global $wp_filesystem;
+
+				$file_path = self::get_log_file_path( $type, $hash );
+
+				if ( $wp_filesystem->exists( $file_path ) ) {
+					$contents = $wp_filesystem->get_contents( $file_path );
+				} else {
+					$contents = 'Log file not found!';
+				}
+
+				header( 'Content-Type: text/plain' );
+
+				exit( $contents ); // phpcs:ignore
 			}
 		}
 	}
@@ -278,6 +328,26 @@ class Logger extends BaseClass {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
+		if ( is_array( $result ) ) {
+			$result = array_map(
+				function( $responses ) {
+					if ( is_array( $responses ) ) {
+						return array_map(
+							function( $response ) {
+								if ( $response instanceof Response ) {
+									return $response->get_result();
+								}
+								return $response;
+							},
+							$responses
+						);
+					}
+					return $responses;
+				},
+				$result
+			);
+		}
+
 		$this->p2tg_post_info[ $key ]['after'] = [
 			'result' => $result,
 		];
@@ -348,17 +418,18 @@ class Logger extends BaseClass {
 	 * @since 1.0.0
 	 *
 	 * @param string $type Log type.
+	 * @param string $hash The hash to use in file name.
 	 *
 	 * @return string
 	 */
-	public static function get_log_file_path( $type ) {
+	public static function get_log_file_path( $type, $hash = '' ) {
 
 		require_once ABSPATH . 'wp-admin/includes/file.php';
 		WP_Filesystem();
 
 		global $wp_filesystem;
 
-		$file_name = self::get_log_file_name( $type );
+		$file_name = self::get_log_file_name( $type, $hash );
 
 		$file_path = $wp_filesystem->wp_content_dir() . $file_name;
 
@@ -371,14 +442,15 @@ class Logger extends BaseClass {
 	 * @since 2.2.4
 	 *
 	 * @param string $type Log type.
+	 * @param string $hash The hash to use in file name.
 	 *
 	 * @return string
 	 */
-	public static function get_log_file_name( $type ) {
+	public static function get_log_file_name( $type, $hash = '' ) {
 
-		$hash = $type . '-' . wp_hash( 'log' );
+		$hash = $hash ? $hash : wp_hash( 'log' );
 
-		$file_name = "wptelegram-{$hash}.log";
+		$file_name = "wptelegram-{$type}-{$hash}.log";
 
 		return apply_filters( 'wptelegram_logger_log_file_name', $file_name, $type, $hash );
 	}
