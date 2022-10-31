@@ -28,10 +28,10 @@
 		"start": "npm run dev"
 	},
 	"devDependencies": {
-		"@wordpress/i18n": "^4.2.2",
-		"eslint": "^7.32.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-prettier": "^4.0.0",
+		"@wordpress/i18n": "4.16.0",
+		"eslint": "^8.26.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
 		"esm": "^3.2.25",
 		"gulp": "^4.0.2",
 		"gulp-ignore": "^3.0.0",
@@ -43,7 +43,7 @@
 		"gulp-uglifycss": "^1.1.0",
 		"gulp-zip": "^5.1.0",
 		"node-wp-i18n": "^1.2.6",
-		"prettier": "^2.4.0",
-		"semver": "7.3.5"
+		"prettier": "^2.7.1",
+		"semver": "7.3.8"
 	}
 }
