@@ -341,6 +341,7 @@ class Options implements Iterator, ArrayAccess {
 	 * @param mixed $offset An offset to check for.
 	 * @return bool True if the offset exists, false otherwise.
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetExists( $offset ) {
 		return $this->exists( $offset );
 	}
@@ -355,6 +356,7 @@ class Options implements Iterator, ArrayAccess {
 	 * @param mixed $offset The offset to retrieve.
 	 * @return mixed If set, the value at the specified offset, false otherwise.
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetGet( $offset ) {
 		return $this->get( $offset );
 	}
@@ -369,6 +371,7 @@ class Options implements Iterator, ArrayAccess {
 	 * @param mixed $offset The offset to assign the value to.
 	 * @param mixed $value The value to set.
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetSet( $offset, $value ) {
 		return $this->set( $offset, $value );
 	}
@@ -382,6 +385,7 @@ class Options implements Iterator, ArrayAccess {
 	 *
 	 * @param mixed $offset The offset to unset.
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetUnset( $offset ) {
 		return $this->remove( $offset );
 	}
@@ -395,6 +399,7 @@ class Options implements Iterator, ArrayAccess {
 	 *
 	 * @return mixed
 	 */
+	#[\ReturnTypeWillChange]
 	public function current() {
 		return current( $this->data );
 	}
@@ -408,6 +413,7 @@ class Options implements Iterator, ArrayAccess {
 	 *
 	 * @return mixed
 	 */
+	#[\ReturnTypeWillChange]
 	public function next() {
 		return next( $this->data );
 	}
@@ -421,6 +427,7 @@ class Options implements Iterator, ArrayAccess {
 	 *
 	 * @return mixed
 	 */
+	#[\ReturnTypeWillChange]
 	public function key() {
 		return key( $this->data );
 	}
@@ -434,6 +441,7 @@ class Options implements Iterator, ArrayAccess {
 	 *
 	 * @return boolean
 	 */
+	#[\ReturnTypeWillChange]
 	public function valid() {
 		return key( $this->data ) !== null;
 	}
@@ -445,6 +453,7 @@ class Options implements Iterator, ArrayAccess {
 	 *
 	 * @link https://secure.php.net/manual/en/iterator.rewind.php
 	 */
+	#[\ReturnTypeWillChange]
 	public function rewind() {
 		reset( $this->data );
 	}
