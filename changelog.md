@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed warnings in PHP 8.x
+
 ## [3.1.10 - 2022-10-31](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.10)
 
 ### Improvements
