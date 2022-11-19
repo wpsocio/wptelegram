@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.12 - 2022-11-19](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.12)
+
 ### Bug fixes
 
 - Fixed PHP warnings in logger
