@@ -111,8 +111,8 @@ class Logger extends BaseClass {
 		$url = add_query_arg(
 			[
 				'action' => 'wptelegram_view_log',
-				'type'   => $type,
 				'hash'   => wp_hash( 'log' ),
+				'type'   => $type,
 			],
 			site_url()
 		);
