@@ -335,7 +335,7 @@ class Logger extends BaseClass {
 						return array_map(
 							function( $response ) {
 								if ( $response instanceof Response ) {
-									return $response->get_result();
+									return $response->get_decoded_body();
 								}
 								return $response;
 							},

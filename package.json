@@ -1,7 +1,7 @@
 {
 	"name": "wptelegram",
 	"title": "WP Telegram",
-	"version": "3.1.11",
+	"version": "3.1.12",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"repository": {
 		"type": "git",
@@ -28,8 +28,8 @@
 		"start": "npm run dev"
 	},
 	"devDependencies": {
-		"@wordpress/i18n": "4.16.0",
-		"eslint": "^8.26.0",
+		"@wordpress/i18n": "4.22.0",
+		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"esm": "^3.2.25",
@@ -42,7 +42,7 @@
 		"gulp-rename": "^2.0.0",
 		"gulp-uglifycss": "^1.1.0",
 		"gulp-zip": "^5.1.0",
-		"node-wp-i18n": "^1.2.6",
+		"node-wp-i18n": "^1.2.7",
 		"prettier": "^2.7.1",
 		"semver": "7.3.8"
 	}
