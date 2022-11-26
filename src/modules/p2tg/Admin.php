@@ -582,7 +582,9 @@ class Admin extends BaseClass {
 	 */
 	public static function send2tg_default() {
 
-		$send_when = WPTG()->options()->get_path( 'p2tg.send_when', [] );
+		$send_when     = WPTG()->options()->get_path( 'p2tg.send_when', [] );
+		$send_new      = in_array( 'new', $send_when, true );
+		$send_existing = in_array( 'existing', $send_when, true );
 
 		$default = 'yes';
 
@@ -594,23 +596,26 @@ class Admin extends BaseClass {
 			// if saved in meta e.g. for future or draft.
 			$send2tg = get_post_meta( $post_id, Main::PREFIX . 'send2tg', true );
 			$post    = get_post( $post_id );
-			if ( $send2tg ) {
+
+			if ( $send2tg && in_array( $send2tg, [ 'yes', 'no' ], true ) ) {
 
 				$default = $send2tg;
 			} elseif ( $post instanceof WP_Post ) {
 
-				// whether already sent to Telegram.
-				$sent = get_post_meta( $post_id, Main::PREFIX . 'sent2tg', true );
+				$is_new = Utils::is_post_new( $post );
 
-				if ( ! in_array( 'existing', $send_when, true ) || ! empty( $sent ) ) {
+				$is_new_and_dont_send_new           = $is_new && ! $send_new;
+				$is_existing_and_dont_send_existing = ! $is_new && ! $send_existing;
+
+				if ( $is_new_and_dont_send_new || $is_existing_and_dont_send_existing ) {
 					$default = 'no';
 				}
 			}
-		} elseif ( ! in_array( 'new', $send_when, true ) ) {
+		} elseif ( ! $send_new ) {
 			$default = 'no';
 		}
 
-		return (string) apply_filters( 'wptelegram_p2tg_send2tg_default', $default, $send_when );
+		return (string) apply_filters( 'wptelegram_p2tg_send2tg_default', $default, $send_when, $post_id );
 	}
 
 	/**
