@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Improvements
+
+- Improved the default value for Send to Telegram option on post edit page
+
 ## [3.1.12 - 2022-11-19](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.12)
 
 ### Bug fixes
