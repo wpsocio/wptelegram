@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed messages not sent when replied-to message is not found
+
 ## [3.1.13 - 2022-11-26](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.13)
 
 ### Improvements

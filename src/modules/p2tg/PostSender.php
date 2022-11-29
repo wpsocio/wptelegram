@@ -1080,17 +1080,22 @@ class PostSender extends BaseClass {
 		$disable_notification     = $this->options->get( 'disable_notification' );
 		$protect_content          = $this->options->get( 'protect_content' );
 
+		// Do not fail if the replied-to message is not found.
+		$allow_sending_without_reply = true;
+
 		$method_params = [
 			'sendPhoto'   => compact(
-				'parse_mode',
+				'allow_sending_without_reply',
 				'disable_notification',
+				'parse_mode',
 				'protect_content'
 			),
 			'sendMessage' => compact(
-				'parse_mode',
+				'allow_sending_without_reply',
 				'disable_notification',
-				'protect_content',
-				'disable_web_page_preview'
+				'disable_web_page_preview',
+				'parse_mode',
+				'protect_content'
 			),
 		];
 
