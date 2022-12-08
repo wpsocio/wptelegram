@@ -134,20 +134,20 @@ msgid "Configure the activated modules."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:64
-#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:55
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:72
 #. %s button name
 msgid "Hit %s below."
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
 #: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:119
-#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:76
 #: packages/components/src/Submit/SubmitButton.tsx:15
 msgid "Save Changes"
 msgstr ""
 
 #: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:75
-#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:66
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:83
 msgid "Introduction"
 msgstr ""
 
@@ -482,6 +482,16 @@ msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:42
 msgid "Get it from %s."
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:53
+msgid ""
+"If you want to send posts to a specific topic in a group with topics "
+"enabled, you can add a colon (%s) to the chat ID followed by topic ID."
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:63
+msgid "For example %s"
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:13
@@ -909,17 +919,17 @@ msgstr ""
 msgid "Error:"
 msgstr ""
 
-#: packages/services/src/telegram/TelegramUtils.ts:105
+#: packages/services/src/telegram/TelegramUtils.ts:108
 msgid ""
 "A message will be sent to the Channel/Group/Chat. You can modify the text "
 "below"
 msgstr ""
 
-#: packages/services/src/telegram/TelegramUtils.ts:106
+#: packages/services/src/telegram/TelegramUtils.ts:109
 msgid "This is a test message"
 msgstr ""
 
-#: packages/services/src/telegram/TelegramUtils.ts:124
+#: packages/services/src/telegram/TelegramUtils.ts:129
 msgid "Success"
 msgstr ""
 
