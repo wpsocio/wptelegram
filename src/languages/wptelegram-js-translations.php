@@ -99,18 +99,18 @@ $generated_i18n_strings = array(
 	__( 'Configure the activated modules.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:64
-	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:55
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:72
 	/* translators: %s button name */
 	__( 'Hit %s below.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:68
 	// Reference: domains/wptelegram/core/p2tg-gb/src/OverrideSettings.tsx:119
-	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:59
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:76
 	// Reference: packages/components/src/Submit/SubmitButton.tsx:15
 	__( 'Save Changes', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/basics/Instructions.tsx:75
-	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:66
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:83
 	__( 'Introduction', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/core/main/src/ui/notify/Notify.tsx:21
@@ -362,6 +362,12 @@ $generated_i18n_strings = array(
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:42
 	__( 'Get it from %s.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:53
+	__( 'If you want to send posts to a specific topic in a group with topics enabled, you can add a colon (%s) to the chat ID followed by topic ID.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:63
+	__( 'For example %s', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:13
 	__( 'Show an ON/OFF switch on the post edit screen.', 'wptelegram' ),
@@ -684,13 +690,13 @@ $generated_i18n_strings = array(
 	// Reference: packages/services/src/apiFetch/index.ts:40
 	__( 'Error:', 'wptelegram' ),
 
-	// Reference: packages/services/src/telegram/TelegramUtils.ts:105
+	// Reference: packages/services/src/telegram/TelegramUtils.ts:108
 	__( 'A message will be sent to the Channel/Group/Chat. You can modify the text below', 'wptelegram' ),
 
-	// Reference: packages/services/src/telegram/TelegramUtils.ts:106
+	// Reference: packages/services/src/telegram/TelegramUtils.ts:109
 	__( 'This is a test message', 'wptelegram' ),
 
-	// Reference: packages/services/src/telegram/TelegramUtils.ts:124
+	// Reference: packages/services/src/telegram/TelegramUtils.ts:129
 	__( 'Success', 'wptelegram' ),
 
 	// Reference: packages/services/src/useDisplayFeedback.ts:62

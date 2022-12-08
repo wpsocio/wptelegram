@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.1.14 - 2022-12-8](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.14)
+
+### Enhancements
+
+- Added support for sending messages to topics with groups
+
+### Bug fixes
+
+- Fixed messages not sent when replied-to message is not found
+
 ## [3.1.13 - 2022-11-26](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.13)
 
 ### Improvements

@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 3.1.13
+Stable tag: 3.1.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,10 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.1.14 =
+- Added support for sending messages to topics with groups
+- Fixed messages not sent when replied-to message is not found
 
 = 3.1.13 =
 - Improved the default value for Send to Telegram option on post edit page
