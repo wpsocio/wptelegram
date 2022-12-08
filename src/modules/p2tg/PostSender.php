@@ -1563,7 +1563,11 @@ class PostSender extends BaseClass {
 				$params = reset( $response );
 				$method = key( $response );
 
-				$params['chat_id'] = $channel;
+				list( $params['chat_id'], $params['message_thread_id'] ) = explode( ':', $channel );
+
+				if ( ! $params['message_thread_id'] ) {
+					unset( $params['message_thread_id'] );
+				}
 
 				if ( $message_as_reply && $this->bot_api->is_success( $res ) ) {
 
