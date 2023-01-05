@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 3.1.14
+Stable tag: 3.1.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.1.15 =
+- Fixed PHP warning when not using message thread ID
 
 = 3.1.14 =
 - Added support for sending messages to topics with groups

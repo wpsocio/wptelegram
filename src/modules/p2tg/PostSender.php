@@ -1563,7 +1563,7 @@ class PostSender extends BaseClass {
 				$params = reset( $response );
 				$method = key( $response );
 
-				list( $params['chat_id'], $params['message_thread_id'] ) = explode( ':', $channel );
+				list( $params['chat_id'], $params['message_thread_id'] ) = array_pad( explode( ':', $channel ), 2, '' );
 
 				if ( ! $params['message_thread_id'] ) {
 					unset( $params['message_thread_id'] );
