@@ -1,14 +1,14 @@
-# Copyright (C) 2022 
+# Copyright (C) 2023 
 # This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2022-12-08 11:44:38+00:00\n"
+"POT-Creation-Date: 2023-01-05 12:53:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-12-8 11:440\n"
+"PO-Revision-Date: 2023-01-5 12:530\n"
 "Last-Translator: WP Telegram\n"
 "Language-Team: WP Telegram\n"
 "Language: en_US\n"
