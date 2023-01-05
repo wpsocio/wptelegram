@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed PHP warning when not using message thread ID
+
 ## [3.1.14 - 2022-12-8](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.14)
 
 ### Enhancements
