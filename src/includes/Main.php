@@ -199,6 +199,11 @@ final class Main {
 		require_once $this->dir( '/includes/wptelegram-bot-api/src/index.php' );
 
 		/**
+		 * The class responsible for loading \WPTelegram\FormatText library
+		 */
+		require_once $this->dir( '/includes/format-text/autoload-wp.php' );
+
+		/**
 		 * The library responsible for converting HTML to plain text
 		 */
 		require_once $this->dir( '/includes/html2text/html2text.php' );
