@@ -272,7 +272,7 @@ class NotifySender extends BaseClass {
 					$value = apply_filters_deprecated(
 						'wptelegram_notify_email_message',
 						[ $value, $this->wp_mail_args, $this->chats2emails, $this->module->options() ],
-						'since:x.y.z',
+						'3.2.0',
 						'wptelegram_notify_macro_email_message_value'
 					);
 				}
@@ -285,7 +285,7 @@ class NotifySender extends BaseClass {
 				$value = apply_filters_deprecated(
 					'wptelegram_notify_email_subject',
 					[ $value, $this->wp_mail_args, $this->chats2emails, $this->module->options() ],
-					'since:x.y.z',
+					'3.2.0',
 					'wptelegram_notify_macro_email_subject_value'
 				);
 				break;

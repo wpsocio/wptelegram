@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [3.2.0 - 2023-01-19](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.0)
+
 ### Enhancements
 
 - Added the new experimental HTML converter for better formatting of email notifications
