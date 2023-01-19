@@ -196,7 +196,7 @@ final class Main {
 		/**
 		 * The class responsible for loading \WPTelegram\BotAPI library
 		 */
-		require_once $this->dir( '/includes/wptelegram-bot-api/src/index.php' );
+		require_once $this->dir( '/includes/bot-api/src/index.php' );
 
 		/**
 		 * The class responsible for loading \WPTelegram\FormatText library
