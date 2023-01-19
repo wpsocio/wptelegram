@@ -1,14 +1,7 @@
 {
-	"phpcs.standard": "${workspaceFolder}/phpcs.xml",
-	"emeraldwalk.runonsave": {
-		"commands": [
-			{
-				"match": "\\.php$",
-				"cmd": "\"vendor/bin/phpcbf\" --standard=phpcs.xml \"${file}\""
-			}
-		]
-	},
-	"[php]": {
-		"editor.formatOnSave": false
-	}
+    "[php]": {
+        "editor.defaultFormatter": "wongjn.php-sniffer",
+        "editor.formatOnSave": true
+    },
+    "phpSniffer.standard": "phpcs.xml",
 }

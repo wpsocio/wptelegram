@@ -14,6 +14,7 @@ namespace WPTelegram\Core\modules\notify;
 use WPTelegram\Core\modules\BaseClass;
 use WPTelegram\BotAPI\API as BotApi;
 use WPTelegram\Core\includes\Utils;
+use WPTelegram\FormatText\HtmlConverter;
 use WP_User;
 
 /**
@@ -215,19 +216,23 @@ class NotifySender extends BaseClass {
 	 */
 	private function get_response_text( $template ) {
 
-		// email subject.
-		$subject = htmlspecialchars( wp_strip_all_tags( $this->wp_mail_args['subject'], true ) );
-		$subject = apply_filters( 'wptelegram_notify_email_subject', $subject, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
+		$macro_keys = [ 'email_subject', 'email_message' ];
+		// Use this filter to add your own macros.
+		$macro_keys = (array) apply_filters( 'wptelegram_notify_macro_keys', $macro_keys, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
 
-		// email message (body).
-		$message = convert_html_to_text( $this->wp_mail_args['message'], true );
-		$message = $this->convert_links_for_parsing( $message );
-		$message = apply_filters( 'wptelegram_notify_email_message', $message, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
+		$macro_values = [];
 
-		$macro_values = [
-			'{email_subject}' => $subject,
-			'{email_message}' => $message,
-		];
+		foreach ( $macro_keys as $macro_key ) {
+
+			$macro = '{' . $macro_key . '}';
+
+			// get the value only if it's in the template.
+			if ( false !== strpos( $template, $macro ) ) {
+
+				$macro_values[ $macro ] = $this->get_macro_value( $macro_key );
+			}
+		}
+
 		/**
 		 * Use this filter to replace your own macros
 		 * with the corresponding values
@@ -237,6 +242,80 @@ class NotifySender extends BaseClass {
 		$text = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $template );
 
 		return apply_filters( 'wptelegram_notify_response_text', $text, $template, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
+	}
+
+	/**
+	 * Get the text for the given macro.
+	 *
+	 * @param string $macro The macro to get the text for.
+	 *
+	 * @return string The text for the given macro.
+	 */
+	private function get_macro_value( $macro ) {
+		$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
+
+		$use_experimental_text = apply_filters( 'wptelegram_notify_use_experimental_text', false, $this->wp_mail_args, $this->module->options() );
+
+		$converter = $this->get_html_converter( $parse_mode );
+
+		$value = '';
+		switch ( $macro ) {
+			case 'email_message':
+				$value = $this->wp_mail_args['message'];
+
+				if ( $use_experimental_text ) {
+					$value = $converter->convert( $value );
+				} else {
+
+					$value = convert_html_to_text( $value, true );
+					$value = $this->convert_links_for_parsing( $value );
+					$value = apply_filters_deprecated(
+						'wptelegram_notify_email_message',
+						[ $value, $this->wp_mail_args, $this->chats2emails, $this->module->options() ],
+						'3.2.0',
+						'wptelegram_notify_macro_email_message_value'
+					);
+				}
+				break;
+
+			case 'email_subject':
+				$value = $this->wp_mail_args['subject'];
+				$value = wp_strip_all_tags( $value, true );
+				$value = $converter->convert( $value );
+				$value = apply_filters_deprecated(
+					'wptelegram_notify_email_subject',
+					[ $value, $this->wp_mail_args, $this->chats2emails, $this->module->options() ],
+					'3.2.0',
+					'wptelegram_notify_macro_email_subject_value'
+				);
+				break;
+		}
+
+		$value = apply_filters( 'wptelegram_notify_macro_value', $value, $macro, $this->wp_mail_args, $this->module->options() );
+
+		return apply_filters( "wptelegram_notify_macro_{$macro}_value", $value, $this->wp_mail_args, $this->module->options() );
+	}
+
+	/**
+	 * The HTMLConverter instance
+	 *
+	 * @param string $format_to The format to convert to.
+	 *
+	 * @return HtmlConverter The HTMLConverter instance.
+	 */
+	private function get_html_converter( $format_to ) {
+
+		$options = [
+			'format_to'     => $format_to,
+			'table_row_sep' => "\n" . str_repeat( '-', 30 ) . "\n",
+		];
+
+		$options = apply_filters( 'wptelegram_notify_html_converter_options', $options, $format_to );
+
+		$converter = new HtmlConverter( $options );
+
+		// Use this filter to add your own HTML converters.
+		return apply_filters( 'wptelegram_notify_html_converter', $converter, $format_to, $options );
 	}
 
 	/**

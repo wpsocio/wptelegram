@@ -1381,10 +1381,12 @@ class PostSender extends BaseClass {
 
 		foreach ( $macro_keys as $macro_key ) {
 
-			// get the value only if it's in the template.
-			if ( false !== strpos( $template, '{' . $macro_key . '}' ) ) {
+			$macro = '{' . $macro_key . '}';
 
-				$macro_values[ '{' . $macro_key . '}' ] = $this->post_data->get_field( $macro_key, $params );
+			// get the value only if it's in the template.
+			if ( false !== strpos( $template, $macro ) ) {
+
+				$macro_values[ $macro ] = $this->post_data->get_field( $macro_key, $params );
 			}
 		}
 

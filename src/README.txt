@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 3.1.15
+Stable tag: 3.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,10 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 3.2.0 =
+- Added the new experimental HTML converter for better formatting of email notifications
+- The new can be enabled using `add_filter( 'wptelegram_notify_use_experimental_text', '__return_true' );`
 
 = 3.1.15 =
 - Fixed PHP warning when not using message thread ID

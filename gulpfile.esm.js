@@ -201,7 +201,7 @@ const createVersionUpdateCB = (forFile, version) => {
 			patterns = [/Version:\s*(\d+\.\d+\.\d+)/i, new RegExp("'" + versionConst + "',\\s*'(\\d+\\.\\d+\\.\\d+)'")];
 			break;
 		case 'since-xyz':
-			patterns = [/@since[\s\t]*(x\.y\.z)/gi];
+			patterns = [/@since[\s\t]*(x\.y\.z)/gi, /((?:since:)x\.y\.z)/gi];
 			break;
 	}
 	return through2.obj(function (file, _, cb) {

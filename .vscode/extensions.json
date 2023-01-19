@@ -1,3 +1,6 @@
 {
-	"recommendations": ["emeraldwalk.runonsave", "ikappas.phpcs", "bmewburn.vscode-intelephense-client"]
+	"recommendations": [
+		"wongjn.php-sniffer",
+		"bmewburn.vscode-intelephense-client",
+	]
 }

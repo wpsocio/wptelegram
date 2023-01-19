@@ -10,7 +10,7 @@ jobs:
       - name: Checkout the commit
         uses: actions/checkout@v2
         with:
-          # Ensure to checkout wptelegram-bot-api submodule
+          # Ensure to checkout git submodules
           submodules: recursive
 
       # Remove everything except src/, .wordpress-org and .distignore
