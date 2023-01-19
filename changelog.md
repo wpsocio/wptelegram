@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Enhancements
+
+- Added the new experimental HTML converter for better formatting of email notifications
+- The new can be enabled using `add_filter( 'wptelegram_notify_use_experimental_text', '__return_true' );`
+
 ## [3.1.15 - 2023-01-5](https://github.com/wpsocio/wptelegram/releases/tag/v3.1.15)
 
 ### Bug fixes
