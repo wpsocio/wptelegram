@@ -4,4 +4,5 @@
         "editor.formatOnSave": true
     },
     "phpSniffer.standard": "phpcs.xml",
+    "phpSniffer.autoDetect": true
 }
