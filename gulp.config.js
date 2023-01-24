@@ -9,9 +9,16 @@ const name = pkg.name;
 
 const distignore = fs
 	.readFileSync('./.distignore', 'utf8')
-	.split('\n')
-	.filter(Boolean)
-	.map((v) => srcDir + v);
+	.split(/[\n\r]+/)
+	.filter((pattern) => pattern && !pattern.startsWith('#'))
+	.map((pattern) => {
+		// if the pattern has a dot or a star, we won't consider it a directory
+		// I know `.vscode` is a directory ;)
+		const isDir = !/[\.\*]/.test(pattern) || pattern.endsWith('/');
+
+		// for directories, match the directory and all files inside it
+		return isDir ? `**/{${pattern},${pattern}/**}` : '**/' + pattern;
+	});
 
 const config = {
 	srcDir,

@@ -7,8 +7,16 @@
 	<!-- Add source codes in the report -->
 	<arg value="s" />
 
-	 <exclude-pattern>*/includes/format-text/*</exclude-pattern>
-	 <exclude-pattern>*/includes/html2text/*</exclude-pattern>
+	<file>.</file>
+    <exclude-pattern>/.git/</exclude-pattern>
+	<exclude-pattern>*/src/assets/*</exclude-pattern>
+	<exclude-pattern>*/src/includes/bot-api/*</exclude-pattern>
+	<exclude-pattern>*/src/includes/format-text/*</exclude-pattern>
+	<exclude-pattern>*/src/includes/html2text/*</exclude-pattern>
+	<exclude-pattern>*/src/languages/*</exclude-pattern>
+	<exclude-pattern>*/temp/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/index.php</exclude-pattern>
 
 	<!-- Load WordPress Coding standards -->
 	<rule ref="WordPress" />
