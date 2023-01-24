@@ -1,13 +1,9 @@
 {
 	"name": "wptelegram/core",
-	"version": "3.2.0",
+	"version": "3.2.1",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "*",
-		"object-calisthenics/phpcs-calisthenics-rules": "*",
-		"phpcompatibility/php-compatibility": "*",
-		"wp-coding-standards/wpcs": "*",
-		"wp-cli/wp-cli-bundle": "*"
+		"wp-coding-standards/wpcs": "*"
 	},
 	"scripts": {
 		"post-install-cmd": [
@@ -17,9 +13,9 @@
 			"\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs",
 			"\"vendor/bin/phpcs\" --config-set default_standard WordPress"
 		],
-		"lint": "\"vendor/bin/phpcs\" --ignore=src/assets/*,src/languages/*,*/index.php,src/includes/html2text/*,src/includes/format-text/* src/",
-		"lint:skip-warnings": "\"vendor/bin/phpcs\" -n",
-		"lint:fix": "\"vendor/bin/phpcbf\" --standard=phpcs.xml --ignore=src/assets/*,src/languages/*,*/index.php,src/includes/html2text/* src/"
+		"lint": "\"vendor/bin/phpcs\" --standard=phpcs.xml --extensions=php src/",
+		"lint:skip-warnings": "\"vendor/bin/phpcs\" --standard=phpcs.xml --extensions=php -n src/",
+		"lint:fix": "\"vendor/bin/phpcbf\" --standard=phpcs.xml --extensions=php src/"
 	},
 	"repositories": [
 		{

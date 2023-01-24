@@ -361,7 +361,7 @@ export const bundle = () => {
 	return gulp
 		.src([config.srcDir + '/**'], { ignore: config.distignore, base: './' })
 		.pipe(
-			rename(function (path) {
+			rename((path) => {
 				// rename "src" to plugin name
 				if (path.dirname === '.' && path.basename === 'src') {
 					path.basename = pkg.name;
