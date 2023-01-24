@@ -7,21 +7,17 @@ jobs:
     name: New release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the commit
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           # Ensure to checkout git submodules
           submodules: recursive
 
-      # Remove everything except src/, .wordpress-org and .distignore
-      - name: Clean up
-        run: find . -maxdepth 1 ! -name ".distignore" ! -name "src" ! -name ".wordpress-org" ! -name . -exec rm -rf {} \;
+      # Copy everything from src/ to temp/build/, excluding the ignored files
+      - name: Prepare
+        run: rsync -rc --exclude-from=".distignore" src/ temp/build/ --delete --delete-excluded
 
-      # Move everything from src/ to root directory
-      - name: Extract src
-        run: mv src/* ./; rm -r src;
-
-      - name: WordPress Plugin Deploy
+      - name: Deploy
         id: deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
         with:
@@ -29,6 +25,7 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          BUILD_DIR: temp/build
 
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
