@@ -15,7 +15,9 @@ jobs:
 
       # Copy everything from src/ to temp/build/, excluding the ignored files
       - name: Prepare
-        run: rsync -rc --exclude-from=".distignore" src/ temp/build/ --delete --delete-excluded
+        run: |
+          mkdir -p temp/build/
+          rsync -rc --exclude-from=".distignore" src/ temp/build/ --delete --delete-excluded
 
       - name: Deploy
         id: deploy
