@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed nesting error in experimental HTML converter
+
 ## [3.2.0 - 2023-01-19](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.0)
 
 ### Enhancements
