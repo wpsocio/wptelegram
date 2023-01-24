@@ -3,8 +3,6 @@
 	"version": "3.2.0",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "*",
-		"phpcompatibility/php-compatibility": "*",
 		"wp-coding-standards/wpcs": "*"
 	},
 	"scripts": {
