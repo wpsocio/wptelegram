@@ -4,9 +4,11 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
-## [3.2.2 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.2)
+### Bug fixes
 
-## [3.2.1 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.1)
+- Fixed the image not being sent after the text when "Send files by URL" is disabled
+
+## [3.2.2 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.2)
 
 ### Bug fixes
 

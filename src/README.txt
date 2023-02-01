@@ -206,9 +206,6 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 == Changelog ==
 
 = 3.2.2 =
-
-
-= 3.2.1 =
 - Fixed nesting error in experimental HTML converter
 
 = 3.2.0 =
