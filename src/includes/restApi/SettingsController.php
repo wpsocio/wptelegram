@@ -321,7 +321,7 @@ class SettingsController extends RESTController {
 					],
 					'parse_mode'               => [
 						'type' => 'string',
-						'enum' => [ 'none', 'Markdown', 'HTML' ],
+						'enum' => [ 'none', 'HTML' ],
 					],
 					'disable_web_page_preview' => [
 						'type' => 'boolean',
@@ -378,7 +378,7 @@ class SettingsController extends RESTController {
 					],
 					'parse_mode'         => [
 						'type' => 'string',
-						'enum' => [ 'none', 'Markdown', 'HTML' ],
+						'enum' => [ 'none', 'HTML' ],
 					],
 				],
 			],
