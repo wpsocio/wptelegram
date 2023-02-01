@@ -1080,6 +1080,17 @@ class PostSender extends BaseClass {
 		$disable_notification     = $this->options->get( 'disable_notification' );
 		$protect_content          = $this->options->get( 'protect_content' );
 
+		$limit_text = apply_filters( 'wptelegram_p2tg_limit_text_to_one_message', true, $this->post, $this->options, $text, $image_source );
+
+		$text_options = [
+			'format_to' => $parse_mode,
+			'id'        => 'p2tg',
+			'limit'     => $limit_text ? MainUtils::get_max_text_length( 'text' ) : 0,
+			'limit_by'  => 'chars',
+		];
+
+		$caption_options = array_merge( $text_options, [ 'limit' => MainUtils::get_max_text_length( 'caption' ) ] );
+
 		// Do not fail if the replied-to message is not found.
 		$allow_sending_without_reply = true;
 
@@ -1112,13 +1123,11 @@ class PostSender extends BaseClass {
 					// remove sendMessage.
 					unset( $method_params['sendMessage'] );
 
-					// use regex instead of mb_substr to preserve words.
-					preg_match( '/.{1,1024}(?=\s|$)/us', $text, $match );
-					$caption = $match[0];
+					$caption = $text;
 
 				} elseif ( 'after' === $image_position && '' !== $parse_mode ) {
 
-					$text = $this->add_hidden_image_url( $text, $image_source, $parse_mode );
+					$text = $this->add_hidden_image_url( $text, $parse_mode );
 
 					// Remove "sendPhoto".
 					unset( $method_params['sendPhoto'] );
@@ -1130,6 +1139,8 @@ class PostSender extends BaseClass {
 
 			if ( isset( $method_params['sendPhoto'] ) ) {
 
+				$caption = MainUtils::smart_trim_excerpt( $text, $caption_options );
+
 				$caption = apply_filters( 'wptelegram_p2tg_post_image_caption', $caption, $this->post, $this->options, $text, $image_source );
 
 				$method_params['sendPhoto']['photo']   = $image_source;
@@ -1140,6 +1151,8 @@ class PostSender extends BaseClass {
 		}
 
 		if ( isset( $method_params['sendMessage'] ) ) {
+
+			$text = MainUtils::smart_trim_excerpt( $text, $text_options );
 
 			$method_params['sendMessage']['text'] = $text;
 		}
@@ -1375,7 +1388,7 @@ class PostSender extends BaseClass {
 		];
 
 		// for post excerpt.
-		$params = compact( 'excerpt_source', 'excerpt_length', 'excerpt_preserve_eol', 'cats_as_tags' );
+		$params = compact( 'excerpt_source', 'excerpt_length', 'excerpt_preserve_eol', 'cats_as_tags', 'parse_mode' );
 
 		$macro_values = [];
 
@@ -1405,26 +1418,14 @@ class PostSender extends BaseClass {
 		 */
 		$macro_values = (array) apply_filters( 'wptelegram_p2tg_macro_values', $macro_values, $this->post, $this->options );
 
-		if ( 'Markdown' === $parse_mode ) {
-			$callback = [ MainUtils::class, 'esc_markdown' ];
-		} else {
-			$callback = 'stripslashes'; // to remove unwanted slashes.
-		}
-
-		// apply the callback to each value.
-		$macro_values = array_map( $callback, $macro_values );
+		// stripslashes for all values.
+		$macro_values = array_map( 'stripslashes', $macro_values );
 
 		// lets replace the conditional macros.
 		$template = $this->process_template_logic( $template, $macro_values );
 
 		// replace the lone macros with values.
 		$text = str_replace( array_keys( $macro_values ), array_values( $macro_values ), $template );
-
-		// decode all HTML entities.
-		$text = MainUtils::decode_html( $text );
-
-		// fix the malformed text.
-		$text = MainUtils::filter_text_for_parse_mode( $text, $parse_mode );
 
 		return apply_filters( 'wptelegram_p2tg_response_text', $text, $template, $this->post, $this->options );
 	}
@@ -1724,20 +1725,24 @@ class PostSender extends BaseClass {
 	 * @since   1.0.0
 	 *
 	 * @param string $text       The message text.
-	 * @param string $image_url  Image URL.
-	 * @param string $parse_mode Parse mode.
+	 * @param string $parse_mode The parse mode.
 	 *
 	 * @return string
 	 */
-	private function add_hidden_image_url( $text, $image_url, $parse_mode ) {
+	private function add_hidden_image_url( $text, $parse_mode ) {
+
+		$image_url = $this->post_data->get_field( 'featured_image_url' );
+
+		$string = '';
 
 		if ( 'HTML' === $parse_mode ) {
-			// Add Zero Width Non Joiner &#8204; as the anchor text.
+			// Add Zero Width Non Joiner as the anchor text.
 			$string = '<a href="' . $image_url . '">&#8204;</a>';
-		} else {
-			// Add hidden Zero Width Non Joiner between "[" and "]".
-			$string = '[‌](' . $image_url . ')';
 		}
-		return $string . '‌' . $text; // something magical in the middle.
+
+		// if text starts with a hashtag, add a space separator.
+		$separator = preg_match( '/^#/', $text ) ? ' ' : '';
+
+		return $string . $separator . $text;
 	}
 }

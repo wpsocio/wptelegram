@@ -12,6 +12,7 @@
 namespace WPTelegram\Core\modules\p2tg;
 
 use WPTelegram\Core\includes\Utils;
+use WPTelegram\FormatText\Converter\Utils as FormatTextUtils;
 
 /**
  * The Post Handling functionality of the plugin.
@@ -71,16 +72,16 @@ class PostData {
 	 * @since 2.0.0
 	 *
 	 * @param  string $field  The field to be retrieved.
-	 * @param  string $params Optional params to be used for some fields.
+	 * @param  string $options Optional params to be used for some fields.
 	 *
 	 * @return mixed Field value.
 	 */
-	public function get_field( $field, $params = [] ) {
+	public function get_field( $field, $options = [] ) {
 
 		// if the data already exists for the field.
 		if ( ! array_key_exists( $field, $this->data ) ) {
 
-			$this->data[ $field ] = $this->get_field_value( $field, $params );
+			$this->data[ $field ] = $this->get_field_value( $field, $options );
 		}
 
 		$value = apply_filters( 'wptelegram_p2tg_post_data_field', $this->data[ $field ], $field, $this->post );
@@ -93,12 +94,12 @@ class PostData {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param string $field  The field to be retrieved.
-	 * @param string $params Optional params to be used for some fields.
+	 * @param string $field   The field to be retrieved.
+	 * @param string $options Optional set of options to be used for some fields.
 	 *
 	 * @return mixed Field value.
 	 */
-	public function get_field_value( $field, $params = [] ) {
+	public function get_field_value( $field, $options = [] ) {
 
 		$value = '';
 
@@ -153,9 +154,10 @@ class PostData {
 			/* Post Excerpt */
 			case 'excerpt':
 			case 'post_excerpt':
-				$excerpt_source = isset( $params['excerpt_source'] ) ? $params['excerpt_source'] : 'post_content';
-				$excerpt_length = isset( $params['excerpt_length'] ) ? $params['excerpt_length'] : 55;
-				$preserve_eol   = ( isset( $params['excerpt_preserve_eol'] ) && $params['excerpt_preserve_eol'] );
+				$excerpt_source = isset( $options['excerpt_source'] ) ? $options['excerpt_source'] : 'post_content';
+				$excerpt_length = isset( $options['excerpt_length'] ) ? $options['excerpt_length'] : 55;
+				$preserve_eol   = isset( $options['excerpt_preserve_eol'] ) && $options['excerpt_preserve_eol'];
+				$parse_mode     = isset( $options['parse_mode'] ) ? $options['parse_mode'] : 'text';
 
 				if ( 'before_more' === $excerpt_source ) {
 
@@ -164,9 +166,10 @@ class PostData {
 
 				} else {
 
-					$excerpt = get_post_field( $excerpt_source, $this->post );
+					$field  = 'post_content' === $excerpt_source ? 'post_content' : 'post_excerpt';
+					$filter = 'post_content' === $excerpt_source ? 'the_content' : 'the_excerpt';
 
-					$filter = str_replace( 'post', 'the', $excerpt_source );
+					$excerpt = get_post_field( $field, $this->post );
 
 					self::remove_autoembed_filter();
 
@@ -176,24 +179,43 @@ class PostData {
 					self::restore_autoembed_filter();
 				}
 
-				// remove shortcodes and convert <br> to EOL.
-				$excerpt = str_replace( '<br>', PHP_EOL, strip_shortcodes( $excerpt ) );
-
-				$value = Utils::trim_words( $excerpt, $excerpt_length, '…', $preserve_eol );
+				$value = Utils::prepare_content(
+					$excerpt,
+					[
+						'format_to'    => $parse_mode,
+						'id'           => 'p2tg',
+						'limit'        => $excerpt_length,
+						'limit_by'     => 'words',
+						'preserve_eol' => $preserve_eol,
+					]
+				);
+				// If the excerpt is not empty.
+				if ( $value ) {
+					// Add custom tags for smart trimming.
+					$value = '<excerpt>' . $value . '</excerpt>';
+				}
 				break;
 
 			/* Post Content */
 			case 'content':
 			case 'post_content':
+				$parse_mode = isset( $options['parse_mode'] ) ? $options['parse_mode'] : 'text';
+
 				$content = get_post_field( 'post_content', $this->post );
-				$content = str_replace( '<br>', PHP_EOL, $content );
+				$content = preg_replace( '@<br[^>]*?/?>@si', "\n", $content );
 
 				self::remove_autoembed_filter();
 				$content = apply_filters( 'the_content', $content );
 				self::restore_autoembed_filter();
 
-				$content = trim( strip_tags( Utils::decode_html( $content ), '<b><strong><em><i><a><pre><code>' ) );
-				$value   = trim( strip_shortcodes( $content ) );
+				$value = Utils::prepare_content(
+					$content,
+					[
+						'format_to' => $parse_mode,
+						'id'        => 'p2tg',
+						'limit'     => 0,
+					]
+				);
 				break;
 
 			case 'short_url':
@@ -229,9 +251,9 @@ class PostData {
 						case 'terms': // if taxonomy.
 							$taxonomy = $_field;
 
-							$cats_as_tags = ( isset( $params['cats_as_tags'] ) && $params['cats_as_tags'] );
+							$cats_as_tags = ( isset( $options['cats_as_tags'] ) && $options['cats_as_tags'] );
 
-							$cats_as_tags = apply_filters( "wptelegram_p2tg_post_data_send_{$taxonomy}_as_tags", $cats_as_tags, $this->post, $params );
+							$cats_as_tags = apply_filters( "wptelegram_p2tg_post_data_send_{$taxonomy}_as_tags", $cats_as_tags, $this->post, $options );
 
 							if ( taxonomy_exists( $taxonomy ) ) {
 
@@ -262,7 +284,7 @@ class PostData {
 				break;
 		}
 
-		$value = apply_filters( 'wptelegram_p2tg_post_data_field_value', $value, $field, $this->post, $params );
+		$value = apply_filters( 'wptelegram_p2tg_post_data_field_value', $value, $field, $this->post, $options );
 
 		$remove_multi_eol = apply_filters( 'wptelegram_p2tg_post_data_remove_multi_eol', true, $this->post );
 
@@ -271,7 +293,7 @@ class PostData {
 			$value = preg_replace( '/\n[\n\r\s]*\n[\n\r\s]*\n/u', "\n\n", $value );
 		}
 
-		return (string) apply_filters( "wptelegram_p2tg_post_data_{$field}_value", $value, $this->post, $params );
+		return (string) apply_filters( "wptelegram_p2tg_post_data_{$field}_value", $value, $this->post, $options );
 	}
 
 	/**
