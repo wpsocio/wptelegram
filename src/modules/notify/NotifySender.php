@@ -269,7 +269,8 @@ class NotifySender extends BaseClass {
 
 		switch ( $macro ) {
 			case 'email_message':
-				$value = $converter->convert( $this->wp_mail_args['message'] );
+				$message = $this->prepare_email_message( $this->wp_mail_args['message'], $this->wp_mail_args['headers'] );
+				$value   = $converter->convert( $message );
 				break;
 
 			case 'email_subject':
@@ -280,6 +281,31 @@ class NotifySender extends BaseClass {
 		$value = apply_filters( 'wptelegram_notify_macro_value', $value, $macro, $this->wp_mail_args, $this->module->options() );
 
 		return apply_filters( "wptelegram_notify_macro_{$macro}_value", $value, $this->wp_mail_args, $this->module->options() );
+	}
+
+	/**
+	 * Prepare the email message.
+	 *
+	 * The function:
+	 * 1. Converts the quoted-printable message to an 8 bit string
+	 *    if "Content-Transfer-Encoding" is "quoted-printable"
+	 *
+	 * @since x.y.z
+	 *
+	 * @param string       $message The email message.
+	 * @param string|array $headers The email headers.
+	 *
+	 * @return string
+	 */
+	private function prepare_email_message( $message, $headers ) {
+
+		$headers_str = is_array( $headers ) ? implode( "\n", $headers ) : $headers;
+
+		if ( preg_match( '/Content-Transfer-Encoding:\s*?quoted-printable/i', $headers_str ) ) {
+			$message = quoted_printable_decode( $message );
+		}
+
+		return apply_filters( 'wptelegram_notify_prepare_email_message', $message, $headers, $this->wp_mail_args, $this->module->options() );
 	}
 
 	/**
