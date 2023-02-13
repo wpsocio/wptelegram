@@ -12,10 +12,10 @@
 namespace WPTelegram\Core\includes;
 
 use WPTelegram\Core\includes\restApi\RESTController;
-use WP_REST_Request;
-use WP_Error;
 use WPTelegram\FormatText\HtmlConverter;
 use WPTelegram\FormatText\Converter\Utils as FormatTextUtils;
+use WP_REST_Request;
+use WP_Error;
 
 /**
  * WPTelegram Utilities
@@ -27,6 +27,33 @@ use WPTelegram\FormatText\Converter\Utils as FormatTextUtils;
  * @subpackage WPTelegram\Core\includes
  */
 class Utils {
+
+	/**
+	 * HTML tags allowed in Telegram messages.
+	 *
+	 * @var string Tags.
+	 * @since x.y.z
+	 */
+	const SUPPORTED_HTML_TAGS = [
+		// Link.
+		'a'      => [
+			'href' => true,
+		],
+		// bold.
+		'b'      => [],
+		'strong' => [],
+		// italic.
+		'em'     => [],
+		'i'      => [],
+		// code.
+		'pre'    => [],
+		'code'   => [
+			'class' => true,
+		],
+		// underline.
+		'u'      => [],
+		'ins'    => [],
+	];
 
 	/**
 	 * Sanitize the input.
@@ -227,28 +254,13 @@ class Utils {
 	 * @return mixed Sanitized value.
 	 */
 	public static function sanitize_message_template( $value, $addslashes = false, $json_encode = false ) {
-
-		$filtered = wp_check_invalid_utf8( $value );
-
-		if ( strpos( $filtered, '<' ) !== false ) {
-			$filtered = wp_pre_kses_less_than( $filtered );
-
-			$filtered = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $filtered );
-			// This will strip extra whitespace for us.
-			$filtered = strip_tags( $filtered, '<b><strong><i><em><a><code><pre>' );
-		}
-		$filtered = trim( $filtered );
-
-		$found = false;
-		while ( preg_match( '/%[a-f0-9]{2}/i', $filtered, $match ) ) {
-			$filtered = str_replace( $match[0], '', $filtered );
-			$found    = true;
+		if ( is_object( $value ) || is_array( $value ) ) {
+			return '';
 		}
 
-		if ( $found ) {
-			// Strip out the whitespace that may now exist after removing the octets.
-			$filtered = trim( preg_replace( '/\s+/', ' ', $filtered ) );
-		}
+		$filtered = wp_check_invalid_utf8( (string) $value );
+
+		$filtered = trim( wp_kses( $filtered, self::SUPPORTED_HTML_TAGS ) );
 
 		if ( $json_encode ) {
 			// json_encode to avoid errors when saving multi-byte emojis into database with no multi-byte support.
