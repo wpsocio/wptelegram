@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-01-24 12:42:49+00:00\n"
+"POT-Creation-Date: 2023-02-13 14:29:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-01-24 12:420\n"
+"PO-Revision-Date: 2023-02-13 14:290\n"
 "Last-Translator: WP Telegram\n"
 "Language-Team: WP Telegram\n"
 "Language: en_US\n"
@@ -33,7 +33,7 @@ msgid ""
 "and do lot more :)"
 msgstr ""
 
-#: includes/Main.php:319
+#: includes/Main.php:314
 msgid "WP Telegram"
 msgstr ""
 
@@ -525,11 +525,11 @@ msgid "None"
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:386
-msgid "Markdown style"
+msgid "HTML style"
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:389
-msgid "HTML style"
+msgid "Markdown style"
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:394

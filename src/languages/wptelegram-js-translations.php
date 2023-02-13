@@ -378,17 +378,17 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:21
 	__( 'Enable this option if you use a plugin to generate posts.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:19
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:17
 	// Reference: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:61
 	__( 'None', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:23
-	__( 'Markdown style', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:27
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:21
 	__( 'HTML style', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:48
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:29
+	__( 'Markdown style', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:49
 	// Reference: domains/wptelegram/shared/core-pro/src/components/ProtectContent.tsx:19
 	// Reference: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:37
 	__( 'Learn more', 'wptelegram' ),
@@ -702,7 +702,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/services/src/useDisplayFeedback.ts:62
 	__( 'Lets fix these errors first.', 'wptelegram' ),
 
-	// Reference: packages/services/src/useSubmitForm.ts:54
+	// Reference: packages/services/src/useSubmitForm.ts:58
 	__( 'Changes saved successfully.', 'wptelegram' ),
 
 	// Reference: packages/utilities/src/fields.ts:31

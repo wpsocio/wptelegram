@@ -80,7 +80,7 @@ class RequestCheck {
 
 		switch ( $type ) {
 			case self::IS_GB_METABOX:
-				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'is_gb_metabox' ] ); // phpcs:ignore
+				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'is_gb_metabox' ] ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 			case self::WP_IMPORTING:
 				return defined( 'WP_IMPORTING' ) && WP_IMPORTING;
@@ -89,10 +89,10 @@ class RequestCheck {
 				return isset( $_GET['bulk_edit'] ); // phpcs:ignore
 
 			case self::QUICK_EDIT:
-				return defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'inline-save' === $_REQUEST['action']; // phpcs:ignore
+				return defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'inline-save' === $_REQUEST['action']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 			case self::FROM_WEB:
-				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'from_web' ] ); // phpcs:ignore
+				return self::is_post_request() && isset( $_POST[ Main::PREFIX . 'from_web' ] ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 			case self::DOING_AUTOSAVE:
 				return defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE;

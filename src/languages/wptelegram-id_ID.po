@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-01-19 15:14:07+00:00\n"
+"POT-Creation-Date: 2023-02-13 14:29:00+00:00\n"
 "PO-Revision-Date: 2021-03-14 01:59+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Dengan plugin ini, Anda dapat mengirim posting ke Telegram dan menerima "
 "notifikasi dan melakukan lebih banyak lagi :)"
 
-#: includes/Main.php:319
+#: includes/Main.php:314
 msgid "WP Telegram"
 msgstr ""
 
@@ -536,12 +536,12 @@ msgid "None"
 msgstr "Tidak Ada"
 
 #: languages/wptelegram-js-translations.php:386
-msgid "Markdown style"
-msgstr "Gaya Markdown"
-
-#: languages/wptelegram-js-translations.php:389
 msgid "HTML style"
 msgstr "Gaya HTML"
+
+#: languages/wptelegram-js-translations.php:389
+msgid "Markdown style"
+msgstr "Gaya Markdown"
 
 #: languages/wptelegram-js-translations.php:394
 msgid "Learn more"

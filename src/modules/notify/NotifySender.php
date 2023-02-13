@@ -14,7 +14,6 @@ namespace WPTelegram\Core\modules\notify;
 use WPTelegram\Core\modules\BaseClass;
 use WPTelegram\BotAPI\API as BotApi;
 use WPTelegram\Core\includes\Utils;
-use WPTelegram\FormatText\HtmlConverter;
 use WP_User;
 
 /**
@@ -179,6 +178,15 @@ class NotifySender extends BaseClass {
 
 			$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
 
+			$options = [
+				'format_to' => $parse_mode,
+				'id'        => 'p2tg',
+				'limit'     => Utils::get_max_text_length( 'text' ),
+				'limit_by'  => 'chars',
+			];
+
+			$text = Utils::prepare_content( $text, $options );
+
 			$disable_web_page_preview = true;
 
 			$this->responses = [
@@ -254,40 +262,18 @@ class NotifySender extends BaseClass {
 	private function get_macro_value( $macro ) {
 		$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
 
-		$use_experimental_text = apply_filters( 'wptelegram_notify_use_experimental_text', false, $this->wp_mail_args, $this->module->options() );
-
-		$converter = $this->get_html_converter( $parse_mode );
+		$converter = Utils::get_html_converter( [ 'format_to' => $parse_mode ], 'notify' );
 
 		$value = '';
+
 		switch ( $macro ) {
 			case 'email_message':
-				$value = $this->wp_mail_args['message'];
-
-				if ( $use_experimental_text ) {
-					$value = $converter->convert( $value );
-				} else {
-
-					$value = convert_html_to_text( $value, true );
-					$value = $this->convert_links_for_parsing( $value );
-					$value = apply_filters_deprecated(
-						'wptelegram_notify_email_message',
-						[ $value, $this->wp_mail_args, $this->chats2emails, $this->module->options() ],
-						'3.2.0',
-						'wptelegram_notify_macro_email_message_value'
-					);
-				}
+				$message = $this->prepare_email_message( $this->wp_mail_args['message'], $this->wp_mail_args['headers'] );
+				$value   = $converter->convert( $message );
 				break;
 
 			case 'email_subject':
-				$value = $this->wp_mail_args['subject'];
-				$value = wp_strip_all_tags( $value, true );
-				$value = $converter->convert( $value );
-				$value = apply_filters_deprecated(
-					'wptelegram_notify_email_subject',
-					[ $value, $this->wp_mail_args, $this->chats2emails, $this->module->options() ],
-					'3.2.0',
-					'wptelegram_notify_macro_email_subject_value'
-				);
+				$value = $converter->convert( wp_strip_all_tags( $this->wp_mail_args['subject'], true ) );
 				break;
 		}
 
@@ -297,25 +283,28 @@ class NotifySender extends BaseClass {
 	}
 
 	/**
-	 * The HTMLConverter instance
+	 * Prepare the email message.
 	 *
-	 * @param string $format_to The format to convert to.
+	 * The function:
+	 * 1. Converts the quoted-printable message to an 8 bit string
+	 *    if "Content-Transfer-Encoding" is "quoted-printable"
 	 *
-	 * @return HtmlConverter The HTMLConverter instance.
+	 * @since 4.0.0
+	 *
+	 * @param string       $message The email message.
+	 * @param string|array $headers The email headers.
+	 *
+	 * @return string
 	 */
-	private function get_html_converter( $format_to ) {
+	private function prepare_email_message( $message, $headers ) {
 
-		$options = [
-			'format_to'     => $format_to,
-			'table_row_sep' => "\n" . str_repeat( '-', 30 ) . "\n",
-		];
+		$headers_str = is_array( $headers ) ? implode( "\n", $headers ) : $headers;
 
-		$options = apply_filters( 'wptelegram_notify_html_converter_options', $options, $format_to );
+		if ( preg_match( '/Content-Transfer-Encoding:\s*?quoted-printable/i', $headers_str ) ) {
+			$message = quoted_printable_decode( $message );
+		}
 
-		$converter = new HtmlConverter( $options );
-
-		// Use this filter to add your own HTML converters.
-		return apply_filters( 'wptelegram_notify_html_converter', $converter, $format_to, $options );
+		return apply_filters( 'wptelegram_notify_prepare_email_message', $message, $headers, $this->wp_mail_args, $this->module->options() );
 	}
 
 	/**
@@ -369,26 +358,5 @@ class NotifySender extends BaseClass {
 			$chat_id = $user->{WPTELEGRAM_USER_ID_META_KEY};
 		}
 		return apply_filters( 'wptelegram_notify_user_chat_id', $chat_id, $email, $this->wp_mail_args );
-	}
-
-	/**
-	 * [text](url) to <a href="url">text</a>
-	 *
-	 * @since   1.0.0
-	 *
-	 * @param string $text The text to convert.
-	 */
-	private function convert_links_for_parsing( $text ) {
-
-		$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
-
-		if ( 'Markdown' !== $parse_mode ) {
-			$text = preg_replace( '/\[([^\]]+?)\]\(([^\)]+?)\)/ui', '<a href="$2">$1</a>', $text );
-
-			if ( 'HTML' !== $parse_mode ) {
-				$text = wp_strip_all_tags( $text, false );
-			}
-		}
-		return $text;
 	}
 }
