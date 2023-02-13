@@ -16,8 +16,8 @@ use WPTelegram\Core\includes\Options;
 use WPTelegram\Core\includes\Utils as MainUtils;
 use WPTelegram\BotAPI\API;
 use WPTelegram\BotAPI\Response;
-use WP_Post;
 use WPTelegram\BotAPI\Client;
+use WP_Post;
 
 /**
  * The Post Handling functionality of the plugin.

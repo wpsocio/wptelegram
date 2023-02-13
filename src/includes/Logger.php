@@ -8,12 +8,12 @@
 
 namespace WPTelegram\Core\includes;
 
-use ReflectionClass;
 use WPTelegram\BotAPI\Response;
 use WPTelegram\BotAPI\API;
-use WP_Post;
 use WPTelegram\Core\modules\p2tg\RequestCheck;
 use WPTelegram\Core\modules\p2tg\Main as P2TGMain;
+use ReflectionClass;
+use WP_Post;
 
 /**
  * WPTelegram_Logger class.

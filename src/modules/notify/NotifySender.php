@@ -14,7 +14,6 @@ namespace WPTelegram\Core\modules\notify;
 use WPTelegram\Core\modules\BaseClass;
 use WPTelegram\BotAPI\API as BotApi;
 use WPTelegram\Core\includes\Utils;
-use WPTelegram\FormatText\HtmlConverter;
 use WP_User;
 
 /**

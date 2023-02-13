@@ -12,7 +12,6 @@
 namespace WPTelegram\Core\modules\p2tg;
 
 use WPTelegram\Core\includes\Utils;
-use WPTelegram\FormatText\Converter\Utils as FormatTextUtils;
 
 /**
  * The Post Handling functionality of the plugin.
