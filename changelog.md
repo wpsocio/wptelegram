@@ -12,7 +12,7 @@ All notable changes to this project are documented in this file.
 - Intelligently trim `{post_excerpt}` to preserve the other parts of Message Template.
 
 ### Breaking changes
-- Removed support for Markdown formatting in favour or better HTML formatting
+- Removed support for Markdown formatting in favour of better HTML formatting
 
 ### Bug fixes
 
