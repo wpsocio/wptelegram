@@ -17,7 +17,7 @@ All notable changes to this project are documented in this file.
 ### Bug fixes
 
 - Fixed the image not being sent "After the text" when "Send files by URL" is disabled
-- Fixed the issue of messages not sent when the markup is not valid
+- Fixed the issue of messages not being sent when the markup is not valid
 
 ## [3.2.2 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.2)
 
