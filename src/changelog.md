@@ -4,9 +4,24 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
-## [3.2.2 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.2)
+## [4.0.0 - 2023-02-13](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.0)
 
-## [3.2.1 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.1)
+### Enhancements
+
+- Added better support for HTML formatting.
+- Added support for <u> and <ins> HTML tags.
+- Added support for nested tags. You can now use <b> inside <i> and vice versa.
+- Intelligently trim `{post_excerpt}` to preserve the other parts of Message Template.
+
+### Breaking changes
+- Removed support for Markdown formatting in favour of better HTML formatting
+
+### Bug fixes
+
+- Fixed the image not being sent "After the text" when "Send files by URL" is disabled
+- Fixed the issue of messages not being sent when the markup is not valid
+
+## [3.2.2 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.2)
 
 ### Bug fixes
 

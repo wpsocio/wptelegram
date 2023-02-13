@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Tested up to: 6.1.1
 Requires PHP: 7.2
-Stable tag: 3.2.2
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,15 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.0 =
+- Added better support for HTML formatting.
+- Added support for <u> and <ins> HTML tags.
+- Added support for nested tags. You can now use <b> inside <i> and vice versa.
+- Intelligently trim `{post_excerpt}` to preserve the other parts of Message Template.
+- Removed support for Markdown formatting in favour of better HTML formatting
+- Fixed the image not being sent "After the text" when "Send files by URL" is disabled
+- Fixed the issue of messages not being sent when the markup is not valid
 
 = 3.2.2 =
 - Fixed nesting error in experimental HTML converter

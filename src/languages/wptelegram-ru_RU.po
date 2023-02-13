@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-01-19 15:14:07+00:00\n"
+"POT-Creation-Date: 2023-02-13 14:29:00+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:21+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -31,7 +31,7 @@ msgstr ""
 "С помощью этого плагина вы можете отправлять сообщения в Telegram, получать "
 "уведомления и делать многое другое :)"
 
-#: includes/Main.php:319
+#: includes/Main.php:314
 msgid "WP Telegram"
 msgstr ""
 
@@ -538,12 +538,12 @@ msgid "None"
 msgstr "Нет"
 
 #: languages/wptelegram-js-translations.php:386
-msgid "Markdown style"
-msgstr "Markdown стиль"
-
-#: languages/wptelegram-js-translations.php:389
 msgid "HTML style"
 msgstr "HTML стиль"
+
+#: languages/wptelegram-js-translations.php:389
+msgid "Markdown style"
+msgstr "Markdown стиль"
 
 #: languages/wptelegram-js-translations.php:394
 msgid "Learn more"

@@ -32,7 +32,7 @@ class Utils {
 	 * HTML tags allowed in Telegram messages.
 	 *
 	 * @var string Tags.
-	 * @since x.y.z
+	 * @since 4.0.0
 	 */
 	const SUPPORTED_HTML_TAGS = [
 		// Link.
@@ -565,7 +565,7 @@ class Utils {
 	/**
 	 * Get the maximum length of the text to send to Telegram.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.0
 	 *
 	 * @param string $for         The type of the text. Can be 'text' or 'caption' Default 'text'.
 	 * @param bool   $add_padding Whether to add the safety padding to the limit. Default true.

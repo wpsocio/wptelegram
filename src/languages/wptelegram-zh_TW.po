@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-01-19 15:14:07+00:00\n"
+"POT-Creation-Date: 2023-02-13 14:29:00+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:27+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -28,7 +28,7 @@ msgid ""
 "and do lot more :)"
 msgstr "有了這個外掛，你可以發送文章至 Telegram 並且接收通知，以及更多事情 :)"
 
-#: includes/Main.php:319
+#: includes/Main.php:314
 msgid "WP Telegram"
 msgstr ""
 
@@ -523,12 +523,12 @@ msgid "None"
 msgstr "無"
 
 #: languages/wptelegram-js-translations.php:386
-msgid "Markdown style"
-msgstr "Markdown 樣式"
-
-#: languages/wptelegram-js-translations.php:389
 msgid "HTML style"
 msgstr "HTML 樣式"
+
+#: languages/wptelegram-js-translations.php:389
+msgid "Markdown style"
+msgstr "Markdown 樣式"
 
 #: languages/wptelegram-js-translations.php:394
 msgid "Learn more"

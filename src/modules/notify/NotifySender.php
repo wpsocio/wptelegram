@@ -289,7 +289,7 @@ class NotifySender extends BaseClass {
 	 * 1. Converts the quoted-printable message to an 8 bit string
 	 *    if "Content-Transfer-Encoding" is "quoted-printable"
 	 *
-	 * @since x.y.z
+	 * @since 4.0.0
 	 *
 	 * @param string       $message The email message.
 	 * @param string|array $headers The email headers.
