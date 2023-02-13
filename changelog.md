@@ -7,6 +7,8 @@ All notable changes to this project are documented in this file.
 ### Enhancements
 
 - Added better support for HTML formatting.
+- Added support for all the HTML tags supported by Telegram.
+- Intelligently trim `{post_excerpt}` to preserve the other parts of Message Template.
 
 ### Breaking changes
 - Removed support for Markdown formatting in favour or better HTML formatting
