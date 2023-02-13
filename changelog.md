@@ -7,7 +7,7 @@ All notable changes to this project are documented in this file.
 ### Enhancements
 
 - Added better support for HTML formatting.
-- Added support for all the HTML tags supported by Telegram.
+- Added support for <u> and <ins> HTML tags.
 - Intelligently trim `{post_excerpt}` to preserve the other parts of Message Template.
 
 ### Breaking changes
@@ -15,7 +15,8 @@ All notable changes to this project are documented in this file.
 
 ### Bug fixes
 
-- Fixed the image not being sent after the text when "Send files by URL" is disabled
+- Fixed the image not being sent "After the text" when "Send files by URL" is disabled
+- Fixed the issue of messages not sent when the markup is not valid
 
 ## [3.2.2 - 2023-01-24](https://github.com/wpsocio/wptelegram/releases/tag/v3.2.2)
 
