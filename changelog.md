@@ -8,6 +8,7 @@ All notable changes to this project are documented in this file.
 
 - Added better support for HTML formatting.
 - Added support for <u> and <ins> HTML tags.
+- Added support for nested tags. You can now use <b> inside <i> and vice versa.
 - Intelligently trim `{post_excerpt}` to preserve the other parts of Message Template.
 
 ### Breaking changes
