@@ -11,9 +11,11 @@
 
 namespace WPTelegram\Core\includes;
 
-use ReflectionClass;
 use WPTelegram\Core\includes\restApi\RESTController;
 use WPTelegram\Core\includes\restApi\SettingsController;
+use ReflectionClass;
+use DOMDocument;
+use DOMXPath;
 
 /**
  * The assets manager of the plugin.
@@ -182,9 +184,11 @@ class AssetManager extends BaseClass {
 	 */
 	public function get_debug_info() {
 
-		$info  = 'PHP: ' . PHP_VERSION . PHP_EOL;
-		$info .= 'WP: ' . get_bloginfo( 'version' ) . PHP_EOL;
-		$info .= 'WP Telegram: ' . $this->plugin()->version();
+		$info  = 'PHP:         ' . PHP_VERSION . PHP_EOL;
+		$info .= 'WP:          ' . get_bloginfo( 'version' ) . PHP_EOL;
+		$info .= 'Plugin:      ' . $this->plugin()->name() . ':v' . $this->plugin()->version() . PHP_EOL;
+		$info .= 'DOMDocument: ' . ( class_exists( DOMDocument::class ) ? '✓' : '✕' ) . PHP_EOL;
+		$info .= 'DOMXPath:    ' . ( class_exists( DOMXPath::class ) ? '✓' : '✕' ) . PHP_EOL;
 
 		return $info;
 	}

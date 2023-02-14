@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [4.0.1 - 2023-02-14](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.1)
+
+### Bug fixes
+
+- Fixed the word count issue with non-english locales
+
 ## [4.0.0 - 2023-02-13](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.0)
 
 ### Enhancements
