@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Tested up to: 6.1.1
 Requires PHP: 7.2
-Stable tag: 4.0.1
+Stable tag: 4.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -205,6 +205,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 
 == Changelog ==
 
+= 4.0.2 =
+- Fixed PHP 8.1 issue with HTML conversion
+
 = 4.0.1 =
 - Fixed the word count issue with non-english locales
 
@@ -216,10 +219,3 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 - Removed support for Markdown formatting in favour of better HTML formatting
 - Fixed the image not being sent "After the text" when "Send files by URL" is disabled
 - Fixed the issue of messages not being sent when the markup is not valid
-
-= 3.2.2 =
-- Fixed nesting error in experimental HTML converter
-
-= 3.2.0 =
-- Added the new experimental HTML converter for better formatting of email notifications
-- The new can be enabled using `add_filter( 'wptelegram_notify_use_experimental_text', '__return_true' );`

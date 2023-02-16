@@ -12,6 +12,7 @@ use WPTelegram\BotAPI\Response;
 use WPTelegram\BotAPI\API;
 use WPTelegram\Core\modules\p2tg\RequestCheck;
 use WPTelegram\Core\modules\p2tg\Main as P2TGMain;
+use WPTelegram\FormatText\Exceptions\ConverterException;
 use ReflectionClass;
 use WP_Post;
 
@@ -174,6 +175,8 @@ class Logger extends BaseClass {
 		add_action( 'wptelegram_p2tg_post_finish', [ $this, 'add_post_finish' ], 999, 5 );
 
 		add_action( 'wptelegram_p2tg_after_send_post', [ $this, 'after_p2tg_log' ], 999, 3 );
+
+		add_action( 'wptelegram_prepare_content_error', [ $this, 'prepare_content_error' ], 10, 3 );
 	}
 
 	/**
@@ -385,6 +388,23 @@ class Logger extends BaseClass {
 		}
 
 		$this->write_log( 'bot-api', $text );
+	}
+
+	/**
+	 * Handle prepare content error.
+	 *
+	 * @param ConverterException $exception The exception thrown.
+	 * @param string             $content The content that was being prepared.
+	 * @param array              $options The options passed to prepare_content.
+	 *
+	 * @return void
+	 */
+	public function prepare_content_error( $exception, $content, $options ) {
+		$text  = 'Error: ' . $exception . PHP_EOL;
+		$text .= 'Options: ' . wp_json_encode( $options ) . PHP_EOL;
+		$text .= 'Content: ' . $content;
+
+		$this->write_log( 'converter', $text );
 	}
 
 	/**

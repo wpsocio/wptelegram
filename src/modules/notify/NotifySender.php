@@ -262,18 +262,23 @@ class NotifySender extends BaseClass {
 	private function get_macro_value( $macro ) {
 		$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
 
-		$converter = Utils::get_html_converter( [ 'format_to' => $parse_mode ], 'notify' );
-
 		$value = '';
+
+		$options = [
+			'format_to' => $parse_mode,
+			'id'        => 'notify',
+			'limit'     => 0,
+		];
 
 		switch ( $macro ) {
 			case 'email_message':
-				$message = $this->prepare_email_message( $this->wp_mail_args['message'], $this->wp_mail_args['headers'] );
-				$value   = $converter->convert( $message );
+				$value = $this->prepare_email_message( $this->wp_mail_args['message'], $this->wp_mail_args['headers'] );
+				$value = Utils::prepare_content( $value, $options );
 				break;
 
 			case 'email_subject':
-				$value = $converter->convert( wp_strip_all_tags( $this->wp_mail_args['subject'], true ) );
+				$value = wp_strip_all_tags( $this->wp_mail_args['subject'], true );
+				$value = Utils::prepare_content( $value, $options );
 				break;
 		}
 
