@@ -14,6 +14,7 @@ namespace WPTelegram\Core\includes;
 use WPTelegram\Core\includes\restApi\RESTController;
 use WPTelegram\FormatText\HtmlConverter;
 use WPTelegram\FormatText\Converter\Utils as FormatTextUtils;
+use WPTelegram\FormatText\Exceptions\ConverterException;
 use WP_REST_Request;
 use WP_Error;
 
@@ -437,8 +438,9 @@ class Utils {
 	public static function get_html_converter( $options = [], $id = 'default' ) {
 
 		$defaults = [
-			'format_to'     => 'text',
-			'table_row_sep' => "\n" . str_repeat( '-', 30 ) . "\n",
+			'format_to'          => 'text',
+			'table_row_sep'      => "\n" . str_repeat( '-', 30 ) . "\n",
+			'throw_on_doc_error' => true,
 		];
 
 		$options = wp_parse_args( $options, $defaults );
@@ -485,7 +487,28 @@ class Utils {
 
 		$converter = self::get_html_converter( $options, $options['id'] );
 
-		$result = $converter->convert( trim( strip_shortcodes( $content ) ) );
+		$result = trim( strip_shortcodes( $content ) );
+
+		try {
+			$result = $converter->convert( $result );
+		} catch ( ConverterException $exception ) {
+
+			// Since there was an error, we supposedly cannot format to HTML.
+			$result = wp_strip_all_tags( HtmlConverter::prepareHtml( $result ) );
+
+			$result = FormatTextUtils::decodeHtmlEntities( HtmlConverter::cleanUp( $result ) );
+
+			// If we were supposed to format to HTML,
+			// we need to ensure that special characters are escaped.
+			if ( 'HTML' === $options['format_to'] ) {
+				$result = FormatTextUtils::htmlSpecialChars( $result );
+			}
+
+			// override formatting.
+			$options['format_to'] = 'text';
+
+			do_action( 'wptelegram_prepare_content_error', $exception, $content, $options );
+		}
 
 		// Remove new lines if not preserving them.
 		if ( ! $options['preserve_eol'] ) {
