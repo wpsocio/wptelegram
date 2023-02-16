@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [4.0.2 - 2023-02-16](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.2)
+
 ### Bug fixes
 
 - Fixed PHP 8.1 issue with HTML conversion
