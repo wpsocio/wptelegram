@@ -460,6 +460,15 @@ msgstr ""
 msgid "You can use any text, emojis or these macros in any order."
 msgstr ""
 
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:101
+#. %s pipe character
+msgid "Note can be added after %s."
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:110
+msgid "For example %s"
+msgstr ""
+
 #: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:19
 msgid "Create a Telegram channel or group."
 msgstr ""
@@ -490,8 +499,14 @@ msgid ""
 "enabled, you can add a colon (%s) to the chat ID followed by topic ID."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:63
-msgid "For example %s"
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:89
+msgid "Tip!"
+msgstr ""
+
+#: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:94
+msgid ""
+"You can add an internal note to the chat ID to make it easier for you to "
+"indentify it."
 msgstr ""
 
 #: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:13
@@ -937,7 +952,7 @@ msgstr ""
 msgid "Lets fix these errors first."
 msgstr ""
 
-#: packages/services/src/useSubmitForm.ts:58
+#: packages/services/src/useSubmitForm.ts:62
 msgid "Changes saved successfully."
 msgstr ""
 
