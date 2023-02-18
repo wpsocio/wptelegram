@@ -1566,6 +1566,9 @@ class PostSender extends BaseClass {
 				$params = reset( $response );
 				$method = key( $response );
 
+				// Remove note added to the chat id after "|".
+				$channel = preg_replace( '/\s*\|.*?$/u', '', $channel );
+
 				list( $params['chat_id'], $params['message_thread_id'] ) = array_pad( explode( ':', $channel ), 2, '' );
 
 				if ( ! $params['message_thread_id'] ) {

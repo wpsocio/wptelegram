@@ -332,7 +332,14 @@ class NotifySender extends BaseClass {
 				$params = reset( $response );
 				$method = key( $response );
 
-				$params['chat_id'] = $chat_id;
+				// Remove note added to the chat id after "|".
+				$chat_id = preg_replace( '/\s*\|.*?$/u', '', $chat_id );
+
+				list( $params['chat_id'], $params['message_thread_id'] ) = array_pad( explode( ':', $chat_id ), 2, '' );
+
+				if ( ! $params['message_thread_id'] ) {
+					unset( $params['message_thread_id'] );
+				}
 
 				$params = apply_filters( 'wptelegram_notify_api_method_params', $params, $method, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
 
