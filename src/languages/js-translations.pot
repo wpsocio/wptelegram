@@ -327,7 +327,7 @@ msgstr ""
 msgid "Delay in Posting"
 msgstr ""
 
-#: domains/wptelegram/core/p2tg-gb/src/SendToTelegram.tsx:24
+#: domains/wptelegram/core/p2tg-gb/src/SendToTelegram.tsx:33
 msgid "Send to Telegram"
 msgstr ""
 
