@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Tested up to: 6.1.1
 Requires PHP: 7.2
-Stable tag: 4.0.2
+Stable tag: 4.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.3 =
+- Added support for adding internal note to chat IDs
 
 = 4.0.2 =
 - Fixed PHP 8.1 issue with HTML conversion
