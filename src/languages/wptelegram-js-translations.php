@@ -245,7 +245,7 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/services/fields.ts:20
 	__( 'Delay in Posting', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/core/p2tg-gb/src/SendToTelegram.tsx:24
+	// Reference: domains/wptelegram/core/p2tg-gb/src/SendToTelegram.tsx:33
 	__( 'Send to Telegram', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/AdvancedSettings.tsx:25
@@ -345,6 +345,13 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:29
 	__( 'You can use any text, emojis or these macros in any order.', 'wptelegram' ),
 
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:101
+	/* translators: %s pipe character */
+	__( 'Note can be added after %s.', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:110
+	__( 'For example %s', 'wptelegram' ),
+
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:19
 	__( 'Create a Telegram channel or group.', 'wptelegram' ),
 
@@ -366,8 +373,11 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:53
 	__( 'If you want to send posts to a specific topic in a group with topics enabled, you can add a colon (%s) to the chat ID followed by topic ID.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:63
-	__( 'For example %s', 'wptelegram' ),
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:89
+	__( 'Tip!', 'wptelegram' ),
+
+	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGInstructions.tsx:94
+	__( 'You can add an internal note to the chat ID to make it easier for you to indentify it.', 'wptelegram' ),
 
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:13
 	__( 'Show an ON/OFF switch on the post edit screen.', 'wptelegram' ),
@@ -702,7 +712,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/services/src/useDisplayFeedback.ts:62
 	__( 'Lets fix these errors first.', 'wptelegram' ),
 
-	// Reference: packages/services/src/useSubmitForm.ts:58
+	// Reference: packages/services/src/useSubmitForm.ts:62
 	__( 'Changes saved successfully.', 'wptelegram' ),
 
 	// Reference: packages/utilities/src/fields.ts:31
