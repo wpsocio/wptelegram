@@ -253,6 +253,37 @@ export const updateVersion = () => {
 	);
 };
 
+export const updateRequirements = () => {
+	// get contents of readme file
+	let readme = fs.readFileSync('./README.md', 'utf8');
+
+	const regex = /\*\*(?<string>Requires (?:PHP|at least):)\*\*\s*(?<version>\d+\.\d+(?:\.\d+)?)/gi;
+
+	const requirements = Array.from(readme.matchAll(regex));
+
+	const srcOptions = { base: './' };
+
+	return gulp
+		.src(['./init.php', './src/README.txt', `./src/${pkg.name}.php`], srcOptions)
+		.pipe(
+			through2.obj(function (file, _, cb) {
+				if (file.isBuffer()) {
+					let contents = file.contents.toString();
+
+					requirements.forEach(({ groups: { string, version } }) => {
+						// e.g. "Requires at least: 5.8"
+						const regex = new RegExp(`(${string}\\s*)\\d+\\.\\d+(?:\\.\\d+)?`, 'i');
+
+						contents = contents.replace(regex, (match, $1) => $1 + version);
+					});
+					file.contents = Buffer.from(contents);
+				}
+				cb(null, file);
+			})
+		)
+		.pipe(gulp.dest('./'));
+};
+
 export const updateChangelog = () => {
 	const version = calculateVersion();
 
@@ -378,7 +409,7 @@ export const build = gulp.series(i18n, styles);
 
 export const prerelease = gulp.parallel(build, copyChangelog);
 
-export const release = gulp.series(updateVersion, updateChangelog, prerelease, bundle);
+export const release = gulp.series(updateRequirements, updateVersion, updateChangelog, prerelease, bundle);
 
 export const dev = gulp.parallel(watchPhp);
 
