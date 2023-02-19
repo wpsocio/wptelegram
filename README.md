@@ -3,7 +3,7 @@
 **Contributors:** [wpsocio](https://github.com/wpsocio), [irshadahmad21](https://github.com/irshadahmad21)  
 **Tags:** telegram, notifications, posts, channel, group  
 **Requires at least:** 5.8  
-**Requires PHP:** 7.0  
+**Requires PHP:** 7.2  
 **Tested up to:** 6.1.1  
 **Stable tag:** 4.0.3  
 **License:** GPLv2 or later  
