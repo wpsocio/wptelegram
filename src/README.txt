@@ -164,7 +164,7 @@ add_filter( 'wptelegram_p2tg_send_if_bulk_edit', '__return_true' );
 
 = How can I make the post title bold? =
 
-You can use `<b>{post_title}</b>` in the template and set **Formatting** option to **HTML**. More details [here](https://core.telegram.org/bots/api#formatting-options).
+You can use `<b>{post_title}</b>` in the template and set **Formatting** option to **HTML**. More details [here](https://core.telegram.org/bots/api#html-style).
 
 = Can I send posts from different categories to different channels/groups? =
 
