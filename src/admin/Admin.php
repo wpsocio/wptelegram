@@ -60,6 +60,9 @@ class Admin extends BaseClass {
 	 * @since 3.0.0
 	 */
 	public function display_plugin_admin_page() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 		?>
 			<div id="wptelegram-settings"></div>
 		<?php
@@ -77,7 +80,7 @@ class Admin extends BaseClass {
 		$settings_link = sprintf(
 			'<a href="%s">%s</a>',
 			menu_page_url( $this->plugin->name(), false ),
-			esc_html( __( 'Settings', 'wptelegram' ) )
+			esc_html__( 'Settings', 'wptelegram' )
 		);
 
 		array_unshift( $links, $settings_link );
