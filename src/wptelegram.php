@@ -28,9 +28,9 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'WPTELEGRAM_VER', '4.0.3' );
 
-defined( 'WPTELEGRAM_PLUGIN_FILE' ) || define( 'WPTELEGRAM_PLUGIN_FILE', __FILE__ );
+defined( 'WPTELEGRAM_PLUGIN_MAIN_FILE' ) || define( 'WPTELEGRAM_PLUGIN_MAIN_FILE', __FILE__ );
 
-defined( 'WPTELEGRAM_BASENAME' ) || define( 'WPTELEGRAM_BASENAME', WPTELEGRAM_PLUGIN_FILE );
+defined( 'WPTELEGRAM_BASENAME' ) || define( 'WPTELEGRAM_BASENAME', WPTELEGRAM_PLUGIN_MAIN_FILE );
 
 define( 'WPTELEGRAM_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
