@@ -257,7 +257,7 @@ export const updateRequirements = () => {
 	// get contents of readme file
 	let readme = fs.readFileSync('./README.md', 'utf8');
 
-	const regex = /\*\*(?<string>Requires (?:PHP|at least):)\*\*\s*(?<version>\d+\.\d+(?:\.\d+)?)/gi;
+	const regex = /\*\*(?<string>(?:Requires (?:PHP|at least)|Tested up to):)\*\*\s*(?<version>\d+\.\d+(?:\.\d+)?)/gi;
 
 	const requirements = Array.from(readme.matchAll(regex));
 
