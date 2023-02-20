@@ -31,9 +31,9 @@ if ( ! defined( 'WPTELEGRAM_DEV' ) ) {
 	define( 'WPTELEGRAM_DEV', true );
 }
 
-define( 'WPTELEGRAM_PLUGIN_MAIN_FILE', __FILE__ );
+define( 'WPTELEGRAM_MAIN_FILE', __FILE__ );
 
-define( 'WPTELEGRAM_BASENAME', plugin_basename( WPTELEGRAM_PLUGIN_MAIN_FILE ) );
+define( 'WPTELEGRAM_BASENAME', plugin_basename( WPTELEGRAM_MAIN_FILE ) );
 
 require plugin_dir_path( __FILE__ ) . 'src/wptelegram.php';
 

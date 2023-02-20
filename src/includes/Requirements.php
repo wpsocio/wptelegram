@@ -44,7 +44,7 @@ class Requirements {
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
-		$plugin_data = get_plugin_data( WPTELEGRAM_PLUGIN_MAIN_FILE );
+		$plugin_data = get_plugin_data( WPTELEGRAM_MAIN_FILE );
 
 		$data = [
 			'PHP' => [
