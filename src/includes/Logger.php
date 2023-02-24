@@ -185,7 +185,7 @@ class Logger extends BaseClass {
 	 * @param WP_Post $post The post being handled.
 	 */
 	public function get_key( $post ) {
-		return $post->ID . '-' . $post->post_status;
+		return $post->post_type . '-' . $post->ID . '-' . $post->post_status;
 	}
 
 	/**
