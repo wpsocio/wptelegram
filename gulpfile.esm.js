@@ -189,7 +189,7 @@ const createVersionUpdateCB = (forFile, version) => {
 
 	switch (forFile) {
 		case 'package':
-			// replace only the first occurence
+			// replace only the first occurrence
 			patterns = [/"version":\s*"(\d+\.\d+\.\d+)"/i];
 			break;
 		case 'readme':
@@ -397,7 +397,7 @@ export const bundle = () => {
 				if (path.dirname === '.' && path.basename === 'src') {
 					path.basename = pkg.name;
 				}
-				// replace "src" in all paths wit plugin name
+				// replace "src" in all paths with plugin name
 				path.dirname = path.dirname.replace(/^src/, pkg.name);
 			})
 		)

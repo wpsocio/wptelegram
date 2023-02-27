@@ -157,9 +157,9 @@ The users submitting those posts may not have enough permissions to publish/edit
 
 = Posts created via import plugins are not sent to Telegram, why? =
 
-Sending of posts when bulk importing is diabled by default to prevent unintended flooding of Telegram channels. If you want to enable it, you can add this one line to `functions.php` of your child theme.
+Sending of posts when bulk importing is disabled by default to prevent unintended flooding of Telegram channels. If you want to enable it, you can add this one line to `functions.php` of your child theme.
 ~~~
-add_filter( 'wptelegram_p2tg_send_if_bulk_edit', '__return_true' );
+add_filter( 'wptelegram_p2tg_send_if_importing', '__return_true' );
 ~~~
 
 = How can I make the post title bold? =

@@ -281,7 +281,7 @@ All notable changes to this project are documented in this file.
 
 ### Bug fixes
 
-- Fixed the bug in notifications when email has multiple recepients.
+- Fixed the bug in notifications when email has multiple recipients.
 
 ## [2.2.3 - 2020-10-3](https://github.com/wpsocio/wptelegram/releases/tag/v2.2.3)
 

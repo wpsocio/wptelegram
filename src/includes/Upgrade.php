@@ -82,7 +82,7 @@ class Upgrade extends BaseClass {
 	 *
 	 * @since    2.0.0
 	 *
-	 * @param string  $version        The plugin verion to upgrade to.
+	 * @param string  $version        The plugin version to upgrade to.
 	 * @param boolean $is_new_install Whether it's a fresh install of the plugin.
 	 */
 	private function upgrade_to( $version, $is_new_install ) {
