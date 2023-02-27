@@ -3,5 +3,6 @@
         "editor.defaultFormatter": "wongjn.php-sniffer",
         "editor.formatOnSave": true
     },
-    "phpSniffer.autoDetect": true
+    "phpSniffer.autoDetect": true,
+    "phpSniffer.standard": "phpcs.xml",
 }
