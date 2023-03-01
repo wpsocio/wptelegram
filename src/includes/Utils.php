@@ -61,7 +61,7 @@ class Utils {
 	 *
 	 * @var string Pattern.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.4
 	 */
 	const EXCERPT_PATTERN = '/<excerpt>(.*?)<\/excerpt>/ius';
 
@@ -632,7 +632,7 @@ class Utils {
 	/**
 	 * Split content into multiple chunks in order to send to Telegram as multiple messages.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.4
 	 *
 	 * @param string $content The content to split.
 	 * @param string $parse_mode The parse mode.

@@ -3,7 +3,7 @@
  * Handles the plugin requirements.
  *
  * @link      https://wpsocio.com
- * @since     x.y.z
+ * @since     4.0.4
  *
  * @package WPTelegram
  * @subpackage WPTelegram\Core\includes
@@ -23,7 +23,7 @@ class Requirements {
 	/**
 	 * Check if the requirements are satisfied.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.4
 	 *
 	 * @return bool Whether the requirements are satisfied.
 	 */
@@ -36,7 +36,7 @@ class Requirements {
 	/**
 	 * Get the environment details.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.4
 	 *
 	 * @return array The environment details.
 	 */
@@ -88,7 +88,7 @@ class Requirements {
 	/**
 	 * Get missing PHP extensions.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.4
 	 *
 	 * @return array The missing PHP extensions.
 	 */
@@ -109,7 +109,7 @@ class Requirements {
 	/**
 	 * Display the requirements.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.4
 	 */
 	public static function display_requirements() {
 		$env_details = self::get_env_details();
