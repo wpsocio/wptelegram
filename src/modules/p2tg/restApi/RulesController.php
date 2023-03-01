@@ -179,7 +179,7 @@ class RulesController extends RESTController {
 	 * Get all post authors.
 	 *
 	 * @since  3.0.0
-	 * @param string $search The serach query.
+	 * @param string $search The search query.
 	 * @param array  $include Limit the result to given IDs.
 	 * @return array
 	 */

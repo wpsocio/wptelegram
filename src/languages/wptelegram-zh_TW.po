@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-02-18 10:53:31+00:00\n"
+"POT-Creation-Date: 2023-03-01 15:04:47+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:27+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: assets\n"
 
-#: admin/Admin.php:80
+#: admin/Admin.php:83
 msgid "Settings"
 msgstr "設定"
 
@@ -30,6 +30,35 @@ msgstr "有了這個外掛，你可以發送文章至 Telegram 並且接收通�
 
 #: includes/Main.php:314
 msgid "WP Telegram"
+msgstr ""
+
+#: includes/Requirements.php:121
+msgid "This plugin is not compatible with your website configuration."
+msgstr ""
+
+#: includes/Requirements.php:123
+msgid "Missing requirements"
+msgstr ""
+
+#. translators: %s: Version number
+#: includes/Requirements.php:136
+msgid "Current version: %s"
+msgstr ""
+
+#. translators: %s: Version number
+#: includes/Requirements.php:144
+msgid "Minimum required version: %s"
+msgstr ""
+
+#. translators: %s: comma separated list of missing extensions
+#: includes/Requirements.php:162
+msgid "Missing PHP extensions: %s"
+msgstr ""
+
+#: includes/Requirements.php:173
+msgid ""
+"Please contact your hosting provider to ensure the above requirements are "
+"met."
 msgstr ""
 
 #: includes/restApi/SettingsController.php:134

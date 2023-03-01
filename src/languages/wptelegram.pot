@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-02-18 10:53:31+00:00\n"
+"POT-Creation-Date: 2023-03-01 15:04:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-02-18 10:530\n"
+"PO-Revision-Date: 2023-03-1 15:40\n"
 "Last-Translator: WP Telegram\n"
 "Language-Team: WP Telegram\n"
 "Language: en_US\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Generator: node-wp-i18n\n"
 "X-Poedit-SearchPathExcluded-0: assets\n"
 
-#: admin/Admin.php:80
+#: admin/Admin.php:83
 msgid "Settings"
 msgstr ""
 
@@ -35,6 +35,35 @@ msgstr ""
 
 #: includes/Main.php:314
 msgid "WP Telegram"
+msgstr ""
+
+#: includes/Requirements.php:121
+msgid "This plugin is not compatible with your website configuration."
+msgstr ""
+
+#: includes/Requirements.php:123
+msgid "Missing requirements"
+msgstr ""
+
+#: includes/Requirements.php:136
+#. translators: %s: Version number
+msgid "Current version: %s"
+msgstr ""
+
+#: includes/Requirements.php:144
+#. translators: %s: Version number
+msgid "Minimum required version: %s"
+msgstr ""
+
+#: includes/Requirements.php:162
+#. translators: %s: comma separated list of missing extensions
+msgid "Missing PHP extensions: %s"
+msgstr ""
+
+#: includes/Requirements.php:173
+msgid ""
+"Please contact your hosting provider to ensure the above requirements are "
+"met."
 msgstr ""
 
 #: includes/restApi/SettingsController.php:134

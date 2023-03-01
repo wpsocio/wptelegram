@@ -30,7 +30,7 @@ class SettingsController extends RESTController {
 	/**
 	 * Pattern to match Telegram username.
 	 *
-	 * @var string Patern.
+	 * @var string Pattern.
 	 * @since 3.0.0
 	 */
 	const TG_USERNAME_PATTERN = '[a-zA-Z][a-zA-Z0-9_]{3,30}[a-zA-Z0-9]';

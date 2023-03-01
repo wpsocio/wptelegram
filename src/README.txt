@@ -3,9 +3,9 @@ Contributors: wpsocio, irshadahmad21
 Donate link: https://wpsocio.com
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
-Tested up to: 6.1.1
 Requires PHP: 7.2
-Stable tag: 4.0.3
+Tested up to: 6.1.1
+Stable tag: 4.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -157,14 +157,14 @@ The users submitting those posts may not have enough permissions to publish/edit
 
 = Posts created via import plugins are not sent to Telegram, why? =
 
-Sending of posts when bulk importing is diabled by default to prevent unintended flooding of Telegram channels. If you want to enable it, you can add this one line to `functions.php` of your child theme.
+Sending of posts when bulk importing is disabled by default to prevent unintended flooding of Telegram channels. If you want to enable it, you can add this one line to `functions.php` of your child theme.
 ~~~
-add_filter( 'wptelegram_p2tg_send_if_bulk_edit', '__return_true' );
+add_filter( 'wptelegram_p2tg_send_if_importing', '__return_true' );
 ~~~
 
 = How can I make the post title bold? =
 
-You can use `*{post_title}*` in the template and set **Formatting** option to **Markdown**. More details [here](https://core.telegram.org/bots/api#formatting-options).
+You can use `<b>{post_title}</b>` in the template and set **Formatting** option to **HTML**. More details [here](https://core.telegram.org/bots/api#html-style).
 
 = Can I send posts from different categories to different channels/groups? =
 
@@ -204,6 +204,10 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.4 =
+- Fixed repeated caption for the image when using the "After the text" option
+- Fixed the issue of long texts being truncated
 
 = 4.0.3 =
 - Added support for adding internal note to chat IDs
