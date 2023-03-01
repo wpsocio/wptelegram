@@ -1080,12 +1080,12 @@ class PostSender extends BaseClass {
 		$disable_notification     = $this->options->get( 'disable_notification' );
 		$protect_content          = $this->options->get( 'protect_content' );
 
-		$limit_text = apply_filters( 'wptelegram_p2tg_limit_text_to_one_message', true, $this->post, $this->options, $text, $image_source );
+		$limit_to_one_message = apply_filters( 'wptelegram_p2tg_limit_text_to_one_message', true, $this->post, $this->options, $text, $image_source );
 
 		$text_options = [
 			'format_to' => $parse_mode,
 			'id'        => 'p2tg',
-			'limit'     => $limit_text ? MainUtils::get_max_text_length( 'text' ) : 0,
+			'limit'     => $limit_to_one_message ? MainUtils::get_max_text_length( 'text' ) : 0,
 			'limit_by'  => 'chars',
 		];
 
@@ -1123,7 +1123,7 @@ class PostSender extends BaseClass {
 					// remove sendMessage.
 					unset( $method_params['sendMessage'] );
 
-					$caption = $text;
+					$caption = MainUtils::smart_trim_excerpt( $text, $caption_options );
 
 				} elseif ( 'after' === $image_position && '' !== $parse_mode ) {
 
@@ -1139,8 +1139,6 @@ class PostSender extends BaseClass {
 
 			if ( isset( $method_params['sendPhoto'] ) ) {
 
-				$caption = MainUtils::smart_trim_excerpt( $text, $caption_options );
-
 				$caption = apply_filters( 'wptelegram_p2tg_post_image_caption', $caption, $this->post, $this->options, $text, $image_source );
 
 				$method_params['sendPhoto']['photo']   = $image_source;
@@ -1150,9 +1148,31 @@ class PostSender extends BaseClass {
 			unset( $method_params['sendPhoto'] );
 		}
 
+		$additional_text_responses = [];
+
 		if ( isset( $method_params['sendMessage'] ) ) {
 
-			$text = MainUtils::smart_trim_excerpt( $text, $text_options );
+			if ( $limit_to_one_message ) {
+
+				$text = MainUtils::smart_trim_excerpt( $text, $text_options );
+
+			} else {
+				$text_parts = MainUtils::split_content( $text, $parse_mode );
+				// Extract the first piece.
+				$text = array_shift( $text_parts );
+
+				// Create additional responses for the remaining pieces.
+				foreach ( $text_parts as $text_part ) {
+					$additional_text_responses[] = [
+						'sendMessage' => array_merge(
+							$method_params['sendMessage'],
+							[
+								'text' => $text_part,
+							]
+						),
+					];
+				}
+			}
 
 			$method_params['sendMessage']['text'] = $text;
 		}
@@ -1169,6 +1189,8 @@ class PostSender extends BaseClass {
 				$method => $params,
 			];
 		}
+
+		$default_responses = array_merge( $default_responses, $additional_text_responses );
 
 		return apply_filters( 'wptelegram_p2tg_default_responses', $default_responses, $this->post, $this->options, $text, $image_source );
 	}

@@ -57,6 +57,16 @@ class Utils {
 	];
 
 	/**
+	 * Pattern to match the smart excerpt tag.
+	 *
+	 * @var string Pattern.
+	 *
+	 * @since x.y.z
+	 */
+	const EXCERPT_PATTERN = '/<excerpt>(.*?)<\/excerpt>/ius';
+
+
+	/**
 	 * Sanitize the input.
 	 *
 	 * @param  mixed $input  The input.
@@ -545,9 +555,7 @@ class Utils {
 	 */
 	public static function smart_trim_excerpt( $content, $options = [] ) {
 
-		$pattern = '/<excerpt>(.*?)<\/excerpt>/ius';
-
-		if ( ! preg_match( $pattern, $content, $match ) ) {
+		if ( ! preg_match( self::EXCERPT_PATTERN, $content, $match ) ) {
 			return self::prepare_content( $content, $options );
 		}
 
@@ -556,22 +564,52 @@ class Utils {
 
 		$excerpt = $match[1];
 
-		// Add a placeholder for the excerpt.
-		$result = preg_replace( $pattern, $placeholder, $content );
+		/**
+		 * Add a placeholder for the excerpt.
+		 *
+		 * $content: `This is the starting content. <excerpt>This is the excerpt.</excerpt> This is the rest of the content.`.
+		 *
+		 * $result: `This is the starting content. {:excerpt:} This is the rest of the content.`
+		 */
+		$result = preg_replace( self::EXCERPT_PATTERN, $placeholder, $content );
 
-		// Place the excerpt at the end of the content separated by delimiter.
+		/**
+		 * Place the excerpt at the end of the content separated by delimiter.
+		 *
+		 * $result: `This is the starting content. {:excerpt:} This is the rest of the content.{::excerpt::}This is the excerpt`
+		 */
 		$result = $result . $delimiter . $excerpt;
 
-		// Since the excerpt is at the end, it will be trimmed first.
+		/**
+		 * Since the excerpt is at the end, it will be trimmed first.
+		 *
+		 * $result: `This is the starting content. {:excerpt:} This is the rest of the content.{::excerpt::}This is…`
+		 */
 		$result = self::prepare_content( $result, $options );
 
-		// If the delimiter is found, we will split the content to get the excerpt.
+		/**
+		 * If the delimiter is found, we will split the content to get the excerpt.
+		 *
+		 * $result: `This is the starting content. {:excerpt:} This is the rest of the content.{::excerpt::}This is…`
+		 * OR
+		 * $result: `This is the starting content. {:excerpt:} This is the rest of the…`
+		 */
 		if ( false !== strpos( $result, $delimiter ) ) {
-			// The first part is the trimmed content and the second part is the trimmed excerpt.
+			/**
+			 * The first part is the trimmed content and the second part is the trimmed excerpt.
+			 *
+			 * $result: `This is the starting content. {:excerpt:} This is the rest of the content.`
+			 *
+			 * $trimmed_excerpt: `This is…`
+			 */
 			list( $result, $trimmed_excerpt) = array_pad( explode( $delimiter, $result ), 2, '' );
 
 		} else {
-			// Sorry, it was all nuked.
+			/**
+			 * Sorry, it was all nuked.
+			 *
+			 * $result: `This is the starting content. {:excerpt:} This is the rest of the…`
+			 */
 			$trimmed_excerpt = '';
 		}
 		// Escape the placeholder.
@@ -579,10 +617,46 @@ class Utils {
 		// Remove the new line if the excerpt is empty.
 		$placeholder = '/' . ( $trimmed_excerpt ? $placeholder : $placeholder . '[\n\r]?' ) . '/ius';
 
-		// Replace the placeholder with the trimmed excerpt.
+		/**
+		 * Replace the placeholder with the trimmed excerpt.
+		 *
+		 * $result: `This is the starting content. This is… This is the rest of the content.`
+		 * OR
+		 * $result: `This is the starting content. This is the rest of the…`
+		 */
 		$result = preg_replace( $placeholder, $trimmed_excerpt, $result );
 
 		return apply_filters( 'wptelegram_smart_trim_excerpt', $result, $content, $options );
+	}
+
+	/**
+	 * Split content into multiple chunks in order to send to Telegram as multiple messages.
+	 *
+	 * @since x.y.z
+	 *
+	 * @param string $content The content to split.
+	 * @param string $parse_mode The parse mode.
+	 *
+	 * @return string[] The split content.
+	 */
+	public static function split_content( $content, $parse_mode = '' ) {
+		$limit = self::get_max_text_length( 'text' );
+
+		// Remove <excerpt>...</excerpt> tags.
+		$content = preg_replace( self::EXCERPT_PATTERN, '${1}', $content );
+
+		// break text after every nth character given by the limit and preserve words.
+		preg_match_all( '/.{1,' . $limit . '}(?:\s|$)/su', $content, $matches );
+
+		$parts = $matches[0];
+
+		// If the parse mode is HTML, we need to do some extra work
+		// to make sure the HTML tags are not broken.
+		if ( 'HTML' === $parse_mode ) {
+			$parts = array_map( 'force_balance_tags', $parts );
+		}
+
+		return $parts;
 	}
 
 	/**
@@ -590,20 +664,18 @@ class Utils {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param string $for         The type of the text. Can be 'text' or 'caption' Default 'text'.
-	 * @param bool   $add_padding Whether to add the safety padding to the limit. Default true.
+	 * @param string $for     The type of the text. Can be 'text' or 'caption' Default 'text'.
+	 * @param int    $padding Safety padding to add to the limit. Default 20 characters.
 	 *
 	 * @return int The maximum length of the text to send to Telegram.
 	 */
-	public static function get_max_text_length( $for = 'text', $add_padding = true ) {
+	public static function get_max_text_length( $for = 'text', $padding = 20 ) {
 
 		$length = 'caption' === $for ? HtmlConverter::TG_CAPTION_MAX_LENGTH : HtmlConverter::TG_TEXT_MAX_LENGTH;
 
-		if ( $add_padding ) {
-			// Add a safety padding.
-			$length -= 20;
-		}
+		// Add the safety padding.
+		$length -= abs( (int) $padding );
 
-		return (int) apply_filters( 'wptelegram_max_text_length', $length, $for, $add_padding );
+		return (int) apply_filters( 'wptelegram_max_text_length', $length, $for, $padding );
 	}
 }

@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed repeated caption for the image when using the "After the text" option
+- Fixed the issue of long texts being truncated
+
 ## [4.0.3 - 2023-02-18](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.3)
 
 ### Enhancements
