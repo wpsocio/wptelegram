@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed the issue of shortcodes being sent to Telegram
+
 ## [4.0.5 - 2023-03-2](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.5)
 
 ### Bug fixes

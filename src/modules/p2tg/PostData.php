@@ -178,6 +178,9 @@ class PostData {
 					self::restore_autoembed_filter();
 				}
 
+				// Remove shortcodes.
+				$excerpt = trim( strip_shortcodes( $excerpt ) );
+
 				$value = Utils::prepare_content(
 					$excerpt,
 					[
@@ -206,6 +209,9 @@ class PostData {
 				self::remove_autoembed_filter();
 				$content = apply_filters( 'the_content', $content );
 				self::restore_autoembed_filter();
+
+				// Remove shortcodes.
+				$content = trim( strip_shortcodes( $content ) );
 
 				$value = Utils::prepare_content(
 					$content,
