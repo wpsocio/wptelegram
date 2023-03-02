@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [4.0.5 - 2023-03-2](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.5)
+
+### Bug fixes
+
+- Fixed the unintended newlines in Post Excerpt and Post Content
+
 ## [4.0.4 - 2023-03-1](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.4)
 
 ### Bug fixes
