@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Requires PHP: 7.2
 Tested up to: 6.1.1
-Stable tag: 4.0.4
+Stable tag: 4.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.5 =
+- Fixed the unintended newlines in Post Excerpt and Post Content
 
 = 4.0.4 =
 - Fixed repeated caption for the image when using the "After the text" option
