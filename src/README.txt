@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Requires PHP: 7.2
 Tested up to: 6.1.1
-Stable tag: 4.0.5
+Stable tag: 4.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.6 =
+- Fixed the issue of shortcodes being sent to Telegram
 
 = 4.0.5 =
 - Fixed the unintended newlines in Post Excerpt and Post Content
