@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed the issue of images being retained in post content links
+
 ## [4.0.6 - 2023-03-2](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.6)
 
 ### Bug fixes
