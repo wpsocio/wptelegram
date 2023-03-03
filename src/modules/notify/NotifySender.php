@@ -279,7 +279,7 @@ class NotifySender extends BaseClass {
 	/**
 	 * Get the options for prepare_content
 	 *
-	 * @since x.y.z
+	 * @since 4.0.7
 	 *
 	 * @param int $limit The limit.
 	 *
