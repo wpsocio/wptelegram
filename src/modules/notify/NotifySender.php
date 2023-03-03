@@ -176,22 +176,15 @@ class NotifySender extends BaseClass {
 
 		if ( ! empty( $text ) ) {
 
-			$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
-
-			$options = [
-				'format_to' => $parse_mode,
-				'id'        => 'p2tg',
-				'limit'     => Utils::get_max_text_length( 'text' ),
-				'limit_by'  => 'chars',
-			];
-
-			$text = Utils::prepare_content( $text, $options );
-
-			$disable_web_page_preview = true;
+			$options = $this->get_prepare_content_options( Utils::get_max_text_length( 'text' ) );
 
 			$this->responses = [
 				[
-					'sendMessage' => compact( 'text', 'parse_mode', 'disable_web_page_preview' ),
+					'sendMessage' => [
+						'text'                     => Utils::prepare_content( $text, $options ),
+						'parse_mode'               => $options['format_to'],
+						'disable_web_page_preview' => true,
+					],
 				],
 			];
 		}
@@ -260,15 +253,10 @@ class NotifySender extends BaseClass {
 	 * @return string The text for the given macro.
 	 */
 	private function get_macro_value( $macro ) {
-		$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
 
 		$value = '';
 
-		$options = [
-			'format_to' => $parse_mode,
-			'id'        => 'notify',
-			'limit'     => 0,
-		];
+		$options = $this->get_prepare_content_options();
 
 		switch ( $macro ) {
 			case 'email_message':
@@ -285,6 +273,33 @@ class NotifySender extends BaseClass {
 		$value = apply_filters( 'wptelegram_notify_macro_value', $value, $macro, $this->wp_mail_args, $this->module->options() );
 
 		return apply_filters( "wptelegram_notify_macro_{$macro}_value", $value, $this->wp_mail_args, $this->module->options() );
+	}
+
+
+	/**
+	 * Get the options for prepare_content
+	 *
+	 * @since 4.0.7
+	 *
+	 * @param int $limit The limit.
+	 *
+	 * @return array
+	 */
+	private function get_prepare_content_options( $limit = 0 ) {
+		$parse_mode = Utils::valid_parse_mode( $this->module->options()->get( 'parse_mode', 'HTML' ) );
+
+		$options = [
+			'format_to'       => $parse_mode,
+			'id'              => 'notify',
+			'limit'           => $limit,
+			'limit_by'        => 'chars',
+			'images_in_links' => [
+				'title_or_alt'    => 'retain',
+				'lone_image_link' => 'retain',
+			],
+		];
+
+		return apply_filters( 'wptelegram_notify_prepare_content_options', $options, $limit, $this->wp_mail_args, $this->chats2emails, $this->module->options() );
 	}
 
 	/**
