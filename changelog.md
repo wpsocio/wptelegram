@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed the broken hyperlinks in Message Template when using custom field link
+
 ## [4.0.7 - 2023-03-3](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.7)
 
 ### Bug fixes
