@@ -271,7 +271,17 @@ class Utils {
 
 		$filtered = wp_check_invalid_utf8( (string) $value );
 
-		$filtered = trim( wp_kses( $filtered, self::SUPPORTED_HTML_TAGS ) );
+		$allowed_protocols = [];
+
+		// If the Message Template contains a link with {cf: field as the href,
+		// We need to allow "{cf" as a protocol to avoid wp_kses() stripping the link.
+		if ( preg_match( '/<a[^>]href=["\']{cf:/', $filtered ) ) {
+			$allowed_protocols = array_merge( wp_allowed_protocols(), [ '{cf' ] );
+		}
+
+		$allowed_protocols = apply_filters( 'wptelegram_message_template_allowed_protocols', $allowed_protocols, $filtered );
+
+		$filtered = trim( wp_kses( $filtered, self::SUPPORTED_HTML_TAGS, $allowed_protocols ) );
 
 		if ( $json_encode ) {
 			// json_encode to avoid errors when saving multi-byte emojis into database with no multi-byte support.
