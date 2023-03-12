@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Requires PHP: 7.2
 Tested up to: 6.1.1
-Stable tag: 4.0.7
+Stable tag: 4.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.8 =
+- Fixed the broken hyperlinks in Message Template when using custom field link
 
 = 4.0.7 =
 - Fixed the issue of images being retained in post content links
