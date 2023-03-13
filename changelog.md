@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Enhancements
+
+- Improved message template sanitization to prevent breaking the markup
+
 ## [4.0.8 - 2023-03-12](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.8)
 
 ### Bug fixes

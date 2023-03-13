@@ -268,20 +268,18 @@ class Utils {
 		if ( is_object( $value ) || is_array( $value ) ) {
 			return '';
 		}
+		$value = (string) $value;
 
-		$filtered = wp_check_invalid_utf8( (string) $value );
+		$guard = new TemplateGuard();
 
-		$allowed_protocols = [];
+		$value = $guard->safeguard_macros( $value );
 
-		// If the Message Template contains a link with {cf: field as the href,
-		// We need to allow "{cf" as a protocol to avoid wp_kses() stripping the link.
-		if ( preg_match( '/<a[^>]href=["\']{cf:/', $filtered ) ) {
-			$allowed_protocols = array_merge( wp_allowed_protocols(), [ '{cf' ] );
-		}
+		$filtered = wp_check_invalid_utf8( $value );
 
-		$allowed_protocols = apply_filters( 'wptelegram_message_template_allowed_protocols', $allowed_protocols, $filtered );
+		$filtered = trim( wp_kses( $filtered, self::SUPPORTED_HTML_TAGS ) );
 
-		$filtered = trim( wp_kses( $filtered, self::SUPPORTED_HTML_TAGS, $allowed_protocols ) );
+		// Restore the macros with the original values.
+		$filtered = $guard->restore_macros( $filtered );
 
 		if ( $json_encode ) {
 			// json_encode to avoid errors when saving multi-byte emojis into database with no multi-byte support.
