@@ -5,9 +5,10 @@
 **Requires at least:** 5.8  
 **Requires PHP:** 7.2  
 **Tested up to:** 6.1.1  
-**Stable tag:** 4.0.8  
+**Stable tag:** 4.0.9  
 **License:** GPLv2 or later  
-**License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
+**License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
+**Donate link:** [wpsocio.com/donate](https://wpsocio.com/donate)
 
 [![Wordpress plugin](https://img.shields.io/wordpress/plugin/v/wptelegram.svg)](https://wordpress.org/plugins/wptelegram/)
 [![Wordpress](https://img.shields.io/wordpress/plugin/dt/wptelegram.svg)](https://wordpress.org/plugins/wptelegram/)
