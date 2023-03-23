@@ -293,6 +293,7 @@ class NotifySender extends BaseClass {
 			'id'              => 'notify',
 			'limit'           => $limit,
 			'limit_by'        => 'chars',
+			'text_hyperlinks' => 'retain',
 			'images_in_links' => [
 				'title_or_alt'    => 'retain',
 				'lone_image_link' => 'retain',

@@ -7,6 +7,11 @@ All notable changes to this project are documented in this file.
 ### Enhancements
 
 - Improved message template sanitization to prevent breaking the markup
+- Added a new filter `wptelegram_p2tg_post_data_plain_excerpt` to allow sending plain text excerpt
+
+### Bug fixes
+
+- Fixed the links added in parenthesis when "Formatting" is set to "None"
 
 ## [4.0.8 - 2023-03-12](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.8)
 

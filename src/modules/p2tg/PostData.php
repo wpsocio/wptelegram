@@ -191,6 +191,13 @@ class PostData {
 						'preserve_eol' => $preserve_eol,
 					]
 				);
+
+				$plain_excerpt = apply_filters( 'wptelegram_p2tg_post_data_plain_excerpt', false, $value, $excerpt, $this->post, $options );
+
+				if ( $plain_excerpt ) {
+					$value = trim( wp_strip_all_tags( $value ) );
+				}
+
 				// If the excerpt is not empty.
 				if ( $value ) {
 					// Add custom tags for smart trimming.

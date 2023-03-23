@@ -493,12 +493,13 @@ class Utils {
 	public static function prepare_content( $content, $options = [] ) {
 
 		$defaults = [
-			'elipsis'      => '…',
-			'format_to'    => 'text',
-			'id'           => 'default',
-			'limit'        => 55,
-			'limit_by'     => 'words',
-			'preserve_eol' => true,
+			'elipsis'         => '…',
+			'format_to'       => 'text',
+			'id'              => 'default',
+			'limit'           => 55,
+			'limit_by'        => 'words',
+			'text_hyperlinks' => 'strip',
+			'preserve_eol'    => true,
 		];
 
 		$options = wp_parse_args( $options, $defaults );
