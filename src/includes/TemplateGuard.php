@@ -3,7 +3,7 @@
  * Template Guard
  *
  * @link       https://wpsocio.com
- * @since      x.y.z
+ * @since      4.0.9
  *
  * @package    WPTelegram\Core
  * @subpackage WPTelegram\Core\includes
@@ -16,7 +16,7 @@ namespace WPTelegram\Core\includes;
  * during sanitization.
  *
  * @link       https://wpsocio.com
- * @since      x.y.z
+ * @since      4.0.9
  *
  * @package    WPTelegram\Core
  * @subpackage WPTelegram\Core\includes
@@ -40,7 +40,7 @@ class TemplateGuard {
 	 * <a href="_field_name}">Click here</a>
 	 * due to ":" in the href being treated as a part of some protocol.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.9
 	 *
 	 * @param string $template The template to safeguard.
 	 *
@@ -69,7 +69,7 @@ class TemplateGuard {
 	/**
 	 * Restore the template macros.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.9
 	 *
 	 * @param string $template The template to restore.
 	 *

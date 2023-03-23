@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.8
 Requires PHP: 7.2
 Tested up to: 6.1.1
-Stable tag: 4.0.8
+Stable tag: 4.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,11 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.9 =
+- Improved message template sanitization to prevent breaking the markup
+- Added a new filter `wptelegram_p2tg_post_data_plain_excerpt` to allow sending plain text excerpt
+- Fixed the links added in parenthesis when "Formatting" is set to "None"
 
 = 4.0.8 =
 - Fixed the broken hyperlinks in Message Template when using custom field link
