@@ -1,7 +1,7 @@
 {
 	"name": "wptelegram",
 	"title": "WP Telegram",
-	"version": "4.0.9",
+	"version": "4.0.10",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"repository": {
 		"type": "git",

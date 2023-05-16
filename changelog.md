@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [4.0.10 - 2023-05-16](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.10)
+
 ### Bug fixes
 
 - Fixed the dollar sign getting nuked from excerpt
