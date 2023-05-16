@@ -633,7 +633,7 @@ class Utils {
 		 * OR
 		 * $result: `This is the starting content. This is the rest of the…`
 		 */
-		$result = preg_replace( $placeholder, $trimmed_excerpt, $result );
+		$result = preg_replace( $placeholder, FormatTextUtils::preparePregReplacement( $trimmed_excerpt ), $result );
 
 		return apply_filters( 'wptelegram_smart_trim_excerpt', $result, $content, $options );
 	}

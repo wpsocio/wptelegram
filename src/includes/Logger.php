@@ -416,6 +416,10 @@ class Logger extends BaseClass {
 	public function write_log( $type, $text ) {
 		$file_path = self::get_log_file_path( $type );
 
+		$bot_token_regex = '/' . \WPTelegram\BotAPI\API::BOT_TOKEN_PATTERN . '/';
+
+		$text = preg_replace( $bot_token_regex, '**********', $text );
+
 		global $wp_filesystem;
 
 		$contents = '[' . current_time( 'mysql' ) . ']' . PHP_EOL . $text . PHP_EOL . PHP_EOL;

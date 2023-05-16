@@ -11,7 +11,7 @@
  * Plugin URI:        https://t.me/WPTelegram
  * Description:       ❌ DO NOT DELETE ❌ Development Environment for WP Telegram. Versioned high to avoid auto update.
  * Version:           999.999.999
- * Requires at least: 5.8
+ * Requires at least: 5.9
  * Requires PHP:      7.2
  * Author:            WP Socio
  * Author URI:        https://t.me/WPTelegram

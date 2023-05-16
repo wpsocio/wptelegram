@@ -2,10 +2,10 @@
 Contributors: wpsocio, irshadahmad21
 Donate link: https://wpsocio.com/donate
 Tags: telegram, notifications, posts, channel, group
-Requires at least: 5.8
+Requires at least: 5.9
 Requires PHP: 7.2
-Tested up to: 6.1.1
-Stable tag: 4.0.9
+Tested up to: 6.2
+Stable tag: 4.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,10 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.10 =
+- Fixed the dollar sign getting nuked from excerpt
+- Fixed logs to avoid bot token added to URL
 
 = 4.0.9 =
 - Improved message template sanitization to prevent breaking the markup
