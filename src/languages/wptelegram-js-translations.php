@@ -177,6 +177,9 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/core/main/src/ui/shared/Upsell.tsx:36
 	__( 'Upgrade to Pro', 'wptelegram' ),
 
+	// Reference: domains/wptelegram/core/main/src/ui/shared/Upsell.tsx:42
+	__( 'Want an absolute integration with Telegram?', 'wptelegram' ),
+
 	// Reference: domains/wptelegram/core/main/src/ui/shared/Upsell.tsx:46
 	__( 'Want to add more bots?', 'wptelegram' ),
 
