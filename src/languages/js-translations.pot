@@ -238,6 +238,10 @@ msgstr ""
 msgid "Upgrade to Pro"
 msgstr ""
 
+#: domains/wptelegram/core/main/src/ui/shared/Upsell.tsx:42
+msgid "Want an absolute integration with Telegram?"
+msgstr ""
+
 #: domains/wptelegram/core/main/src/ui/shared/Upsell.tsx:46
 msgid "Want to add more bots?"
 msgstr ""
