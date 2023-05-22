@@ -3,16 +3,9 @@
 	"version": "4.0.11",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"require-dev": {
-		"wp-coding-standards/wpcs": "*"
+		"wp-coding-standards/wpcs": "dev-develop"
 	},
 	"scripts": {
-		"post-install-cmd": [
-			"composer run set-config"
-		],
-		"set-config": [
-			"\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs",
-			"\"vendor/bin/phpcs\" --config-set default_standard WordPress"
-		],
 		"lint": "\"vendor/bin/phpcs\" --standard=phpcs.xml --extensions=php src/",
 		"lint:skip-warnings": "\"vendor/bin/phpcs\" --standard=phpcs.xml --extensions=php -n src/",
 		"lint:fix": "\"vendor/bin/phpcbf\" --standard=phpcs.xml --extensions=php src/"
@@ -34,6 +27,12 @@
 			"temp/{$name}/": [
 				"wpackagist-plugin/cmb2"
 			]
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": false,
+			"dealerdirect/phpcodesniffer-composer-installer": false
 		}
 	}
 }
