@@ -185,11 +185,10 @@ class Assets {
 	 * Get the dependencies of an asset.
 	 *
 	 * @param string $entry_point The entry point to get the asset dependencies for.
-	 * @param string $type        The type of asset - JS, PHP, CSS.
 	 *
 	 * @return array
 	 */
-	public function get_asset_dependencies( $entry_point, $type = self::ASSET_EXT_JS ) {
+	public function get_asset_dependencies( $entry_point ) {
 		$asset = $this->get_asset_details( $entry_point );
 		if ( ! isset( $asset[ self::KEY_DEPENDENCIES ] ) ) {
 			return [];

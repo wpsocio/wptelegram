@@ -202,7 +202,6 @@ final class Main {
 		 * The class responsible for loading \WPTelegram\FormatText library
 		 */
 		require_once $this->dir( '/includes/format-text/autoload-wp.php' );
-
 	}
 
 	/**

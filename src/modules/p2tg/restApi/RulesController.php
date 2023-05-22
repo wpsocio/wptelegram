@@ -257,7 +257,7 @@ class RulesController extends RESTController {
 
 					foreach ( $terms as $parent_term ) {
 
-						$i++;
+						++$i;
 
 						if ( $parent_term->term_id === $parent_id ) {
 							$term_name = $parent_term->name . ( is_rtl() ? ' ← ' : ' → ' ) . $term_name;
