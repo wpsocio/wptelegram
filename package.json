@@ -44,6 +44,6 @@
 		"gulp-zip": "^5.1.0",
 		"node-wp-i18n": "^1.2.7",
 		"prettier": "^2.8.4",
-		"semver": "7.3.8"
+		"semver": "7.5.2"
 	}
 }
