@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed the Yoast Duplicated post not sent to Telegram
+
 ## [4.0.11 - 2023-05-20](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.11)
 
 ### Bug fixes
