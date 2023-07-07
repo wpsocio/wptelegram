@@ -14,7 +14,6 @@
 	<exclude-pattern>*/src/assets/*</exclude-pattern>
 	<exclude-pattern>*/src/includes/bot-api/*</exclude-pattern>
 	<exclude-pattern>*/src/includes/format-text/*</exclude-pattern>
-	<exclude-pattern>*/src/includes/html2text/*</exclude-pattern>
 	<exclude-pattern>*/src/languages/*</exclude-pattern>
 	<exclude-pattern>*/temp/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
