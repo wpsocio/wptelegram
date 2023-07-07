@@ -16,7 +16,7 @@ class Integrations {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.12
 	 */
 	public function __construct() {
 

@@ -391,17 +391,14 @@ $generated_i18n_strings = array(
 	// Reference: domains/wptelegram/shared/core-pro/src/components/P2TGSwitchAndPluginPosts.tsx:21
 	__( 'Enable this option if you use a plugin to generate posts.', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:17
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:14
 	// Reference: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:61
 	__( 'None', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:21
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:18
 	__( 'HTML style', 'wptelegram' ),
 
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:29
-	__( 'Markdown style', 'wptelegram' ),
-
-	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:49
+	// Reference: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:36
 	// Reference: domains/wptelegram/shared/core-pro/src/components/ProtectContent.tsx:19
 	// Reference: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:37
 	__( 'Learn more', 'wptelegram' ),

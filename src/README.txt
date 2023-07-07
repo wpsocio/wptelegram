@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 5.9
 Requires PHP: 7.2
 Tested up to: 6.2.2
-Stable tag: 4.0.11
+Stable tag: 4.0.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.12 =
+- Fixed the Yoast Duplicated post not sent to Telegram
 
 = 4.0.11 =
 - Fixed translations not loaded for some strings
