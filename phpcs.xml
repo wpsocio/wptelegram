@@ -7,12 +7,13 @@
 	<!-- Add source codes in the report -->
 	<arg value="s" />
 
+	<config name="installed_paths" value="../../phpcsstandards/phpcsextra,../../phpcsstandards/phpcsutils,../../wp-coding-standards/wpcs"/>
+
 	<file>.</file>
     <exclude-pattern>/.git/</exclude-pattern>
 	<exclude-pattern>*/src/assets/*</exclude-pattern>
 	<exclude-pattern>*/src/includes/bot-api/*</exclude-pattern>
 	<exclude-pattern>*/src/includes/format-text/*</exclude-pattern>
-	<exclude-pattern>*/src/includes/html2text/*</exclude-pattern>
 	<exclude-pattern>*/src/languages/*</exclude-pattern>
 	<exclude-pattern>*/temp/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
@@ -27,7 +28,10 @@
 		<exclude name="WordPress.Files.FileName" />
 
 		<!-- Disable short array syntax warning -->
-		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
+
+		<!-- Disable NoReservedKeywordParameterNames warning -->
+		<exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames" />
 	</rule>
 
 	<!-- Disallow Long Array Syntax -->

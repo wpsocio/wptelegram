@@ -355,7 +355,7 @@ class Upgrade extends BaseClass {
 			$filename = WP_CONTENT_DIR . "/wptelegram-{$type}.log";
 			$filename = apply_filters( "wptelegram_logger_{$type}_log_filename", $filename );
 			if ( file_exists( $filename ) ) {
-				unlink( $filename );
+				wp_delete_file( $filename );
 			}
 		}
 	}

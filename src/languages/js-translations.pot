@@ -525,20 +525,16 @@ msgstr ""
 msgid "Enable this option if you use a plugin to generate posts."
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:17
+#: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:14
 #: domains/wptelegram/shared/core-pro/src/components/SingleMessage.tsx:61
 msgid "None"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:21
+#: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:18
 msgid "HTML style"
 msgstr ""
 
-#: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:29
-msgid "Markdown style"
-msgstr ""
-
-#: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:49
+#: domains/wptelegram/shared/core-pro/src/components/ParseModeField.tsx:36
 #: domains/wptelegram/shared/core-pro/src/components/ProtectContent.tsx:19
 #: domains/wptelegram/shared/core-pro/src/components/TemplateInfo.tsx:37
 msgid "Learn more"
