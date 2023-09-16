@@ -104,7 +104,7 @@ class RequestCheck {
 				return defined( 'DOING_CRON' ) && DOING_CRON;
 
 			case self::WP_CLI:
-				return defined( 'WP_CLI' ) && WP_CLI;
+				return defined( 'WP_CLI' ) && constant( 'WP_CLI' );
 
 			case self::REST_REQUEST:
 				return $is_rest_request;

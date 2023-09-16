@@ -333,10 +333,10 @@ class Logger extends BaseClass {
 
 		if ( is_array( $result ) ) {
 			$result = array_map(
-				function( $responses ) {
+				function ( $responses ) {
 					if ( is_array( $responses ) ) {
 						return array_map(
-							function( $response ) {
+							function ( $response ) {
 								if ( $response instanceof Response ) {
 									return $response->get_decoded_body();
 								}

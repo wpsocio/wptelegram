@@ -84,7 +84,7 @@ function WPTG() { // phpcs:ignore
 	return \WPTelegram\Core\includes\Main::instance();
 }
 
-use \WPTelegram\Core\includes\Requirements;
+use WPTelegram\Core\includes\Requirements;
 
 if ( Requirements::satisfied() ) {
 	// Fire.
