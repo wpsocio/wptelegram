@@ -3,7 +3,7 @@
 	"version": "4.0.12",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"require-dev": {
-		"wp-coding-standards/wpcs": "dev-develop"
+		"wp-coding-standards/wpcs": "^3.0"
 	},
 	"scripts": {
 		"lint": "\"vendor/bin/phpcs\" --standard=phpcs.xml --extensions=php src/",
