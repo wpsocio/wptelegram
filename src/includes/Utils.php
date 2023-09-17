@@ -702,17 +702,21 @@ class Utils {
 	 *
 	 * @param int    $id The attachment ID.
 	 * @param int    $filesize The maximum file size.
-	 * @param string $return The return type. Can be 'path' or 'url'. Default 'url'.
+	 * @param string $return The return type. Can be 'path' or 'url'. Default null.
 	 *
 	 * @return string|false The attachment path or URL.
 	 */
-	public static function get_attachment_by_filesize( $id, $filesize, $return = 'url' ) {
+	public static function get_attachment_by_filesize( $id, $filesize, $return = null ) {
 
 		if ( ! get_post( $id ) ) {
 			return false;
 		}
 
 		$file_path = get_attached_file( $id );
+
+		if ( null === $return ) {
+			$return = self::send_files_by_url() ? 'url' : 'path';
+		}
 
 		$path = 'url' === $return ? wp_get_attachment_url( $id ) : $file_path;
 
@@ -737,10 +741,10 @@ class Utils {
 			return $path;
 		}
 
-		$directory = dirname( $file_path );
-
 		if ( ! empty( $meta['sizes'] ) ) {
 			$size_data = [];
+
+			$directory = dirname( $file_path );
 
 			foreach ( $meta['sizes'] as $data ) {
 				if ( empty( $data['file'] ) ) {
@@ -772,5 +776,26 @@ class Utils {
 		}
 
 		return $path;
+	}
+
+	/**
+	 * Get the limit of the image size to send to Telegram.
+	 *
+	 * @return int
+	 */
+	public static function get_image_size_limit() {
+
+		return self::send_files_by_url() ? self::IMAGE_BY_URL_SIZE_LIMIT : self::IMAGE_BY_FILE_SIZE_LIMIT;
+	}
+
+	/**
+	 * Whether to send files by URL.
+	 *
+	 * @since x.y.z
+	 */
+	public static function send_files_by_url() {
+		$send_files_by_url = WPTG()->options()->get_path( 'advanced.send_files_by_url', true );
+
+		return (bool) apply_filters( 'wptelegram_send_files_by_url', $send_files_by_url );
 	}
 }
