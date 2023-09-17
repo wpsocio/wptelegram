@@ -242,14 +242,14 @@ class PostData {
 				// post thumbnail ID.
 				$thumbnail_id = get_post_thumbnail_id( $this->post->ID );
 
-				$value = wp_get_attachment_url( $thumbnail_id );
+				$value = Utils::get_attachment_by_filesize( $thumbnail_id, Utils::IMAGE_BY_URL_SIZE_LIMIT );
 				break;
 
 			case 'featured_image_path':
 				// post thumbnail ID.
 				$thumbnail_id = get_post_thumbnail_id( $this->post->ID );
 
-				$value = get_attached_file( $thumbnail_id );
+				$value = Utils::get_attachment_by_filesize( $thumbnail_id, Utils::IMAGE_BY_FILE_SIZE_LIMIT, 'path' );
 				break;
 
 			default:

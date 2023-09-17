@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed the failure of sending posts with large size images
+
 ## [4.0.12 - 2023-07-7](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.12)
 
 ### Bug fixes
