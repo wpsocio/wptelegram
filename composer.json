@@ -1,6 +1,6 @@
 {
 	"name": "wptelegram/core",
-	"version": "4.0.12",
+	"version": "4.0.13",
 	"description": "Integrate your WordPress site perfectly with Telegram with full control.",
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.0"
