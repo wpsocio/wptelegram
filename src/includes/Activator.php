@@ -32,5 +32,4 @@ class Activator {
 	public static function activate( $network_wide = false ) {
 		do_action( 'wptelegram_activated', $network_wide );
 	}
-
 }

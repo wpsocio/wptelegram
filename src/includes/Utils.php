@@ -65,6 +65,15 @@ class Utils {
 	 */
 	const EXCERPT_PATTERN = '/<excerpt>(.*?)<\/excerpt>/ius';
 
+	/**
+	 * The maximum size of an image to be sent to Telegram by URL.
+	 */
+	const IMAGE_BY_URL_SIZE_LIMIT = 1024 * 1024 * 5; // 5MB.
+
+	/**
+	 * The maximum size of an image to be sent to Telegram by file.
+	 */
+	const IMAGE_BY_FILE_SIZE_LIMIT = 1024 * 1024 * 10; // 10MB.
 
 	/**
 	 * Sanitize the input.
@@ -686,5 +695,82 @@ class Utils {
 		$length -= abs( (int) $padding );
 
 		return (int) apply_filters( 'wptelegram_max_text_length', $length, $for, $padding );
+	}
+
+	/**
+	 * Get the attachment limited by the maximum size.
+	 *
+	 * @param int    $id The attachment ID.
+	 * @param int    $filesize The maximum file size.
+	 * @param string $return The return type. Can be 'path' or 'url'. Default 'url'.
+	 *
+	 * @return string|false The attachment path or URL.
+	 */
+	public static function get_attachment_by_filesize( $id, $filesize, $return = 'url' ) {
+
+		if ( ! get_post( $id ) ) {
+			return false;
+		}
+
+		$file_path = get_attached_file( $id );
+
+		$path = 'url' === $return ? wp_get_attachment_url( $id ) : $file_path;
+
+		// For now, we only deal with images.
+		if ( ! wp_attachment_is_image( $id ) ) {
+			return $path;
+		}
+
+		$meta = wp_get_attachment_metadata( $id );
+
+		// For WP < 6.0.
+		if ( empty( $meta['filesize'] ) ) {
+			if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) ) {
+				return $path;
+			}
+
+			$meta['filesize'] = filesize( $file_path );
+		}
+
+		// The file size is already less than the limit.
+		if ( $meta['filesize'] <= $filesize ) {
+			return $path;
+		}
+
+		$directory = dirname( $file_path );
+
+		if ( ! empty( $meta['sizes'] ) ) {
+			$size_data = [];
+
+			foreach ( $meta['sizes'] as $data ) {
+				if ( empty( $data['file'] ) ) {
+					continue;
+				}
+
+				$size_file_path = $directory . DIRECTORY_SEPARATOR . $data['file'];
+
+				if ( ! file_exists( $size_file_path ) || ! is_readable( $size_file_path ) ) {
+					continue;
+				}
+
+				$size = ! empty( $data['filesize'] ) ? $data['filesize'] : filesize( $size_file_path );
+
+				$size_data[ $data['file'] ] = $size;
+			}
+
+			// Sort the sizes by file size.
+			arsort( $size_data );
+
+			// Get the first size that is less than the limit.
+			foreach ( $size_data as $file => $size ) {
+				if ( $size <= $filesize ) {
+
+					$separator = 'url' === $return ? '/' : DIRECTORY_SEPARATOR;
+					return dirname( $path ) . $separator . $file;
+				}
+			}
+		}
+
+		return $path;
 	}
 }

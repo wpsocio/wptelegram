@@ -41,5 +41,4 @@ class Deactivator {
 			wp_clear_scheduled_hook( 'wptelegram_' . $hook );
 		}
 	}
-
 }
