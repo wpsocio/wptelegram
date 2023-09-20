@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-07-07 09:56:05+00:00\n"
+"POT-Creation-Date: 2023-09-20 12:25:40+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:02+0530\n"
 "Last-Translator: \n"
 "Language-Team: Taktaweb Group <info@taktaweb.ir>\n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -30,10 +30,6 @@ msgid ""
 msgstr ""
 "با این افزونه، شما می توانید نوشته‌ها را به تلگرام بفرستید و اعلان دریافت "
 "کنید و کلی کارهای دیگه انجام بدید :)"
-
-#: includes/Main.php:316
-msgid "WP Telegram"
-msgstr ""
 
 #: includes/Requirements.php:121
 msgid "This plugin is not compatible with your website configuration."
@@ -112,14 +108,6 @@ msgstr ""
 #: languages/wptelegram-js-translations.php:38
 msgid "channel"
 msgstr "کانال"
-
-#: languages/wptelegram-js-translations.php:41
-msgid ""
-"Integrate your WordPress website perfectly with Telegram. Send posts "
-"automatically to Telegram when published or updated, whether to a Telegram "
-"Channel, Group or private chat, with full control. Get your email "
-"notifications on Telegram."
-msgstr ""
 
 #: languages/wptelegram-js-translations.php:44
 msgid "Get LIVE support on Telegram"
@@ -1076,6 +1064,3 @@ msgstr "نویسنده مطلب"
 #: modules/p2tg/Rules.php:59
 msgid "Custom Taxonomy"
 msgstr "دسته بندی دلخواه"
-
-#~ msgid "Markdown style"
-#~ msgstr "سبک نشانه گذاری"

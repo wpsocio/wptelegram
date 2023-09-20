@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-07-07 09:56:05+00:00\n"
+"POT-Creation-Date: 2023-09-20 12:25:40+00:00\n"
 "PO-Revision-Date: 2021-03-14 01:59+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
-"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id_ID\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -29,10 +29,6 @@ msgid ""
 msgstr ""
 "Dengan plugin ini, Anda dapat mengirim posting ke Telegram dan menerima "
 "notifikasi dan melakukan lebih banyak lagi :)"
-
-#: includes/Main.php:316
-msgid "WP Telegram"
-msgstr ""
 
 #: includes/Requirements.php:121
 msgid "This plugin is not compatible with your website configuration."
@@ -110,14 +106,6 @@ msgstr ""
 
 #: languages/wptelegram-js-translations.php:38
 msgid "channel"
-msgstr ""
-
-#: languages/wptelegram-js-translations.php:41
-msgid ""
-"Integrate your WordPress website perfectly with Telegram. Send posts "
-"automatically to Telegram when published or updated, whether to a Telegram "
-"Channel, Group or private chat, with full control. Get your email "
-"notifications on Telegram."
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:44
@@ -1080,6 +1068,3 @@ msgstr "Penulis Posting"
 #: modules/p2tg/Rules.php:59
 msgid "Custom Taxonomy"
 msgstr "Taksonomi Kustom"
-
-#~ msgid "Markdown style"
-#~ msgstr "Gaya Markdown"

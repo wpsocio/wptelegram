@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-07-07 09:56:05+00:00\n"
+"POT-Creation-Date: 2023-09-20 12:25:40+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:09+0530\n"
 "Last-Translator: \n"
 "Language-Team: Polski\n"
-"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 "
-"&&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 &&(n%"
+"100<10||n%100 >= 20)? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_x;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
 "X-Poedit-Basepath: ..\n"
@@ -33,10 +33,6 @@ msgid ""
 msgstr ""
 "Dzięki tej wtyczce możesz wysyłać posty do Telegrama, otrzymywać "
 "powiadomienia i robić wiele więcej :)"
-
-#: includes/Main.php:316
-msgid "WP Telegram"
-msgstr ""
 
 #: includes/Requirements.php:121
 msgid "This plugin is not compatible with your website configuration."
@@ -115,14 +111,6 @@ msgstr ""
 #: languages/wptelegram-js-translations.php:38
 msgid "channel"
 msgstr "Kanał"
-
-#: languages/wptelegram-js-translations.php:41
-msgid ""
-"Integrate your WordPress website perfectly with Telegram. Send posts "
-"automatically to Telegram when published or updated, whether to a Telegram "
-"Channel, Group or private chat, with full control. Get your email "
-"notifications on Telegram."
-msgstr ""
 
 #: languages/wptelegram-js-translations.php:44
 msgid "Get LIVE support on Telegram"
@@ -1084,6 +1072,3 @@ msgstr "Autor postu"
 #: modules/p2tg/Rules.php:59
 msgid "Custom Taxonomy"
 msgstr "Niestandardowa taksonomia"
-
-#~ msgid "Markdown style"
-#~ msgstr "Styl Markdown"

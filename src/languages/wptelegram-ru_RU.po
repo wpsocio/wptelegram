@@ -3,18 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-07-07 09:56:05+00:00\n"
+"POT-Creation-Date: 2023-09-20 12:25:40+00:00\n"
 "PO-Revision-Date: 2021-03-14 02:21+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPTelegram\n"
-"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ..\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-KeywordsList: __;_e;_x;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: assets\n"
@@ -30,10 +30,6 @@ msgid ""
 msgstr ""
 "С помощью этого плагина вы можете отправлять сообщения в Telegram, получать "
 "уведомления и делать многое другое :)"
-
-#: includes/Main.php:316
-msgid "WP Telegram"
-msgstr ""
 
 #: includes/Requirements.php:121
 msgid "This plugin is not compatible with your website configuration."
@@ -112,14 +108,6 @@ msgstr ""
 #: languages/wptelegram-js-translations.php:38
 msgid "channel"
 msgstr "Канал"
-
-#: languages/wptelegram-js-translations.php:41
-msgid ""
-"Integrate your WordPress website perfectly with Telegram. Send posts "
-"automatically to Telegram when published or updated, whether to a Telegram "
-"Channel, Group or private chat, with full control. Get your email "
-"notifications on Telegram."
-msgstr ""
 
 #: languages/wptelegram-js-translations.php:44
 msgid "Get LIVE support on Telegram"
@@ -1080,6 +1068,3 @@ msgstr "Автор публикации"
 #: modules/p2tg/Rules.php:59
 msgid "Custom Taxonomy"
 msgstr "Пользовательское "
-
-#~ msgid "Markdown style"
-#~ msgstr "Markdown стиль"
