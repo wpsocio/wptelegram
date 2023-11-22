@@ -37,23 +37,27 @@ class Utils {
 	 */
 	const SUPPORTED_HTML_TAGS = [
 		// Link.
-		'a'      => [
+		'a'          => [
 			'href' => true,
 		],
 		// bold.
-		'b'      => [],
-		'strong' => [],
+		'b'          => [],
+		'strong'     => [],
+		// blockquote.
+		'blockquote' => [
+			'cite' => true,
+		],
 		// italic.
-		'em'     => [],
-		'i'      => [],
+		'em'         => [],
+		'i'          => [],
 		// code.
-		'pre'    => [],
-		'code'   => [
+		'pre'        => [],
+		'code'       => [
 			'class' => true,
 		],
 		// underline.
-		'u'      => [],
-		'ins'    => [],
+		'u'          => [],
+		'ins'        => [],
 	];
 
 	/**
