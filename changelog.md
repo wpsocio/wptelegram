@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [4.0.14 - 2023-11-22](https://github.com/wpsocio/wptelegram/releases/tag/v4.0.14)
+
 ### Enhancements
 
 - Added support for `<blockquote>` tag

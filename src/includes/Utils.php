@@ -795,7 +795,7 @@ class Utils {
 	/**
 	 * Whether to send files by URL.
 	 *
-	 * @since x.y.z
+	 * @since 4.0.14
 	 */
 	public static function send_files_by_url() {
 		$send_files_by_url = WPTG()->options()->get_path( 'advanced.send_files_by_url', true );
