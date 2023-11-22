@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.0
 Requires PHP: 7.0
 Tested up to: 6.3.1
-Stable tag: 4.0.13
+Stable tag: 4.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 13. Post Edit Page (Block Editor)
 
 == Changelog ==
+
+= 4.0.14 =
+- Added support for `<blockquote>` tag
 
 = 4.0.13 =
 - Fixed the failure of sending posts with large size images

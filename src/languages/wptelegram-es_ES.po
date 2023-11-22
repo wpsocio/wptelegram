@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Telegram - Stable\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-07-07 09:56:05+00:00\n"
+"POT-Creation-Date: 2023-11-22 14:20:05+00:00\n"
 "PO-Revision-Date: 2021-03-14 01:37+0530\n"
 "Last-Translator: Robert Skiba <info@skibamedia.de>\n"
 "Language-Team: Deutsch\n"
@@ -26,10 +26,6 @@ msgstr "Rregullime"
 msgid ""
 "With this plugin, you can send posts to Telegram and receive notifications "
 "and do lot more :)"
-msgstr ""
-
-#: includes/Main.php:316
-msgid "WP Telegram"
 msgstr ""
 
 #: includes/Requirements.php:121
@@ -108,14 +104,6 @@ msgstr ""
 
 #: languages/wptelegram-js-translations.php:38
 msgid "channel"
-msgstr ""
-
-#: languages/wptelegram-js-translations.php:41
-msgid ""
-"Integrate your WordPress website perfectly with Telegram. Send posts "
-"automatically to Telegram when published or updated, whether to a Telegram "
-"Channel, Group or private chat, with full control. Get your email "
-"notifications on Telegram."
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:44
@@ -1057,6 +1045,3 @@ msgstr ""
 #: modules/p2tg/Rules.php:59
 msgid "Custom Taxonomy"
 msgstr ""
-
-#~ msgid "Markdown style"
-#~ msgstr "Stil Markdown"

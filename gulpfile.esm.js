@@ -101,7 +101,7 @@ export const generatePotFile = (done) => {
 		potFilename: config.potFilename,
 		type: 'wp-plugin',
 		cwd: config.srcDir,
-		mainFile: `${config.srcDir}/${pkg.name}.php`,
+		mainFile: `${pkg.name}.php`,
 		updateTimestamp: true,
 		updatePoFiles: true,
 		potHeaders: {

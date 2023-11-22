@@ -222,8 +222,8 @@ class RulesController extends RESTController {
 		$term_list = [];
 
 		$terms = get_terms(
-			$taxonomy,
 			[
+				'taxonomy'   => $taxonomy,
 				'hide_empty' => 0,
 				'orderby'    => 'term_group',
 				'search'     => $search,

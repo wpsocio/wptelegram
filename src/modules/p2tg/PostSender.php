@@ -948,13 +948,7 @@ class PostSender extends BaseClass {
 			$text = $this->get_response_text( $template );
 		}
 
-		$this->send_files_by_url = WPTG()->options()->get_path( 'advanced.send_files_by_url', true );
-
-		/**
-		 * Pass false to upload the file
-		 * instead of sending as URL
-		 */
-		$this->send_files_by_url = (bool) apply_filters( 'wptelegram_p2tg_send_files_by_url', $this->send_files_by_url, $this->post, $this->options );
+		$this->send_files_by_url = MainUtils::send_files_by_url();
 
 		// For Photo.
 		$image_source = $this->get_featured_image_source();
@@ -1210,15 +1204,23 @@ class PostSender extends BaseClass {
 
 		$caption = $this->post_data->get_field( 'post_title' );
 
+		$size_limit = MainUtils::get_image_size_limit();
+
 		foreach ( $files as $id => $url ) {
 
 			$caption = apply_filters( 'wptelegram_p2tg_file_caption', $caption, $this->post, $id, $url, $this->options );
 
-			$type = MainUtils::guess_file_type( $id, $url );
+			$media_path = MainUtils::get_attachment_by_filesize( $id, $size_limit );
+
+			if ( ! $media_path ) {
+				continue;
+			}
+
+			$type = MainUtils::guess_file_type( $id, $media_path );
 
 			$file_responses[] = [
 				'send' . ucfirst( $type ) => [
-					$type     => $this->send_files_by_url ? $url : get_attached_file( $id ),
+					$type     => $media_path,
 					'caption' => $caption,
 				],
 			];

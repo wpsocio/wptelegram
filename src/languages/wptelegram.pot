@@ -1,14 +1,14 @@
-# Copyright (C) 2023 
-# This file is distributed under the same license as the  package.
+# Copyright (C) 2023 WP Socio
+# This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: WP Telegram 4.0.14\n"
 "Report-Msgid-Bugs-To: https://github.com/wpsocio/wptelegram\n"
-"POT-Creation-Date: 2023-09-17 07:07:41+00:00\n"
+"POT-Creation-Date: 2023-11-22 14:20:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-09-17 7:70\n"
+"PO-Revision-Date: 2023-11-22 14:200\n"
 "Last-Translator: WP Telegram\n"
 "Language-Team: WP Telegram\n"
 "Language: en_US\n"
@@ -31,10 +31,6 @@ msgstr ""
 msgid ""
 "With this plugin, you can send posts to Telegram and receive notifications "
 "and do lot more :)"
-msgstr ""
-
-#: includes/Main.php:316
-msgid "WP Telegram"
 msgstr ""
 
 #: includes/Requirements.php:121
@@ -113,14 +109,6 @@ msgstr ""
 
 #: languages/wptelegram-js-translations.php:38
 msgid "channel"
-msgstr ""
-
-#: languages/wptelegram-js-translations.php:41
-msgid ""
-"Integrate your WordPress website perfectly with Telegram. Send posts "
-"automatically to Telegram when published or updated, whether to a Telegram "
-"Channel, Group or private chat, with full control. Get your email "
-"notifications on Telegram."
 msgstr ""
 
 #: languages/wptelegram-js-translations.php:44
