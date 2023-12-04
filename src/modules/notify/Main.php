@@ -35,6 +35,6 @@ class Main extends BaseModule {
 
 		$sender = NotifySender::instance();
 
-		add_filter( 'wp_mail', [ $sender, 'handle_wp_mail' ], 10, 1 );
+		add_filter( 'wp_mail', [ $sender, 'handle_wp_mail' ], 5, 1 );
 	}
 }
