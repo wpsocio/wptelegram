@@ -152,6 +152,7 @@ final class Main {
 		if ( self::$initiated ) {
 			return;
 		}
+		self::$initiated = true;
 
 		$plugin_upgrade = Upgrade::instance();
 
@@ -163,7 +164,7 @@ final class Main {
 		add_action( 'plugins_loaded', [ $this, 'hookup' ], 20 );
 		add_action( 'plugins_loaded', [ $modules, 'load' ], 20 );
 
-		self::$initiated = true;
+		do_action( 'wptelegram_loaded' );
 	}
 
 	/**
