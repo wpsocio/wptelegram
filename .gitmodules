@@ -1,6 +1,0 @@
-[submodule "src/includes/bot-api"]
-	path = src/includes/bot-api
-	url = git@github.com:wpsocio/wptelegram-bot-api.git
-[submodule "src/includes/format-text"]
-	path = src/includes/format-text
-	url = git@github.com:wpsocio/wptelegram-format-text.git
