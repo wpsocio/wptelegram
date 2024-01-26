@@ -2,10 +2,10 @@
 Contributors: wpsocio, irshadahmad21
 Donate link: https://wpsocio.com/donate
 Tags: telegram, notifications, posts, channel, group
-Requires at least: 6.0
-Requires PHP: 7.0
-Tested up to: 6.3.1
-Stable tag: 4.0.14
+Requires at least: 6.2
+Requires PHP: 8.0
+Tested up to: 6.4.1
+Stable tag: 4.0.16
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,9 +203,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.0.15 =
-- Fixed the emojis in notifications not being sent.
-- Updated minimum required PHP version to 8.0
-- Added "Select all" option for channels in block editor
+= 4.0.16 =
+- Fixed requirements in readme.txt
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)
