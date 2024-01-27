@@ -3,9 +3,9 @@ Contributors: wpsocio, irshadahmad21
 Donate link: https://wpsocio.com/donate
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.2
-Requires PHP: 8.0
+Requires PHP: 7.4
 Tested up to: 6.4.1
-Stable tag: 4.0.16
+Stable tag: 4.0.17
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,7 +203,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.0.16 =
-- Fixed requirements in readme.txt
+= 4.0.17 =
+- Enabled support for PHP 7.4 after user feedback
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

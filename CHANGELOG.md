@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.17
+
+### Patch Changes
+
+- [#67](https://github.com/wpsocio/wp-projects/pull/67) [`b8f1656`](https://github.com/wpsocio/wp-projects/commit/b8f16563634166ece8f62c2dc1eb77c4af1e4cdf) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Enabled support for PHP 7.4 after user feedback
+
 ## 4.0.16
 
 ### Patch Changes
