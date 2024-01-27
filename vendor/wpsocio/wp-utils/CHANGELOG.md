@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [#70](https://github.com/wpsocio/wp-projects/pull/70) [`1202e03`](https://github.com/wpsocio/wp-projects/commit/1202e03417f3012933cbb6ca5ea97d2926be69a8) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Updated docs
+
 ## 1.0.0
 
 ### Major Changes

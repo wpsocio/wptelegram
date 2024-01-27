@@ -168,12 +168,14 @@ class AssetManager extends BaseClass {
 
 			$data['savedSettings'] = SettingsController::get_default_settings();
 
-			$data['assets'] = [
-				...$data['assets'],
-				'editProfileUrl' => get_edit_profile_url( get_current_user_id() ),
-				'p2tgLogUrl'     => Logger::get_log_url( 'p2tg' ),
-				'botApiLogUrl'   => Logger::get_log_url( 'bot-api' ),
-			];
+			$data['assets'] = array_merge(
+				$data['assets'],
+				[
+					'editProfileUrl' => get_edit_profile_url( get_current_user_id() ),
+					'p2tgLogUrl'     => Logger::get_log_url( 'p2tg' ),
+					'botApiLogUrl'   => Logger::get_log_url( 'bot-api' ),
+				]
+			);
 		}
 
 		return apply_filters( 'wptelegram_inline_script_data', $data, $for, $this->plugin() );

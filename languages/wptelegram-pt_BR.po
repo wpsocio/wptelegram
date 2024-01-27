@@ -134,7 +134,7 @@ msgstr ""
 #: js/settings/ui/TabbedSections.tsx:23
 #: js/settings/ui/advanced/Advanced.tsx:32
 #: languages/wptelegram-js-translations.php:562
-#: modules/p2tg/Admin.php:407
+#: modules/p2tg/Admin.php:409
 msgid "Post to Telegram"
 msgstr ""
 
@@ -415,7 +415,7 @@ msgstr ""
 
 #: js/p2tg-block-editor/Channels.tsx:39
 #: languages/wptelegram-js-translations.php:545
-#: modules/p2tg/Admin.php:429
+#: modules/p2tg/Admin.php:431
 msgid "Send to"
 msgstr "Enviar para"
 
@@ -426,60 +426,60 @@ msgstr ""
 
 #: js/p2tg-block-editor/Files.tsx:57
 #: languages/wptelegram-js-translations.php:554
-#: modules/p2tg/Admin.php:452
+#: modules/p2tg/Admin.php:454
 msgid "Files to be sent after the message."
 msgstr ""
 
 #: js/p2tg-block-editor/Files.tsx:66
 #: languages/wptelegram-js-translations.php:557
-#: modules/p2tg/Admin.php:451
+#: modules/p2tg/Admin.php:453
 msgid "Files"
 msgstr ""
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:45
 #: js/p2tg-block-editor/OverrideSettings.tsx:116
 #: languages/wptelegram-js-translations.php:522
-#: modules/p2tg/Admin.php:479
+#: modules/p2tg/Admin.php:481
 msgid "Featured Image"
 msgstr "Imagem em destaque"
 
 #: ../../packages/js/shared/wptelegram-ui/components/ImageSettings.tsx:37
 #: js/p2tg-block-editor/OverrideSettings.tsx:119
 #: languages/wptelegram-js-translations.php:165
-#: modules/p2tg/Admin.php:480
+#: modules/p2tg/Admin.php:482
 msgid "Send Featured Image (if exists)."
 msgstr "Enviar imagem em destaque (se existir)."
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:33
 #: js/p2tg-block-editor/OverrideSettings.tsx:124
 #: languages/wptelegram-js-translations.php:487
-#: modules/p2tg/Admin.php:491
+#: modules/p2tg/Admin.php:493
 msgid "Message Template"
 msgstr "Modelo de mensagem"
 
 #: js/p2tg-block-editor/OverrideSettings.tsx:86
 #: languages/wptelegram-js-translations.php:565
-#: modules/p2tg/Admin.php:419
+#: modules/p2tg/Admin.php:421
 msgid "Override settings"
 msgstr ""
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:25
 #: js/p2tg-block-editor/OverrideSettings.tsx:98
 #: languages/wptelegram-js-translations.php:462
-#: modules/p2tg/Admin.php:441
+#: modules/p2tg/Admin.php:443
 msgid "Disable Notifications"
 msgstr "Desativar as notificações"
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:24
 #: js/p2tg-block-editor/OverrideSettings.tsx:105
 #: languages/wptelegram-js-translations.php:458
-#: modules/p2tg/Admin.php:462
+#: modules/p2tg/Admin.php:464
 msgid "Delay in Posting"
 msgstr ""
 
 #: js/p2tg-block-editor/SendToTelegram.tsx:32
 #: languages/wptelegram-js-translations.php:568
-#: modules/p2tg/Admin.php:365
+#: modules/p2tg/Admin.php:367
 msgid "Send to Telegram"
 msgstr ""
 
@@ -505,7 +505,7 @@ msgstr ""
 
 #: ../../packages/js/shared/wptelegram-ui/components/DelayInPosting.tsx:25
 #: languages/wptelegram-js-translations.php:130
-#: modules/p2tg/Admin.php:463
+#: modules/p2tg/Admin.php:465
 msgid "Minute(s)"
 msgstr ""
 
@@ -577,7 +577,7 @@ msgstr ""
 
 #: ../../packages/js/shared/wptelegram-ui/components/MessageTemplate.tsx:19
 #: languages/wptelegram-js-translations.php:177
-#: modules/p2tg/Admin.php:492
+#: modules/p2tg/Admin.php:494
 msgid "Structure of the message to be sent."
 msgstr "Estrutura da mensagem a ser enviada."
 
@@ -1296,31 +1296,31 @@ msgstr ""
 msgid "Changes could not be saved."
 msgstr ""
 
-#: modules/p2tg/Admin.php:202
+#: modules/p2tg/Admin.php:204
 msgid "Post Data"
 msgstr ""
 
-#: modules/p2tg/Admin.php:219
+#: modules/p2tg/Admin.php:221
 msgid "Taxonomy Terms"
 msgstr ""
 
-#: modules/p2tg/Admin.php:223
+#: modules/p2tg/Admin.php:225
 msgid "Custom Fields"
 msgstr ""
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:231
+#: modules/p2tg/Admin.php:233
 msgid "Replace %1$s in %2$s by the name of the taxonomy to insert its terms attached to the post."
 msgstr ""
 
 #. translators: 1  code, 2  code
-#: modules/p2tg/Admin.php:236
-#: modules/p2tg/Admin.php:248
+#: modules/p2tg/Admin.php:238
+#: modules/p2tg/Admin.php:250
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr ""
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:243
+#: modules/p2tg/Admin.php:245
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr ""
 

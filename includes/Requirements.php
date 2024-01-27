@@ -58,7 +58,7 @@ class Requirements extends \WPSocio\WPUtils\Requirements {
 
 		$missing = [];
 
-		foreach ( $env_details['data']['PHP']['extensions'] as $extension => $loaded ) {
+		foreach ( $env_details['PHP']['extensions'] as $extension => $loaded ) {
 			if ( ! $loaded ) {
 				$missing[] = $extension;
 			}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.18
+
+### Patch Changes
+
+- [#73](https://github.com/wpsocio/wp-projects/pull/73) [`65f4584`](https://github.com/wpsocio/wp-projects/commit/65f45843fe403ab706c94cad59ee5b6724a4e0c9) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed PHP 7.4 critical error on settings page
+
+- [#73](https://github.com/wpsocio/wp-projects/pull/73) [`65f4584`](https://github.com/wpsocio/wp-projects/commit/65f45843fe403ab706c94cad59ee5b6724a4e0c9) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed PHP notice on plugins page requirements
+
 ## 4.0.17
 
 ### Patch Changes

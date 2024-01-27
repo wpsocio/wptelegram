@@ -134,7 +134,7 @@ msgstr ""
 #: js/settings/ui/TabbedSections.tsx:23
 #: js/settings/ui/advanced/Advanced.tsx:32
 #: languages/wptelegram-js-translations.php:562
-#: modules/p2tg/Admin.php:407
+#: modules/p2tg/Admin.php:409
 msgid "Post to Telegram"
 msgstr "文章通知"
 
@@ -416,7 +416,7 @@ msgstr ""
 
 #: js/p2tg-block-editor/Channels.tsx:39
 #: languages/wptelegram-js-translations.php:545
-#: modules/p2tg/Admin.php:429
+#: modules/p2tg/Admin.php:431
 msgid "Send to"
 msgstr "傳送給"
 
@@ -427,60 +427,60 @@ msgstr ""
 
 #: js/p2tg-block-editor/Files.tsx:57
 #: languages/wptelegram-js-translations.php:554
-#: modules/p2tg/Admin.php:452
+#: modules/p2tg/Admin.php:454
 msgid "Files to be sent after the message."
 msgstr "檔案在訊息之後傳送."
 
 #: js/p2tg-block-editor/Files.tsx:66
 #: languages/wptelegram-js-translations.php:557
-#: modules/p2tg/Admin.php:451
+#: modules/p2tg/Admin.php:453
 msgid "Files"
 msgstr "檔案"
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:45
 #: js/p2tg-block-editor/OverrideSettings.tsx:116
 #: languages/wptelegram-js-translations.php:522
-#: modules/p2tg/Admin.php:479
+#: modules/p2tg/Admin.php:481
 msgid "Featured Image"
 msgstr "精選圖片"
 
 #: ../../packages/js/shared/wptelegram-ui/components/ImageSettings.tsx:37
 #: js/p2tg-block-editor/OverrideSettings.tsx:119
 #: languages/wptelegram-js-translations.php:165
-#: modules/p2tg/Admin.php:480
+#: modules/p2tg/Admin.php:482
 msgid "Send Featured Image (if exists)."
 msgstr "傳送精選圖片 (如果有)"
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:33
 #: js/p2tg-block-editor/OverrideSettings.tsx:124
 #: languages/wptelegram-js-translations.php:487
-#: modules/p2tg/Admin.php:491
+#: modules/p2tg/Admin.php:493
 msgid "Message Template"
 msgstr "訊息範本"
 
 #: js/p2tg-block-editor/OverrideSettings.tsx:86
 #: languages/wptelegram-js-translations.php:565
-#: modules/p2tg/Admin.php:419
+#: modules/p2tg/Admin.php:421
 msgid "Override settings"
 msgstr "覆寫設定"
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:25
 #: js/p2tg-block-editor/OverrideSettings.tsx:98
 #: languages/wptelegram-js-translations.php:462
-#: modules/p2tg/Admin.php:441
+#: modules/p2tg/Admin.php:443
 msgid "Disable Notifications"
 msgstr "關閉通知"
 
 #: ../../packages/js/shared/wptelegram-ui/services/fields.ts:24
 #: js/p2tg-block-editor/OverrideSettings.tsx:105
 #: languages/wptelegram-js-translations.php:458
-#: modules/p2tg/Admin.php:462
+#: modules/p2tg/Admin.php:464
 msgid "Delay in Posting"
 msgstr "延遲發送文章通知"
 
 #: js/p2tg-block-editor/SendToTelegram.tsx:32
 #: languages/wptelegram-js-translations.php:568
-#: modules/p2tg/Admin.php:365
+#: modules/p2tg/Admin.php:367
 msgid "Send to Telegram"
 msgstr "傳送至 Telegram"
 
@@ -506,7 +506,7 @@ msgstr "延遲將從文章發表後開始計算。"
 
 #: ../../packages/js/shared/wptelegram-ui/components/DelayInPosting.tsx:25
 #: languages/wptelegram-js-translations.php:130
-#: modules/p2tg/Admin.php:463
+#: modules/p2tg/Admin.php:465
 msgid "Minute(s)"
 msgstr "分鐘"
 
@@ -578,7 +578,7 @@ msgstr ""
 
 #: ../../packages/js/shared/wptelegram-ui/components/MessageTemplate.tsx:19
 #: languages/wptelegram-js-translations.php:177
-#: modules/p2tg/Admin.php:492
+#: modules/p2tg/Admin.php:494
 msgid "Structure of the message to be sent."
 msgstr "訊息送出的結構"
 
@@ -1301,31 +1301,31 @@ msgstr ""
 msgid "Changes could not be saved."
 msgstr ""
 
-#: modules/p2tg/Admin.php:202
+#: modules/p2tg/Admin.php:204
 msgid "Post Data"
 msgstr "文章資料"
 
-#: modules/p2tg/Admin.php:219
+#: modules/p2tg/Admin.php:221
 msgid "Taxonomy Terms"
 msgstr "分類詞彙"
 
-#: modules/p2tg/Admin.php:223
+#: modules/p2tg/Admin.php:225
 msgid "Custom Fields"
 msgstr "自訂欄位"
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:231
+#: modules/p2tg/Admin.php:233
 msgid "Replace %1$s in %2$s by the name of the taxonomy to insert its terms attached to the post."
 msgstr "將文章中附加的分類名稱以 %2$s 形式來取代 %1$s。"
 
 #. translators: 1  code, 2  code
-#: modules/p2tg/Admin.php:236
-#: modules/p2tg/Admin.php:248
+#: modules/p2tg/Admin.php:238
+#: modules/p2tg/Admin.php:250
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr "舉例來說，%1$s and %2$s 在 WooCommerce"
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:243
+#: modules/p2tg/Admin.php:245
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr "在自訂欄位名稱中，以 %2$s 來取代 %1$s。"
 

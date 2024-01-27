@@ -131,13 +131,15 @@ class Admin extends BaseClass {
 	public function update_inline_script_data( $data, $for ) {
 
 		if ( AssetManager::ADMIN_SETTINGS_ENTRY === $for ) {
-			$data['uiData'] = [
-				...$data['uiData'],
-				'post_types'          => $this->get_post_type_options(),
-				'macros'              => $this->get_macros(),
-				'rule_types'          => Rules::get_rule_types(),
-				'is_wp_cron_disabled' => defined( 'DISABLE_WP_CRON' ) && constant( 'DISABLE_WP_CRON' ),
-			];
+			$data['uiData'] = array_merge(
+				$data['uiData'],
+				[
+					'post_types'          => $this->get_post_type_options(),
+					'macros'              => $this->get_macros(),
+					'rule_types'          => Rules::get_rule_types(),
+					'is_wp_cron_disabled' => defined( 'DISABLE_WP_CRON' ) && constant( 'DISABLE_WP_CRON' ),
+				]
+			);
 		} elseif ( AssetManager::P2TG_BLOCK_EDITOR_ENTRY === $for ) {
 
 			$blocks_fields  = [
