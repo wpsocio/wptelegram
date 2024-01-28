@@ -170,14 +170,30 @@ final class Main {
 	}
 
 	/**
+	 * Whether an upgrade is going on.
+	 *
+	 * @since 4.0.19
+	 *
+	 * @return bool
+	 */
+	public function doing_upgrade() {
+		return defined( 'WPTELEGRAM_DOING_UPGRADE' ) && WPTELEGRAM_DOING_UPGRADE;
+	}
+
+	/**
 	 * Registers the initial hooks.
 	 *
 	 * @since    3.0.0
 	 * @access   public
 	 */
 	public function hookup() {
-		// If an upgrade is going on.
-		if ( defined( 'WPTELEGRAM_DOING_UPGRADE' ) && WPTELEGRAM_DOING_UPGRADE ) {
+
+		$plugin_admin = Admin::instance();
+
+		// Ensure that the menu is always there.
+		add_action( 'admin_menu', [ $plugin_admin, 'add_plugin_admin_menu' ], 8 );
+
+		if ( $this->doing_upgrade() ) {
 			return;
 		}
 		$this->define_admin_hooks();
@@ -276,15 +292,11 @@ final class Main {
 
 		$plugin_admin = Admin::instance();
 
-		add_action( 'admin_menu', [ $plugin_admin, 'add_plugin_admin_menu' ], 8 );
-
 		add_action( 'rest_api_init', [ $plugin_admin, 'register_rest_routes' ] );
 
 		add_filter( 'rest_request_before_callbacks', [ Utils::class, 'filter_rest_errors' ], 10, 3 );
 
 		add_filter( 'plugin_action_links_' . WPTELEGRAM_BASENAME, [ $plugin_admin, 'plugin_action_links' ] );
-
-		add_filter( 'upgrader_process_complete', [ $plugin_admin, 'fire_plugin_version_upgrade' ], 10, 2 );
 
 		add_action( 'after_setup_theme', [ $plugin_admin, 'initiate_logger' ] );
 

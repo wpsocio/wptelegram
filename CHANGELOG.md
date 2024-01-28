@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.19
+
+### Patch Changes
+
+- [#78](https://github.com/wpsocio/wp-projects/pull/78) [`25b51fe`](https://github.com/wpsocio/wp-projects/commit/25b51fe0da360cca3429646c4519ddb44a8e5519) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed blank admin page after recent update
+
+- [#79](https://github.com/wpsocio/wp-projects/pull/79) [`3791761`](https://github.com/wpsocio/wp-projects/commit/37917611443b65efc55224d1d932dc86fdfb9104) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed plugin menu being hidden during upgrade
+
 ## 4.0.18
 
 ### Patch Changes

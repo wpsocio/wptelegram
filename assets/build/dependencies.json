@@ -3,8 +3,8 @@
     "react",
     "react-dom",
     "jquery",
-    "wp-i18n",
-    "wp-api-fetch"
+    "wp-api-fetch",
+    "wp-i18n"
   ],
   "js/p2tg-block-editor/index.ts": [
     "wp-plugins",

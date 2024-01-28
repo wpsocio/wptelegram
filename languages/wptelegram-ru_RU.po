@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: assets\n"
 
-#: admin/Admin.php:83
+#: admin/Admin.php:92
 msgid "Settings"
 msgstr "Настройки"
 
@@ -1367,7 +1367,7 @@ msgid "Integrate your WordPress website perfectly with Telegram. Send posts auto
 msgstr ""
 
 #. Plugin Name of the plugin
-#: includes/Main.php:312
+#: includes/Main.php:324
 msgid "WP Telegram"
 msgstr ""
 
@@ -1381,4 +1381,12 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://wpsocio.com"
+msgstr ""
+
+#: admin/Admin.php:70
+msgid "Plugin data has been upgraded."
+msgstr ""
+
+#: admin/Admin.php:71
+msgid "Please reload the page."
 msgstr ""
