@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.20
+
+### Patch Changes
+
+- [#81](https://github.com/wpsocio/wp-projects/pull/81) [`2cb4c4c`](https://github.com/wpsocio/wp-projects/commit/2cb4c4ca5cb0acde6592eb5e80e56734736a461d) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fix "At least one channel is required." error
+
 ## 4.0.19
 
 ### Patch Changes
