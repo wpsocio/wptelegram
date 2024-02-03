@@ -109,36 +109,38 @@ class SettingsController extends RESTController {
 			'bot_username' => '',
 			'p2tg'         => [
 				// flag.
-				'active'                   => false,
+				'active'                  => false,
 				// Destination.
-				'channels'                 => [],
+				'channels'                => [],
 				// Rules.
-				'send_when'                => [ 'new' ],
-				'post_types'               => [ 'post' ],
-				'rules'                    => [],
+				'send_when'               => [ 'new' ],
+				'post_types'              => [ 'post' ],
+				'rules'                   => [],
 				// Message.
-				'message_template'         => '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}',
-				'excerpt_source'           => 'post_content',
-				'excerpt_length'           => 55,
-				'excerpt_preserve_eol'     => true,
+				'message_template'        => '{post_title}' . PHP_EOL . PHP_EOL . '{post_excerpt}' . PHP_EOL . PHP_EOL . '{full_url}',
+				'excerpt_source'          => 'post_content',
+				'excerpt_length'          => 55,
+				'excerpt_preserve_eol'    => true,
 				// Image.
-				'send_featured_image'      => true,
-				'image_position'           => 'before',
-				'single_message'           => true,
+				'send_featured_image'     => true,
+				'image_position'          => 'before',
+				'single_message'          => true,
 				// Formatting.
-				'cats_as_tags'             => false,
-				'parse_mode'               => 'none',
-				'disable_web_page_preview' => false,
+				'cats_as_tags'            => false,
+				'parse_mode'              => 'none',
+				'link_preview_disabled'   => false,
+				'link_preview_url'        => '',
+				'link_preview_above_text' => false,
 				// Inline button.
-				'inline_url_button'        => false,
-				'inline_button_text'       => sprintf( '🔗 %s', __( 'View Post', 'wptelegram' ) ),
-				'inline_button_url'        => '{full_url}',
+				'inline_url_button'       => false,
+				'inline_button_text'      => sprintf( '🔗 %s', __( 'View Post', 'wptelegram' ) ),
+				'inline_button_url'       => '{full_url}',
 				// Misc.
-				'plugin_posts'             => false,
-				'post_edit_switch'         => true,
-				'delay'                    => $is_wp_cron_disabled ? 0 : 0.5,
-				'disable_notification'     => false,
-				'protect_content'          => false,
+				'plugin_posts'            => false,
+				'post_edit_switch'        => true,
+				'delay'                   => $is_wp_cron_disabled ? 0 : 0.5,
+				'disable_notification'    => false,
+				'protect_content'         => false,
 			],
 			'notify'       => [
 				'active'             => false,
@@ -237,29 +239,29 @@ class SettingsController extends RESTController {
 				'sanitize_callback' => [ __CLASS__, 'sanitize_param' ],
 				'validate_callback' => 'rest_validate_request_arg',
 				'properties'        => [
-					'active'                   => [
+					'active'                  => [
 						'type' => 'boolean',
 					],
-					'channels'                 => [
+					'channels'                => [
 						'type'  => 'array',
 						'items' => [
 							'type' => 'string',
 						],
 					],
-					'send_when'                => [
+					'send_when'               => [
 						'type'  => 'array',
 						'items' => [
 							'type' => 'string',
 							'enum' => [ 'new', 'existing' ],
 						],
 					],
-					'post_types'               => [
+					'post_types'              => [
 						'type'  => 'array',
 						'items' => [
 							'type' => 'string',
 						],
 					],
-					'rules'                    => [
+					'rules'                   => [
 						'type'  => 'array',
 						'items' => [
 							'type'  => 'array',
@@ -291,64 +293,70 @@ class SettingsController extends RESTController {
 							],
 						],
 					],
-					'message_template'         => [
+					'message_template'        => [
 						'type' => 'string',
 					],
-					'excerpt_source'           => [
+					'excerpt_source'          => [
 						'type' => 'string',
 						'enum' => [ 'post_content', 'before_more', 'post_excerpt' ],
 					],
-					'excerpt_length'           => [
+					'excerpt_length'          => [
 						'type'    => 'integer',
 						'minimum' => 1,
 						'maximum' => 300,
 					],
-					'excerpt_preserve_eol'     => [
+					'excerpt_preserve_eol'    => [
 						'type' => 'boolean',
 					],
-					'send_featured_image'      => [
+					'send_featured_image'     => [
 						'type' => 'boolean',
 					],
-					'image_position'           => [
+					'image_position'          => [
 						'type' => 'string',
 						'enum' => [ 'before', 'after' ],
 					],
-					'single_message'           => [
+					'single_message'          => [
 						'type' => 'boolean',
 					],
-					'cats_as_tags'             => [
+					'cats_as_tags'            => [
 						'type' => 'boolean',
 					],
-					'parse_mode'               => [
+					'parse_mode'              => [
 						'type' => 'string',
 						'enum' => [ 'none', 'HTML' ],
 					],
-					'disable_web_page_preview' => [
+					'link_preview_disabled'   => [
 						'type' => 'boolean',
 					],
-					'inline_url_button'        => [
-						'type' => 'boolean',
-					],
-					'inline_button_text'       => [
+					'link_preview_url'        => [
 						'type' => 'string',
 					],
-					'inline_button_url'        => [
+					'link_preview_above_text' => [
+						'type' => 'boolean',
+					],
+					'inline_url_button'       => [
+						'type' => 'boolean',
+					],
+					'inline_button_text'      => [
 						'type' => 'string',
 					],
-					'plugin_posts'             => [
+					'inline_button_url'       => [
+						'type' => 'string',
+					],
+					'plugin_posts'            => [
 						'type' => 'boolean',
 					],
-					'post_edit_switch'         => [
+					'post_edit_switch'        => [
 						'type' => 'boolean',
 					],
-					'delay'                    => [
+					'delay'                   => [
 						'type'    => 'number',
 						'minimum' => 0,
 					],
-					'disable_notification'     => [
+					'disable_notification'    => [
 						'type' => 'boolean',
 					],
-					'protect_content'          => [
+					'protect_content'         => [
 						'type' => 'boolean',
 					],
 				],

@@ -173,14 +173,33 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/KeyboardButton.tsx:90
 	__( 'Delete button', 'wptelegram' ),
 
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/LinkPreviewOptions.tsx:21
+	__( 'Disables previews for links in the messages.', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/LinkPreviewOptions.tsx:33
+	__( 'URL to use for the link preview.', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/LinkPreviewOptions.tsx:38
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/P2TGInstructions.tsx:154
+	/* translators: %s code example */
+	__( 'For example %s', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/LinkPreviewOptions.tsx:57
+	__( 'Whether the link preview must be shown above the message text.', 'wptelegram' ),
+
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/MessageTemplate.tsx:19
 	__( 'Structure of the message to be sent.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/MiscMessageSettings.tsx:18
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/MiscMessageSettings.tsx:19
 	__( 'Send categories as hashtags.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/MiscMessageSettings.tsx:30
-	__( 'Disables previews for links in the messages.', 'wptelegram' ),
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/MiscMessageSettings.tsx:35
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/ParseModeField.tsx:42
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/TemplateInfo.tsx:39
+	__( 'Learn more', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/MiscMessageSettings.tsx:38
+	__( 'Protects the contents of sent messages from forwarding and saving.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/NotifyInstructions.tsx:114
 	// Reference: js/settings/ui/TabbedSections.tsx:28
@@ -233,15 +252,11 @@ $generated_i18n_strings = array(
 	__( 'Tip!', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/P2TGInstructions.tsx:133
-	__( 'You can add an internal note to the chat ID to make it easier for you to indentify it.', 'wptelegram' ),
+	__( 'You can add an internal note to the chat ID to make it easier for you to identify it.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/P2TGInstructions.tsx:142
 	/* translators: %s pipe character */
 	__( 'Note can be added after %s.', 'wptelegram' ),
-
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/P2TGInstructions.tsx:154
-	/* translators: %s code example */
-	__( 'For example %s', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/P2TGInstructions.tsx:26
 	__( 'Create a Telegram channel or group.', 'wptelegram' ),
@@ -283,14 +298,6 @@ $generated_i18n_strings = array(
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/ParseModeField.tsx:21
 	__( 'HTML style', 'wptelegram' ),
-
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/ParseModeField.tsx:42
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/ProtectContent.tsx:19
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/TemplateInfo.tsx:39
-	__( 'Learn more', 'wptelegram' ),
-
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/ProtectContent.tsx:22
-	__( 'Protects the contents of sent messages from forwarding and saving.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/SingleMessage.tsx:34
 	__( 'Send both text and image in single message.', 'wptelegram' ),
@@ -371,7 +378,7 @@ $generated_i18n_strings = array(
 	__( 'Proxy', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/proxy/Proxy.tsx:48
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:40
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:42
 	// Reference: js/settings/services/fields.ts:24
 	__( 'Proxy Method', 'wptelegram' ),
 
@@ -462,72 +469,78 @@ $generated_i18n_strings = array(
 	__( 'Disable Notifications', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:26
-	__( 'Disable Web Page Preview', 'wptelegram' ),
+	__( 'Disable link preview', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:27
-	__( 'Enable logs for', 'wptelegram' ),
+	__( 'Link preview URL', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:28
-	__( 'Excerpt Length', 'wptelegram' ),
+	__( 'Show preview above text', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:29
-	__( 'Excerpt Newlines', 'wptelegram' ),
+	__( 'Enable logs for', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:30
-	__( 'Excerpt Source', 'wptelegram' ),
+	__( 'Excerpt Length', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:31
-	__( 'Google Script URL', 'wptelegram' ),
+	__( 'Excerpt Newlines', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:32
-	__( 'Image Position', 'wptelegram' ),
+	__( 'Excerpt Source', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:33
+	__( 'Google Script URL', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:34
+	__( 'Image Position', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:35
 	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:124
 	__( 'Message Template', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:34
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:36
 	__( 'Formatting', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:35
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:37
 	__( 'Plugin generated posts', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:36
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:38
 	__( 'Post edit switch', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:37
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:39
 	// Reference: js/settings/services/fields.ts:23
 	__( 'Post type', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:38
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:40
 	__( 'Protect content', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:39
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:41
 	__( 'Proxy Host', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:41
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:43
 	__( 'Password', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:42
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:44
 	__( 'Proxy Port', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:43
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:45
 	__( 'Proxy Type', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:44
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:46
 	__( 'Username', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:45
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:47
 	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:116
 	__( 'Featured Image', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:46
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:48
 	__( 'Send files by URL', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:47
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:49
 	__( 'Single message', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:48
+	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:50
 	__( 'Notifications to Users', 'wptelegram' ),
 
 	// Reference: ../../packages/js/utilities/fields.ts:35
@@ -567,7 +580,7 @@ $generated_i18n_strings = array(
 	// Reference: js/p2tg-block-editor/SendToTelegram.tsx:32
 	__( 'Send to Telegram', 'wptelegram' ),
 
-	// Reference: js/settings/services/fields.ts:139
+	// Reference: js/settings/services/fields.ts:141
 	/* translators: %s: field label */
 	__( '%s must be a number.', 'wptelegram' ),
 
@@ -677,10 +690,10 @@ $generated_i18n_strings = array(
 	// Reference: js/settings/ui/p2tg/MessageKeyboard.tsx:55
 	__( 'Source of the button URL.', 'wptelegram' ),
 
-	// Reference: js/settings/ui/p2tg/MessageSettings.tsx:21
+	// Reference: js/settings/ui/p2tg/MessageSettings.tsx:22
 	__( 'Message Settings', 'wptelegram' ),
 
-	// Reference: js/settings/ui/p2tg/Miscellaneous.tsx:20
+	// Reference: js/settings/ui/p2tg/Miscellaneous.tsx:19
 	__( 'Miscellaneous', 'wptelegram' ),
 
 	// Reference: js/settings/ui/p2tg/P2TG.tsx:28

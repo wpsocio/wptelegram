@@ -385,7 +385,7 @@ class Helpers {
 	 * Create a regex from the given pattern.
 	 *
 	 * @param string  $pattern     The pattern to match.
-	 * @param boolean $allow_empty Whether to allow an ampty string.
+	 * @param boolean $allow_empty Whether to allow an empty string.
 	 * @param boolean $match_full  Whether to match the complete word.
 	 * @param string  $delim       The delimiter to use.
 	 *

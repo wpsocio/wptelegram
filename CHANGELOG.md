@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [#87](https://github.com/wpsocio/wp-projects/pull/87) [`5bffa8f`](https://github.com/wpsocio/wp-projects/commit/5bffa8f99b9dde88f58cfc1c14817463dc73cb43) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added link preview options
+
+### Patch Changes
+
+- [#88](https://github.com/wpsocio/wp-projects/pull/88) [`09a4b44`](https://github.com/wpsocio/wp-projects/commit/09a4b4444065380fd8f22c512d93753dd8ad5858) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Updated screenshots for wordpress.org
+
 ## 4.0.20
 
 ### Patch Changes
