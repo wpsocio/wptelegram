@@ -183,7 +183,7 @@ class NotifySender extends BaseClass {
 					'sendMessage' => [
 						'text'                 => Utils::prepare_content( $text, $options ),
 						'parse_mode'           => $options['format_to'],
-						'link_preview_options' => wp_json_encode( [ 'is_disabled' => true ] ),
+						'link_preview_options' => [ 'is_disabled' => true ],
 					],
 				],
 			];

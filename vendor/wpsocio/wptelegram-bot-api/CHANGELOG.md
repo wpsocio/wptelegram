@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [#93](https://github.com/wpsocio/wp-projects/pull/93) [`4ea735c`](https://github.com/wpsocio/wp-projects/commit/4ea735cbda5f68f30d822f88b6134036c51454cb) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - json encode nested params by default
+
 ## 1.0.0
 
 ### Major Changes

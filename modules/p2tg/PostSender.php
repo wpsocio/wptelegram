@@ -1105,7 +1105,7 @@ class PostSender extends BaseClass {
 
 		$parse_mode = MainUtils::valid_parse_mode( $this->options->get( 'parse_mode' ) );
 
-		$link_preview_options = wp_json_encode( $this->get_link_preview_options() );
+		$link_preview_options = $this->get_link_preview_options();
 		$disable_notification = $this->options->get( 'disable_notification' );
 		$protect_content      = $this->options->get( 'protect_content' );
 
@@ -1284,7 +1284,7 @@ class PostSender extends BaseClass {
 
 		if ( ! empty( $inline_keyboard ) ) {
 
-			$reply_markup = wp_json_encode( compact( 'inline_keyboard' ) );
+			$reply_markup = [ 'inline_keyboard' => $inline_keyboard ];
 
 			if ( isset( $method_params['sendMessage'] ) ) {
 
@@ -1469,12 +1469,10 @@ class PostSender extends BaseClass {
 					$result = $res->get_result();
 					// send next message in reply to the previous one.
 					if ( ! empty( $result['message_id'] ) ) {
-						$params['reply_parameters'] = wp_json_encode(
-							[
-								'allow_sending_without_reply' => true,
-								'message_id' => $result['message_id'],
-							]
-						);
+						$params['reply_parameters'] = [
+							'allow_sending_without_reply' => true,
+							'message_id'                  => $result['message_id'],
+						];
 					}
 				}
 

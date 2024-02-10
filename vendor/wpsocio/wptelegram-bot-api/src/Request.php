@@ -54,11 +54,11 @@ if ( ! class_exists( __NAMESPACE__ . '\Request', false ) ) :
 		/**
 		 * Creates a new Request
 		 *
-		 * @param string|null $bot_token  The API token.
-		 * @param string|null $api_method The API method name.
-		 * @param array|null  $params     The method params.
+		 * @param string $bot_token  The API token.
+		 * @param string $api_method The API method name.
+		 * @param array  $params     The method params.
 		 */
-		public function __construct( $bot_token = null, $api_method = null, array $params = [] ) {
+		public function __construct( string $bot_token = '', string $api_method = '', array $params = [] ) {
 			$this->set_bot_token( $bot_token );
 			$this->set_api_method( $api_method );
 			$this->set_params( $params );

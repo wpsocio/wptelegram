@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.1
+
+### Patch Changes
+
+- [#96](https://github.com/wpsocio/wp-projects/pull/96) [`24aeb5a`](https://github.com/wpsocio/wp-projects/commit/24aeb5ad32e1ec39a456ebf96e34c839b647474a) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Updated bundled bot api library
+
 ## 4.1.0
 
 ### Minor Changes

@@ -57,14 +57,16 @@ if ( ! class_exists( __NAMESPACE__ . '\Client', false ) ) :
 		public function prepare_request( Request $request ) {
 			$url = $this->get_base_url() . $request->get_bot_token() . '/' . $request->get_api_method();
 
-			return apply_filters(
-				'wptelegram_bot_api_prepare_request',
-				[
-					$url,
-					$request->get_params(),
-				],
-				$request
-			);
+			$params = $request->get_params();
+
+			// Ensure that the nested arrays are encoded as JSON.
+			foreach ( $params as $key => $value ) {
+				if ( is_array( $value ) ) {
+					$params[ $key ] = wp_json_encode( $value );
+				}
+			}
+
+			return apply_filters( 'wptelegram_bot_api_prepare_request', [ $url, $params ], $request );
 		}
 
 		/**

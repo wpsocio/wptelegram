@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 6.4.3
-Stable tag: 4.1.0
+Stable tag: 4.1.1
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -74,7 +74,7 @@ https://www.youtube.com/watch?v=gVJCtwkorMA
 
 == Contribution ==
 
-Development occurs in our [Github monorepo](https://github.com/wpsocio/wp-projects), and all contributions welcome.
+Development takes place in our [Github monorepo](https://github.com/wpsocio/wp-projects), and all contributions welcome.
 
 == Excellent LIVE Support on Telegram ==
 
@@ -203,8 +203,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.1.0 =
-- Added link preview options
-- Updated screenshots for wordpress.org
+= 4.1.1 =
+- Updated bundled bot api library
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)
