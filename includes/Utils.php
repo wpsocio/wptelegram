@@ -274,10 +274,10 @@ class Utils extends \WPSocio\WPUtils\Helpers {
 				$result = FormatTextUtils::htmlSpecialChars( $result );
 			}
 
+			do_action( 'wptelegram_prepare_content_error', $exception, $content, $options );
+
 			// override formatting.
 			$options['format_to'] = 'text';
-
-			do_action( 'wptelegram_prepare_content_error', $exception, $content, $options );
 		}
 
 		// Remove new lines if not preserving them.

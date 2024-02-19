@@ -1304,7 +1304,7 @@ class PostSender extends BaseClass {
 	 *
 	 * @param array $method_params Methods and Params.
 	 *
-	 * @return  array
+	 * @return  array|false
 	 */
 	public function get_inline_keyboard( $method_params ) {
 
@@ -1329,8 +1329,9 @@ class PostSender extends BaseClass {
 
 		$default_button = (array) apply_filters( 'wptelegram_p2tg_default_inline_button', $default_button, $this->post, $method_params );
 
-		$inline_keyboard[][] = $default_button;
-
+		$inline_keyboard = [
+			[ $default_button ],
+		];
 		return (array) apply_filters( 'wptelegram_p2tg_inline_keyboard', $inline_keyboard, $this->post, $method_params );
 	}
 

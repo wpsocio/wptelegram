@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [#105](https://github.com/wpsocio/wp-projects/pull/105) [`7924c09`](https://github.com/wpsocio/wp-projects/commit/7924c09f0da9e1b54c9ca6fbc6e0e63c4792f591) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Updated ViteWPReactAssets to allow skip script and style in `enqueue()`
+
 ## 1.0.1
 
 ### Patch Changes

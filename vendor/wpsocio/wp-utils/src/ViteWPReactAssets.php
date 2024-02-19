@@ -561,8 +561,14 @@ class ViteWPReactAssets {
 
 		$script_handle = $this->get_entry_script_handle( $entry );
 
-		if ( $script_handle ) {
+		$options = $this->parse_options( $options );
+
+		if ( $script_handle && ! $options['skip-script'] ) {
 			wp_enqueue_script( $script_handle );
+		}
+
+		if ( $options['skip-style'] ) {
+			return true;
 		}
 
 		$style_handles = $this->get_entry_style_handles( $entry );

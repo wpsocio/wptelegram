@@ -91,7 +91,13 @@ class Logger extends BaseClass {
 	 */
 	protected function hook_it_up() {
 
-		foreach ( $this->get_active_logs() as $log_type ) {
+		$active_logs = $this->get_active_logs();
+
+		if ( empty( $active_logs ) ) {
+			return;
+		}
+
+		foreach ( $active_logs as $log_type ) {
 
 			$method = [ $this, "hookup_for_{$log_type}" ];
 
@@ -99,6 +105,8 @@ class Logger extends BaseClass {
 				call_user_func( $method );
 			}
 		}
+
+		add_action( 'wptelegram_prepare_content_error', [ $this, 'prepare_content_error' ], 10, 3 );
 	}
 
 	/**
@@ -175,8 +183,6 @@ class Logger extends BaseClass {
 		add_action( 'wptelegram_p2tg_post_finish', [ $this, 'add_post_finish' ], 999, 5 );
 
 		add_action( 'wptelegram_p2tg_after_send_post', [ $this, 'after_p2tg_log' ], 999, 3 );
-
-		add_action( 'wptelegram_prepare_content_error', [ $this, 'prepare_content_error' ], 10, 3 );
 	}
 
 	/**

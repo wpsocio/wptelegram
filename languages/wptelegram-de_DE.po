@@ -1339,6 +1339,7 @@ msgstr "Individuelle Taxonomie"
 
 #. Description of the plugin
 #: js/settings/ui/Sidebar.tsx:16
+#: wptelegram.php
 #: languages/wptelegram-js-translations.php:613
 #~ msgid "Integrate your WordPress website perfectly with Telegram. Send posts automatically to Telegram when published or updated, whether to a Telegram Channel, Group or private chat, with full control. Get your email notifications on Telegram."
 #~ msgstr "Integriere deine WordPress-Website perfekt in Telegram. Sende Beiträge automatisch an Telegram, wenn sie veröffentlicht oder aktualisiert werden, egal ob an einen Telegram-Channel, eine Gruppe oder einen privaten Chat, mit voller Kontrolle. Erhalte deine E-Mail-Benachrichtigungen per Telegram."
@@ -1349,19 +1350,23 @@ msgid "Select all"
 msgstr ""
 
 #. Plugin Name of the plugin
+#: wptelegram.php
 #: includes/Main.php:324
 msgid "WP Telegram"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: wptelegram.php
 msgid "https://t.me/WPTelegram"
 msgstr ""
 
 #. Author of the plugin
+#: wptelegram.php
 msgid "WP Socio"
 msgstr ""
 
 #. Author URI of the plugin
+#: wptelegram.php
 msgid "https://wpsocio.com"
 msgstr ""
 

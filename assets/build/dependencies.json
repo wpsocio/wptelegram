@@ -3,15 +3,15 @@
     "react",
     "react-dom",
     "wp-i18n",
-    "wp-api-fetch",
-    "jquery"
+    "jquery",
+    "wp-api-fetch"
   ],
   "js/p2tg-block-editor/index.ts": [
     "wp-plugins",
     "wp-i18n",
+    "wp-element",
     "wp-components",
     "wp-edit-post",
-    "wp-element",
     "wp-editor",
     "wp-data",
     "wp-media-utils"
