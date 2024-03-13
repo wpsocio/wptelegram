@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.3
+
+### Patch Changes
+
+- [#113](https://github.com/wpsocio/wp-projects/pull/113) [`9594d18`](https://github.com/wpsocio/wp-projects/commit/9594d18d96351dd1b7fb3c14a12233c178177d89) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed PHP errors in Post to Telegram for partial REST API input
+
 ## 4.1.2
 
 ### Patch Changes
