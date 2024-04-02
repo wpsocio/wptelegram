@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.4
+
+### Patch Changes
+
+- [#119](https://github.com/wpsocio/wp-projects/pull/119) [`69bb5c2`](https://github.com/wpsocio/wp-projects/commit/69bb5c219aab1cd58da66f869b593cd930d49337) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed post excerpt filter in post data not working
+
+- [#116](https://github.com/wpsocio/wp-projects/pull/116) [`cfac49f`](https://github.com/wpsocio/wp-projects/commit/cfac49f19a2c8783782ba2d4229d5bf2a742ba11) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added php translation files for better performance with WP 6.5
+
 ## 4.1.3
 
 ### Patch Changes

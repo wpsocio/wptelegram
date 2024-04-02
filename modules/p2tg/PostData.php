@@ -165,10 +165,10 @@ class PostData {
 
 				} else {
 
-					$field  = 'post_content' === $excerpt_source ? 'post_content' : 'post_excerpt';
-					$filter = 'post_content' === $excerpt_source ? 'the_content' : 'the_excerpt';
+					$post_field = 'post_content' === $excerpt_source ? 'post_content' : 'post_excerpt';
+					$filter     = 'post_content' === $excerpt_source ? 'the_content' : 'the_excerpt';
 
-					$excerpt = get_post_field( $field, $this->post );
+					$excerpt = get_post_field( $post_field, $this->post );
 
 					self::remove_autoembed_filter();
 

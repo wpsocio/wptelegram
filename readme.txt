@@ -4,8 +4,8 @@ Donate link: https://wpsocio.com/donate
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.4
 Requires PHP: 7.4
-Tested up to: 6.4.3
-Stable tag: 4.1.3
+Tested up to: 6.5
+Stable tag: 4.1.4
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,7 +203,8 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.1.3 =
-- Fixed PHP errors in Post to Telegram for partial REST API input
+= 4.1.4 =
+- Fixed post excerpt filter in post data not working
+- Added php translation files for better performance with WP 6.5
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)
