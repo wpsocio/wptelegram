@@ -41,8 +41,10 @@ class Utils {
 			return false;
 		}
 
+		$post_publish_time = get_post_time( 'U', true, $post->ID, false );
+
 		// if the post has been published more than one day ago.
-		$is_more_than_a_day_old = ( ( time() - get_post_time( 'U', true, $post->ID, false ) ) / DAY_IN_SECONDS ) > 1;
+		$is_more_than_a_day_old = $post_publish_time ? ( ( time() - $post_publish_time ) / DAY_IN_SECONDS ) > 1 : false;
 
 		// whether the post has already been sent to Telegram.
 		$sent2tg = get_post_meta( $post->ID, Main::PREFIX . 'sent2tg', true );

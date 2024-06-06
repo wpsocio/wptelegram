@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.6
+
+### Patch Changes
+
+- [#124](https://github.com/wpsocio/wp-projects/pull/124) [`30ee543`](https://github.com/wpsocio/wp-projects/commit/30ee54302adb59c4378be57d830337334b9ecc86) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed the is new post logic for draft posts
+
 ## 4.1.5
 
 ### Patch Changes

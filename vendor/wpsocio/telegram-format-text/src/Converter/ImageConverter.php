@@ -30,7 +30,7 @@ class ImageConverter extends BaseConverter {
 			return $text;
 		}
 
-		// If the image is the only child of the parent link, return the image lint.
+		// If the image is the only child of the parent link, return the image link.
 		if ( $retainLoneImageLink && $this->isOnlyChildOfLink( $element ) ) {
 			return $src;
 		}
