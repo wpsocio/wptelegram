@@ -207,7 +207,7 @@ class Helpers {
 		}
 
 		foreach ( $translations->entries as $msgid => $entry ) {
-			$locale[ $msgid ] = $entry->translations;
+			$locale[ is_int( $msgid ) ? $entry->singular : $msgid ] = $entry->translations;
 		}
 
 		return $locale;

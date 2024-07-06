@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.7
+
+### Patch Changes
+
+- [#126](https://github.com/wpsocio/wp-projects/pull/126) [`69a8e23`](https://github.com/wpsocio/wp-projects/commit/69a8e237e61fe7f2cb078ebc63bd2fea8b4e9368) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed translations not working for settings page
+
 ## 4.1.6
 
 ### Patch Changes
