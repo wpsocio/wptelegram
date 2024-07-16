@@ -596,15 +596,18 @@ class PostSender extends BaseClass {
 	 * @since 2.1.2
 	 *
 	 * @param string $hook The cron hook name.
+	 *
+	 * @return bool|int
 	 */
 	public function clear_scheduled_hook( $hook = '' ) {
 
 		$hook = $hook ? $hook : 'wptelegram_p2tg_delayed_post';
 
-		$args = [ strval( $this->post->ID ) ];
+		// cast to match the exact event.
+		$args = [ (string) $this->post->ID ];
 
 		// clear the previous event, if set.
-		wp_clear_scheduled_hook( $hook, $args );
+		return wp_clear_scheduled_hook( $hook, $args );
 	}
 
 	/**
@@ -618,11 +621,19 @@ class PostSender extends BaseClass {
 
 		$hook  = 'wptelegram_p2tg_delayed_post';
 		$delay = absint( $delay * MINUTE_IN_SECONDS );
-		$args  = [ strval( $this->post->ID ) ]; // strval to match the exact event.
+		// cast to match the exact event.
+		$args = [ (string) $this->post->ID ];
 
-		$this->clear_scheduled_hook();
+		$cleared = $this->clear_scheduled_hook();
 
-		wp_schedule_single_event( time() + $delay, $hook, $args );
+		$scheduled = wp_schedule_single_event( time() + $delay, $hook, $args );
+
+		$result = [
+			'cleared'   => $cleared,
+			'scheduled' => $scheduled,
+		];
+
+		do_action( 'wptelegram_p2tg_delay_post', $delay, $this->post, $result );
 	}
 
 	/**

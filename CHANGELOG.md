@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.8
+
+### Patch Changes
+
+- [#132](https://github.com/wpsocio/wp-projects/pull/132) [`f20821c`](https://github.com/wpsocio/wp-projects/commit/f20821c66913adf7bd37817f78bf23de3605f4ea) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Improved logging for delay in posting
+
+- [#129](https://github.com/wpsocio/wp-projects/pull/129) [`ce6c4e1`](https://github.com/wpsocio/wp-projects/commit/ce6c4e1538037f006fa6e95a11c3745074e327b5) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed logging to remove only the old entries when file size limit is reached.
+
 ## 4.1.7
 
 ### Patch Changes
