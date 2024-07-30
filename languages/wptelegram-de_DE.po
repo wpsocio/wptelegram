@@ -60,7 +60,7 @@ msgstr "Beitrag anzeigen"
 
 #. %s: field label
 #. translators: %s: field label
-#: js/settings/services/fields.ts:141
+#: js/settings/services/fields.ts:142
 #: languages/wptelegram-js-translations.php:585
 msgid "%s must be a number."
 msgstr "%s muss eine Zahl sein."
@@ -110,12 +110,12 @@ msgstr "Falls die Email geht an"
 
 #. %s: field label
 #. translators: %s: field label
-#: js/settings/services/fields.ts:75
+#: js/settings/services/fields.ts:76
 #: languages/wptelegram-js-translations.php:607
 msgid "At least one %s is required."
 msgstr "Mindestens ein %s ist erforderlich."
 
-#: js/settings/services/fields.ts:76
+#: js/settings/services/fields.ts:77
 #: languages/wptelegram-js-translations.php:610
 msgid "channel"
 msgstr "Channel"
@@ -167,7 +167,7 @@ msgstr "Bot API"
 msgid "Use %s above to set automatically."
 msgstr "Verwende %s oben, um die Einstellungen automatisch vorzunehmen."
 
-#: ../../packages/js/form-components/useBotTokenTest.tsx:112
+#: ../../packages/js/form-components/useBotTokenTest.tsx:117
 #: js/settings/ui/basics/Basics.tsx:32
 #: languages/wptelegram-js-translations.php:83
 msgid "Test Token"
@@ -894,7 +894,7 @@ msgstr "WICHTIGER HINWEIS!"
 msgid "Proxy settings"
 msgstr "Proxy-Einstellungen"
 
-#: ../../packages/js/form/render/RenderRepeatable.tsx:122
+#: ../../packages/js/form/render/RenderRepeatable.tsx:124
 #: ../../packages/js/shared/wptelegram-ui/components/rules/AddRuleGroup.tsx:19
 #: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetButtons.tsx:30
 #: languages/wptelegram-js-translations.php:91
@@ -941,7 +941,7 @@ msgstr "Regel-Typ"
 msgid "Rule operator"
 msgstr "Regel-Operator"
 
-#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:103
+#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:105
 #: languages/wptelegram-js-translations.php:422
 msgid "Select..."
 msgstr "Wählen..."
@@ -956,7 +956,7 @@ msgstr "Wird geladen …"
 msgid "No options available"
 msgstr "Keine Optionen verfügbar"
 
-#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:91
+#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:93
 #: languages/wptelegram-js-translations.php:431
 msgid "Rule values"
 msgstr "Regel-Werte"
@@ -1214,7 +1214,7 @@ msgstr "oder"
 msgid "Widget Info"
 msgstr "Widget-Info"
 
-#: ../../packages/js/form-components/useBotTokenTest.tsx:111
+#: ../../packages/js/form-components/useBotTokenTest.tsx:116
 #: ../../packages/js/form-components/useChatWithTest.tsx:110
 #: languages/wptelegram-js-translations.php:79
 msgid "Please wait…"
@@ -1255,7 +1255,7 @@ msgstr "Dies ist eine Test-Nachricht"
 msgid "Success"
 msgstr "Erfolg"
 
-#: ../../packages/js/services/useDisplayFeedback.ts:65
+#: ../../packages/js/services/useDisplayFeedback.ts:68
 #: languages/wptelegram-js-translations.php:112
 msgid "Lets fix these errors first."
 msgstr "Lass uns zuerst diesen Fehler beheben."
@@ -1351,7 +1351,6 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: wptelegram.php
-#: includes/Main.php:324
 msgid "WP Telegram"
 msgstr ""
 

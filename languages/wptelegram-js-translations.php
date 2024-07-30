@@ -74,18 +74,18 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/form-components/test-result/TestResult.tsx:17
 	__( 'Test Result:', 'wptelegram' ),
 
-	// Reference: ../../packages/js/form-components/useBotTokenTest.tsx:111
+	// Reference: ../../packages/js/form-components/useBotTokenTest.tsx:116
 	// Reference: ../../packages/js/form-components/useChatWithTest.tsx:110
 	__( 'Please wait…', 'wptelegram' ),
 
-	// Reference: ../../packages/js/form-components/useBotTokenTest.tsx:112
+	// Reference: ../../packages/js/form-components/useBotTokenTest.tsx:117
 	// Reference: js/settings/ui/basics/Basics.tsx:32
 	__( 'Test Token', 'wptelegram' ),
 
 	// Reference: ../../packages/js/form-components/useChatWithTest.tsx:111
 	__( 'Send Test', 'wptelegram' ),
 
-	// Reference: ../../packages/js/form/render/RenderRepeatable.tsx:122
+	// Reference: ../../packages/js/form/render/RenderRepeatable.tsx:124
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/AddRuleGroup.tsx:19
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetButtons.tsx:30
 	__( 'Add', 'wptelegram' ),
@@ -108,7 +108,7 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/services/telegram/TelegramUtils.ts:150
 	__( 'Success', 'wptelegram' ),
 
-	// Reference: ../../packages/js/services/useDisplayFeedback.ts:65
+	// Reference: ../../packages/js/services/useDisplayFeedback.ts:68
 	__( 'Lets fix these errors first.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/services/useSubmitForm.ts:63
@@ -418,7 +418,7 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetFields.tsx:35
 	__( 'Rule operator', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:103
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:105
 	__( 'Select...', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:16
@@ -427,7 +427,7 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:17
 	__( 'No options available', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:91
+	// Reference: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:93
 	__( 'Rule values', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared/wptelegram-ui/services/fields.ts:13
@@ -580,7 +580,7 @@ $generated_i18n_strings = array(
 	// Reference: js/p2tg-block-editor/SendToTelegram.tsx:32
 	__( 'Send to Telegram', 'wptelegram' ),
 
-	// Reference: js/settings/services/fields.ts:141
+	// Reference: js/settings/services/fields.ts:142
 	/* translators: %s: field label */
 	__( '%s must be a number.', 'wptelegram' ),
 
@@ -602,11 +602,11 @@ $generated_i18n_strings = array(
 	// Reference: js/settings/services/fields.ts:26
 	__( 'If Email goes to', 'wptelegram' ),
 
-	// Reference: js/settings/services/fields.ts:75
+	// Reference: js/settings/services/fields.ts:76
 	/* translators: %s: field label */
 	__( 'At least one %s is required.', 'wptelegram' ),
 
-	// Reference: js/settings/services/fields.ts:76
+	// Reference: js/settings/services/fields.ts:77
 	__( 'channel', 'wptelegram' ),
 
 	// Reference: js/settings/ui/Sidebar.tsx:16

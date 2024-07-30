@@ -1,29 +1,33 @@
 {
-  "_index-8BmT6yd0.js": {
-    "file": "dist/index-8BmT6yd0.js"
+  "_index-Di0ZVv46.js": {
+    "file": "dist/index-Di0ZVv46.js",
+    "name": "index"
   },
   "js/p2tg-block-editor/index.ts": {
-    "file": "dist/p2tg-block-editor-k2Z6P_s1.js",
-    "imports": [
-      "_index-8BmT6yd0.js"
-    ],
+    "file": "dist/p2tg-block-editor-Ck7y-2EQ.js",
+    "name": "p2tg-block-editor",
+    "src": "js/p2tg-block-editor/index.ts",
     "isEntry": true,
-    "src": "js/p2tg-block-editor/index.ts"
+    "imports": [
+      "_index-Di0ZVv46.js"
+    ]
   },
   "js/p2tg-classic-editor/index.ts": {
-    "file": "dist/p2tg-classic-editor-FxIQQ05k.js",
-    "isEntry": true,
-    "src": "js/p2tg-classic-editor/index.ts"
+    "file": "dist/p2tg-classic-editor-c9idWbsy.js",
+    "name": "p2tg-classic-editor",
+    "src": "js/p2tg-classic-editor/index.ts",
+    "isEntry": true
   },
   "js/settings/index.ts": {
-    "css": [
-      "dist/settings-M5wM_cf-.css"
-    ],
-    "file": "dist/settings-cnb2wAiX.js",
-    "imports": [
-      "_index-8BmT6yd0.js"
-    ],
+    "file": "dist/settings-BZPAUSrz.js",
+    "name": "settings",
+    "src": "js/settings/index.ts",
     "isEntry": true,
-    "src": "js/settings/index.ts"
+    "imports": [
+      "_index-Di0ZVv46.js"
+    ],
+    "css": [
+      "dist/settings-C5HeoNXN.css"
+    ]
   }
 }

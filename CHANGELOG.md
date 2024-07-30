@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.9
+
+### Patch Changes
+
+- [#142](https://github.com/wpsocio/wp-projects/pull/142) [`b0b652e`](https://github.com/wpsocio/wp-projects/commit/b0b652e5fe4db1eb8f7c032baca6bc32ad471872) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Post to Telegram: Changed default custom rule from post to post category
+
+- [#135](https://github.com/wpsocio/wp-projects/pull/135) [`38f4591`](https://github.com/wpsocio/wp-projects/commit/38f4591c18b9b044338e7e5f4a71090d6847bcab) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Removed translation for plugin title to ensure the menu item it not invisible
+
 ## 4.1.8
 
 ### Patch Changes

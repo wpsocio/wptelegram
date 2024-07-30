@@ -63,7 +63,7 @@ msgstr "Zobacz post"
 
 #. %s: field label
 #. translators: %s: field label
-#: js/settings/services/fields.ts:141
+#: js/settings/services/fields.ts:142
 #: languages/wptelegram-js-translations.php:585
 msgid "%s must be a number."
 msgstr ""
@@ -113,12 +113,12 @@ msgstr "Jeśli e-mail trafi do"
 
 #. %s: field label
 #. translators: %s: field label
-#: js/settings/services/fields.ts:75
+#: js/settings/services/fields.ts:76
 #: languages/wptelegram-js-translations.php:607
 msgid "At least one %s is required."
 msgstr ""
 
-#: js/settings/services/fields.ts:76
+#: js/settings/services/fields.ts:77
 #: languages/wptelegram-js-translations.php:610
 msgid "channel"
 msgstr "Kanał"
@@ -170,7 +170,7 @@ msgstr "Bot API"
 msgid "Use %s above to set automatically."
 msgstr "Aby ustawić automatycznie, użyj %s."
 
-#: ../../packages/js/form-components/useBotTokenTest.tsx:112
+#: ../../packages/js/form-components/useBotTokenTest.tsx:117
 #: js/settings/ui/basics/Basics.tsx:32
 #: languages/wptelegram-js-translations.php:83
 msgid "Test Token"
@@ -901,7 +901,7 @@ msgstr "ZRZECZENIE SIĘ!"
 msgid "Proxy settings"
 msgstr ""
 
-#: ../../packages/js/form/render/RenderRepeatable.tsx:122
+#: ../../packages/js/form/render/RenderRepeatable.tsx:124
 #: ../../packages/js/shared/wptelegram-ui/components/rules/AddRuleGroup.tsx:19
 #: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetButtons.tsx:30
 #: languages/wptelegram-js-translations.php:91
@@ -948,7 +948,7 @@ msgstr ""
 msgid "Rule operator"
 msgstr ""
 
-#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:103
+#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:105
 #: languages/wptelegram-js-translations.php:422
 msgid "Select..."
 msgstr ""
@@ -963,7 +963,7 @@ msgstr ""
 msgid "No options available"
 msgstr ""
 
-#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:91
+#: ../../packages/js/shared/wptelegram-ui/components/rules/RuleSetValues.tsx:93
 #: languages/wptelegram-js-translations.php:431
 #, fuzzy
 msgid "Rule values"
@@ -1226,7 +1226,7 @@ msgstr ""
 msgid "Widget Info"
 msgstr ""
 
-#: ../../packages/js/form-components/useBotTokenTest.tsx:111
+#: ../../packages/js/form-components/useBotTokenTest.tsx:116
 #: ../../packages/js/form-components/useChatWithTest.tsx:110
 #: languages/wptelegram-js-translations.php:79
 msgid "Please wait…"
@@ -1267,7 +1267,7 @@ msgstr "To jest wiadomość testowa"
 msgid "Success"
 msgstr "Sukces"
 
-#: ../../packages/js/services/useDisplayFeedback.ts:65
+#: ../../packages/js/services/useDisplayFeedback.ts:68
 #: languages/wptelegram-js-translations.php:112
 msgid "Lets fix these errors first."
 msgstr ""
@@ -1363,7 +1363,6 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: wptelegram.php
-#: includes/Main.php:324
 msgid "WP Telegram"
 msgstr ""
 

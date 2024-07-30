@@ -2,9 +2,10 @@
   "js/settings/index.ts": [
     "react",
     "react-dom",
-    "wp-i18n",
     "jquery",
-    "wp-api-fetch"
+    "wp-i18n",
+    "wp-api-fetch",
+    "react-jsx-runtime"
   ],
   "js/p2tg-block-editor/index.ts": [
     "wp-plugins",
