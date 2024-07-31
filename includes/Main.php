@@ -318,7 +318,12 @@ final class Main {
 	 * @return    string    The title of the plugin.
 	 */
 	public function title() {
-		return 'WP Telegram';
+		// Set here instead of constructor
+		// to be able to translate it.
+		if ( ! $this->title ) {
+			$this->title = __( 'WP Telegram', 'wptelegram' );
+		}
+		return $this->title;
 	}
 
 	/**

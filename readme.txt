@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.4
 Requires PHP: 7.4
 Tested up to: 6.6.1
-Stable tag: 4.1.9
+Stable tag: 4.1.10
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,8 +203,8 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.1.9 =
-- Post to Telegram: Changed default custom rule from post to post category
-- Removed translation for plugin title to ensure the menu item it not invisible
+= 4.1.10 =
+- Fixed empty translations loaded via l10n.php files
+- Restored translations for plugin name after l10n fix
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

@@ -1363,6 +1363,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: wptelegram.php
+#: includes/Main.php:324
 msgid "WP Telegram"
 msgstr ""
 
