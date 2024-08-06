@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.13
+
+### Patch Changes
+
+- [#158](https://github.com/wpsocio/wp-projects/pull/158) [`a825c39`](https://github.com/wpsocio/wp-projects/commit/a825c3909e2f990bd7932e10b8db665fa3e083e0) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed the issue of scaled image being preferred over original image
+
 ## 4.1.12
 
 ### Patch Changes

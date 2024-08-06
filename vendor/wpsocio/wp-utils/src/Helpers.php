@@ -296,6 +296,13 @@ class Helpers {
 			return $path;
 		}
 
+		$original_image_path = function_exists( 'wp_get_original_image_path' ) ? wp_get_original_image_path( $id ) : null;
+
+		// If the original image is less than the limit.
+		if ( $original_image_path && is_readable( $original_image_path ) && filesize( $original_image_path ) <= $filesize ) {
+			return 'url' === $return ? wp_get_original_image_url( $id ) : $original_image_path;
+		}
+
 		$meta = wp_get_attachment_metadata( $id );
 
 		// For WP < 6.0.
