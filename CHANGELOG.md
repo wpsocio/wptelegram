@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.12
+
+### Patch Changes
+
+- [#156](https://github.com/wpsocio/wp-projects/pull/156) [`d14a2f9`](https://github.com/wpsocio/wp-projects/commit/d14a2f9f13087a18c184a0ca23a2f981288ffe5e) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed Message Template info not expanding
+
 ## 4.1.11
 
 ### Patch Changes

@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.4
 Requires PHP: 7.4
 Tested up to: 6.6.1
-Stable tag: 4.1.11
+Stable tag: 4.1.12
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,7 +203,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.1.11 =
-- Fixed settings page and post editor crash for older Wp versions
+= 4.1.12 =
+- Fixed Message Template info not expanding
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)
