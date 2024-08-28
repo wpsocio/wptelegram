@@ -396,7 +396,7 @@ class Upgrade extends BaseClass {
 	protected function upgrade_to_3_0_0() {
 		$main_options = get_option( 'wptelegram', [] );
 
-		$modules = reset( $main_options['modules'] );
+		$modules = ! empty( $main_options['modules'] ) && is_array( $main_options['modules'] ) ? reset( $main_options['modules'] ) : [];
 		unset( $modules['fake'] );
 
 		$active_modules = array_keys( $modules );

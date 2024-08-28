@@ -2,8 +2,8 @@
   "js/settings/index.ts": [
     "react",
     "react-dom",
-    "jquery",
     "wp-api-fetch",
+    "jquery",
     "wp-i18n"
   ],
   "js/p2tg-block-editor/index.ts": [

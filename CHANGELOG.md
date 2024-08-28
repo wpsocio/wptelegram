@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.14
+
+### Patch Changes
+
+- [#161](https://github.com/wpsocio/wp-projects/pull/161) [`116db7b`](https://github.com/wpsocio/wp-projects/commit/116db7b7bbf374f080b123a428ff33fbb39e56e8) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed the fatal error during upgrade
+
 ## 4.1.13
 
 ### Patch Changes
