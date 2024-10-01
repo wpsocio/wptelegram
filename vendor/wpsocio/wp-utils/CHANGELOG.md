@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.5
+
+### Patch Changes
+
+- [#165](https://github.com/wpsocio/wp-projects/pull/165) [`314648d`](https://github.com/wpsocio/wp-projects/commit/314648dc5d9cdfad2f532f70733addb2ec5f8245) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed load_plugin_textdomain warning
+
 ## 1.0.4
 
 ### Patch Changes

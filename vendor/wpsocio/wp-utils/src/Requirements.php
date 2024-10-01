@@ -92,7 +92,7 @@ class Requirements {
 
 		$plugin_data = array_merge(
 			$this->fallback_data,
-			get_plugin_data( $this->plugin_main_file )
+			get_plugin_data( $this->plugin_main_file, false, false )
 		);
 
 		$data = [

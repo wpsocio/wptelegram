@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.16
+
+### Patch Changes
+
+- [#165](https://github.com/wpsocio/wp-projects/pull/165) [`314648d`](https://github.com/wpsocio/wp-projects/commit/314648dc5d9cdfad2f532f70733addb2ec5f8245) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed load_plugin_textdomain warning in dependent package
+
 ## 4.1.15
 
 ### Patch Changes
