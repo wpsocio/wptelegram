@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.6
+
+### Patch Changes
+
+- [#173](https://github.com/wpsocio/wp-projects/pull/173) [`dfdcbec`](https://github.com/wpsocio/wp-projects/commit/dfdcbec3e87c865e0f0e6f27120e502f6ab1ad33) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed Helpers::is_post_edit_page to return false when post type is non-null
+
 ## 1.0.5
 
 ### Patch Changes

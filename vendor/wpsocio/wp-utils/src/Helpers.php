@@ -227,7 +227,7 @@ class Helpers {
 		$is_edit_page = 'post-new.php' === $pagenow || 'post.php' === $pagenow;
 
 		if ( $is_edit_page ) {
-			if ( $post_type ) {
+			if ( null !== $post_type ) {
 				return in_array( $typenow, (array) $post_type, true );
 			}
 			return true;

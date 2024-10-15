@@ -2,8 +2,8 @@
   "js/settings/index.ts": [
     "react",
     "react-dom",
-    "wp-i18n",
     "jquery",
+    "wp-i18n",
     "wp-api-fetch"
   ],
   "js/p2tg-block-editor/index.ts": [
@@ -11,9 +11,9 @@
     "wp-i18n",
     "wp-components",
     "wp-edit-post",
+    "wp-editor",
     "wp-element",
     "wp-data",
-    "wp-editor",
     "wp-media-utils"
   ],
   "js/p2tg-classic-editor/index.ts": [

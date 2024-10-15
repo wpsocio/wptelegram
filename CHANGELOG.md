@@ -1,5 +1,27 @@
 # Changelog
 
+## 4.2.1
+
+### Patch Changes
+
+- [#177](https://github.com/wpsocio/wp-projects/pull/177) [`3c61709`](https://github.com/wpsocio/wp-projects/commit/3c61709b222937e457340231533947cdc69a0a6d) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed the last failed deployment
+
+## 4.2.0
+
+### Minor Changes
+
+- [#167](https://github.com/wpsocio/wp-projects/pull/167) [`c111617`](https://github.com/wpsocio/wp-projects/commit/c111617cb5395b94446e115a49d002e3f111aee0) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Improved the UI for small/mobile screens
+
+- [#167](https://github.com/wpsocio/wp-projects/pull/167) [`c111617`](https://github.com/wpsocio/wp-projects/commit/c111617cb5395b94446e115a49d002e3f111aee0) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Refreshed the UI migrating away from Chakra UI
+
+### Patch Changes
+
+- [#167](https://github.com/wpsocio/wp-projects/pull/167) [`c111617`](https://github.com/wpsocio/wp-projects/commit/c111617cb5395b94446e115a49d002e3f111aee0) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed the issue of delay in posting not being saved when changed alone
+
+- [#167](https://github.com/wpsocio/wp-projects/pull/167) [`c111617`](https://github.com/wpsocio/wp-projects/commit/c111617cb5395b94446e115a49d002e3f111aee0) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed the issue of proxy options not showing upon changing proxy type.
+
+- [#167](https://github.com/wpsocio/wp-projects/pull/167) [`c111617`](https://github.com/wpsocio/wp-projects/commit/c111617cb5395b94446e115a49d002e3f111aee0) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed and improved the a11y issues in settings page UI
+
 ## 4.1.16
 
 ### Patch Changes
