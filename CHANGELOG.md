@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.2
+
+### Patch Changes
+
+- [#179](https://github.com/wpsocio/wp-projects/pull/179) [`55eeace`](https://github.com/wpsocio/wp-projects/commit/55eeace687a090f4fb68b80868b61bd238ac6c0c) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Improved admin styles on smaller screens
+
 ## 4.2.1
 
 ### Patch Changes

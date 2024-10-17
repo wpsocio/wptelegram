@@ -153,7 +153,7 @@ msgstr "Bot API"
 msgid "Use %s above to set automatically."
 msgstr "Verwende %s oben, um die Einstellungen automatisch vorzunehmen."
 
-#: ../../packages/js/shared-ui/form/use-bot-token-test.tsx:122
+#: ../../packages/js/shared-ui/form/use-bot-token-test.tsx:67
 #: js/settings/ui/basics/tab.tsx:37
 #: languages/wptelegram-js-translations.php:79
 msgid "Test Token"
@@ -217,7 +217,7 @@ msgstr "Zum Speichern der Einstellungen %s klicken."
 #: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:120
 #: js/p2tg-block-editor/OverrideSettings.tsx:139
 #: js/settings/ui/basics/instructions.tsx:70
-#: languages/wptelegram-js-translations.php:62
+#: languages/wptelegram-js-translations.php:65
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
@@ -1045,48 +1045,43 @@ msgid "Active"
 msgstr "Aktiv"
 
 #: ../../packages/js/shared-ui/form/bot-token-field.tsx:45
-#: languages/wptelegram-js-translations.php:56
+#: languages/wptelegram-js-translations.php:59
 msgid "Please read the instructions above."
 msgstr "Bitte lies die obenstehenden Anweisungen."
 
 #: ../../packages/js/shared-ui/components/instructions.tsx:17
-#: languages/wptelegram-js-translations.php:32
+#: languages/wptelegram-js-translations.php:35
 msgid "INSTRUCTIONS!"
 msgstr "Konfigurationsanweisung"
 
 #: ../../packages/js/shared-ui/components/instructions-link.tsx:14
-#: languages/wptelegram-js-translations.php:29
+#: languages/wptelegram-js-translations.php:32
 msgid "Click here for instructions."
 msgstr "Klicke hier, um dir die Anweisungen anzusehen."
 
 #. %s: plugin name
 #. translators: %s: plugin name
 #: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:57
-#: languages/wptelegram-js-translations.php:36
+#: languages/wptelegram-js-translations.php:39
 msgid "Do you like %s?"
 msgstr "Gefällt dir %s?"
 
 #: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:69
-#: languages/wptelegram-js-translations.php:39
+#: languages/wptelegram-js-translations.php:42
 msgid "Write a review"
 msgstr "Schreib eine Bewertung"
 
 #: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:85
-#: languages/wptelegram-js-translations.php:42
+#: languages/wptelegram-js-translations.php:45
 msgid "Need help?"
 msgstr "Du brauchst Hilfe?"
 
-#: ../../packages/js/shared-ui/form/test-result/member-count-result.tsx:21
-#: languages/wptelegram-js-translations.php:65
+#: ../../packages/js/shared-ui/form/test-result/member-count-result.tsx:17
+#: languages/wptelegram-js-translations.php:68
 msgid "Members Count:"
 msgstr "Mitgliederanzahl:"
 
-#: ../../packages/js/shared-ui/form/test-result/message-result.tsx:21
-#: languages/wptelegram-js-translations.php:68
-msgid "Result:"
-msgstr "Ergebnis:"
-
-#: ../../packages/js/shared-ui/form/test-result/render-test-result.tsx:17
+#: ../../packages/js/shared-ui/form/test-result/render-test-result.tsx:39
 #: languages/wptelegram-js-translations.php:71
 msgid "Test Result:"
 msgstr "Testergebnis:"
@@ -1094,65 +1089,65 @@ msgstr "Testergebnis:"
 #. %s: social handle
 #. translators: %s: social handle
 #: ../../packages/js/shared-ui/components/wptg-social-icons.tsx:42
-#: languages/wptelegram-js-translations.php:49
+#: languages/wptelegram-js-translations.php:52
 msgid "Follow %s"
 msgstr "Folge %s"
 
 #. %s: channel name
 #. translators: %s: channel name
 #: ../../packages/js/shared-ui/components/wptg-social-icons.tsx:62
-#: languages/wptelegram-js-translations.php:53
+#: languages/wptelegram-js-translations.php:56
 msgid "Join %s"
 msgstr "%s beitreten"
 
-#: ../../packages/js/shared-ui/form/use-bot-token-test.tsx:121
-#: ../../packages/js/shared-ui/form/use-chat-with-test.tsx:122
+#: ../../packages/js/shared-ui/form/use-bot-token-test.tsx:66
+#: ../../packages/js/shared-ui/form/use-chat-with-test.tsx:95
 #: languages/wptelegram-js-translations.php:75
 msgid "Please wait…"
 msgstr "Bitte warte..."
 
-#: ../../packages/js/shared-ui/form/use-chat-with-test.tsx:123
+#: ../../packages/js/shared-ui/form/use-chat-with-test.tsx:96
 #: languages/wptelegram-js-translations.php:82
 msgid "Send Test"
 msgstr "Sende Test"
 
-#: ../../packages/js/services/apiFetch/index.ts:36
+#: ../../packages/js/services/api-fetch/index.ts:36
 #: languages/wptelegram-js-translations.php:5
 msgid "Something went wrong"
 msgstr "Etwas ist schief gelaufen"
 
-#: ../../packages/js/services/apiFetch/index.ts:38
+#: ../../packages/js/services/api-fetch/index.ts:38
 #: languages/wptelegram-js-translations.php:8
 msgid "Could not connect"
 msgstr "Konnte keine Verbindung herstellen"
 
-#: ../../packages/js/services/apiFetch/index.ts:41
+#: ../../packages/js/services/api-fetch/index.ts:41
 #: languages/wptelegram-js-translations.php:11
 msgid "Error:"
 msgstr "Fehler:"
 
-#: ../../packages/js/services/telegram/TelegramUtils.ts:128
+#: ../../packages/js/services/telegram/telegram-utils.ts:126
 #: languages/wptelegram-js-translations.php:14
 msgid "A message will be sent to the Channel/Group/Chat. You can modify the text below"
 msgstr "Eine Nachricht wird an den Channel bzw. Chat gesendet. Der Text kann unten angepasst werden"
 
-#: ../../packages/js/services/telegram/TelegramUtils.ts:131
+#: ../../packages/js/services/telegram/telegram-utils.ts:129
 #: languages/wptelegram-js-translations.php:17
 msgid "This is a test message"
 msgstr "Dies ist eine Test-Nachricht"
 
-#: ../../packages/js/services/telegram/TelegramUtils.ts:153
-#: languages/wptelegram-js-translations.php:20
+#: ../../packages/js/services/telegram/telegram-utils.ts:152
+#: languages/wptelegram-js-translations.php:23
 msgid "Success"
 msgstr "Erfolg"
 
 #: ../../packages/js/services/use-display-feedback.ts:68
-#: languages/wptelegram-js-translations.php:23
+#: languages/wptelegram-js-translations.php:26
 msgid "Lets fix these errors first."
 msgstr "Lass uns zuerst diesen Fehler beheben."
 
 #: ../../packages/js/services/use-submit-form.ts:64
-#: languages/wptelegram-js-translations.php:26
+#: languages/wptelegram-js-translations.php:29
 msgid "Changes saved successfully."
 msgstr "Die Änderungen wurden erfolgreich gespeichert."
 
@@ -1298,7 +1293,7 @@ msgid "Show preview above text"
 msgstr ""
 
 #: ../../packages/js/shared-ui/components/variable-button.tsx:25
-#: languages/wptelegram-js-translations.php:45
+#: languages/wptelegram-js-translations.php:48
 msgid "Copied!"
 msgstr ""
 
@@ -1377,4 +1372,9 @@ msgstr ""
 #: js/settings/ui/p2tg/destination.tsx:18
 #: languages/wptelegram-js-translations.php:662
 msgid "Channel or group username."
+msgstr ""
+
+#: ../../packages/js/services/telegram/telegram-utils.ts:133
+#: languages/wptelegram-js-translations.php:20
+msgid "Message is empty"
 msgstr ""
