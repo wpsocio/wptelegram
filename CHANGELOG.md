@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.3
+
+### Patch Changes
+
+- [#187](https://github.com/wpsocio/wp-projects/pull/187) [`d1de312`](https://github.com/wpsocio/wp-projects/commit/d1de3129e0ee009217488dc4a7aaad2c7a3538a5) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added filters for excerpt and content options
+
+- [#190](https://github.com/wpsocio/wp-projects/pull/190) [`4e79cc9`](https://github.com/wpsocio/wp-projects/commit/4e79cc9409b98cc6ca48d4140090637263ca4d61) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed files button not working for block editor
+
 ## 4.2.2
 
 ### Patch Changes

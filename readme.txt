@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.4
 Requires PHP: 7.4
 Tested up to: 6.6.2
-Stable tag: 4.2.2
+Stable tag: 4.2.3
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,7 +203,8 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.2.2 =
-- Improved admin styles on smaller screens
+= 4.2.3 =
+- Added filters for excerpt and content options
+- Fixed files button not working for block editor
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

@@ -51,7 +51,7 @@ $generated_i18n_strings = array(
 	/* translators: %s: social handle */
 	__( 'Follow %s', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/components/wptg-social-icons.tsx:62
+	// Reference: ../../packages/js/shared-ui/components/wptg-social-icons.tsx:57
 	/* translators: %s: channel name */
 	__( 'Join %s', 'wptelegram' ),
 
@@ -60,7 +60,7 @@ $generated_i18n_strings = array(
 
 	// Reference: ../../packages/js/shared-ui/form/submit/submit-button.tsx:12
 	// Reference: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:120
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:139
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:124
 	// Reference: js/settings/ui/basics/instructions.tsx:70
 	__( 'Save Changes', 'wptelegram' ),
 
@@ -99,10 +99,10 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:24
 	__( 'The delay starts after the post gets published.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:30
+	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:28
 	__( 'WordPress cron should not be disabled!', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:40
+	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:36
 	__( 'Minute(s)', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/disable-notification.tsx:18
@@ -120,10 +120,10 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:24
 	__( 'Post Excerpt', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:62
+	// Reference: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:63
 	__( 'Number of words for the excerpt.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:84
+	// Reference: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:86
 	__( 'Preserve newlines in Post Excerpt.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:10
@@ -148,7 +148,7 @@ $generated_i18n_strings = array(
 	__( 'Chat ID', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:17
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:94
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:90
 	__( 'Send it to', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:18
@@ -158,11 +158,11 @@ $generated_i18n_strings = array(
 	__( 'Debug Info', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:20
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:111
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:97
 	__( 'Delay in Posting', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:21
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:104
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:91
 	__( 'Disable Notifications', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:22
@@ -193,7 +193,7 @@ $generated_i18n_strings = array(
 	__( 'Image Position', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:31
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:129
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:113
 	__( 'Message Template', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:32
@@ -233,7 +233,7 @@ $generated_i18n_strings = array(
 	__( 'Username', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:43
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:121
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:106
 	__( 'Featured Image', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:44
@@ -256,7 +256,7 @@ $generated_i18n_strings = array(
 	__( 'After the Text', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/image-settings.tsx:43
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:124
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:109
 	__( 'Send Featured Image (if exists).', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/link-preview-options.tsx:28
@@ -270,7 +270,7 @@ $generated_i18n_strings = array(
 	/* translators: %s code example */
 	__( 'For example %s', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/link-preview-options.tsx:87
+	// Reference: ../../packages/js/shared-ui/wptelegram/link-preview-options.tsx:88
 	__( 'Whether the link preview must be shown above the message text.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/message-template.tsx:19
@@ -287,35 +287,35 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:47
 	__( 'Learn more', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:102
-	/* translators: 1 bot username */
-	__( 'Add your own bot %s to the group.', 'wptelegram' ),
-
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:123
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:119
 	// Reference: js/settings/ui/TabbedSections.tsx:37
 	__( 'Private Notifications', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:26
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:22
 	__( 'To receive notifications privately:', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:32
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:28
 	/* translators: 1 bot username */
 	__( 'Get your Chat ID from %s and enter it below.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:48
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:44
 	/* translators: 1 bot username */
 	__( 'Send your own bot %s a message to start the conversation.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:65
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:61
 	__( 'To receive notifications into a group:', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:71
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:67
 	/* translators: 1 bot username */
 	__( 'Add %s to the group to get its Chat ID.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:90
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:86
 	/* translators: 1 field name */
 	__( 'Enter the Chat ID in %s field below.', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:98
+	/* translators: 1 bot username */
+	__( 'Add your own bot %s to the group.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/notify-message-template.tsx:12
 	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:37
@@ -528,24 +528,24 @@ $generated_i18n_strings = array(
 	// Reference: js/p2tg-block-editor/Channels.tsx:37
 	__( 'Send to', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/Channels.tsx:54
+	// Reference: js/p2tg-block-editor/Channels.tsx:56
 	__( 'Select all', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/Files.tsx:17
+	// Reference: js/p2tg-block-editor/Files.tsx:11
 	__( 'Add or Upload Files', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/Files.tsx:57
+	// Reference: js/p2tg-block-editor/Files.tsx:47
 	__( 'Files to be sent after the message.', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/Files.tsx:67
+	// Reference: js/p2tg-block-editor/Files.tsx:57
 	__( 'Files', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:80
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:69
 	// Reference: js/settings/ui/TabbedSections.tsx:29
 	// Reference: js/settings/ui/advanced/tab.tsx:29
 	__( 'Post to Telegram', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:89
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:78
 	__( 'Override settings', 'wptelegram' ),
 
 	// Reference: js/p2tg-block-editor/SendToTelegram.tsx:36
@@ -667,13 +667,13 @@ $generated_i18n_strings = array(
 	// Reference: js/settings/ui/p2tg/message-keyboard.tsx:29
 	__( 'Add an inline clickable button for the post URL just below the message.', 'wptelegram' ),
 
-	// Reference: js/settings/ui/p2tg/message-keyboard.tsx:58
+	// Reference: js/settings/ui/p2tg/message-keyboard.tsx:59
 	__( 'View Post', 'wptelegram' ),
 
-	// Reference: js/settings/ui/p2tg/message-keyboard.tsx:72
+	// Reference: js/settings/ui/p2tg/message-keyboard.tsx:73
 	__( 'Source of the button URL.', 'wptelegram' ),
 
-	// Reference: js/settings/ui/p2tg/message-keyboard.tsx:79
+	// Reference: js/settings/ui/p2tg/message-keyboard.tsx:80
 	/* translators: template tag/macro */
 	__( 'You can specify any custom field like %s.', 'wptelegram' ),
 

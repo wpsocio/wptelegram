@@ -52,7 +52,7 @@ msgstr ""
 msgid "Please contact your hosting provider to ensure the above requirements are met."
 msgstr ""
 
-#: js/settings/ui/p2tg/message-keyboard.tsx:58
+#: js/settings/ui/p2tg/message-keyboard.tsx:59
 #: includes/restApi/SettingsController.php:136
 #: languages/wptelegram-js-translations.php:671
 msgid "View Post"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Basics"
 msgstr ""
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:80
+#: js/p2tg-block-editor/OverrideSettings.tsx:69
 #: js/settings/ui/TabbedSections.tsx:29
 #: js/settings/ui/advanced/tab.tsx:29
 #: languages/wptelegram-js-translations.php:546
@@ -126,9 +126,9 @@ msgstr ""
 msgid "Post to Telegram"
 msgstr "Posting ke Telegram"
 
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:123
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:119
 #: js/settings/ui/TabbedSections.tsx:37
-#: languages/wptelegram-js-translations.php:296
+#: languages/wptelegram-js-translations.php:292
 msgid "Private Notifications"
 msgstr "Notifikasi Pribadi"
 
@@ -215,7 +215,7 @@ msgstr "Tekan %s dibawah ini."
 
 #: ../../packages/js/shared-ui/form/submit/submit-button.tsx:12
 #: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:120
-#: js/p2tg-block-editor/OverrideSettings.tsx:139
+#: js/p2tg-block-editor/OverrideSettings.tsx:124
 #: js/settings/ui/basics/instructions.tsx:70
 #: languages/wptelegram-js-translations.php:65
 msgid "Save Changes"
@@ -266,12 +266,12 @@ msgstr "Tambahkan tombol yang dapat diklik inline untuk URL posting tepat di baw
 
 #. template tag/macro
 #. translators: template tag/macro
-#: js/settings/ui/p2tg/message-keyboard.tsx:79
+#: js/settings/ui/p2tg/message-keyboard.tsx:80
 #: languages/wptelegram-js-translations.php:678
 msgid "You can specify any custom field like %s."
 msgstr ""
 
-#: js/settings/ui/p2tg/message-keyboard.tsx:72
+#: js/settings/ui/p2tg/message-keyboard.tsx:73
 #: languages/wptelegram-js-translations.php:674
 msgid "Source of the button URL."
 msgstr ""
@@ -401,59 +401,59 @@ msgstr ""
 msgid "Send to"
 msgstr "Kirimkan ke"
 
-#: js/p2tg-block-editor/Files.tsx:17
+#: js/p2tg-block-editor/Files.tsx:11
 #: languages/wptelegram-js-translations.php:535
 msgid "Add or Upload Files"
 msgstr ""
 
-#: js/p2tg-block-editor/Files.tsx:57
+#: js/p2tg-block-editor/Files.tsx:47
 #: languages/wptelegram-js-translations.php:538
 #: modules/p2tg/Admin.php:454
 msgid "Files to be sent after the message."
 msgstr "File yang akan dikirim setelah pesan."
 
-#: js/p2tg-block-editor/Files.tsx:67
+#: js/p2tg-block-editor/Files.tsx:57
 #: languages/wptelegram-js-translations.php:541
 #: modules/p2tg/Admin.php:453
 msgid "Files"
 msgstr "File"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:121
+#: js/p2tg-block-editor/OverrideSettings.tsx:106
 #: languages/wptelegram-js-translations.php:237
 #: modules/p2tg/Admin.php:481
 msgid "Featured Image"
 msgstr "Gambar yang ditampilkan"
 
 #: ../../packages/js/shared-ui/wptelegram/image-settings.tsx:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:124
+#: js/p2tg-block-editor/OverrideSettings.tsx:109
 #: languages/wptelegram-js-translations.php:260
 #: modules/p2tg/Admin.php:482
 msgid "Send Featured Image (if exists)."
 msgstr "Kirimkan Gambar Pilihan (jika ada)."
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:31
-#: js/p2tg-block-editor/OverrideSettings.tsx:129
+#: js/p2tg-block-editor/OverrideSettings.tsx:113
 #: languages/wptelegram-js-translations.php:197
 #: modules/p2tg/Admin.php:493
 msgid "Message Template"
 msgstr "Desain Pesan"
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:89
+#: js/p2tg-block-editor/OverrideSettings.tsx:78
 #: languages/wptelegram-js-translations.php:549
 #: modules/p2tg/Admin.php:421
 msgid "Override settings"
 msgstr "Ganti pengaturan"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:21
-#: js/p2tg-block-editor/OverrideSettings.tsx:104
+#: js/p2tg-block-editor/OverrideSettings.tsx:91
 #: languages/wptelegram-js-translations.php:166
 #: modules/p2tg/Admin.php:443
 msgid "Disable Notifications"
 msgstr "Nonaktifkan Notifikasi"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:20
-#: js/p2tg-block-editor/OverrideSettings.tsx:111
+#: js/p2tg-block-editor/OverrideSettings.tsx:97
 #: languages/wptelegram-js-translations.php:162
 #: modules/p2tg/Admin.php:464
 msgid "Delay in Posting"
@@ -485,13 +485,13 @@ msgstr "Matikan untuk mengunggah file / gambar alih-alih meneruskan url."
 msgid "The delay starts after the post gets published."
 msgstr "Penundaan dimulai setelah posting diterbitkan."
 
-#: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:40
+#: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:36
 #: languages/wptelegram-js-translations.php:106
 #: modules/p2tg/Admin.php:465
 msgid "Minute(s)"
 msgstr "Menit"
 
-#: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:30
+#: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:28
 #: languages/wptelegram-js-translations.php:103
 msgid "WordPress cron should not be disabled!"
 msgstr "Cron WordPress tidak boleh dinonaktifkan!"
@@ -521,12 +521,12 @@ msgstr ""
 msgid "Post Excerpt"
 msgstr "Pengeposan Posting"
 
-#: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:62
+#: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:63
 #: languages/wptelegram-js-translations.php:124
 msgid "Number of words for the excerpt."
 msgstr ""
 
-#: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:84
+#: ../../packages/js/shared-ui/wptelegram/excerpt-settings.tsx:86
 #: languages/wptelegram-js-translations.php:127
 msgid "Preserve newlines in Post Excerpt."
 msgstr ""
@@ -558,54 +558,54 @@ msgstr ""
 msgid "Disables previews for links in the messages."
 msgstr ""
 
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:26
-#: languages/wptelegram-js-translations.php:299
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:22
+#: languages/wptelegram-js-translations.php:295
 msgid "To receive notifications privately:"
 msgstr "Untuk menerima pemberitahuan secara pribadi:"
 
 #. 1 bot username
 #. translators: 1 bot username
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:32
-#: languages/wptelegram-js-translations.php:303
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:28
+#: languages/wptelegram-js-translations.php:299
 msgid "Get your Chat ID from %s and enter it below."
 msgstr "Dapatkan ID Obrolan Anda dari %s dan masukkan di bawah ini."
 
 #. 1 bot username
 #. translators: 1 bot username
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:48
-#: languages/wptelegram-js-translations.php:307
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:44
+#: languages/wptelegram-js-translations.php:303
 msgid "Send your own bot %s a message to start the conversation."
 msgstr "Kirim pesan ke BOT Anda sendiri %s untuk memulai percakapan."
 
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:65
-#: languages/wptelegram-js-translations.php:310
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:61
+#: languages/wptelegram-js-translations.php:306
 msgid "To receive notifications into a group:"
 msgstr "Untuk menerima pemberitahuan ke dalam grup:"
 
 #. 1 bot username
 #. translators: 1 bot username
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:71
-#: languages/wptelegram-js-translations.php:314
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:67
+#: languages/wptelegram-js-translations.php:310
 msgid "Add %s to the group to get its Chat ID."
 msgstr "Tambahkan %s ke grup untuk mendapatkan ID Obrolan."
 
 #. 1 field name
 #. translators: 1 field name
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:90
-#: languages/wptelegram-js-translations.php:318
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:86
+#: languages/wptelegram-js-translations.php:314
 msgid "Enter the Chat ID in %s field below."
 msgstr "Masukkan ID Obrolan di kolom %s di bawah ini."
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:17
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:94
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:90
 #: languages/wptelegram-js-translations.php:152
 msgid "Send it to"
 msgstr "Kirim ke"
 
 #. 1 bot username
 #. translators: 1 bot username
-#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:102
-#: languages/wptelegram-js-translations.php:292
+#: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:98
+#: languages/wptelegram-js-translations.php:318
 msgid "Add your own bot %s to the group."
 msgstr "Tambahkan BOT ANDA SENDIRI %s ke grup."
 
@@ -1102,7 +1102,7 @@ msgstr "Ikuti %s"
 
 #. %s: channel name
 #. translators: %s: channel name
-#: ../../packages/js/shared-ui/components/wptg-social-icons.tsx:62
+#: ../../packages/js/shared-ui/components/wptg-social-icons.tsx:57
 #: languages/wptelegram-js-translations.php:56
 msgid "Join %s"
 msgstr "Gabung %s"
@@ -1228,7 +1228,7 @@ msgstr "Penulis Posting"
 msgid "Custom Taxonomy"
 msgstr "Taksonomi Kustom"
 
-#: js/p2tg-block-editor/Channels.tsx:54
+#: js/p2tg-block-editor/Channels.tsx:56
 #: languages/wptelegram-js-translations.php:532
 msgid "Select all"
 msgstr ""
@@ -1274,7 +1274,7 @@ msgstr ""
 msgid "URL to use for the link preview."
 msgstr ""
 
-#: ../../packages/js/shared-ui/wptelegram/link-preview-options.tsx:87
+#: ../../packages/js/shared-ui/wptelegram/link-preview-options.tsx:88
 #: languages/wptelegram-js-translations.php:274
 msgid "Whether the link preview must be shown above the message text."
 msgstr ""

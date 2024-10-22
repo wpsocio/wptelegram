@@ -181,16 +181,22 @@ class PostData {
 				// Remove shortcodes.
 				$excerpt = trim( strip_shortcodes( $excerpt ) );
 
-				$value = Utils::prepare_content(
-					$excerpt,
-					[
-						'format_to'    => $parse_mode,
-						'id'           => 'p2tg',
-						'limit'        => $excerpt_length,
-						'limit_by'     => 'words',
-						'preserve_eol' => $preserve_eol,
-					]
+				$excerpt_options = [
+					'format_to'    => $parse_mode,
+					'id'           => 'p2tg',
+					'limit'        => $excerpt_length,
+					'limit_by'     => 'words',
+					'preserve_eol' => $preserve_eol,
+				];
+
+				$excerpt_options = apply_filters(
+					'wptelegram_p2tg_post_data_prepare_excerpt_options',
+					$excerpt_options,
+					$this->post,
+					$options
 				);
+
+				$value = Utils::prepare_content( $excerpt, $excerpt_options );
 
 				$plain_excerpt = apply_filters( 'wptelegram_p2tg_post_data_plain_excerpt', false, $value, $excerpt, $this->post, $options );
 
@@ -220,14 +226,15 @@ class PostData {
 				// Remove shortcodes.
 				$content = trim( strip_shortcodes( $content ) );
 
-				$value = Utils::prepare_content(
-					$content,
-					[
-						'format_to' => $parse_mode,
-						'id'        => 'p2tg',
-						'limit'     => 0,
-					]
-				);
+				$content_options = [
+					'format_to' => $parse_mode,
+					'id'        => 'p2tg',
+					'limit'     => 0,
+				];
+
+				$content_options = apply_filters( 'wptelegram_p2tg_post_data_prepare_content_options', $content_options, $this->post, $options );
+
+				$value = Utils::prepare_content( $content, $content_options );
 				break;
 
 			case 'short_url':
