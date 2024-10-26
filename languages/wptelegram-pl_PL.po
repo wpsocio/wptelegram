@@ -123,7 +123,7 @@ msgstr ""
 
 #: js/p2tg-block-editor/OverrideSettings.tsx:69
 #: js/settings/ui/TabbedSections.tsx:29
-#: js/settings/ui/advanced/tab.tsx:29
+#: js/settings/ui/advanced/tab.tsx:30
 #: languages/wptelegram-js-translations.php:546
 #: modules/p2tg/Admin.php:409
 msgid "Post to Telegram"
@@ -146,7 +146,7 @@ msgstr "Proxy"
 msgid "Advanced settings"
 msgstr "Ustawienia zaawansowane"
 
-#: js/settings/ui/advanced/tab.tsx:23
+#: js/settings/ui/advanced/tab.tsx:24
 #: languages/wptelegram-js-translations.php:613
 msgid "Bot API"
 msgstr "Bot API"
@@ -235,7 +235,7 @@ msgstr ""
 msgid "The module will watch the Email Notifications sent from this site and deliver them to you on Telegram."
 msgstr "Moduł będzie obserwował powiadomienia e-mail wysyłane z tej witryny i dostarczał je do Twojego Telegrama."
 
-#: js/settings/ui/notify/tab.tsx:32
+#: js/settings/ui/notify/tab.tsx:33
 #: languages/wptelegram-js-translations.php:646
 msgid "Notification Settings"
 msgstr "Ustawienia powiadomień"
@@ -409,13 +409,13 @@ msgstr "Wyślij do"
 msgid "Add or Upload Files"
 msgstr ""
 
-#: js/p2tg-block-editor/Files.tsx:47
+#: js/p2tg-block-editor/Files.tsx:57
 #: languages/wptelegram-js-translations.php:538
 #: modules/p2tg/Admin.php:454
 msgid "Files to be sent after the message."
 msgstr "Pliki do wysłania po wiadomości."
 
-#: js/p2tg-block-editor/Files.tsx:57
+#: js/p2tg-block-editor/Files.tsx:67
 #: languages/wptelegram-js-translations.php:541
 #: modules/p2tg/Admin.php:453
 msgid "Files"
@@ -1237,7 +1237,7 @@ msgid "Select all"
 msgstr ""
 
 #. Description of the plugin
-#: js/settings/ui/Sidebar.tsx:19
+#: js/settings/ui/Sidebar.tsx:20
 #: wptelegram.php
 #: languages/wptelegram-js-translations.php:583
 msgid "Integrate your WordPress website perfectly with Telegram. Send posts automatically to Telegram when published or updated, whether to a Telegram Channel, Group or private chat, with full control. Get your email notifications on Telegram."
@@ -1359,12 +1359,12 @@ msgstr ""
 msgid "chat ID"
 msgstr ""
 
-#: js/settings/ui/Sidebar.tsx:22
+#: js/settings/ui/Sidebar.tsx:23
 #: languages/wptelegram-js-translations.php:586
 msgid "Join our public chat on Telegram"
 msgstr ""
 
-#: js/settings/ui/Sidebar.tsx:27
+#: js/settings/ui/Sidebar.tsx:28
 #: languages/wptelegram-js-translations.php:589
 msgid "Support"
 msgstr ""

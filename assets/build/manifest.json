@@ -4,7 +4,7 @@
     "name": "index"
   },
   "js/p2tg-block-editor/index.ts": {
-    "file": "dist/p2tg-block-editor-Cn10HFA5.js",
+    "file": "dist/p2tg-block-editor-D9PxOIH7.js",
     "name": "p2tg-block-editor",
     "src": "js/p2tg-block-editor/index.ts",
     "isEntry": true,
@@ -19,7 +19,7 @@
     "isEntry": true
   },
   "js/settings/index.ts": {
-    "file": "dist/settings-7W-Q0Lso.js",
+    "file": "dist/settings-Yi745GKC.js",
     "name": "settings",
     "src": "js/settings/index.ts",
     "isEntry": true,

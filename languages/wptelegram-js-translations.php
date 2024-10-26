@@ -534,15 +534,15 @@ $generated_i18n_strings = array(
 	// Reference: js/p2tg-block-editor/Files.tsx:11
 	__( 'Add or Upload Files', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/Files.tsx:47
+	// Reference: js/p2tg-block-editor/Files.tsx:57
 	__( 'Files to be sent after the message.', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/Files.tsx:57
+	// Reference: js/p2tg-block-editor/Files.tsx:67
 	__( 'Files', 'wptelegram' ),
 
 	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:69
 	// Reference: js/settings/ui/TabbedSections.tsx:29
-	// Reference: js/settings/ui/advanced/tab.tsx:29
+	// Reference: js/settings/ui/advanced/tab.tsx:30
 	__( 'Post to Telegram', 'wptelegram' ),
 
 	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:78
@@ -579,13 +579,13 @@ $generated_i18n_strings = array(
 	// Reference: js/settings/services/fields.ts:28
 	__( 'If Email goes to', 'wptelegram' ),
 
-	// Reference: js/settings/ui/Sidebar.tsx:19
+	// Reference: js/settings/ui/Sidebar.tsx:20
 	__( 'Integrate your WordPress website perfectly with Telegram. Send posts automatically to Telegram when published or updated, whether to a Telegram Channel, Group or private chat, with full control. Get your email notifications on Telegram.', 'wptelegram' ),
 
-	// Reference: js/settings/ui/Sidebar.tsx:22
+	// Reference: js/settings/ui/Sidebar.tsx:23
 	__( 'Join our public chat on Telegram', 'wptelegram' ),
 
-	// Reference: js/settings/ui/Sidebar.tsx:27
+	// Reference: js/settings/ui/Sidebar.tsx:28
 	__( 'Support', 'wptelegram' ),
 
 	// Reference: js/settings/ui/TabbedSections.tsx:23
@@ -609,7 +609,7 @@ $generated_i18n_strings = array(
 	// Reference: js/settings/ui/TabbedSections.tsx:56
 	__( 'Settings in this section should not be changed unless recommended by WP Telegram Support.', 'wptelegram' ),
 
-	// Reference: js/settings/ui/advanced/tab.tsx:23
+	// Reference: js/settings/ui/advanced/tab.tsx:24
 	__( 'Bot API', 'wptelegram' ),
 
 	// Reference: js/settings/ui/basics/instructions.tsx:18
@@ -642,7 +642,7 @@ $generated_i18n_strings = array(
 	// Reference: js/settings/ui/basics/tab.tsx:36
 	__( 'Use %s above to set automatically.', 'wptelegram' ),
 
-	// Reference: js/settings/ui/notify/tab.tsx:32
+	// Reference: js/settings/ui/notify/tab.tsx:33
 	__( 'Notification Settings', 'wptelegram' ),
 
 	// Reference: js/settings/ui/notify/watch-emails.tsx:28
