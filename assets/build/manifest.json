@@ -19,7 +19,7 @@
     "isEntry": true
   },
   "js/settings/index.ts": {
-    "file": "dist/settings-Yi745GKC.js",
+    "file": "dist/settings-DofKBfYY.js",
     "name": "settings",
     "src": "js/settings/index.ts",
     "isEntry": true,
@@ -27,7 +27,7 @@
       "_index-CYu8q2MW.js"
     ],
     "css": [
-      "dist/settings-DxL8H8CT.css"
+      "dist/settings-DhEDPo4c.css"
     ]
   }
 }

@@ -96,13 +96,16 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared-ui/wptelegram/channels-field.tsx:71
 	__( 'Add channel', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:24
+	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:29
 	__( 'The delay starts after the post gets published.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:28
+	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:34
+	__( 'Warning', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:38
 	__( 'WordPress cron should not be disabled!', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:36
+	// Reference: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:46
 	__( 'Minute(s)', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/disable-notification.tsx:18
@@ -216,7 +219,7 @@ $generated_i18n_strings = array(
 	__( 'Proxy Host', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:38
-	// Reference: ../../packages/js/shared-ui/wptelegram/proxy/proxy.tsx:43
+	// Reference: ../../packages/js/shared-ui/wptelegram/proxy/proxy.tsx:40
 	// Reference: js/settings/services/fields.ts:26
 	__( 'Proxy Method', 'wptelegram' ),
 
@@ -429,11 +432,11 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared-ui/wptelegram/proxy/proxy.tsx:26
 	__( 'PHP Proxy', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/proxy/proxy.tsx:36
+	// Reference: ../../packages/js/shared-ui/wptelegram/proxy/proxy.tsx:38
 	// Reference: js/settings/ui/TabbedSections.tsx:45
 	__( 'Proxy', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/proxy/proxy.tsx:49
+	// Reference: ../../packages/js/shared-ui/wptelegram/proxy/proxy.tsx:46
 	__( 'Cloudflare worker is preferred.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/rules/add-rule-group.tsx:13
@@ -467,16 +470,16 @@ $generated_i18n_strings = array(
 	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-fields.tsx:57
 	__( 'Rule operator', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:109
+	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:110
 	__( 'Rule values', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:120
+	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:121
 	__( 'Select...', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:19
+	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:20
 	__( 'Loading...', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:20
+	// Reference: ../../packages/js/shared-ui/wptelegram/rules/rule-set-values.tsx:21
 	__( 'No options available', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/single-message.tsx:100
@@ -515,7 +518,7 @@ $generated_i18n_strings = array(
 	__( 'profile', 'wptelegram' ),
 
 	// Reference: ../../packages/js/utilities/fields.ts:35
-	// Reference: js/settings/services/fields.ts:140
+	// Reference: js/settings/services/fields.ts:147
 	__( 'Invalid %s', 'wptelegram' ),
 
 	// Reference: ../../packages/js/utilities/fields.ts:39
@@ -551,14 +554,14 @@ $generated_i18n_strings = array(
 	// Reference: js/p2tg-block-editor/SendToTelegram.tsx:36
 	__( 'Send to Telegram', 'wptelegram' ),
 
-	// Reference: js/settings/services/fields.ts:121
+	// Reference: js/settings/services/fields.ts:127
 	__( 'channel', 'wptelegram' ),
 
-	// Reference: js/settings/services/fields.ts:154
+	// Reference: js/settings/services/fields.ts:169
 	/* translators: %s: field label */
 	__( 'At least one %s is required.', 'wptelegram' ),
 
-	// Reference: js/settings/services/fields.ts:155
+	// Reference: js/settings/services/fields.ts:170
 	__( 'chat ID', 'wptelegram' ),
 
 	// Reference: js/settings/services/fields.ts:21

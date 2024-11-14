@@ -4,8 +4,8 @@ Donate link: https://wpsocio.com/donate
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.4
 Requires PHP: 7.4
-Tested up to: 6.6.2
-Stable tag: 4.2.4
+Tested up to: 6.7
+Stable tag: 4.2.5
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,8 +203,8 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.2.4 =
-- Updated attach files UI to show file size
-- Performance improvements
+= 4.2.5 =
+- Fixed chat ID validation preventing from saving changes
+- Updated delay UI to show WP Cron warning as alert
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

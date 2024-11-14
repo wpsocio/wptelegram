@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.5
+
+### Patch Changes
+
+- [#202](https://github.com/wpsocio/wp-projects/pull/202) [`9464ef6`](https://github.com/wpsocio/wp-projects/commit/9464ef692f97f92f907f951ca6850936a057787e) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed chat ID validation preventing from saving changes
+
+- [#196](https://github.com/wpsocio/wp-projects/pull/196) [`1d41d51`](https://github.com/wpsocio/wp-projects/commit/1d41d51f207637ad62da8e09167493a538adfee7) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Updated delay UI to show WP Cron warning as alert
+
 ## 4.2.4
 
 ### Patch Changes
