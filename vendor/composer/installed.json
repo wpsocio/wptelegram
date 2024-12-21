@@ -7,11 +7,11 @@
             "dist": {
                 "type": "path",
                 "url": "../../packages/php/telegram-format-text",
-                "reference": "e3d1f79e09f8bd89fe7c9162bea9180d5aa263e2"
+                "reference": "b47249f51ec636594f1d23633e219b92c7b197e4"
             },
             "require-dev": {
-                "pestphp/pest": "^1.22",
-                "wp-coding-standards/wpcs": "^3.0.1"
+                "pestphp/pest": "^1.23",
+                "wp-coding-standards/wpcs": "^3.1"
             },
             "type": "library",
             "installation-source": "dist",
@@ -66,11 +66,11 @@
             "dist": {
                 "type": "path",
                 "url": "../../packages/php/wp-utils",
-                "reference": "b071b3faa1787b0a761ff5808467ef6967d189d9"
+                "reference": "bcf7c54c0b2cea258490bcb1fe7b23740f9e505c"
             },
             "require-dev": {
-                "pestphp/pest": "^1.22",
-                "wp-coding-standards/wpcs": "^3.0.1"
+                "pestphp/pest": "^1.23",
+                "wp-coding-standards/wpcs": "^3.1"
             },
             "type": "library",
             "installation-source": "dist",
@@ -115,12 +115,12 @@
             "dist": {
                 "type": "path",
                 "url": "../../packages/php/wptelegram-bot-api",
-                "reference": "35133b65f6c41d62e9641e42cf428e766f2d8a1d"
+                "reference": "911ad16725659ac758cff346ce90a78fa7c1f380"
             },
             "require-dev": {
-                "pestphp/pest": "^1.22",
-                "wp-coding-standards/wpcs": "^3.0.1",
-                "z4kn4fein/php-semver": "^2.0"
+                "pestphp/pest": "^1.23",
+                "wp-coding-standards/wpcs": "^3.1",
+                "z4kn4fein/php-semver": "^3.0"
             },
             "type": "library",
             "installation-source": "dist",

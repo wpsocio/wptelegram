@@ -135,10 +135,12 @@ class Logger extends BaseClass {
 	 */
 	public function view_log() {
 
-		// phpcs:ignore
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( isset( $_GET['action'], $_GET['hash'], $_GET['type'] ) && 'wptelegram_view_log' === $_GET['action'] && isset( $_GET['hash'] ) ) {
-			$hash = sanitize_text_field( wp_unslash( $_GET['hash'] ) ); // phpcs:ignore
-			$type = sanitize_text_field( wp_unslash( $_GET['type'] ) ); // phpcs:ignore
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$hash = sanitize_text_field( wp_unslash( $_GET['hash'] ) );
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$type = sanitize_text_field( wp_unslash( $_GET['type'] ) );
 
 			if ( ! empty( $hash ) && ! empty( $type ) ) {
 
@@ -152,7 +154,8 @@ class Logger extends BaseClass {
 
 				header( 'Content-Type: text/plain' );
 
-				exit( $contents ); // phpcs:ignore
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				exit( $contents );
 			}
 		}
 	}
@@ -179,6 +182,11 @@ class Logger extends BaseClass {
 		add_action( 'wptelegram_p2tg_delay_post', [ $this, 'add_delay_post' ], 999, 3 );
 
 		add_filter( 'wptelegram_p2tg_rules_apply', [ $this, 'add_rules_apply' ], 999, 3 );
+		add_filter( 'wptelegram_p2tg_bypass_post_date_rules', [ $this, 'add_bypass_post_date_rules' ], 999, 2 );
+		add_filter( 'wptelegram_p2tg_bypass_post_type_rules', [ $this, 'add_bypass_post_type_rules' ], 999, 2 );
+		add_filter( 'wptelegram_p2tg_rules_send_new_post', [ $this, 'add_send_new_post' ], 999, 2 );
+		add_filter( 'wptelegram_p2tg_rules_send_existing_post', [ $this, 'add_send_existing_post' ], 999, 2 );
+		add_filter( 'wptelegram_p2tg_rules_send_post_type', [ $this, 'add_send_post_type' ], 999, 2 );
 
 		add_filter( 'wptelegram_p2tg_featured_image_source', [ $this, 'add_featured_image_source' ], 999, 4 );
 
@@ -199,7 +207,7 @@ class Logger extends BaseClass {
 	/**
 	 * Get the current request type.
 	 *
-	 * @param WP_Post $post    The post being handled.
+	 * @param WP_Post $post The post being handled.
 	 */
 	private function get_request_type( $post ) {
 
@@ -222,6 +230,8 @@ class Logger extends BaseClass {
 	 * @param string  $trigger The source trigger.
 	 */
 	public function before_p2tg_log( $result, $post, $trigger ) {
+		// `is_new_post` is in a static class, so we want to add it only when Sending to Telegram.
+		add_filter( 'wptelegram_p2tg_is_post_new', [ $this, 'add_is_new_post' ], 999, 3 );
 
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
@@ -267,9 +277,9 @@ class Logger extends BaseClass {
 	/**
 	 * Add delay post info.
 	 *
-	 * @param float   $delay       Delay in posting.
-	 * @param WP_Post $post        The post being handled.
-	 * @param array   $result      The result of delay handler.
+	 * @param float   $delay  Delay in posting.
+	 * @param WP_Post $post   The post being handled.
+	 * @param array   $result The result of delay handler.
 	 */
 	public function add_delay_post( $delay, $post, $result ) {
 
@@ -285,8 +295,8 @@ class Logger extends BaseClass {
 	/**
 	 * Add rules_apply info.
 	 *
-	 * @param boolean $rules_apply The post being handled.
-	 * @param Options $options     The post being handled.
+	 * @param boolean $rules_apply Whether the rules apply.
+	 * @param Options $options     Settings.
 	 * @param WP_Post $post        The post being handled.
 	 */
 	public function add_rules_apply( $rules_apply, $options, $post ) {
@@ -294,12 +304,110 @@ class Logger extends BaseClass {
 		// create a an entry from post ID and its status.
 		$key = $this->get_key( $post );
 
-		$this->p2tg_post_info[ $key ]['rules'] = [
-			'apply'   => $rules_apply,
-			'sent2tg' => get_post_meta( $post->ID, P2TGMain::PREFIX . 'sent2tg', true ),
-		];
+		$this->p2tg_post_info[ $key ]['rules']['apply'] = $rules_apply;
 
 		return $rules_apply;
+	}
+
+	/**
+	 * Add bypass_post_date_rules info.
+	 *
+	 * @param boolean $bypass_date_rules Whether to bypass date rules.
+	 * @param WP_Post $post              The post being handled.
+	 */
+	public function add_bypass_post_date_rules( $bypass_date_rules, $post ) {
+
+		// create a an entry from post ID and its status.
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ]['rules']['bypass']['date'] = $bypass_date_rules;
+
+		return $bypass_date_rules;
+	}
+
+	/**
+	 * Add is_new_post info.
+	 *
+	 * @param boolean $is_new                 Whether the post is new.
+	 * @param WP_Post $post                   The post being handled.
+	 * @param boolean $is_more_than_a_day_old Whether the post is more than a day old.
+	 */
+	public function add_is_new_post( $is_new, $post, $is_more_than_a_day_old ) {
+
+		// create a an entry from post ID and its status.
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ]['rules']['is'] = [
+			'new'       => $is_new,
+			'a_day_old' => $is_more_than_a_day_old,
+			'sent2tg'   => get_post_meta( $post->ID, P2TGMain::PREFIX . 'sent2tg', true ),
+		];
+
+		return $is_new;
+	}
+
+	/**
+	 * Add send_new_post info.
+	 *
+	 * @param boolean $send_new Whether to send new post.
+	 * @param WP_Post $post     The post being handled.
+	 */
+	public function add_send_new_post( $send_new, $post ) {
+
+		// create a an entry from post ID and its status.
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ]['rules']['send']['new'] = $send_new;
+
+		return $send_new;
+	}
+
+	/**
+	 * Add send_existing_post info.
+	 *
+	 * @param boolean $send_existing Whether to send new post.
+	 * @param WP_Post $post          The post being handled.
+	 */
+	public function add_send_existing_post( $send_existing, $post ) {
+
+		// create a an entry from post ID and its status.
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ]['rules']['send']['existing'] = $send_existing;
+
+		return $send_existing;
+	}
+
+	/**
+	 * Add bypass_post_type_rules info.
+	 *
+	 * @param boolean $bypass_post_type_rules Whether to bypass post type rules.
+	 * @param WP_Post $post                   The post being handled.
+	 */
+	public function add_bypass_post_type_rules( $bypass_post_type_rules, $post ) {
+
+		// create a an entry from post ID and its status.
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ]['rules']['bypass']['post_type'] = $bypass_post_type_rules;
+
+		return $bypass_post_type_rules;
+	}
+
+	/**
+	 * Add send_post_type info.
+	 *
+	 * @param boolean $send_post_type Whether the post is new.
+	 * @param WP_Post $post           The post being handled.
+	 */
+	public function add_send_post_type( $send_post_type, $post ) {
+
+		// create a an entry from post ID and its status.
+		$key = $this->get_key( $post );
+
+		$this->p2tg_post_info[ $key ]['rules']['send']['post_type'] = $send_post_type;
+
+		return $send_post_type;
 	}
 
 	/**
@@ -307,7 +415,7 @@ class Logger extends BaseClass {
 	 *
 	 * @param string  $source            The featured image source.
 	 * @param WP_Post $post              The post being handled.
-	 * @param Options $options           The post being handled.
+	 * @param Options $options           Settings.
 	 * @param boolean $send_files_by_url The featured image source.
 	 */
 	public function add_featured_image_source( $source, $post, $options, $send_files_by_url ) {
@@ -331,7 +439,7 @@ class Logger extends BaseClass {
 	 * @param WP_Post $post            The post being handled.
 	 * @param string  $trigger         The source trigger.
 	 * @param boolean $ok              The featured image source.
-	 * @param Options $options         The post being handled.
+	 * @param Options $options         Settings.
 	 * @param array   $processed_posts The featured image source.
 	 */
 	public function add_post_finish( $post, $trigger, $ok, $options, $processed_posts ) {
@@ -391,8 +499,8 @@ class Logger extends BaseClass {
 	/**
 	 * Handle the debug action.
 	 *
-	 * @param Response $response  The API response.
-	 * @param API      $tg_api    The post being handled.
+	 * @param Response $response The API response.
+	 * @param API      $tg_api   The post being handled.
 	 */
 	public function add_bot_api_debug( $response, $tg_api ) {
 

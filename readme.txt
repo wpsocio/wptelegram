@@ -4,8 +4,8 @@ Donate link: https://wpsocio.com/donate
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.4
 Requires PHP: 7.4
-Tested up to: 6.7
-Stable tag: 4.2.5
+Tested up to: 6.7.1
+Stable tag: 4.2.6
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -179,6 +179,7 @@ Yes, all you need to do is to setup **Private Notifications** module and use the
 11. Advanced Settings
 12. Post Edit Page (Classic Editor)
 13. Post Edit Page (Block Editor)
+14. Instant Send to Telegram
 
 == Installation ==
 
@@ -203,8 +204,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.2.5 =
-- Fixed chat ID validation preventing from saving changes
-- Updated delay UI to show WP Cron warning as alert
+= 4.2.6 =
+- Added the instant Send to Telegram option on the post list page
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

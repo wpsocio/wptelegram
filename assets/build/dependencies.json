@@ -10,8 +10,8 @@
     "wp-plugins",
     "wp-i18n",
     "wp-components",
-    "wp-edit-post",
     "wp-editor",
+    "wp-edit-post",
     "wp-element",
     "wp-data",
     "wp-media-utils"

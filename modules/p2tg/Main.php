@@ -63,6 +63,12 @@ class Main extends BaseModule {
 
 		add_action( 'rest_api_init', [ $admin, 'hook_into_rest_pre_insert' ] );
 
+		// Instant post action.
+		$action = Admin::INSTANT_POST_ACTION;
+		add_action( "admin_action_{$action}", [ $admin, 'handle_instant_post' ] );
+
+		add_filter( 'post_row_actions', [ $admin, 'add_instant_post_action' ], 10, 2 );
+
 		$post_sender = PostSender::instance();
 
 		add_action( 'wp_insert_post', [ $post_sender, 'wp_insert_post' ], 20, 2 );

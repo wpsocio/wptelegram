@@ -122,7 +122,7 @@ msgstr ""
 #: js/settings/ui/TabbedSections.tsx:29
 #: js/settings/ui/advanced/tab.tsx:30
 #: languages/wptelegram-js-translations.php:549
-#: modules/p2tg/Admin.php:409
+#: modules/p2tg/Admin.php:413
 msgid "Post to Telegram"
 msgstr ""
 
@@ -396,7 +396,7 @@ msgstr ""
 
 #: js/p2tg-block-editor/Channels.tsx:37
 #: languages/wptelegram-js-translations.php:532
-#: modules/p2tg/Admin.php:431
+#: modules/p2tg/Admin.php:435
 msgid "Send to"
 msgstr "ارسل إلى"
 
@@ -407,60 +407,61 @@ msgstr ""
 
 #: js/p2tg-block-editor/Files.tsx:57
 #: languages/wptelegram-js-translations.php:541
-#: modules/p2tg/Admin.php:454
+#: modules/p2tg/Admin.php:458
 msgid "Files to be sent after the message."
 msgstr ""
 
 #: js/p2tg-block-editor/Files.tsx:67
 #: languages/wptelegram-js-translations.php:544
-#: modules/p2tg/Admin.php:453
+#: modules/p2tg/Admin.php:457
 msgid "Files"
 msgstr ""
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:43
 #: js/p2tg-block-editor/OverrideSettings.tsx:106
 #: languages/wptelegram-js-translations.php:240
-#: modules/p2tg/Admin.php:481
+#: modules/p2tg/Admin.php:485
 msgid "Featured Image"
 msgstr "صورة مميزة"
 
 #: ../../packages/js/shared-ui/wptelegram/image-settings.tsx:43
 #: js/p2tg-block-editor/OverrideSettings.tsx:109
 #: languages/wptelegram-js-translations.php:263
-#: modules/p2tg/Admin.php:482
+#: modules/p2tg/Admin.php:486
 msgid "Send Featured Image (if exists)."
 msgstr "إرسال صورة مميزة (إن وجدت)۔"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:31
 #: js/p2tg-block-editor/OverrideSettings.tsx:113
 #: languages/wptelegram-js-translations.php:200
-#: modules/p2tg/Admin.php:493
+#: modules/p2tg/Admin.php:497
 msgid "Message Template"
 msgstr "قالب الرسالة"
 
 #: js/p2tg-block-editor/OverrideSettings.tsx:78
 #: languages/wptelegram-js-translations.php:552
-#: modules/p2tg/Admin.php:421
+#: modules/p2tg/Admin.php:425
 msgid "Override settings"
 msgstr ""
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:21
 #: js/p2tg-block-editor/OverrideSettings.tsx:91
 #: languages/wptelegram-js-translations.php:169
-#: modules/p2tg/Admin.php:443
+#: modules/p2tg/Admin.php:447
 msgid "Disable Notifications"
 msgstr "أوقف التنبيهات"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:20
 #: js/p2tg-block-editor/OverrideSettings.tsx:97
 #: languages/wptelegram-js-translations.php:165
-#: modules/p2tg/Admin.php:464
+#: modules/p2tg/Admin.php:468
 msgid "Delay in Posting"
 msgstr ""
 
 #: js/p2tg-block-editor/SendToTelegram.tsx:36
 #: languages/wptelegram-js-translations.php:555
-#: modules/p2tg/Admin.php:367
+#: modules/p2tg/Admin.php:371
+#: modules/p2tg/Admin.php:689
 msgid "Send to Telegram"
 msgstr ""
 
@@ -486,7 +487,7 @@ msgstr ""
 
 #: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:46
 #: languages/wptelegram-js-translations.php:109
-#: modules/p2tg/Admin.php:465
+#: modules/p2tg/Admin.php:469
 msgid "Minute(s)"
 msgstr ""
 
@@ -543,7 +544,7 @@ msgstr "بعد النص"
 
 #: ../../packages/js/shared-ui/wptelegram/message-template.tsx:19
 #: languages/wptelegram-js-translations.php:280
-#: modules/p2tg/Admin.php:494
+#: modules/p2tg/Admin.php:498
 msgid "Structure of the message to be sent."
 msgstr "بنية الرسالة المراد إرسالها۔"
 
@@ -1143,7 +1144,7 @@ msgstr "هذه رسالة تجريبية"
 msgid "Success"
 msgstr "نجاح"
 
-#: ../../packages/js/services/use-display-feedback.ts:68
+#: ../../packages/js/services/use-display-feedback.ts:71
 #: languages/wptelegram-js-translations.php:26
 msgid "Lets fix these errors first."
 msgstr ""
@@ -1170,31 +1171,31 @@ msgstr ""
 msgid "Changes could not be saved."
 msgstr ""
 
-#: modules/p2tg/Admin.php:204
+#: modules/p2tg/Admin.php:208
 msgid "Post Data"
 msgstr ""
 
-#: modules/p2tg/Admin.php:221
+#: modules/p2tg/Admin.php:225
 msgid "Taxonomy Terms"
 msgstr ""
 
-#: modules/p2tg/Admin.php:225
+#: modules/p2tg/Admin.php:229
 msgid "Custom Fields"
 msgstr ""
 
 #. translators: 1  taxonomy, 2  {terms:taxonomy}
-#: modules/p2tg/Admin.php:233
+#: modules/p2tg/Admin.php:237
 msgid "Replace %1$s in %2$s by the name of the taxonomy to insert its terms attached to the post."
 msgstr ""
 
 #. translators: 1  code, 2  code
-#: modules/p2tg/Admin.php:238
-#: modules/p2tg/Admin.php:250
+#: modules/p2tg/Admin.php:242
+#: modules/p2tg/Admin.php:254
 msgid "For example %1$s and %2$s in WooCommerce"
 msgstr ""
 
 #. translators: 1  custom_field, 2  {cf:custom_field}
-#: modules/p2tg/Admin.php:245
+#: modules/p2tg/Admin.php:249
 msgid "Replace %1$s in %2$s by the name of the Custom Field."
 msgstr ""
 
@@ -1304,7 +1305,7 @@ msgstr ""
 msgid "Channel username or Chat ID"
 msgstr ""
 
-#: ../../packages/js/shared-ui/wptelegram/channels-field.tsx:71
+#: ../../packages/js/shared-ui/wptelegram/channels-field.tsx:73
 #: languages/wptelegram-js-translations.php:97
 msgid "Add channel"
 msgstr ""
@@ -1384,4 +1385,13 @@ msgstr ""
 #: ../../packages/js/shared-ui/wptelegram/delay-in-posting.tsx:34
 #: languages/wptelegram-js-translations.php:103
 msgid "Warning"
+msgstr ""
+
+#: modules/p2tg/Admin.php:701
+msgid "No post provided to share!"
+msgstr ""
+
+#. translators: %s: post id
+#: modules/p2tg/Admin.php:712
+msgid "Sharing failed, could not find the post with ID: %d"
 msgstr ""

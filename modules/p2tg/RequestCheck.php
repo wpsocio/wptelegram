@@ -86,7 +86,7 @@ class RequestCheck {
 				return defined( 'WP_IMPORTING' ) && WP_IMPORTING;
 
 			case self::BULK_EDIT:
-				return isset( $_GET['bulk_edit'] ); // phpcs:ignore
+				return isset( $_GET['bulk_edit'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 			case self::QUICK_EDIT:
 				return defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'inline-save' === $_REQUEST['action']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended

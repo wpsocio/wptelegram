@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.6
+
+### Patch Changes
+
+- [#229](https://github.com/wpsocio/wp-projects/pull/229) [`c32b2f2`](https://github.com/wpsocio/wp-projects/commit/c32b2f20909b660d26a01e97ec7ccdc4da690069) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added the instant Send to Telegram option on the post list page
+
 ## 4.2.5
 
 ### Patch Changes
