@@ -55,8 +55,8 @@ class Requirements {
 		$this->plugin_main_file = $plugin_main_file;
 		$this->fallback_data    = array_merge(
 			[
-				'RequiresPHP' => '7.0',
-				'RequiresWP'  => '5.3',
+				'RequiresPHP' => '7.4',
+				'RequiresWP'  => '6.0',
 			],
 			$fallback_data
 		);

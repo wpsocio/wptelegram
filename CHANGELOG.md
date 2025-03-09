@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.7
+
+### Patch Changes
+
+- [#233](https://github.com/wpsocio/wp-projects/pull/233) [`9ef60cb`](https://github.com/wpsocio/wp-projects/commit/9ef60cb4c35ae50d5941c9458c62ae818be8cd3c) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed the i18n initialization to delay it to init
+
 ## 4.2.6
 
 ### Patch Changes

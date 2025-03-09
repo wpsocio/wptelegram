@@ -1,15 +1,15 @@
 {
-  "_index-4TuZmxL_.js": {
-    "file": "dist/index-4TuZmxL_.js",
+  "_index-fTJS1xBC.js": {
+    "file": "dist/index-fTJS1xBC.js",
     "name": "index"
   },
   "js/p2tg-block-editor/index.ts": {
-    "file": "dist/p2tg-block-editor-BEj0r1i7.js",
+    "file": "dist/p2tg-block-editor-BZ7fORZm.js",
     "name": "p2tg-block-editor",
     "src": "js/p2tg-block-editor/index.ts",
     "isEntry": true,
     "imports": [
-      "_index-4TuZmxL_.js"
+      "_index-fTJS1xBC.js"
     ]
   },
   "js/p2tg-classic-editor/index.ts": {
@@ -19,12 +19,12 @@
     "isEntry": true
   },
   "js/settings/index.ts": {
-    "file": "dist/settings-zx5auOho.js",
+    "file": "dist/settings-DmqaeuKD.js",
     "name": "settings",
     "src": "js/settings/index.ts",
     "isEntry": true,
     "imports": [
-      "_index-4TuZmxL_.js"
+      "_index-fTJS1xBC.js"
     ],
     "css": [
       "dist/settings-Dxfy4F-k.css"

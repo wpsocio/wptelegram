@@ -223,7 +223,7 @@ final class Main {
 
 		$plugin_i18n = new I18n();
 
-		add_action( 'after_setup_theme', [ $plugin_i18n, 'load_plugin_textdomain' ] );
+		add_action( 'init', [ $plugin_i18n, 'load_plugin_textdomain' ] );
 	}
 
 	/**
