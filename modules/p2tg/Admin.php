@@ -233,27 +233,39 @@ class Admin extends BaseClass {
 			],
 		];
 		$macro_groups['terms']['info'] = sprintf(
-			/* translators: 1  taxonomy, 2  {terms:taxonomy} */
+			/* translators: 1 taxonomy, 2 {terms:taxonomy} */
 			__( 'Replace %1$s in %2$s by the name of the taxonomy to insert its terms attached to the post.', 'wptelegram' ),
 			'<code>taxonomy</code>',
 			'<code>{terms:taxonomy}</code>'
 		) . ' ' . sprintf(
-			/* translators: 1  code, 2  code */
+			/* translators: 1 code, 2 code */
 			__( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ),
 			'<code>{terms:product_cat}</code>',
 			'<code>{terms:product_tag}</code>'
 		);
 
 			$macro_groups['cf']['info'] = sprintf(
-			/* translators: 1  custom_field, 2  {cf:custom_field} */
+			/* translators: 1 custom_field, 2 {cf:custom_field} */
 				__( 'Replace %1$s in %2$s by the name of the Custom Field.', 'wptelegram' ),
 				'<code>custom_field</code>',
 				'<code>{cf:custom_field}</code>'
 			) . ' ' . sprintf(
-				/* translators: 1  code, 2  code */
+				/* translators: 1 code, 2 code */
 				__( 'For example %1$s and %2$s in WooCommerce', 'wptelegram' ),
 				'<code>{cf:_regular_price}</code>',
 				'<code>{cf:_sale_price}</code>'
+			) . "\n" . sprintf(
+				/* translators: 1 code, 2 code */
+				__( 'You can add %1$s to the field name to find the shape of the complex fields.', 'wptelegram' ),
+				'<code>:json</code>',
+			) . ' ' . sprintf(
+				/* translators: 1 code, 2 code */
+				__( 'For example %1$s.', 'wptelegram' ),
+				'<code>{cf:field-name:json}</code>'
+			) . "\n" . sprintf(
+				/* translators: 1 code, 2 code */
+				__( 'You can also use %1$s to find all the meta keys for a post.', 'wptelegram' ),
+				'<code>{cf:__debug__}</code>',
 			);
 
 		/**

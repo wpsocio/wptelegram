@@ -112,7 +112,24 @@ class AssetManager extends BaseClass {
 		// Load only on settings page.
 		if ( $this->is_settings_page( $hook_suffix ) ) {
 
-			$assets->enqueue( self::ADMIN_SETTINGS_ENTRY );
+			$assets->enqueue(
+				self::ADMIN_SETTINGS_ENTRY,
+				[
+					'inline-style' => [
+						'dev-dependency' => 'wp-admin',
+						/**
+						 * We need to move common css to the wp layer
+						 * to avoid it overriding Tailwind preflight CSS.
+						 * We will disable the actual loading of the common CSS via JS.
+						 */
+						'data'           => sprintf(
+							'@import url("%s") layer(wp);',
+							wp_admin_css_uri( 'css/common' )
+						),
+					],
+				]
+			);
+
 			$this->add_inline_script( self::ADMIN_SETTINGS_ENTRY );
 		}
 	}

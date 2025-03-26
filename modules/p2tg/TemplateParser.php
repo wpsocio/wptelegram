@@ -245,7 +245,7 @@ class TemplateParser {
 		}
 
 		// if it's something unusual :) .
-		if ( preg_match_all( '/(?<=\{)(terms|a?cf):([^\}]+?)(?=\})/iu', $template, $matches ) ) {
+		if ( preg_match_all( '/(?<=\{)(terms|cf):([^\}]+?)(?=\})/iu', $template, $matches ) ) {
 
 			foreach ( $matches[0] as $field ) {
 				$key = '{' . $field . '}';

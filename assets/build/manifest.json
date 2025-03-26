@@ -4,7 +4,7 @@
     "name": "index"
   },
   "js/p2tg-block-editor/index.ts": {
-    "file": "dist/p2tg-block-editor-BZ7fORZm.js",
+    "file": "dist/p2tg-block-editor-D1Rzrm4Q.js",
     "name": "p2tg-block-editor",
     "src": "js/p2tg-block-editor/index.ts",
     "isEntry": true,
@@ -19,7 +19,7 @@
     "isEntry": true
   },
   "js/settings/index.ts": {
-    "file": "dist/settings-DmqaeuKD.js",
+    "file": "dist/settings-D-cBUMVm.js",
     "name": "settings",
     "src": "js/settings/index.ts",
     "isEntry": true,
@@ -27,7 +27,7 @@
       "_index-fTJS1xBC.js"
     ],
     "css": [
-      "dist/settings-Dxfy4F-k.css"
+      "dist/settings-CRaqTRt3.css"
     ]
   }
 }

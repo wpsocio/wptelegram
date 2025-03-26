@@ -9,9 +9,9 @@
   "js/p2tg-block-editor/index.ts": [
     "wp-plugins",
     "wp-i18n",
-    "wp-editor",
     "wp-components",
     "wp-edit-post",
+    "wp-editor",
     "wp-element",
     "wp-data",
     "wp-media-utils"

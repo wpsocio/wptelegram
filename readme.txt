@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.4
 Requires PHP: 7.4
 Tested up to: 6.7.2
-Stable tag: 4.2.7
+Stable tag: 4.2.8
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -204,7 +204,9 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.2.7 =
-- Fixed the i18n initialization to delay it to init
+= 4.2.8 =
+- Added support for `{cf:__debug__}`
+- Add support for {cf:field-name:json} for custom fields
+- Fix PHP warning for array to string conversion
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

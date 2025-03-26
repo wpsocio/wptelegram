@@ -208,6 +208,12 @@ class ViteWPReactAssets {
 			'skip-script'            => false,
 			'skip-style'             => false,
 			'inline-script-data'     => '',
+			/**
+			 * Should be an array with the following keys:
+			 * - 'dev-dependency' (Optional): The script handle to use as a dependency in development.
+			 * - 'data': The inline style data.
+			 */
+			'inline-style'           => [],
 			'inline-script-position' => 'after',
 		];
 
@@ -575,6 +581,14 @@ class ViteWPReactAssets {
 
 		foreach ( $style_handles as $style_handle ) {
 			wp_enqueue_style( $style_handle );
+		}
+
+		if ( ! empty( $options['inline-style'] ) ) {
+			$handle = $this->is_dev() && ! empty( $options['inline-style']['dev-dependency'] ) ? $options['inline-style']['dev-dependency'] : $style_handle;
+
+			$data = $options['inline-style']['data'];
+
+			wp_add_inline_style( $handle, $data );
 		}
 
 		return true;

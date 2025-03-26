@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit45b4396b8854f2e70092b5f429c08747
+class ComposerStaticInit9f22db83b0053400e648614fbb59278d
 {
     public static $files = array (
         '0d252e6134999215031cdb0e94a79cd5' => __DIR__ . '/..' . '/wpsocio/wptelegram-bot-api/init.php',
@@ -41,9 +41,9 @@ class ComposerStaticInit45b4396b8854f2e70092b5f429c08747
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit45b4396b8854f2e70092b5f429c08747::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit45b4396b8854f2e70092b5f429c08747::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit45b4396b8854f2e70092b5f429c08747::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9f22db83b0053400e648614fbb59278d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9f22db83b0053400e648614fbb59278d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9f22db83b0053400e648614fbb59278d::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.8
+
+### Patch Changes
+
+- [#240](https://github.com/wpsocio/wp-projects/pull/240) [`6581a3c`](https://github.com/wpsocio/wp-projects/commit/6581a3cc18d0bfdf2af5dbdccd741130dd4a3850) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added support for inline-style
+
 ## 1.0.7
 
 ### Patch Changes
