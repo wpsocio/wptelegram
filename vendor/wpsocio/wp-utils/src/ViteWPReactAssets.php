@@ -584,7 +584,7 @@ class ViteWPReactAssets {
 		}
 
 		if ( ! empty( $options['inline-style'] ) ) {
-			$handle = $this->is_dev() && ! empty( $options['inline-style']['dev-dependency'] ) ? $options['inline-style']['dev-dependency'] : $style_handle;
+			$handle = $this->is_dev() && ! empty( $options['inline-style']['dev-dependency'] ) ? $options['inline-style']['dev-dependency'] : $style_handle ?? '';
 
 			$data = $options['inline-style']['data'];
 

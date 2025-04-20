@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.9
+
+### Patch Changes
+
+- [#247](https://github.com/wpsocio/wp-projects/pull/247) [`a1dd2c9`](https://github.com/wpsocio/wp-projects/commit/a1dd2c9a15e46839c74386621c77305d00a60ef3) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed PHP warning for undefined variable.
+
 ## 1.0.8
 
 ### Patch Changes

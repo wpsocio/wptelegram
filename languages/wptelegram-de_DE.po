@@ -118,7 +118,7 @@ msgstr "Channel"
 msgid "Basics"
 msgstr "Grundeinstellungen"
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:69
+#: js/p2tg-block-editor/OverrideSettings.tsx:68
 #: js/settings/ui/TabbedSections.tsx:26
 #: js/settings/ui/advanced/tab.tsx:30
 #: languages/wptelegram-js-translations.php:549
@@ -215,7 +215,7 @@ msgstr "Zum Speichern der Einstellungen %s klicken."
 
 #: ../../packages/js/shared-ui/form/submit/submit-button.tsx:9
 #: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:120
-#: js/p2tg-block-editor/OverrideSettings.tsx:125
+#: js/p2tg-block-editor/OverrideSettings.tsx:124
 #: js/settings/ui/basics/instructions.tsx:70
 #: languages/wptelegram-js-translations.php:65
 msgid "Save Changes"
@@ -418,41 +418,41 @@ msgid "Files"
 msgstr "Dateien"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:107
+#: js/p2tg-block-editor/OverrideSettings.tsx:106
 #: languages/wptelegram-js-translations.php:240
 #: modules/p2tg/Admin.php:497
 msgid "Featured Image"
 msgstr "Beitragsbild"
 
 #: ../../packages/js/shared-ui/wptelegram/image-settings.tsx:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:110
+#: js/p2tg-block-editor/OverrideSettings.tsx:109
 #: languages/wptelegram-js-translations.php:263
 #: modules/p2tg/Admin.php:498
 msgid "Send Featured Image (if exists)."
 msgstr "Beitragsbild senden (falls vorhanden)."
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:31
-#: js/p2tg-block-editor/OverrideSettings.tsx:114
+#: js/p2tg-block-editor/OverrideSettings.tsx:113
 #: languages/wptelegram-js-translations.php:200
 #: modules/p2tg/Admin.php:509
 msgid "Message Template"
 msgstr "Nachrichtenvorlage"
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:78
+#: js/p2tg-block-editor/OverrideSettings.tsx:77
 #: languages/wptelegram-js-translations.php:552
 #: modules/p2tg/Admin.php:437
 msgid "Override settings"
 msgstr "Einstellungen ignorieren"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:21
-#: js/p2tg-block-editor/OverrideSettings.tsx:91
+#: js/p2tg-block-editor/OverrideSettings.tsx:90
 #: languages/wptelegram-js-translations.php:169
 #: modules/p2tg/Admin.php:459
 msgid "Disable Notifications"
 msgstr "Benachrichtigungen deaktivieren"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:20
-#: js/p2tg-block-editor/OverrideSettings.tsx:97
+#: js/p2tg-block-editor/OverrideSettings.tsx:96
 #: languages/wptelegram-js-translations.php:165
 #: modules/p2tg/Admin.php:480
 msgid "Delay in Posting"

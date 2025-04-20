@@ -15,31 +15,22 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) || ! WP_UNINSTALL_PLUGIN || dirname( WP_
 	exit;
 }
 
-
-$options = get_option( 'wptelegram', '' );
-
-$options = json_decode( $options, true );
-
 /**
  * Cleans up the stale data.
  *
  * @return void
  */
 function uninstall_wptelegram() {
+	$options = get_option( 'wptelegram', '' );
+
+	$options = json_decode( $options, true );
+
 	if ( isset( $options['advanced']['clean_uninstall'] ) && false === $options['advanced']['clean_uninstall'] ) {
 		return;
 	}
 
-	$uninstall_options = [
-		'wptelegram',
-		'wptelegram_ver',
-	];
-
-	$uninstall_options = (array) apply_filters( 'wptelegram_uninstall_options', $uninstall_options );
-
-	foreach ( $uninstall_options as $option ) {
-		delete_option( $option );
-	}
+	delete_option( 'wptelegram' );
+	delete_option( 'wptelegram_ver' );
 }
 
 uninstall_wptelegram();

@@ -1,33 +1,54 @@
 {
-  "_index-fTJS1xBC.js": {
-    "file": "dist/index-fTJS1xBC.js",
-    "name": "index"
+  "__commonjsHelpers-CqkleIqs.js": {
+    "file": "dist/_commonjsHelpers-CqkleIqs.js",
+    "name": "_commonjsHelpers"
+  },
+  "_index-Cg7uBMVa.js": {
+    "file": "dist/index-Cg7uBMVa.js",
+    "name": "index",
+    "imports": [
+      "__commonjsHelpers-CqkleIqs.js"
+    ]
+  },
+  "_jquery-BNSPwlrv.js": {
+    "file": "dist/jquery-BNSPwlrv.js",
+    "name": "jquery",
+    "imports": [
+      "__commonjsHelpers-CqkleIqs.js"
+    ]
   },
   "js/p2tg-block-editor/index.ts": {
-    "file": "dist/p2tg-block-editor-D1Rzrm4Q.js",
+    "file": "dist/p2tg-block-editor-Blrilko_.js",
     "name": "p2tg-block-editor",
     "src": "js/p2tg-block-editor/index.ts",
     "isEntry": true,
     "imports": [
-      "_index-fTJS1xBC.js"
+      "_index-Cg7uBMVa.js",
+      "__commonjsHelpers-CqkleIqs.js"
     ]
   },
   "js/p2tg-classic-editor/index.ts": {
-    "file": "dist/p2tg-classic-editor-c9idWbsy.js",
+    "file": "dist/p2tg-classic-editor-CKrboGEC.js",
     "name": "p2tg-classic-editor",
     "src": "js/p2tg-classic-editor/index.ts",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_jquery-BNSPwlrv.js",
+      "__commonjsHelpers-CqkleIqs.js"
+    ]
   },
   "js/settings/index.ts": {
-    "file": "dist/settings-D-cBUMVm.js",
+    "file": "dist/settings-B6icb2PJ.js",
     "name": "settings",
     "src": "js/settings/index.ts",
     "isEntry": true,
     "imports": [
-      "_index-fTJS1xBC.js"
+      "_index-Cg7uBMVa.js",
+      "_jquery-BNSPwlrv.js",
+      "__commonjsHelpers-CqkleIqs.js"
     ],
     "css": [
-      "dist/settings-CRaqTRt3.css"
+      "dist/settings-fVz2UhQH.css"
     ]
   }
 }

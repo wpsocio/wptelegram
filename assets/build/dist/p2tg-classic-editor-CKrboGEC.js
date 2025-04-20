@@ -1,0 +1,2 @@
+import{$ as t}from"./jquery-BNSPwlrv.js";import"./_commonjsHelpers-CqkleIqs.js";const o='input[type="checkbox"][name="_wptg_p2tg_override_switch"]',i=".wp-admin.post-php,.wp-admin.post-new-php",p=".cmb-row.depends-upon-override_switch",c="#wptelegram_p2tg_override";t(()=>{const e=t(i).find(c);e.on("change",o,function(){const n=e.find(p);t(this).is(":checked")?n.show(300):n.hide(300)}),e.find(o).trigger("change")});
+//# sourceMappingURL=p2tg-classic-editor-CKrboGEC.js.map

@@ -60,7 +60,7 @@ $generated_i18n_strings = array(
 
 	// Reference: ../../packages/js/shared-ui/form/submit/submit-button.tsx:9
 	// Reference: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:120
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:125
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:124
 	// Reference: js/settings/ui/basics/instructions.tsx:70
 	__( 'Save Changes', 'wptelegram' ),
 
@@ -161,11 +161,11 @@ $generated_i18n_strings = array(
 	__( 'Debug Info', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:20
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:97
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:96
 	__( 'Delay in Posting', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:21
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:91
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:90
 	__( 'Disable Notifications', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:22
@@ -196,7 +196,7 @@ $generated_i18n_strings = array(
 	__( 'Image Position', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:31
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:114
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:113
 	__( 'Message Template', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:32
@@ -236,7 +236,7 @@ $generated_i18n_strings = array(
 	__( 'Username', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:43
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:107
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:106
 	__( 'Featured Image', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/fields.ts:44
@@ -259,7 +259,7 @@ $generated_i18n_strings = array(
 	__( 'After the Text', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/image-settings.tsx:43
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:110
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:109
 	__( 'Send Featured Image (if exists).', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/link-preview-options.tsx:28
@@ -543,12 +543,12 @@ $generated_i18n_strings = array(
 	// Reference: js/p2tg-block-editor/Files.tsx:67
 	__( 'Files', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:69
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:68
 	// Reference: js/settings/ui/TabbedSections.tsx:26
 	// Reference: js/settings/ui/advanced/tab.tsx:30
 	__( 'Post to Telegram', 'wptelegram' ),
 
-	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:78
+	// Reference: js/p2tg-block-editor/OverrideSettings.tsx:77
 	__( 'Override settings', 'wptelegram' ),
 
 	// Reference: js/p2tg-block-editor/SendToTelegram.tsx:36

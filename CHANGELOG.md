@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.9
+
+### Patch Changes
+
+- [#248](https://github.com/wpsocio/wp-projects/pull/248) [`3b97611`](https://github.com/wpsocio/wp-projects/commit/3b97611b83c693f995a6294257321a56bca5f3f4) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Improved form field spacing for small screens
+
+- [#243](https://github.com/wpsocio/wp-projects/pull/243) [`b15b82d`](https://github.com/wpsocio/wp-projects/commit/b15b82d4f6ae817f531ca9ed2ca42de6862b3e9f) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed clean up logic on uninstall
+
 ## 4.2.8
 
 ### Patch Changes
