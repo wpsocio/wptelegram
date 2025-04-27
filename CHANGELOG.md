@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.2.10
+
+### Patch Changes
+
+- [#262](https://github.com/wpsocio/wp-projects/pull/262) [`9e8c28b`](https://github.com/wpsocio/wp-projects/commit/9e8c28b026e5f8caad3cbc5062cbc5587a93ca3b) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Updated Message Template info UI to make it more visible
+
+- [#259](https://github.com/wpsocio/wp-projects/pull/259) [`cd61a8d`](https://github.com/wpsocio/wp-projects/commit/cd61a8d56970474cfed5362c7f722ff22e99bd22) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed Bot Token and Message tests not working for lowercase URLs
+
+- [#257](https://github.com/wpsocio/wp-projects/pull/257) [`150dc9f`](https://github.com/wpsocio/wp-projects/commit/150dc9f501e39e1d412da6a433d0855000e7a7ea) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed background color for the setting page
+
+- [#263](https://github.com/wpsocio/wp-projects/pull/263) [`cc3b03d`](https://github.com/wpsocio/wp-projects/commit/cc3b03d92211502a9ad9eadde93396fa861aa334) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added support for post modified and post time variables
+
 ## 4.2.9
 
 ### Patch Changes

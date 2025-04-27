@@ -206,20 +206,12 @@ class Admin extends BaseClass {
 		$macro_groups                  = [
 			'post'  => [
 				'label'  => __( 'Post Data', 'wptelegram' ),
-				'macros' => [
-					'{ID}',
-					'{post_title}',
-					'{post_slug}',
-					'{post_date}',
-					'{post_date_gmt}',
-					'{post_author}',
-					'{post_excerpt}',
-					'{post_content}',
-					'{post_type}',
-					'{post_type_label}',
-					'{short_url}',
-					'{full_url}',
-				],
+				'macros' => array_map(
+					function ( $macro ) {
+						return '{' . $macro . '}';
+					},
+					TemplateParser::get_default_macro_keys( [ 'with_aliases' => false ] )
+				),
 			],
 			'terms' => [
 				'label'  => __( 'Taxonomy Terms', 'wptelegram' ),

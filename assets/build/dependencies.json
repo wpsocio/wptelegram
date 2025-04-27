@@ -1,19 +1,19 @@
 {
   "js/settings/index.ts": [
-    "react-dom",
     "react",
-    "jquery",
+    "react-dom",
     "wp-i18n",
+    "jquery",
     "react-dom",
     "wp-api-fetch"
   ],
   "js/p2tg-block-editor/index.ts": [
     "wp-plugins",
     "wp-i18n",
-    "wp-edit-post",
     "wp-components",
-    "wp-element",
+    "wp-edit-post",
     "wp-editor",
+    "wp-element",
     "wp-data",
     "wp-media-utils"
   ],

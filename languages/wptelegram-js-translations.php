@@ -287,7 +287,7 @@ $generated_i18n_strings = array(
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/misc-message-settings.tsx:55
 	// Reference: ../../packages/js/shared-ui/wptelegram/parse-mode-field.tsx:42
-	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:45
+	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:67
 	__( 'Learn more', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/notify-instructions.tsx:119
@@ -321,7 +321,7 @@ $generated_i18n_strings = array(
 	__( 'Add your own bot %s to the group.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/notify-message-template.tsx:12
-	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:35
+	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:55
 	__( 'You can use any text, emojis or these variables in any order.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:116
@@ -497,10 +497,16 @@ $generated_i18n_strings = array(
 	/* translators: 1 - field name */
 	__( '%s should not be enabled.', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:37
+	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:120
+	__( 'Collapse', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:120
+	__( 'Expand', 'wptelegram' ),
+
+	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:59
 	__( 'Click to copy', 'wptelegram' ),
 
-	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:42
+	// Reference: ../../packages/js/shared-ui/wptelegram/template-info.tsx:63
 	__( 'You can also use conditional logic in the template.', 'wptelegram' ),
 
 	// Reference: ../../packages/js/shared-ui/wptelegram/user-notifications.tsx:26

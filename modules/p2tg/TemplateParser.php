@@ -185,6 +185,63 @@ class TemplateParser {
 	}
 
 	/**
+	 * Gets the default macro keys.
+	 *
+	 * @param array $options The options for parsing the template.
+	 * Accepts:
+	 * - 'with_aliases' (bool) Whether to include aliases for the keys.
+	 *
+	 * @return array The default macro keys.
+	 */
+	public static function get_default_macro_keys( $options = [] ) {
+		$default_keys = [
+			'post_title',
+			'post_excerpt',
+			'post_author',
+			'post_content',
+			'post_date',
+			'post_date_gmt',
+			'post_id',
+			'post_modified_date',
+			'post_modified_date_gmt',
+			'post_modified_time',
+			'post_modified_time_gmt',
+			'post_slug',
+			'post_time',
+			'post_time_gmt',
+			'post_type',
+			'post_type_label',
+			'short_url',
+			'full_url',
+		];
+
+		if ( $options['with_aliases'] ?? true ) {
+			$default_keys = array_merge(
+				$default_keys,
+				[
+					'featured_image_url',
+					// For post_id.
+					'id',
+					'ID',
+					// For post_title.
+					'title',
+					// For post_slug.
+					'slug',
+					'post_name',
+					// For post_author.
+					'author',
+					// For post_excerpt.
+					'excerpt',
+					// For post_content.
+					'content',
+				]
+			);
+		}
+
+		return apply_filters( 'wptelegram_p2tg_default_macro_keys', $default_keys, $options );
+	}
+
+	/**
 	 * Parses the given template for all possible macros and returns the macro data.
 	 *
 	 * @since 4.1.0
@@ -207,21 +264,7 @@ class TemplateParser {
 
 		$template = $this->normalize_template( $template );
 
-		$macro_keys = [
-			'ID',
-			'featured_image_url',
-			'full_url',
-			'post_author',
-			'post_content',
-			'post_date',
-			'post_date_gmt',
-			'post_excerpt',
-			'post_slug',
-			'post_title',
-			'post_type',
-			'post_type_label',
-			'short_url',
-		];
+		$macro_keys = self::get_default_macro_keys();
 
 		// for post excerpt.
 		$params = compact(

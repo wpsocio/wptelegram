@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [#259](https://github.com/wpsocio/wp-projects/pull/259) [`cd61a8d`](https://github.com/wpsocio/wp-projects/commit/cd61a8d56970474cfed5362c7f722ff22e99bd22) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Change the route param to api_method to allow passing via query param
+
 ## 1.0.1
 
 ### Patch Changes

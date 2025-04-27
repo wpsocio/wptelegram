@@ -31,7 +31,7 @@ class RESTAPIController extends RESTBaseController {
 	 *
 	 * @var string
 	 */
-	const REST_BASE = '/(?P<method>[a-zA-Z]+)';
+	const REST_BASE = '/(?P<api_method>[a-zA-Z]+)';
 
 	/**
 	 * Whether the dependencies have been initiated.
@@ -106,7 +106,7 @@ class RESTAPIController extends RESTBaseController {
 	public function handle_request( WP_REST_Request $request ) {
 
 		$bot_token  = $request->get_param( 'bot_token' );
-		$api_method = $request->get_param( 'method' );
+		$api_method = $request->get_param( 'api_method' );
 		$api_params = $request->get_param( 'api_params' );
 
 		$body = [];

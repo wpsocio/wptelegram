@@ -11,6 +11,7 @@
 
 namespace WPTelegram\Core\modules\p2tg;
 
+use WP_Post;
 use WPTelegram\Core\includes\Utils;
 
 /**
@@ -107,6 +108,7 @@ class PostData {
 		switch ( $field ) {
 
 			case 'id':
+			case 'post_id':
 			case 'ID':
 				$value = $this->post->ID;
 				break;
@@ -124,14 +126,44 @@ class PostData {
 				$value = $this->post->post_name;
 				break;
 
-			/* The post's local publication time */
+			/* The post's local publication date */
 			case 'post_date':
 				$value = get_the_date( '', $this->post->ID );
 				break;
 
-			/* The post's GMT publication time */
+			/* The post's GMT publication date */
 			case 'post_date_gmt':
 				$value = date_i18n( get_option( 'date_format' ), strtotime( $this->post->post_date_gmt ) );
+				break;
+
+			/* The post's local modified date */
+			case 'post_modified_date':
+				$value = date_i18n( get_option( 'date_format' ), strtotime( $this->post->post_modified ) );
+				break;
+
+			/* The post's GMT modified date */
+			case 'post_modified_date_gmt':
+				$value = date_i18n( get_option( 'date_format' ), strtotime( $this->post->post_modified_gmt ) );
+				break;
+
+			/* The post's local publication time */
+			case 'post_time':
+				$value = date_i18n( get_option( 'time_format' ), strtotime( $this->post->post_date ) );
+				break;
+
+			/* The post's GMT publication time */
+			case 'post_time_gmt':
+				$value = date_i18n( get_option( 'time_format' ), strtotime( $this->post->post_date_gmt ) );
+				break;
+
+			/* The post's local modified time */
+			case 'post_modified_time':
+				$value = date_i18n( get_option( 'time_format' ), strtotime( $this->post->post_modified ) );
+				break;
+
+			/* The post's GMT modified time */
+			case 'post_modified_time_gmt':
+				$value = date_i18n( get_option( 'time_format' ), strtotime( $this->post->post_modified_gmt ) );
 				break;
 
 			/* Post Author */
