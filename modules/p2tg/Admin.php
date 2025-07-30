@@ -142,6 +142,7 @@ class Admin extends BaseClass {
 					'macros'              => $this->get_macros(),
 					'rule_types'          => Rules::get_rule_types(),
 					'is_wp_cron_disabled' => defined( 'DISABLE_WP_CRON' ) && constant( 'DISABLE_WP_CRON' ),
+					'action_scheduler'    => class_exists( 'ActionScheduler_Versions' ) ? 'active' : 'inactive',
 				]
 			);
 		} elseif ( AssetManager::P2TG_BLOCK_EDITOR_ENTRY === $for ) {

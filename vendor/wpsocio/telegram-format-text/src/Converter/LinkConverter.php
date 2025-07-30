@@ -45,7 +45,7 @@ class LinkConverter extends BaseConverter {
 
 		$textHyperlinks = $this->config->getOption( 'text_hyperlinks', 'retain' );
 
-		$format = 'retain' === $textHyperlinks ? '%1$s (%2$s)' : '%1$s';
+		$format = 'retain' === $textHyperlinks && strpos( $href, 'http' ) === 0 ? '%1$s (%2$s)' : '%1$s';
 
 		return sprintf( $format, $text, $href );
 	}
@@ -72,8 +72,8 @@ class LinkConverter extends BaseConverter {
 	 * @return boolean Whether the link is relative.
 	 */
 	protected function isRelativeLink( string $href ) {
-		// If the link starts with a valid protocol scheme e.g. "http://", it's not relative.
-		return ! preg_match( '#^[a-z][a-z0-9]*://#i', $href );
+		// If the link starts with a valid protocol scheme e.g. "http:", "tel:", "mailto:", it's not relative.
+		return ! preg_match( '#^[a-z][a-z0-9]*:#i', $href );
 	}
 
 	/**

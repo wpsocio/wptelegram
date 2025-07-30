@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'wpsocio/wptelegram',
-        'pretty_version' => '4.2.10',
-        'version' => '4.2.10.0',
-        'reference' => null,
+        'pretty_version' => 'dev-25fb4b9a65e3b32e4f5c84b1c78aba329f8b657e',
+        'version' => 'dev-25fb4b9a65e3b32e4f5c84b1c78aba329f8b657e',
+        'reference' => '25fb4b9a65e3b32e4f5c84b1c78aba329f8b657e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'wpsocio/telegram-format-text' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b47249f51ec636594f1d23633e219b92c7b197e4',
+            'reference' => 'd4851dadff009d4865fed4ce7e26dc4f212ab51a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../wpsocio/telegram-format-text',
             'aliases' => array(),
@@ -22,16 +22,16 @@
         'wpsocio/wp-utils' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'bcf7c54c0b2cea258490bcb1fe7b23740f9e505c',
+            'reference' => 'f96967230d969e4a86210db22d73c65790e1327d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../wpsocio/wp-utils',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'wpsocio/wptelegram' => array(
-            'pretty_version' => '4.2.10',
-            'version' => '4.2.10.0',
-            'reference' => null,
+            'pretty_version' => 'dev-25fb4b9a65e3b32e4f5c84b1c78aba329f8b657e',
+            'version' => 'dev-25fb4b9a65e3b32e4f5c84b1c78aba329f8b657e',
+            'reference' => '25fb4b9a65e3b32e4f5c84b1c78aba329f8b657e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../../',
             'aliases' => array(),
@@ -40,7 +40,7 @@
         'wpsocio/wptelegram-bot-api' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '911ad16725659ac758cff346ce90a78fa7c1f380',
+            'reference' => '39ae80131677fcd4d1dc092d7cf1f56c6fa648c7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../wpsocio/wptelegram-bot-api',
             'aliases' => array(),

@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.2.11
+
+### Patch Changes
+
+- [#281](https://github.com/wpsocio/wp-projects/pull/281) [`77aaa4f`](https://github.com/wpsocio/wp-projects/commit/77aaa4f6537f8927861a89045ffb03539f4343df) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Updated error notices to show specific errors first.
+
+- [#282](https://github.com/wpsocio/wp-projects/pull/282) [`2efbf31`](https://github.com/wpsocio/wp-projects/commit/2efbf31e8596cad779f83ffd5fae60600fa33bde) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added support for the Action Scheduler plugin for better reliability for delay in posting.
+
+- [#274](https://github.com/wpsocio/wp-projects/pull/274) [`8dee1eb`](https://github.com/wpsocio/wp-projects/commit/8dee1eb67500bdf6339b2045f64b38f3989d369f) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed help text label in the sidebar.
+
 ## 4.2.10
 
 ### Patch Changes
@@ -8,7 +18,7 @@
 
 - [#259](https://github.com/wpsocio/wp-projects/pull/259) [`cd61a8d`](https://github.com/wpsocio/wp-projects/commit/cd61a8d56970474cfed5362c7f722ff22e99bd22) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed Bot Token and Message tests not working for lowercase URLs
 
-- [#257](https://github.com/wpsocio/wp-projects/pull/257) [`150dc9f`](https://github.com/wpsocio/wp-projects/commit/150dc9f501e39e1d412da6a433d0855000e7a7ea) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed background color for the setting page
+- [#257](https://github.com/wpsocio/wp-projects/pull/257) [`150dc9f`](https://github.com/wpsocio/wp-projects/commit/150dc9f501e39e1d412da6a433d0855000e7a7ea) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed background color for the settings page
 
 - [#263](https://github.com/wpsocio/wp-projects/pull/263) [`cc3b03d`](https://github.com/wpsocio/wp-projects/commit/cc3b03d92211502a9ad9eadde93396fa861aa334) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added support for post modified and post time variables
 

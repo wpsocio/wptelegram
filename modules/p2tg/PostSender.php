@@ -563,7 +563,12 @@ class PostSender extends BaseClass {
 		// cast to match the exact event.
 		$args = [ (string) $this->post->ID ];
 
-		// clear the previous event, if set.
+		// Clear the previous event, if set.
+		// Prefer Action Scheduler if available.
+		if ( function_exists( 'as_unschedule_action' ) ) {
+			return as_unschedule_action( $hook, $args );
+		}
+
 		return wp_clear_scheduled_hook( $hook, $args );
 	}
 
@@ -583,7 +588,12 @@ class PostSender extends BaseClass {
 
 		$cleared = $this->clear_scheduled_hook();
 
-		$scheduled = wp_schedule_single_event( time() + $delay, $hook, $args );
+		// Prefer Action Scheduler if available.
+		if ( function_exists( 'as_schedule_single_action' ) ) {
+			$scheduled = as_schedule_single_action( time() + $delay, $hook, $args );
+		} else {
+			$scheduled = wp_schedule_single_event( time() + $delay, $hook, $args );
+		}
 
 		$result = [
 			'cleared'   => $cleared,

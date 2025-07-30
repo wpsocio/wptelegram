@@ -184,6 +184,7 @@ class Logger extends BaseClass {
 		add_filter( 'wptelegram_p2tg_rules_apply', [ $this, 'rules_apply' ], 999, 3 );
 		add_filter( 'wptelegram_p2tg_bypass_post_date_rules', [ $this, 'bypass_date_rules' ], 999, 2 );
 		add_filter( 'wptelegram_p2tg_bypass_post_type_rules', [ $this, 'bypass_post_type_rules' ], 999, 2 );
+		add_filter( 'wptelegram_p2tg_custom_rules_apply', [ $this, 'custom_rules_apply' ], 999, 3 );
 		add_filter( 'wptelegram_p2tg_rules_send_new_post', [ $this, 'send_new_post' ], 999, 2 );
 		add_filter( 'wptelegram_p2tg_rules_send_existing_post', [ $this, 'send_existing_post' ], 999, 2 );
 		add_filter( 'wptelegram_p2tg_rules_send_post_type', [ $this, 'send_post_type' ], 999, 2 );
@@ -338,6 +339,25 @@ class Logger extends BaseClass {
 			$post,
 			[
 				'apply' => $rules_apply,
+			]
+		);
+
+		return $rules_apply;
+	}
+
+	/**
+	 * Add custom rules info.
+	 *
+	 * @param boolean $rules_apply Whether the rules apply.
+	 * @param array   $rules       The saved rules.
+	 * @param WP_Post $post        The post being handled.
+	 */
+	public function custom_rules_apply( $rules_apply, $rules, $post ) {
+
+		$this->add_rules_data(
+			$post,
+			[
+				'custom_rules_apply' => $rules_apply,
 			]
 		);
 

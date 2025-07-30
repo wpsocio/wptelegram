@@ -147,7 +147,7 @@ class Rules {
 			}
 		}
 
-		return (bool) apply_filters( 'wptelegram_p2tg_rules_apply', $rules_apply, $rules, $post );
+		return (bool) apply_filters( 'wptelegram_p2tg_custom_rules_apply', $rules_apply, $rules, $post );
 	}
 
 	/**

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [#280](https://github.com/wpsocio/wp-projects/pull/280) [`d7d616a`](https://github.com/wpsocio/wp-projects/commit/d7d616a70982161b66935d36bc4d643c46a42e19) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fixed preservation of tel: hyperlinks
+
 ## 1.0.0
 
 ### Major Changes
