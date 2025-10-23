@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.10
+
+### Patch Changes
+
+- [#292](https://github.com/wpsocio/wp-projects/pull/292) [`c2a54d4`](https://github.com/wpsocio/wp-projects/commit/c2a54d4f8ac430682f02fa8a8fa1994956489301) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added Helpers::get_attachment_by_limits() method.
+
 ## 1.0.9
 
 ### Patch Changes

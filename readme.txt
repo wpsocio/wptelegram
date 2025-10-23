@@ -4,8 +4,8 @@ Donate link: https://wpsocio.com/donate
 Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.5
 Requires PHP: 7.4
-Tested up to: 6.8.2
-Stable tag: 4.2.11
+Tested up to: 6.8.3
+Stable tag: 4.2.12
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -204,9 +204,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.2.11 =
-- Updated error notices to show specific errors first.
-- Added support for the Action Scheduler plugin for better reliability for delay in posting.
-- Fixed help text label in the sidebar.
+= 4.2.12 =
+- Fixed PHOTO_INVALID_DIMENSIONS error.
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

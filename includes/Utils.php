@@ -80,6 +80,16 @@ class Utils extends \WPSocio\WPUtils\Helpers {
 	const IMAGE_BY_FILE_SIZE_LIMIT = 1024 * 1024 * 10; // 10MB.
 
 	/**
+	 * The maximum dimensions of an image to be sent to Telegram.
+	 */
+	const IMAGE_DIMENSIONS_LIMIT = 10000; // 10000px (width + height)
+
+	/**
+	 * The maximum width to height ratio of an image to be sent to Telegram.
+	 */
+	const IMAGE_MAX_W2H_RATIO = 20; // 20:1
+
+	/**
 	 * Filter WP REST API errors.
 	 *
 	 * @param mixed           $response Result to send to the client. Usually a WP_REST_Response or WP_Error.
@@ -440,6 +450,23 @@ class Utils extends \WPSocio\WPUtils\Helpers {
 	}
 
 	/**
+	 * Get the attachment by the given limits.
+	 *
+	 * @param int    $id The attachment ID.
+	 * @param array  $limits The limits to apply.
+	 * @param string $return The return type. Can be 'path' or 'url'. Default null.
+	 *
+	 * @return string|false The attachment path or URL.
+	 */
+	public static function get_attachment_by_limits( $id, $limits, $return = null ) {
+		if ( null === $return ) {
+			$return = self::send_files_by_url() ? 'url' : 'path';
+		}
+
+		return parent::get_attachment_by_limits( $id, $limits, $return );
+	}
+
+	/**
 	 * Get the attachment limited by the maximum size.
 	 *
 	 * @param int    $id The attachment ID.
@@ -449,11 +476,20 @@ class Utils extends \WPSocio\WPUtils\Helpers {
 	 * @return string|false The attachment path or URL.
 	 */
 	public static function get_attachment_by_filesize( $id, $filesize, $return = null ) {
-		if ( null === $return ) {
-			$return = self::send_files_by_url() ? 'url' : 'path';
-		}
+		return parent::get_attachment_by_limits( $id, [ 'max_filesize' => $filesize ], $return );
+	}
 
-		return parent::get_attachment_by_filesize( $id, $filesize, $return );
+	/**
+	 * Get the limits applied to images when sending to Telegram.
+	 *
+	 * @return array
+	 */
+	public static function get_image_limits() {
+		return [
+			'max_filesize'   => self::get_image_size_limit(),
+			'max_dimensions' => self::IMAGE_DIMENSIONS_LIMIT,
+			'max_w2h_ratio'  => self::IMAGE_MAX_W2H_RATIO,
+		];
 	}
 
 	/**
@@ -462,7 +498,6 @@ class Utils extends \WPSocio\WPUtils\Helpers {
 	 * @return int
 	 */
 	public static function get_image_size_limit() {
-
 		return self::send_files_by_url() ? self::IMAGE_BY_URL_SIZE_LIMIT : self::IMAGE_BY_FILE_SIZE_LIMIT;
 	}
 

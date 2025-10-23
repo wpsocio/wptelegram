@@ -282,12 +282,30 @@ class Helpers {
 	 * @return string|false The attachment path or URL.
 	 */
 	public static function get_attachment_by_filesize( $id, $filesize, $return = 'url' ) {
+		return self::get_attachment_by_limits( $id, [ 'max_filesize' => $filesize ], $return );
+	}
 
+	/**
+	 * Get the attachment as per the limits.
+	 *
+	 * @param int    $id The attachment ID.
+	 * @param array  $limits {
+	 *  The limits to apply.
+	 *  @type int $max_filesize   The maximum file size in bytes.
+	 *  @type int $max_dimensions The maximum dimensions. Computed as "width + height".
+	 *  @type int $max_w2h_ratio  The maximum width to height ratio.
+	 * }.
+	 * @param string $return The return type. Can be 'path' or 'url'.
+	 *
+	 * @return string|false The attachment path or URL.
+	 */
+	public static function get_attachment_by_limits( $id, $limits, $return = 'url' ) {
 		if ( ! get_post( $id ) ) {
 			return false;
 		}
 
 		$file_path = get_attached_file( $id );
+		$directory = dirname( $file_path );
 
 		$path = 'url' === $return ? wp_get_attachment_url( $id ) : $file_path;
 
@@ -296,33 +314,22 @@ class Helpers {
 			return $path;
 		}
 
-		$original_image_path = function_exists( 'wp_get_original_image_path' ) ? wp_get_original_image_path( $id ) : null;
-
-		// If the original image is less than the limit.
-		if ( $original_image_path && is_readable( $original_image_path ) && filesize( $original_image_path ) <= $filesize ) {
-			return 'url' === $return ? wp_get_original_image_url( $id ) : $original_image_path;
-		}
+		$file_data = [];
 
 		$meta = wp_get_attachment_metadata( $id );
 
-		// For WP < 6.0.
-		if ( empty( $meta['filesize'] ) ) {
-			if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) ) {
-				return $path;
-			}
+		// wp_get_attachment_metadata does not return filesize and dimensions for the original image, so we need to explicitly get it.
+		$original_image_path = wp_get_original_image_path( $id );
+		$original_image_data = wp_getimagesize( $original_image_path );
 
-			$meta['filesize'] = filesize( $file_path );
-		}
-
-		// The file size is already less than the limit.
-		if ( $meta['filesize'] <= $filesize ) {
-			return $path;
-		}
+		$file_data[] = [
+			'filename' => basename( $original_image_path ),
+			'filesize' => is_readable( $original_image_path ) ? filesize( $original_image_path ) : null,
+			'width'    => $original_image_data[0] ?? 0,
+			'height'   => $original_image_data[1] ?? 0,
+		];
 
 		if ( ! empty( $meta['sizes'] ) ) {
-			$size_data = [];
-
-			$directory = dirname( $file_path );
 
 			foreach ( $meta['sizes'] as $data ) {
 				if ( empty( $data['file'] ) ) {
@@ -331,26 +338,68 @@ class Helpers {
 
 				$size_file_path = $directory . DIRECTORY_SEPARATOR . $data['file'];
 
-				if ( ! file_exists( $size_file_path ) || ! is_readable( $size_file_path ) ) {
+				if ( ! is_readable( $size_file_path ) ) {
 					continue;
 				}
 
-				$size = ! empty( $data['filesize'] ) ? $data['filesize'] : filesize( $size_file_path );
+				$size = $data['filesize'] ?? filesize( $size_file_path );
 
-				$size_data[ $data['file'] ] = $size;
+				$file_data[] = [
+					'filename' => $data['file'],
+					'filesize' => $size,
+					'width'    => $data['width'] ?? 0,
+					'height'   => $data['height'] ?? 0,
+				];
 			}
+		}
 
-			// Sort the sizes by file size.
-			arsort( $size_data );
-
-			// Get the first size that is less than the limit.
-			foreach ( $size_data as $file => $size ) {
-				if ( $size <= $filesize ) {
-
-					$separator = 'url' === $return ? '/' : DIRECTORY_SEPARATOR;
-					return dirname( $path ) . $separator . $file;
+		/**
+		 * Now that we have the file data, we will apply the limits.
+		 */
+		$filtered_files = array_filter(
+			$file_data,
+			function ( $data ) use ( $limits ) {
+				if ( ! $data['filename'] || ! $data['filesize'] || ! $data['width'] || ! $data['height'] ) {
+					return false;
 				}
+
+				if ( isset( $limits['max_filesize'] ) && $data['filesize'] > $limits['max_filesize'] ) {
+					return false;
+				}
+
+				if ( isset( $limits['max_dimensions'] ) && ( ( $data['width'] + $data['height'] ) > $limits['max_dimensions'] ) ) {
+					return false;
+				}
+
+				if ( isset( $limits['max_w2h_ratio'] ) && ( ( $data['width'] / $data['height'] ) > $limits['max_w2h_ratio'] ) ) {
+					return false;
+				}
+
+				return true;
 			}
+		);
+
+		/**
+		 * If we have any filtered files, we will return the one with the largest file size.
+		 */
+		if ( ! empty( $filtered_files ) ) {
+			usort(
+				$filtered_files,
+				function ( $a, $b ) {
+					$size_a = $a['filesize'] ?? 0;
+					$size_b = $b['filesize'] ?? 0;
+
+					return $size_b <=> $size_a;
+				}
+			);
+		}
+
+		if ( ! empty( $filtered_files ) ) {
+			$selected_file = $filtered_files[0];
+
+			$separator = 'url' === $return ? '/' : DIRECTORY_SEPARATOR;
+
+			return dirname( $path ) . $separator . $selected_file['filename'];
 		}
 
 		return $path;
