@@ -1,9 +1,9 @@
 {
   "js/settings/index.ts": [
-    "react-dom",
     "react",
-    "jquery",
+    "react-dom",
     "wp-i18n",
+    "jquery",
     "react-dom",
     "wp-api-fetch"
   ],

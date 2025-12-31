@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.11
+
+### Patch Changes
+
+- [#296](https://github.com/wpsocio/wp-projects/pull/296) [`2b370c4`](https://github.com/wpsocio/wp-projects/commit/2b370c4cb20f0ffc8c04f9c623b6369cf7e592c0) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Added file path to error message for clarify.
+
 ## 1.0.10
 
 ### Patch Changes

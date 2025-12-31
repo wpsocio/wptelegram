@@ -122,7 +122,7 @@ msgstr ""
 msgid "Basics"
 msgstr ""
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:68
+#: js/p2tg-block-editor/OverrideSettings.tsx:69
 #: js/settings/ui/TabbedSections.tsx:26
 #: js/settings/ui/advanced/tab.tsx:30
 #: languages/wptelegram-js-translations.php:563
@@ -224,7 +224,7 @@ msgstr "點選下面的 %s."
 
 #: ../../packages/js/shared-ui/form/submit/submit-button.tsx:9
 #: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:120
-#: js/p2tg-block-editor/OverrideSettings.tsx:124
+#: js/p2tg-block-editor/OverrideSettings.tsx:125
 #: js/settings/ui/basics/instructions.tsx:70
 #: languages/wptelegram-js-translations.php:65
 msgid "Save Changes"
@@ -434,41 +434,41 @@ msgid "Files"
 msgstr "檔案"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:106
+#: js/p2tg-block-editor/OverrideSettings.tsx:107
 #: languages/wptelegram-js-translations.php:248
 #: modules/p2tg/Admin.php:490
 msgid "Featured Image"
 msgstr "精選圖片"
 
 #: ../../packages/js/shared-ui/wptelegram/image-settings.tsx:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:109
+#: js/p2tg-block-editor/OverrideSettings.tsx:110
 #: languages/wptelegram-js-translations.php:271
 #: modules/p2tg/Admin.php:491
 msgid "Send Featured Image (if exists)."
 msgstr "傳送精選圖片 (如果有)"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:31
-#: js/p2tg-block-editor/OverrideSettings.tsx:113
+#: js/p2tg-block-editor/OverrideSettings.tsx:114
 #: languages/wptelegram-js-translations.php:208
 #: modules/p2tg/Admin.php:502
 msgid "Message Template"
 msgstr "訊息範本"
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:77
+#: js/p2tg-block-editor/OverrideSettings.tsx:78
 #: languages/wptelegram-js-translations.php:566
 #: modules/p2tg/Admin.php:430
 msgid "Override settings"
 msgstr "覆寫設定"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:21
-#: js/p2tg-block-editor/OverrideSettings.tsx:90
+#: js/p2tg-block-editor/OverrideSettings.tsx:91
 #: languages/wptelegram-js-translations.php:177
 #: modules/p2tg/Admin.php:452
 msgid "Disable Notifications"
 msgstr "關閉通知"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:20
-#: js/p2tg-block-editor/OverrideSettings.tsx:96
+#: js/p2tg-block-editor/OverrideSettings.tsx:97
 #: languages/wptelegram-js-translations.php:173
 #: modules/p2tg/Admin.php:473
 msgid "Delay in Posting"
@@ -1106,12 +1106,12 @@ msgstr ""
 msgid "Do you like %s?"
 msgstr ""
 
-#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:71
+#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:69
 #: languages/wptelegram-js-translations.php:42
 msgid "Write a review"
 msgstr ""
 
-#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:87
+#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:85
 #: languages/wptelegram-js-translations.php:45
 msgid "Need help?"
 msgstr "需要協助嗎？"
@@ -1168,22 +1168,22 @@ msgstr "無法連線"
 msgid "Error:"
 msgstr "錯誤:"
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:126
+#: ../../packages/js/services/telegram/telegram-utils.ts:122
 #: languages/wptelegram-js-translations.php:14
 msgid "A message will be sent to the Channel/Group/Chat. You can modify the text below"
 msgstr "將會傳送一則訊息到此 Channel/Chat。你可以在下方修改訊息."
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:129
+#: ../../packages/js/services/telegram/telegram-utils.ts:125
 #: languages/wptelegram-js-translations.php:17
 msgid "This is a test message"
 msgstr "這是一則測試訊息"
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:152
+#: ../../packages/js/services/telegram/telegram-utils.ts:148
 #: languages/wptelegram-js-translations.php:23
 msgid "Success"
 msgstr "成功"
 
-#: ../../packages/js/services/use-display-feedback.ts:61
+#: ../../packages/js/services/use-display-feedback.ts:60
 #: languages/wptelegram-js-translations.php:26
 msgid "Lets fix these errors first."
 msgstr ""
@@ -1268,7 +1268,7 @@ msgstr "文章作者"
 msgid "Custom Taxonomy"
 msgstr "自訂分類"
 
-#: js/p2tg-block-editor/Channels.tsx:56
+#: js/p2tg-block-editor/Channels.tsx:55
 #: languages/wptelegram-js-translations.php:549
 msgid "Select all"
 msgstr ""
@@ -1421,7 +1421,7 @@ msgstr ""
 msgid "Channel or group username."
 msgstr ""
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:133
+#: ../../packages/js/services/telegram/telegram-utils.ts:129
 #: languages/wptelegram-js-translations.php:20
 msgid "Message is empty"
 msgstr ""

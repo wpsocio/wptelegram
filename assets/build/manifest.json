@@ -38,7 +38,7 @@
     ]
   },
   "js/settings/index.ts": {
-    "file": "dist/settings-Be0fzaAv.js",
+    "file": "dist/settings-JGphJqLz.js",
     "name": "settings",
     "src": "js/settings/index.ts",
     "isEntry": true,
@@ -48,7 +48,7 @@
       "__commonjsHelpers-CqkleIqs.js"
     ],
     "css": [
-      "dist/settings-Dkn-yljp.css"
+      "dist/settings-CalF_7p8.css"
     ]
   }
 }

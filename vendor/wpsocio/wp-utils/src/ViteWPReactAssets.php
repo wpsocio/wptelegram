@@ -159,11 +159,13 @@ class ViteWPReactAssets {
 		}
 
 		if ( ! $this->dev_manifest && ! $this->prod_manifest ) {
+			$relative_path = str_replace( ABSPATH, '', $this->assets_path );
+
 			throw new Exception(
 				esc_html(
 					sprintf(
 						'[ViteWPReactAssets] Manifest file not found or is not readable in %s.',
-						$this->assets_path
+						$relative_path
 					)
 				)
 			);
@@ -421,7 +423,11 @@ class ViteWPReactAssets {
 		$manifest = $this->get_prod_manifest();
 
 		if ( ! isset( $manifest[ $entry ]['file'] ) ) {
-			$this->die_if_debug( sprintf( '[ViteWPReactAssets] Entry "%s" does not exist.', $entry ) );
+			$path = "{$this->assets_path}/{$this->config['prod-manifest']}";
+
+			$relative_path = str_replace( ABSPATH, '', $path );
+
+			$this->die_if_debug( sprintf( '[ViteWPReactAssets] Entry "%1$s" does not exist in "%2$s".', $entry, $relative_path ) );
 
 			return null;
 		}

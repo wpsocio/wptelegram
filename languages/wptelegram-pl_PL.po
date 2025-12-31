@@ -125,7 +125,7 @@ msgstr "Kanał"
 msgid "Basics"
 msgstr ""
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:68
+#: js/p2tg-block-editor/OverrideSettings.tsx:69
 #: js/settings/ui/TabbedSections.tsx:26
 #: js/settings/ui/advanced/tab.tsx:30
 #: languages/wptelegram-js-translations.php:563
@@ -227,7 +227,7 @@ msgstr "Naciśnij %s poniżej."
 
 #: ../../packages/js/shared-ui/form/submit/submit-button.tsx:9
 #: ../../packages/js/shared-ui/wptelegram/p2tg-instructions.tsx:120
-#: js/p2tg-block-editor/OverrideSettings.tsx:124
+#: js/p2tg-block-editor/OverrideSettings.tsx:125
 #: js/settings/ui/basics/instructions.tsx:70
 #: languages/wptelegram-js-translations.php:65
 msgid "Save Changes"
@@ -437,41 +437,41 @@ msgid "Files"
 msgstr "Pliki"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:106
+#: js/p2tg-block-editor/OverrideSettings.tsx:107
 #: languages/wptelegram-js-translations.php:248
 #: modules/p2tg/Admin.php:490
 msgid "Featured Image"
 msgstr "Wyróżniony obraz"
 
 #: ../../packages/js/shared-ui/wptelegram/image-settings.tsx:43
-#: js/p2tg-block-editor/OverrideSettings.tsx:109
+#: js/p2tg-block-editor/OverrideSettings.tsx:110
 #: languages/wptelegram-js-translations.php:271
 #: modules/p2tg/Admin.php:491
 msgid "Send Featured Image (if exists)."
 msgstr "Wyślij wyróżniony obraz (jeśli istnieje)."
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:31
-#: js/p2tg-block-editor/OverrideSettings.tsx:113
+#: js/p2tg-block-editor/OverrideSettings.tsx:114
 #: languages/wptelegram-js-translations.php:208
 #: modules/p2tg/Admin.php:502
 msgid "Message Template"
 msgstr "Szablon wiadomości"
 
-#: js/p2tg-block-editor/OverrideSettings.tsx:77
+#: js/p2tg-block-editor/OverrideSettings.tsx:78
 #: languages/wptelegram-js-translations.php:566
 #: modules/p2tg/Admin.php:430
 msgid "Override settings"
 msgstr "Zastąp ustawienia"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:21
-#: js/p2tg-block-editor/OverrideSettings.tsx:90
+#: js/p2tg-block-editor/OverrideSettings.tsx:91
 #: languages/wptelegram-js-translations.php:177
 #: modules/p2tg/Admin.php:452
 msgid "Disable Notifications"
 msgstr "Wyłącz powiadomienia"
 
 #: ../../packages/js/shared-ui/wptelegram/fields.ts:20
-#: js/p2tg-block-editor/OverrideSettings.tsx:96
+#: js/p2tg-block-editor/OverrideSettings.tsx:97
 #: languages/wptelegram-js-translations.php:173
 #: modules/p2tg/Admin.php:473
 msgid "Delay in Posting"
@@ -1110,12 +1110,12 @@ msgstr ""
 msgid "Do you like %s?"
 msgstr "Czy podoba Ci się %s?"
 
-#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:71
+#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:69
 #: languages/wptelegram-js-translations.php:42
 msgid "Write a review"
 msgstr ""
 
-#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:87
+#: ../../packages/js/shared-ui/components/plugin-info/plugin-info-card.tsx:85
 #: languages/wptelegram-js-translations.php:45
 msgid "Need help?"
 msgstr "Potrzebujesz pomocy?"
@@ -1172,22 +1172,22 @@ msgstr "Nie można się połączyć"
 msgid "Error:"
 msgstr "Błąd:"
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:126
+#: ../../packages/js/services/telegram/telegram-utils.ts:122
 #: languages/wptelegram-js-translations.php:14
 msgid "A message will be sent to the Channel/Group/Chat. You can modify the text below"
 msgstr "Wiadomość zostanie wysłana na kanał/czat. Poniżej możesz zmodyfikować tekst"
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:129
+#: ../../packages/js/services/telegram/telegram-utils.ts:125
 #: languages/wptelegram-js-translations.php:17
 msgid "This is a test message"
 msgstr "To jest wiadomość testowa"
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:152
+#: ../../packages/js/services/telegram/telegram-utils.ts:148
 #: languages/wptelegram-js-translations.php:23
 msgid "Success"
 msgstr "Sukces"
 
-#: ../../packages/js/services/use-display-feedback.ts:61
+#: ../../packages/js/services/use-display-feedback.ts:60
 #: languages/wptelegram-js-translations.php:26
 msgid "Lets fix these errors first."
 msgstr ""
@@ -1272,7 +1272,7 @@ msgstr "Autor postu"
 msgid "Custom Taxonomy"
 msgstr "Niestandardowa taksonomia"
 
-#: js/p2tg-block-editor/Channels.tsx:56
+#: js/p2tg-block-editor/Channels.tsx:55
 #: languages/wptelegram-js-translations.php:549
 msgid "Select all"
 msgstr ""
@@ -1425,7 +1425,7 @@ msgstr ""
 msgid "Channel or group username."
 msgstr ""
 
-#: ../../packages/js/services/telegram/telegram-utils.ts:133
+#: ../../packages/js/services/telegram/telegram-utils.ts:129
 #: languages/wptelegram-js-translations.php:20
 msgid "Message is empty"
 msgstr ""

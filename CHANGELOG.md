@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.13
+
+### Patch Changes
+
+- [#298](https://github.com/wpsocio/wp-projects/pull/298) [`5490279`](https://github.com/wpsocio/wp-projects/commit/549027918a6585dded8e40dc46c23a2948bca88c) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Drop support for PHP 7.x, making PHP 8 the minimum required version.
+
 ## 4.2.12
 
 ### Patch Changes
