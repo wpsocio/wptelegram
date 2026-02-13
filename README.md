@@ -5,7 +5,7 @@
 **Requires at least:** 6.6  
 **Requires PHP:** 8.0  
 **Tested up to:** 6.9  
-**Stable tag:** 4.2.13  
+**Stable tag:** 4.2.14  
 **License:** GPL-3.0-or-later  
 **License URI:** [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 **Donate link:** [wpsocio.com/donate](https://wpsocio.com/donate)

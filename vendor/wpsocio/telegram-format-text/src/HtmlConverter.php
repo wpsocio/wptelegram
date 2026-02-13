@@ -46,7 +46,7 @@ class HtmlConverter implements HtmlConverterInterface {
 				// Set the default character set.
 				'char_set'            => 'auto',
 				// An array of elements to remove.
-				'elements_to_remove'  => [ 'form' ],
+				'elements_to_remove'  => [ 'figcaption', 'form' ],
 				// Ellipsis character for truncated text.
 				'elipsis'             => '…',
 				// Set to 'HTML', 'Markdown' or 'MarkdownV2'.

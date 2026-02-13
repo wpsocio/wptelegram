@@ -5,7 +5,7 @@ Tags: telegram, notifications, posts, channel, group
 Requires at least: 6.6
 Requires PHP: 8.0
 Tested up to: 6.9
-Stable tag: 4.2.13
+Stable tag: 4.2.14
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -204,7 +204,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 == Changelog ==
 
-= 4.2.13 =
-- Drop support for PHP 7.x, making PHP 8 the minimum required version.
+= 4.2.14 =
+- Remove figcaption content by default.
 
 [See full changelog](https://github.com/wpsocio/wptelegram/blob/main/CHANGELOG.md)

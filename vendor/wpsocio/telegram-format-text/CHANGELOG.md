@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [#305](https://github.com/wpsocio/wp-projects/pull/305) [`3975fe1`](https://github.com/wpsocio/wp-projects/commit/3975fe16a5222a69d47fa24454cd951098192ad6) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Remove figcaption content by default.
+
 ## 1.0.1
 
 ### Patch Changes
