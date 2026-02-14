@@ -1,7 +1,7 @@
 {
   "js/settings/index.ts": [
-    "react",
     "react-dom",
+    "react",
     "jquery",
     "wp-i18n",
     "react-dom",
@@ -10,10 +10,10 @@
   "js/p2tg-block-editor/index.ts": [
     "wp-plugins",
     "wp-i18n",
-    "wp-edit-post",
-    "wp-components",
-    "wp-element",
     "wp-editor",
+    "wp-components",
+    "wp-edit-post",
+    "wp-element",
     "wp-data",
     "wp-media-utils"
   ],

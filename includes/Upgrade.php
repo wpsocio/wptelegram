@@ -96,7 +96,13 @@ class Upgrade extends BaseClass {
 		// No upgrades for fresh installations.
 		if ( ! $is_new_install && is_callable( $method ) ) {
 
-			call_user_func( $method );
+			try {
+				call_user_func( $method );
+			} catch ( \Throwable $error ) {
+				// Log the error but don't let it block the version update,
+				// otherwise users get permanently stuck on the upgrade notice.
+				do_action( 'wptelegram_upgrade_error', $error, $version );
+			}
 		}
 
 		update_option( 'wptelegram_ver', $version );

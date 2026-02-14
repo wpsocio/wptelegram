@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.15
+
+### Patch Changes
+
+- [#308](https://github.com/wpsocio/wp-projects/pull/308) [`c6f7136`](https://github.com/wpsocio/wp-projects/commit/c6f71364ea4d0bb6d166d72dd768e71c55c4a1fb) Thanks [@irshadahmad21](https://github.com/irshadahmad21)! - Fix plugin page stuck with data upgrade.
+
 ## 4.2.14
 
 ### Patch Changes
